@@ -80,7 +80,8 @@ export class StatusPanel implements JSX.ElementClass {
           title={`Pending Requests: <ul>${this.props.pending
             .map(({title}) => `<li>${title}</li>`)
             .join("")}</ul>`}
-          html={true}>
+          html={true}
+        >
           <span ref="pendingCounter">{this.props.pending.length.toString()}</span>
           <span
             ref="pendingSpinner"

@@ -27924,22 +27924,22 @@ class $29ff13ea23efb1a9$export$814b29caa594376c {
         const { ctrl: ctrl } = this.props;
         const classes = (node.childItems ? "nested-" : "") + "item" + (node.collapsed ? " collapsed" : " expanded");
         const styleClasses = this.getStyles();
-        return /*#__PURE__*/ React.createElement("li", {
+        return /*#__PURE__*/ $f0CHF.dom("li", {
             className: "node entry exanded list-" + classes,
             dataset: {
                 startLine: (_this_props_navTree_spans_ = this.props.navTree.spans[0]) === null || _this_props_navTree_spans_ === void 0 ? void 0 : (_this_props_navTree_spans__start = _this_props_navTree_spans_.start) === null || _this_props_navTree_spans__start === void 0 ? void 0 : _this_props_navTree_spans__start.line,
                 endLine: (_this_props_navTree_spans_1 = this.props.navTree.spans[0]) === null || _this_props_navTree_spans_1 === void 0 ? void 0 : (_this_props_navTree_spans__end = _this_props_navTree_spans_1.end) === null || _this_props_navTree_spans__end === void 0 ? void 0 : _this_props_navTree_spans__end.line
             }
-        }, /*#__PURE__*/ React.createElement("div", {
+        }, /*#__PURE__*/ $f0CHF.dom("div", {
             className: `header list-item`,
             on: {
                 click: (event)=>this.entryClicked(event, node)
             }
-        }, /*#__PURE__*/ React.createElement("span", {
+        }, /*#__PURE__*/ $f0CHF.dom("span", {
             className: styleClasses
-        }, node.text)), /*#__PURE__*/ React.createElement("ol", {
+        }, node.text)), /*#__PURE__*/ $f0CHF.dom("ol", {
             className: "entries list-tree"
-        }, node.childItems ? node.childItems.map((sn)=>/*#__PURE__*/ React.createElement($29ff13ea23efb1a9$export$814b29caa594376c, {
+        }, node.childItems ? node.childItems.map((sn)=>/*#__PURE__*/ $f0CHF.dom($29ff13ea23efb1a9$export$814b29caa594376c, {
                 navTree: sn,
                 ctrl: ctrl
             })) : null));
@@ -28008,13 +28008,13 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
         return (_this_element_querySelector = this.element.querySelector("li.node")) !== null && _this_element_querySelector !== void 0 ? _this_element_querySelector : undefined;
     }
     render() {
-        const maybeNavNodeComp = this.props.navTree ? /*#__PURE__*/ React.createElement((0, $29ff13ea23efb1a9$export$814b29caa594376c), {
+        const maybeNavNodeComp = this.props.navTree ? /*#__PURE__*/ $f0CHF.dom((0, $29ff13ea23efb1a9$export$814b29caa594376c), {
             navTree: this.props.navTree,
             ctrl: this
         }) : null;
-        return /*#__PURE__*/ React.createElement("div", {
+        return /*#__PURE__*/ $f0CHF.dom("div", {
             className: "atomts atomts-semantic-view native-key-bindings"
-        }, /*#__PURE__*/ React.createElement("ol", {
+        }, /*#__PURE__*/ $f0CHF.dom("ol", {
             className: "list-tree has-collapsable-children focusable-panel"
         }, maybeNavNodeComp));
     }
@@ -29268,13 +29268,13 @@ function $85451aa460d080e4$export$6413bc8b6e281ffa(getClient) {
 
 
 
-async function $6dd6dbad8ece01e1$export$2c9a28f937ef04fb(hover, etch, codeRenderer) {
+async function $6dd6dbad8ece01e1$export$2c9a28f937ef04fb(hover, etch1, codeRenderer) {
     if (hover === undefined) return null;
     const text = $6dd6dbad8ece01e1$var$hoverContentsToString(hover.contents);
     const newlineIdx = text.indexOf("\n");
     const code = newlineIdx === -1 ? text : text.slice(0, newlineIdx);
     const rest = newlineIdx === -1 ? "" : text.slice(newlineIdx + 1).trim();
-    const docs = rest ? /*#__PURE__*/ React.createElement("div", {
+    const docs = rest ? /*#__PURE__*/ etch.dom("div", {
         className: "atom-typescript-datatip-tooltip-doc"
     }, rest) : undefined;
     return [
@@ -29327,7 +29327,7 @@ class $cd10f978cc135454$export$62181cd26290fa50 {
             if (!data) return;
             const tooltip = await (0, $6dd6dbad8ece01e1$export$2c9a28f937ef04fb)(data, $cd10f978cc135454$var$etch, $cd10f978cc135454$var$highlightCode);
             return {
-                component: ()=>/*#__PURE__*/ React.createElement("div", {
+                component: ()=>/*#__PURE__*/ $cd10f978cc135454$var$etch.dom("div", {
                         className: "atom-typescript-datatip-tooltip"
                     }, tooltip),
                 range: data.range ? (0, $a27d0d73386d53b8$export$9ad169abcb1fbc48)(data.range) : $1X1Jj$atom.Range.fromObject([
@@ -29349,7 +29349,7 @@ class $cd10f978cc135454$export$62181cd26290fa50 {
 async function $cd10f978cc135454$var$highlightCode(code) {
     const fontFamily = atom.config.get("editor.fontFamily");
     const html = await (0, $2390352c05631840$export$e4043f67d36cbb26)(code.replace(/\r?\n$/, ""), "source.ts");
-    return /*#__PURE__*/ React.createElement("div", {
+    return /*#__PURE__*/ $cd10f978cc135454$var$etch.dom("div", {
         style: {
             fontFamily: fontFamily
         },
@@ -29421,6 +29421,8 @@ function $16d79b62f0f78d88$var$refToIde(ref) {
 
 
 
+var $f0CHF = parcelRequire("f0CHF");
+
 
 var $f0CHF = parcelRequire("f0CHF");
 class $9ace8d94e48cf69a$export$275be3d1a3f62fb {
@@ -29435,7 +29437,7 @@ class $9ace8d94e48cf69a$export$275be3d1a3f62fb {
         const style = {
             fontFamily: atom.config.get("editor.fontFamily")
         };
-        return /*#__PURE__*/ React.createElement("div", {
+        return /*#__PURE__*/ $f0CHF.dom("div", {
             className: "editor editor-colors",
             style: style,
             innerHTML: this.props.highlightedText
@@ -29466,7 +29468,7 @@ class $1416f97a12fa3d16$export$31d5f5740e2c2887 {
         await $f0CHF.destroy(this);
     }
     render() {
-        return /*#__PURE__*/ React.createElement("span", null, this.matches.map((m)=>/*#__PURE__*/ React.createElement("span", {
+        return /*#__PURE__*/ $f0CHF.dom("span", null, this.matches.map((m)=>/*#__PURE__*/ $f0CHF.dom("span", {
                 className: m.type
             }, m.text)));
     }
@@ -30005,12 +30007,12 @@ async function $632bb8f0fb110021$export$2904681fe8c977be(result, editor, histGoF
     const res = await (0, $bc054e0e4dca1f54$export$12cb8c60c107136e)({
         items: refs,
         itemTemplate: (item, ctx)=>{
-            return /*#__PURE__*/ React.createElement("li", null, /*#__PURE__*/ React.createElement((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+            return /*#__PURE__*/ $f0CHF.dom("li", null, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
                 label: atom.project.relativize(item.file),
                 query: ctx.getFilterQuery()
-            }), /*#__PURE__*/ React.createElement("div", {
+            }), /*#__PURE__*/ $f0CHF.dom("div", {
                 className: "pull-right"
-            }, "line: ", item.start.line), /*#__PURE__*/ React.createElement((0, $9ace8d94e48cf69a$export$275be3d1a3f62fb), {
+            }, "line: ", item.start.line), /*#__PURE__*/ $f0CHF.dom((0, $9ace8d94e48cf69a$export$275be3d1a3f62fb), {
                 highlightedText: item.hlText
             }));
         },
@@ -30020,6 +30022,8 @@ async function $632bb8f0fb110021$export$2904681fe8c977be(result, editor, histGoF
 }
 
 
+
+var $f0CHF = parcelRequire("f0CHF");
 
 
 
@@ -30044,10 +30048,10 @@ async function $1f12d7cf5986da73$export$680a91dbc2dcff04(result, editor, histGoF
         const res = await (0, $bc054e0e4dca1f54$export$12cb8c60c107136e)({
             items: locations,
             itemTemplate: (item, ctx)=>{
-                return /*#__PURE__*/ React.createElement("li", null, /*#__PURE__*/ React.createElement((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+                return /*#__PURE__*/ $f0CHF.dom("li", null, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
                     label: item.file,
                     query: ctx.getFilterQuery()
-                }), /*#__PURE__*/ React.createElement("div", {
+                }), /*#__PURE__*/ $f0CHF.dom("div", {
                     className: "pull-right"
                 }, "line: ", item.start.line));
             },
@@ -30571,6 +30575,8 @@ function $46ae0c6ad105d3ab$var$getTrigger(prefix) {
 
 
 
+var $f0CHF = parcelRequire("f0CHF");
+
 
 
 
@@ -30601,7 +30607,7 @@ function $46ae0c6ad105d3ab$var$getTrigger(prefix) {
                         title: a.action.title
                     })),
                 itemTemplate: (item, ctx)=>{
-                    return /*#__PURE__*/ React.createElement("li", null, /*#__PURE__*/ React.createElement((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+                    return /*#__PURE__*/ $f0CHF.dom("li", null, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
                         label: item.title,
                         query: ctx.getFilterQuery()
                     }));
@@ -30996,24 +31002,24 @@ class $745a5c2215bea880$var$RenameView {
         await $f0CHF.update(this);
     }
     render() {
-        return /*#__PURE__*/ React.createElement("div", {
+        return /*#__PURE__*/ $f0CHF.dom("div", {
             className: "atomts-rename-view",
             ref: "main"
-        }, /*#__PURE__*/ React.createElement("div", {
+        }, /*#__PURE__*/ $f0CHF.dom("div", {
             className: "block"
-        }, /*#__PURE__*/ React.createElement("div", null, /*#__PURE__*/ React.createElement("span", {
+        }, /*#__PURE__*/ $f0CHF.dom("div", null, /*#__PURE__*/ $f0CHF.dom("span", {
             ref: "title"
-        }, this.props.title), /*#__PURE__*/ React.createElement("span", {
+        }, this.props.title), /*#__PURE__*/ $f0CHF.dom("span", {
             className: "subtle-info-message"
-        }, /*#__PURE__*/ React.createElement("span", null, "Close this panel with "), /*#__PURE__*/ React.createElement("span", {
+        }, /*#__PURE__*/ $f0CHF.dom("span", null, "Close this panel with "), /*#__PURE__*/ $f0CHF.dom("span", {
             className: "highlight"
-        }, "esc"), /*#__PURE__*/ React.createElement("span", null, " key. And commit with the "), /*#__PURE__*/ React.createElement("span", {
+        }, "esc"), /*#__PURE__*/ $f0CHF.dom("span", null, " key. And commit with the "), /*#__PURE__*/ $f0CHF.dom("span", {
             className: "highlight"
-        }, "enter"), /*#__PURE__*/ React.createElement("span", null, " key."))), /*#__PURE__*/ React.createElement("div", {
+        }, "enter"), /*#__PURE__*/ $f0CHF.dom("span", null, " key."))), /*#__PURE__*/ $f0CHF.dom("div", {
             className: "find-container block"
-        }, /*#__PURE__*/ React.createElement("div", {
+        }, /*#__PURE__*/ $f0CHF.dom("div", {
             className: "editor-container"
-        }, /*#__PURE__*/ React.createElement((0, $6b9a12545c4b2aaf$export$1224b0b157f2244c), {
+        }, /*#__PURE__*/ $f0CHF.dom((0, $6b9a12545c4b2aaf$export$1224b0b157f2244c), {
             ref: "editor",
             initialText: this.props.initialText,
             selectAll: this.props.selectAll
@@ -31029,7 +31035,7 @@ class $745a5c2215bea880$var$RenameView {
         return this.refs.editor.getModel().getText();
     }
     renderValidationMessage() {
-        if (this.props.validationMessage !== undefined) return /*#__PURE__*/ React.createElement("div", {
+        if (this.props.validationMessage !== undefined) return /*#__PURE__*/ $f0CHF.dom("div", {
             className: "highlight-error"
         }, this.props.validationMessage);
         return null;
@@ -31306,7 +31312,7 @@ class $6ebac3b1add367e1$export$28c660c63b792dea {
         this.tooltipDisposable = atom.tooltips.add(this.element, this.props);
     }
     render() {
-        return /*#__PURE__*/ React.createElement("div", {
+        return /*#__PURE__*/ $f0CHF.dom("div", {
             className: "inline-block"
         }, this.children ? this.children : null);
     }
@@ -31340,7 +31346,7 @@ class $786eaaf20461a20d$export$d2110dce2e582144 {
         await $f0CHF.update(this);
     }
     render() {
-        if (this.hiddenBuildStatus) return /*#__PURE__*/ React.createElement("span", null);
+        if (this.hiddenBuildStatus) return /*#__PURE__*/ $f0CHF.dom("span", null);
         let cls;
         let text;
         if (this.props.buildStatus.success) {
@@ -31350,9 +31356,9 @@ class $786eaaf20461a20d$export$d2110dce2e582144 {
             cls = "highlight-error";
             text = "Emit Failed";
         }
-        return /*#__PURE__*/ React.createElement((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
+        return /*#__PURE__*/ $f0CHF.dom((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
             title: this.props.buildStatus.success ? "Build was successful" : "Build failed; click to show error message"
-        }, /*#__PURE__*/ React.createElement("span", {
+        }, /*#__PURE__*/ $f0CHF.dom("span", {
             className: cls,
             on: {
                 click: this.buildStatusClicked
@@ -31413,9 +31419,9 @@ class $e30aec1dcff9873b$export$ebf7874ab6a8fe0f {
         await $f0CHF.update(this);
     }
     render() {
-        return /*#__PURE__*/ React.createElement((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
+        return /*#__PURE__*/ $f0CHF.dom((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
             title: ()=>this.props.tsConfigPath.startsWith("/dev/null") ? "No tsconfig.json" : `Click to open ${atom.project.relativize(this.props.tsConfigPath)}`
-        }, /*#__PURE__*/ React.createElement("a", {
+        }, /*#__PURE__*/ $f0CHF.dom("a", {
             className: "inline-block",
             href: "",
             on: {
@@ -31457,7 +31463,7 @@ class $fe771188dbd80d43$export$e46d185d0654294e {
         await $f0CHF.update(this);
     }
     render() {
-        return /*#__PURE__*/ React.createElement("ts-status-panel", {
+        return /*#__PURE__*/ $f0CHF.dom("ts-status-panel", {
             className: this.props.visible ? "" : "hide"
         }, this.renderVersion(), this.renderPending(), this.renderConfigPath(), this.renderStatus(), this.renderProgress());
     }
@@ -31478,18 +31484,18 @@ class $fe771188dbd80d43$export$e46d185d0654294e {
         });
     }
     renderVersion() {
-        if (this.props.clientVersion !== undefined) return /*#__PURE__*/ React.createElement((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
+        if (this.props.clientVersion !== undefined) return /*#__PURE__*/ $f0CHF.dom((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
             title: "Active TypeScript version"
         }, this.props.clientVersion);
         return null;
     }
     renderPending() {
-        if (this.props.pending.length > 0) return /*#__PURE__*/ React.createElement((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
+        if (this.props.pending.length > 0) return /*#__PURE__*/ $f0CHF.dom((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
             title: `Pending Requests: <ul>${this.props.pending.map(({ title: title })=>`<li>${title}</li>`).join("")}</ul>`,
             html: true
-        }, /*#__PURE__*/ React.createElement("span", {
+        }, /*#__PURE__*/ $f0CHF.dom("span", {
             ref: "pendingCounter"
-        }, this.props.pending.length.toString()), /*#__PURE__*/ React.createElement("span", {
+        }, this.props.pending.length.toString()), /*#__PURE__*/ $f0CHF.dom("span", {
             ref: "pendingSpinner",
             className: "loading loading-spinner-tiny inline-block",
             style: {
@@ -31501,19 +31507,19 @@ class $fe771188dbd80d43$export$e46d185d0654294e {
         else return null;
     }
     renderConfigPath() {
-        if (this.props.tsConfigPath !== undefined) return /*#__PURE__*/ React.createElement((0, $e30aec1dcff9873b$export$ebf7874ab6a8fe0f), {
+        if (this.props.tsConfigPath !== undefined) return /*#__PURE__*/ $f0CHF.dom((0, $e30aec1dcff9873b$export$ebf7874ab6a8fe0f), {
             tsConfigPath: this.props.tsConfigPath
         });
         return null;
     }
     renderStatus() {
-        if (this.props.buildStatus) return /*#__PURE__*/ React.createElement((0, $786eaaf20461a20d$export$d2110dce2e582144), {
+        if (this.props.buildStatus) return /*#__PURE__*/ $f0CHF.dom((0, $786eaaf20461a20d$export$d2110dce2e582144), {
             buildStatus: this.props.buildStatus
         });
         return null;
     }
     renderProgress() {
-        if (this.props.progress.value < this.props.progress.max) return /*#__PURE__*/ React.createElement("progress", {
+        if (this.props.progress.value < this.props.progress.max) return /*#__PURE__*/ $f0CHF.dom("progress", {
             style: {
                 verticalAlign: "baseline"
             },
@@ -31538,6 +31544,8 @@ class $fe771188dbd80d43$export$e46d185d0654294e {
 }
 
 
+
+var $f0CHF = parcelRequire("f0CHF");
 
 
 
@@ -31575,14 +31583,14 @@ class $597a9cb4deadcba1$export$37b735b3f7a16aff {
                     ...item,
                     idx: idx
                 })),
-            itemTemplate: (item, ctx)=>/*#__PURE__*/ React.createElement("li", {
+            itemTemplate: (item, ctx)=>/*#__PURE__*/ $f0CHF.dom("li", {
                     className: "two-lines"
-                }, /*#__PURE__*/ React.createElement("div", {
+                }, /*#__PURE__*/ $f0CHF.dom("div", {
                     className: "primary-line"
-                }, /*#__PURE__*/ React.createElement((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+                }, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
                     label: item.file,
                     query: ctx.getFilterQuery()
-                })), /*#__PURE__*/ React.createElement("div", {
+                })), /*#__PURE__*/ $f0CHF.dom("div", {
                     className: "secondary-line"
                 }, "Line: ", item.line, ", column: ", item.offset)),
             itemFilterKey: "file"
@@ -31798,10 +31806,10 @@ class $0db5c03a4a08f259$export$e25b256a886d7ca4 {
         (0, $61beeba91163f3b4$export$af1f9fcad4e99e85)(this.element, this.parent, this.props, atom.config.get("pulsar-typescript").sigHelpPosition);
     }
     render() {
-        return /*#__PURE__*/ React.createElement("div", {
+        return /*#__PURE__*/ $f0CHF.dom("div", {
             className: "atom-typescript-tooltip tooltip",
             key: this.sigHelpHash()
-        }, /*#__PURE__*/ React.createElement("div", {
+        }, /*#__PURE__*/ $f0CHF.dom("div", {
             className: "tooltip-inner"
         }, this.tooltipContents()));
     }
@@ -31831,9 +31839,9 @@ class $0db5c03a4a08f259$export$e25b256a886d7ca4 {
         }
         return sigHelp.signatures.map((sig, idx)=>{
             var _sigHelp_activeParameter;
-            return /*#__PURE__*/ React.createElement("div", {
+            return /*#__PURE__*/ $f0CHF.dom("div", {
                 className: className(idx)
-            }, /*#__PURE__*/ React.createElement("div", null, this.renderLabel(sig, idx === selectedItemIndex ? (_sigHelp_activeParameter = sigHelp.activeParameter) !== null && _sigHelp_activeParameter !== void 0 ? _sigHelp_activeParameter : undefined : undefined), /*#__PURE__*/ React.createElement("div", {
+            }, /*#__PURE__*/ $f0CHF.dom("div", null, this.renderLabel(sig, idx === selectedItemIndex ? (_sigHelp_activeParameter = sigHelp.activeParameter) !== null && _sigHelp_activeParameter !== void 0 ? _sigHelp_activeParameter : undefined : undefined), /*#__PURE__*/ $f0CHF.dom("div", {
                 className: "atom-typescript-tooltip-signature-help-documentation"
             }, $0db5c03a4a08f259$var$markupToStr(sig.documentation))));
         });
@@ -31845,7 +31853,7 @@ class $0db5c03a4a08f259$export$e25b256a886d7ca4 {
         const [start, end] = param.label;
         return [
             sig.label.slice(0, start),
-            /*#__PURE__*/ React.createElement("span", {
+            /*#__PURE__*/ $f0CHF.dom("span", {
                 className: "atom-typescript-tooltip-signature-help-selected"
             }, sig.label.slice(start, end)),
             sig.label.slice(end)
@@ -32057,7 +32065,7 @@ class $a6385a1bc26b52c2$export$e25b256a886d7ca4 {
             ...this.props,
             ...props
         };
-        this.tooltip = await (0, $6dd6dbad8ece01e1$export$2c9a28f937ef04fb)(this.props.info, $f0CHF, (x)=>/*#__PURE__*/ React.createElement("div", {
+        this.tooltip = await (0, $6dd6dbad8ece01e1$export$2c9a28f937ef04fb)(this.props.info, $f0CHF, (x)=>/*#__PURE__*/ $f0CHF.dom("div", {
                 className: "atom-typescript-tooltip-tooltip-code"
             }, x));
         await $f0CHF.update(this);
@@ -32066,9 +32074,9 @@ class $a6385a1bc26b52c2$export$e25b256a886d7ca4 {
         (0, $61beeba91163f3b4$export$af1f9fcad4e99e85)(this.element, document.body, this.props, atom.config.get("pulsar-typescript").tooltipPosition);
     }
     render() {
-        return /*#__PURE__*/ React.createElement("div", {
+        return /*#__PURE__*/ $f0CHF.dom("div", {
             className: "atom-typescript-tooltip tooltip"
-        }, /*#__PURE__*/ React.createElement("div", {
+        }, /*#__PURE__*/ $f0CHF.dom("div", {
             className: "tooltip-inner"
         }, this.tooltip));
     }
@@ -32286,6 +32294,8 @@ class $074d6626591af477$export$951a8e3d4c79262 {
 
 
 
+var $f0CHF = parcelRequire("f0CHF");
+
 
 
 
@@ -32409,14 +32419,14 @@ async function $8401cbaab7a77467$export$e03c1c3201ee8bb7(editor, deps) {
         if (atom.config.get("symbols-view.quickJumpToFileSymbol")) initialState = $299b41e60cd6bf93$export$f52e1de408b9499d(editor);
         const tag = await (0, $bc054e0e4dca1f54$export$12cb8c60c107136e)({
             items: (0, $f4cacccce0ae20fa$export$3d887693d0007350)(filePath, deps),
-            itemTemplate: ({ name: name, position: position }, ctx)=>/*#__PURE__*/ React.createElement("li", {
+            itemTemplate: ({ name: name, position: position }, ctx)=>/*#__PURE__*/ $f0CHF.dom("li", {
                     className: "two-lines"
-                }, /*#__PURE__*/ React.createElement("div", {
+                }, /*#__PURE__*/ $f0CHF.dom("div", {
                     className: "primary-line"
-                }, /*#__PURE__*/ React.createElement((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+                }, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
                     label: name,
                     query: ctx.getFilterQuery()
-                })), /*#__PURE__*/ React.createElement("div", {
+                })), /*#__PURE__*/ $f0CHF.dom("div", {
                     className: "secondary-line"
                 }, `Line ${position.row + 1}`)),
             didChangeSelection (item) {
@@ -32432,6 +32442,8 @@ async function $8401cbaab7a77467$export$e03c1c3201ee8bb7(editor, deps) {
 
 
 
+var $f0CHF = parcelRequire("f0CHF");
+
 
 
 
@@ -32442,14 +32454,14 @@ async function $7b7ec62bc5ff1b52$export$e03c1c3201ee8bb7(editor, deps) {
             items: (search)=>(0, $f4cacccce0ae20fa$export$84b9b1d45a7e55b8)(filePath, search, deps),
             itemTemplate ({ name: name, position: position, file: file }, ctx) {
                 const relfile = atom.project.relativize(file);
-                return /*#__PURE__*/ React.createElement("li", {
+                return /*#__PURE__*/ $f0CHF.dom("li", {
                     className: "two-lines"
-                }, /*#__PURE__*/ React.createElement("div", {
+                }, /*#__PURE__*/ $f0CHF.dom("div", {
                     className: "primary-line"
-                }, /*#__PURE__*/ React.createElement((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+                }, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
                     label: name,
                     query: ctx.getFilterQuery()
-                })), /*#__PURE__*/ React.createElement("div", {
+                })), /*#__PURE__*/ $f0CHF.dom("div", {
                     className: "secondary-line"
                 }, `File ${relfile} line ${position.row + 1}`));
             },

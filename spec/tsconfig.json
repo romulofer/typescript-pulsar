@@ -1,5 +1,9 @@
 {
   "compileOnSave": false,
   "extends": "../lib/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "..",
+    "types": ["mocha", "node", "atom", "chai"]
+  },
   "include": ["./**/*.ts", "./**/*.tsx", "../lib/**/*.ts", "../lib/**/*.tsx"]
 }

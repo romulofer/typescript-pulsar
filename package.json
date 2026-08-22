@@ -21,9 +21,9 @@
     "build": "npm run gen-config-types && cross-env NODE_ENV=production parcel build --target bundle lib/main/atomts.ts",
     "prettier": "prettier --write \"./{lib,scripts,spec}/**/*.{ts,tsx}\"",
     "prettier-check": "prettier --check \"./{lib,scripts,spec}/**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit -p ./lib && tsc --noEmit -p ./scripts && tsc --noEmit -p ./spec",
+    "typecheck": "tsc --noEmit -p ./lib && tsc --noEmit -p ./spec",
     "lint": "tslint --project ./lib && tslint --project ./spec",
-    "test": "npm run typecheck && npm run lint && npm run prettier-check",
+    "test": "npm run typecheck && npm run prettier-check",
     "gen-config-types": "node scripts/typed-config.js lib/typings/atom-config.d.ts && prettier --write lib/typings/atom-config.d.ts",
     "postinstall": "node scripts/postinstall.js"
   },

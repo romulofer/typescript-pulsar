@@ -30,7 +30,8 @@ export class ConfigPath implements JSX.ElementClass {
           this.props.tsConfigPath.startsWith("/dev/null")
             ? "No tsconfig.json"
             : `Click to open ${atom.project.relativize(this.props.tsConfigPath)}`
-        }>
+        }
+      >
         <a
           className="inline-block"
           href=""
@@ -39,7 +40,8 @@ export class ConfigPath implements JSX.ElementClass {
               evt.preventDefault()
               this.openConfigPath()
             },
-          }}>
+          }}
+        >
           {this.props.tsConfigPath.startsWith("/dev/null")
             ? "No project"
             : dirname(getFilePathRelativeToAtomProject(this.props.tsConfigPath))}

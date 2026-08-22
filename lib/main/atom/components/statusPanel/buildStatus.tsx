@@ -58,7 +58,8 @@ export class BuildStatus implements JSX.ElementClass {
           this.props.buildStatus.success
             ? "Build was successful"
             : "Build failed; click to show error message"
-        }>
+        }
+      >
         <span className={cls} on={{click: this.buildStatusClicked}}>
           {text}
         </span>

@@ -35,7 +35,8 @@ export class NavigationNodeComponent implements JSX.ElementClass {
         dataset={{
           startLine: this.props.navTree.spans[0]?.start?.line,
           endLine: this.props.navTree.spans[0]?.end?.line,
-        }}>
+        }}
+      >
         <div className={`header list-item`} on={{click: (event) => this.entryClicked(event, node)}}>
           <span className={styleClasses}>{node.text}</span>
         </div>
