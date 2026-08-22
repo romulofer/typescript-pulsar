@@ -45,11 +45,13 @@ export async function resolveBinary(sourcePath: string): Promise<Binary> {
     }
 
     // use bundled version
-    return require.resolve("typescript/package.json")
+    return resolveModule("typescript/package.json", {basedir: __dirname})
   })
 
-  // tslint:disable-next-line:no-unsafe-any
-  const pkg = require(resolvedPath) as {version: string; bin?: Record<string, string>}
+  const pkg = JSON.parse(await fsReadFile(resolvedPath)) as {
+    version: string
+    bin?: Record<string, string>
+  }
   const packageDir = path.dirname(resolvedPath)
   const binRelPath = pkg.bin?.tsc ?? "bin/tsc"
 

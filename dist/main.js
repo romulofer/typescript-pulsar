@@ -29015,6 +29015,8 @@ $6d25aed5ec4f8aa0$exports.sync = (parcelRequire("fwJbw"));
 $0387e6bc2318deea$exports = $6d25aed5ec4f8aa0$exports;
 
 
+
+var $5687b95b3c956613$var$$parcel$__dirname = $1X1Jj$path.resolve(__dirname, "../lib/client");
 async function $5687b95b3c956613$export$369fb36245591db0(sourcePath) {
     var _pkg_bin;
     const { NODE_PATH: NODE_PATH } = process.env;
@@ -29037,10 +29039,11 @@ async function $5687b95b3c956613$export$369fb36245591db0(sourcePath) {
             if (exists) return pkgPath;
         }
         // use bundled version
-        return undefined("typescript/package.json");
+        return $5687b95b3c956613$var$resolveModule("typescript/package.json", {
+            basedir: $5687b95b3c956613$var$$parcel$__dirname
+        });
     });
-    // tslint:disable-next-line:no-unsafe-any
-    const pkg = require(resolvedPath);
+    const pkg = JSON.parse(await $5687b95b3c956613$var$fsReadFile(resolvedPath));
     const packageDir = $1X1Jj$path.dirname(resolvedPath);
     var _pkg_bin_tsc;
     const binRelPath = (_pkg_bin_tsc = (_pkg_bin = pkg.bin) === null || _pkg_bin === void 0 ? void 0 : _pkg_bin.tsc) !== null && _pkg_bin_tsc !== void 0 ? _pkg_bin_tsc : "bin/tsc";
