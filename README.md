@@ -1,45 +1,39 @@
 # Project status
 
-As of May, 25th 2022, this project is officially unmaintained.
+This is a fork of the unmaintained [`atom-typescript`](https://github.com/TypeStrong/atom-typescript)
+(unmaintained as of May 2022, see [@lierdakil](https://github.com/lierdakil)'s note
+there), rebranded and actively maintained for [Pulsar](https://pulsar-edit.dev).
 
-The last maintainer (me) doesn't have admin access to the repository, and couldn't get the organization owner's attention to get it, so if you'd like to take over, feel free to fork.
+As of the TS7/LSP migration, the package talks to **TypeScript 7's native compiler in
+`--lsp` mode** (`tsc --lsp --stdio`) instead of the classic tsserver JSON protocol. A
+few features are temporarily degraded as a result (project-wide build, compile on
+save — see `AGENTS.md`), and there's a known upstream `typescript-go` crash under
+some real editing traffic still being tracked down. See `REWORK.md` for the full,
+current status of what's working, what's broken, and what's in progress. If you're
+an AI agent working in this repo, read `AGENTS.md` first.
 
-- @lierdakil
-
-# Atom TypeScript
-
-[![Join the chat at
-https://gitter.im/TypeStrong/atom-typescript](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/TypeStrong/atom-typescript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Pulsar TypeScript
 
 JavaScript developers can now just open a `.ts` file and start hacking
 away like they are used to. No `grunt`, no `Visual Studio`. Just pure
 coding.
 
-**NOTE**: When updating to **v12**, make sure `language-typescript` core
-package is **enabled**. We're discontinuing our own grammar in favor of
-`language-typescript`. Both are very similar and are basically
-Microsoft's TextMate grammar repackaged, and there's little reason to
-bundle our own if there's one available by default.
-
-**NOTE**: This branch contains a major rewrite (**v11**) of the
-`atom-typescript` plugin that is lighter and faster, but lacks a few
-major features that you might miss. The previous version is still
-available in the `legacy` branch and will continue to receive minor
-bugfixes. However, I wouldn't count on any new developments for that version.
-
 ## Installation
 
-1.  Install [atom](https://atom.io).
+1.  Install [Pulsar](https://pulsar-edit.dev).
 2.  Install dependencies (see below).
-3.  `apm install atom-typescript` (`apm` needs `git` in your path).
-4.  Fire up atom. Open a TypeScript file.
+3.  Install `pulsar-typescript` from Pulsar's package manager (`Settings → Install`),
+    or `ppm install pulsar-typescript` (`ppm` needs `git` in your path).
+4.  Fire up Pulsar. Open a TypeScript file.
 
 **Dependencies**:
 
-Atom-TypeScript relies on some external packages for providing some of
+Pulsar-TypeScript relies on some external packages for providing some of
 its GUI. You basically have two options.
 
-**Option 1**: Install `atom-ide-ui` package.
+**Option 1**: Install `atom-ide-ui` package (or the individual `atom-ide-*`
+packages it bundles: `atom-ide-outline`, `atom-ide-datatip`, `atom-ide-definitions`,
+`atom-ide-hyperclick`, `atom-ide-signature-help`, `atom-ide-code-format`).
 
 **Option 2**: Install the following packages:
 
@@ -49,7 +43,8 @@ its GUI. You basically have two options.
 -   `intentions`
 
 **Additional Notes**: [Some packages we
-love](https://github.com/TypeStrong/atom-typescript/blob/master/docs/packages.md).
+love](https://github.com/TypeStrong/atom-typescript/blob/master/docs/packages.md)
+(from upstream `atom-typescript`; still broadly applicable).
 
 ## Reviews
 
@@ -92,8 +87,7 @@ Schultz](https://twitter.com/mindplaydk)
 
 # FAQ
 
-Located online:
-https://github.com/TypeStrong/atom-typescript/blob/master/docs/faq.md
+See [docs/faq.md](docs/faq.md).
 
 ------------------------------------------------------------------------
 
@@ -109,8 +103,7 @@ Press `tab` to make a selection.
 
 Just hover
 
-![you definitely get the
-point](https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/hover.png)
+![you definitely get the point](docs/screens/hover.png)
 
 ## Compile on save
 
@@ -152,7 +145,7 @@ can also click to jump to any portion of the file.
 ### Rename
 
 `f2` to initiate rename. `enter` to commit and `esc` to cancel.
-![](https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/renameRefactoring.png)
+![](docs/screens/renameRefactoring.png)
 
 ## Quick Fix
 
@@ -178,12 +171,11 @@ by default:
 
 ## Contributing
 
-Look at
-[CONTRIBUTING.md](https://github.com/TypeStrong/atom-typescript/blob/master/CONTRIBUTING.md)
-for curiosity. We work hard to keep the code as approachable as possible
-and are highly keen on helping you help us.
+Look at [CONTRIBUTING.md](CONTRIBUTING.md) to get started. If you're an AI agent,
+read [AGENTS.md](AGENTS.md) first.
 
 ## Changelog
 
-Breaking changes [available
-online](https://github.com/TypeStrong/atom-typescript/blob/master/CHANGELOG.md).
+Breaking changes and release notes: [CHANGELOG.md](CHANGELOG.md). For the current
+state of the TS7/LSP migration specifically (what's fixed, what's still broken, what
+was tried and abandoned), see [REWORK.md](REWORK.md).
