@@ -1,7 +1,7 @@
 import {TextEditor} from "atom"
 import * as etch from "etch"
 import * as fs from "fs"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {TsView} from "../components/tsView"
 import {getFilePathPosition, highlight, lspPositionToLocation, uriToFilePath} from "../utils"
 import {HighlightComponent} from "../views/highlightComponent"

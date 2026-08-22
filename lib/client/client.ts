@@ -1,7 +1,7 @@
 import {BufferedNodeProcess, BufferedProcess, Emitter} from "atom"
 import {ChildProcess} from "child_process"
 import {pathToFileURL} from "url"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import * as rpc from "vscode-jsonrpc/node"
 import {ReportBusyWhile} from "../main/pluginManager"
 import {
@@ -27,6 +27,7 @@ import {
   ResolveCodeActionParams,
 } from "./commandArgsResponseMap"
 import {DiagnosticEventTypes} from "./events"
+import {CodeActionKind, CodeActionTriggerKind, CompletionTriggerKind} from "./lspConstants"
 
 // Set this to true to start the LSP server with node --inspect
 const INSPECT_TSSERVER = false
@@ -231,10 +232,10 @@ export class TypescriptServiceClient {
           position: toLspPosition(x.line, x.offset),
           context: x.triggerCharacter
             ? {
-                triggerKind: lsp.CompletionTriggerKind.TriggerCharacter,
+                triggerKind: CompletionTriggerKind.TriggerCharacter,
                 triggerCharacter: x.triggerCharacter,
               }
-            : {triggerKind: lsp.CompletionTriggerKind.Invoked},
+            : {triggerKind: CompletionTriggerKind.Invoked},
         })
       }
       case "completionEntryDetails": {
@@ -260,7 +261,7 @@ export class TypescriptServiceClient {
           context: {
             diagnostics: [],
             only: ["quickfix"],
-            triggerKind: lsp.CodeActionTriggerKind.Automatic,
+            triggerKind: CodeActionTriggerKind.Automatic,
           },
         })
       }
@@ -272,7 +273,7 @@ export class TypescriptServiceClient {
           context: {
             diagnostics: [],
             only: ["refactor"],
-            triggerKind: lsp.CodeActionTriggerKind.Invoked,
+            triggerKind: CodeActionTriggerKind.Invoked,
           },
         })
       }
@@ -289,7 +290,7 @@ export class TypescriptServiceClient {
           context: {
             diagnostics: [],
             only: ["source.organizeImports"],
-            triggerKind: lsp.CodeActionTriggerKind.Invoked,
+            triggerKind: CodeActionTriggerKind.Invoked,
           },
         })) as lsp.CodeAction[]
         const edits: lsp.TextEdit[] = []
@@ -398,7 +399,7 @@ export class TypescriptServiceClient {
         documentSymbol: {hierarchicalDocumentSymbolSupport: true},
         codeAction: {
           codeActionLiteralSupport: {
-            codeActionKind: {valueSet: Object.values(lsp.CodeActionKind)},
+            codeActionKind: {valueSet: Object.values(CodeActionKind)},
           },
           resolveSupport: {properties: ["edit"]},
         },

@@ -1,6 +1,6 @@
 import {CompositeDisposable, DisplayMarker, TextEditor} from "atom"
 import {debounce, DebouncedFunc} from "lodash"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {GetClientFunction} from "../../../client"
 import {handlePromise} from "../../../utils"
 import {isTypescriptEditorWithPath, lspRangeToAtomRange} from "../utils"

@@ -1,4 +1,4 @@
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {symbolsToNavTree} from "../outline/navTreeUtils"
 import {NavigationTreeViewModel} from "../outline/semanticViewModel"
 import {Deps} from "./deps"

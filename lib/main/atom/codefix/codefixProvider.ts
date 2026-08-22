@@ -1,5 +1,5 @@
 import * as Atom from "atom"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {ClientResolver} from "../../../client"
 import {ErrorPusher} from "../../errorPusher"
 import {ApplyEdits} from "../../pluginManager"

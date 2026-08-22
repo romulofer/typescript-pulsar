@@ -4,7 +4,7 @@ import {BuildStatus} from "./buildStatus"
 import type {TBuildStatus} from "./buildStatus"
 import {ConfigPath} from "./configPath"
 import {Tooltip} from "./tooltip"
-export {TBuildStatus}
+export type {TBuildStatus}
 
 export interface TProgress {
   max: number

@@ -1,35 +1,36 @@
 import {isEqual} from "lodash"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
+import {SymbolKind} from "../../../../client/lspConstants"
 import {lspRangeToSpan} from "../../utils"
 import {NavigationTreeViewModel} from "./semanticViewModel"
 
 export const symbolKindNames: Record<lsp.SymbolKind, string> = {
-  [lsp.SymbolKind.File]: "file",
-  [lsp.SymbolKind.Module]: "module",
-  [lsp.SymbolKind.Namespace]: "module",
-  [lsp.SymbolKind.Package]: "module",
-  [lsp.SymbolKind.Class]: "class",
-  [lsp.SymbolKind.Method]: "method",
-  [lsp.SymbolKind.Property]: "property",
-  [lsp.SymbolKind.Field]: "property",
-  [lsp.SymbolKind.Constructor]: "constructor",
-  [lsp.SymbolKind.Enum]: "enum",
-  [lsp.SymbolKind.Interface]: "interface",
-  [lsp.SymbolKind.Function]: "function",
-  [lsp.SymbolKind.Variable]: "variable",
-  [lsp.SymbolKind.Constant]: "constant",
-  [lsp.SymbolKind.String]: "string",
-  [lsp.SymbolKind.Number]: "primitive-type",
-  [lsp.SymbolKind.Boolean]: "primitive-type",
-  [lsp.SymbolKind.Array]: "type",
-  [lsp.SymbolKind.Object]: "type",
-  [lsp.SymbolKind.Key]: "property",
-  [lsp.SymbolKind.Null]: "primitive-type",
-  [lsp.SymbolKind.EnumMember]: "enum-member",
-  [lsp.SymbolKind.Struct]: "class",
-  [lsp.SymbolKind.Event]: "function",
-  [lsp.SymbolKind.Operator]: "function",
-  [lsp.SymbolKind.TypeParameter]: "type-parameter",
+  [SymbolKind.File]: "file",
+  [SymbolKind.Module]: "module",
+  [SymbolKind.Namespace]: "module",
+  [SymbolKind.Package]: "module",
+  [SymbolKind.Class]: "class",
+  [SymbolKind.Method]: "method",
+  [SymbolKind.Property]: "property",
+  [SymbolKind.Field]: "property",
+  [SymbolKind.Constructor]: "constructor",
+  [SymbolKind.Enum]: "enum",
+  [SymbolKind.Interface]: "interface",
+  [SymbolKind.Function]: "function",
+  [SymbolKind.Variable]: "variable",
+  [SymbolKind.Constant]: "constant",
+  [SymbolKind.String]: "string",
+  [SymbolKind.Number]: "primitive-type",
+  [SymbolKind.Boolean]: "primitive-type",
+  [SymbolKind.Array]: "type",
+  [SymbolKind.Object]: "type",
+  [SymbolKind.Key]: "property",
+  [SymbolKind.Null]: "primitive-type",
+  [SymbolKind.EnumMember]: "enum-member",
+  [SymbolKind.Struct]: "class",
+  [SymbolKind.Event]: "function",
+  [SymbolKind.Operator]: "function",
+  [SymbolKind.TypeParameter]: "type-parameter",
 }
 
 export function documentSymbolToNavTree(sym: lsp.DocumentSymbol): NavigationTreeViewModel {

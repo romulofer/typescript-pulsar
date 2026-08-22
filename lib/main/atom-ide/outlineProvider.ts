@@ -1,6 +1,7 @@
 import {OutlineProvider, OutlineTree, OutlineTreeKind} from "atom-ide-base"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {GetClientFunction} from "../../client"
+import {SymbolKind} from "../../client/lspConstants"
 import {lspRangeToAtomRange, typeScriptScopes} from "../atom/utils"
 
 export function getOutlineProvider(getClient: GetClientFunction): OutlineProvider {
@@ -60,30 +61,30 @@ function compareNodes(a: OutlineTree, b: OutlineTree): number {
 }
 
 const kindMap: {[key in lsp.SymbolKind]: OutlineTreeKind | undefined} = {
-  [lsp.SymbolKind.File]: "file",
-  [lsp.SymbolKind.Module]: "module",
-  [lsp.SymbolKind.Namespace]: "module",
-  [lsp.SymbolKind.Package]: "module",
-  [lsp.SymbolKind.Class]: "class",
-  [lsp.SymbolKind.Method]: "method",
-  [lsp.SymbolKind.Property]: "property",
-  [lsp.SymbolKind.Field]: "field",
-  [lsp.SymbolKind.Constructor]: "constructor",
-  [lsp.SymbolKind.Enum]: "enum",
-  [lsp.SymbolKind.Interface]: "interface",
-  [lsp.SymbolKind.Function]: "function",
-  [lsp.SymbolKind.Variable]: "variable",
-  [lsp.SymbolKind.Constant]: "constant",
-  [lsp.SymbolKind.String]: "string",
-  [lsp.SymbolKind.Number]: undefined,
-  [lsp.SymbolKind.Boolean]: undefined,
-  [lsp.SymbolKind.Array]: undefined,
-  [lsp.SymbolKind.Object]: undefined,
-  [lsp.SymbolKind.Key]: undefined,
-  [lsp.SymbolKind.Null]: undefined,
-  [lsp.SymbolKind.EnumMember]: "constant",
-  [lsp.SymbolKind.Struct]: "class",
-  [lsp.SymbolKind.Event]: undefined,
-  [lsp.SymbolKind.Operator]: undefined,
-  [lsp.SymbolKind.TypeParameter]: undefined,
+  [SymbolKind.File]: "file",
+  [SymbolKind.Module]: "module",
+  [SymbolKind.Namespace]: "module",
+  [SymbolKind.Package]: "module",
+  [SymbolKind.Class]: "class",
+  [SymbolKind.Method]: "method",
+  [SymbolKind.Property]: "property",
+  [SymbolKind.Field]: "field",
+  [SymbolKind.Constructor]: "constructor",
+  [SymbolKind.Enum]: "enum",
+  [SymbolKind.Interface]: "interface",
+  [SymbolKind.Function]: "function",
+  [SymbolKind.Variable]: "variable",
+  [SymbolKind.Constant]: "constant",
+  [SymbolKind.String]: "string",
+  [SymbolKind.Number]: undefined,
+  [SymbolKind.Boolean]: undefined,
+  [SymbolKind.Array]: undefined,
+  [SymbolKind.Object]: undefined,
+  [SymbolKind.Key]: undefined,
+  [SymbolKind.Null]: undefined,
+  [SymbolKind.EnumMember]: "constant",
+  [SymbolKind.Struct]: "class",
+  [SymbolKind.Event]: undefined,
+  [SymbolKind.Operator]: undefined,
+  [SymbolKind.TypeParameter]: undefined,
 }

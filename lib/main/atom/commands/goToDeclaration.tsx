@@ -1,6 +1,6 @@
 import {TextEditor} from "atom"
 import * as etch from "etch"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {getFilePathPosition, normalizeLocations, pointToLocation} from "../utils"
 import {HighlightComponent} from "../views/highlightComponent"
 import {selectListView} from "../views/simpleSelectionView"

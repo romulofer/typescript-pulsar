@@ -1,5 +1,5 @@
 import * as Atom from "atom"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {TSClient} from "../../../client"
 import {handlePromise} from "../../../utils"
 import {TooltipView} from "./tooltipView"

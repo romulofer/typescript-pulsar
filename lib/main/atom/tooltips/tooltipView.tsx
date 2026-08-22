@@ -1,5 +1,5 @@
 import * as etch from "etch"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {renderTooltip} from "./tooltipRenderer"
 import {adjustElementPosition} from "./util"
 

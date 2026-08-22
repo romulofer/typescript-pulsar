@@ -3,7 +3,7 @@ import {Signature, SignatureParameter} from "atom-ide-base"
 import * as jsonc from "jsonc-parser"
 import * as fs from "fs"
 import * as path from "path"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 
 /**
  * 1-based line/offset, matching the old tsserver protocol convention. Kept as the app-wide

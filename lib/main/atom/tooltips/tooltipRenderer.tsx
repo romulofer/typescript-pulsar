@@ -1,4 +1,4 @@
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 
 /** LSP `Hover.contents` bundles the signature and documentation into a single string (unlike the
  * old tsserver protocol, which sent `displayString`/`documentation`/`tags` as separate fields).

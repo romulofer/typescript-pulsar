@@ -1,6 +1,6 @@
 import {TextEditorElement} from "atom"
 import * as etch from "etch"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {adjustElementPosition} from "../tooltips/util"
 
 interface Props extends JSX.Props {

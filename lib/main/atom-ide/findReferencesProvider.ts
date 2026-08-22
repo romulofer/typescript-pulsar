@@ -1,5 +1,5 @@
 import {FindReferencesProvider, Reference} from "atom-ide-base"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {GetClientFunction} from "../../client"
 import {getFilePathPosition, isTypescriptEditorWithPath, lspRangeToAtomRange} from "../atom/utils"
 

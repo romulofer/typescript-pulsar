@@ -1,9 +1,10 @@
 import {CompositeDisposable, Emitter} from "atom"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {ReportBusyWhile} from "../main/pluginManager"
 import {handlePromise} from "../utils"
 import {TypescriptServiceClient as Client} from "./client"
 import {DiagnosticEventBody} from "./events"
+import {DiagnosticSeverity, DiagnosticTag, getDiagnosticMessageString} from "./lspConstants"
 import {findConfigFile, resolveBinary} from "./resolveBinary"
 
 export type DiagnosticTypes = "semanticDiag" | "configFileDiag"
@@ -125,10 +126,10 @@ export function lspDiagnosticToDiagnostic(d: lsp.Diagnostic): Diagnostic {
   return {
     start: {line: d.range.start.line + 1, offset: d.range.start.character + 1},
     end: {line: d.range.end.line + 1, offset: d.range.end.character + 1},
-    text: lsp.Diagnostic.getMessageString(d),
+    text: getDiagnosticMessageString(d.message),
     code: d.code,
     category: severityToCategory(d.severity),
-    reportsUnnecessary: d.tags?.includes(lsp.DiagnosticTag.Unnecessary),
+    reportsUnnecessary: d.tags?.includes(DiagnosticTag.Unnecessary),
   }
 }
 
@@ -136,11 +137,11 @@ export function severityToCategory(
   severity: lsp.DiagnosticSeverity | undefined,
 ): Diagnostic["category"] {
   switch (severity) {
-    case lsp.DiagnosticSeverity.Error:
+    case DiagnosticSeverity.Error:
       return "error"
-    case lsp.DiagnosticSeverity.Warning:
+    case DiagnosticSeverity.Warning:
       return "warning"
-    case lsp.DiagnosticSeverity.Hint:
+    case DiagnosticSeverity.Hint:
       return "suggestion"
     default:
       return "message"

@@ -1,5 +1,5 @@
 import * as etch from "etch"
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 import {TSClient} from "../../../client"
 import {getFilePathPosition, lspWorkspaceEditToFileEdits, rangeToLocationRange} from "../utils"
 import {HighlightComponent} from "../views/highlightComponent"

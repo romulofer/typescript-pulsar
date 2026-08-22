@@ -1,4 +1,4 @@
-import * as lsp from "vscode-languageserver-protocol"
+import type * as lsp from "vscode-languageserver-protocol"
 
 /**
  * Args/response shapes for the client's `execute()` shim. Command *names* are kept from the old
