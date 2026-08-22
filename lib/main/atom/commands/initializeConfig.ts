@@ -11,7 +11,7 @@ addCommand("atom-text-editor", "typescript:initialize-config", () => ({
     const currentPath = editor.getPath()
     if (currentPath === undefined) return
 
-    const pathToTsc = (await resolveBinary(currentPath, "tsc")).pathToBin
+    const pathToTsc = (await resolveBinary(currentPath)).pathToBin
 
     for (const projectDir of projectDirs) {
       if (projectDir.contains(currentPath)) {

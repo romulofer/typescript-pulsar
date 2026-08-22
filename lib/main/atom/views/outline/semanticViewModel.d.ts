@@ -1,10 +1,16 @@
-import {NavigationTree} from "typescript/lib/protocol"
+import {TextSpan} from "../../utils"
 
 /**
- * interface for attaching some view-/representation-related fields
- * to the NavigationTree.
+ * View model for the built-in "semantic view" outline panel, built from an LSP
+ * `DocumentSymbol`/`SymbolInformation`. Spans use the app's internal 1-based `TextSpan`
+ * convention (see `lspRangeToSpan`), not raw LSP 0-based ranges.
  */
-export interface NavigationTreeViewModel extends NavigationTree {
+export interface NavigationTreeViewModel {
+  text: string
+  kind: string
+  kindModifiers?: string
+  spans: TextSpan[]
+  nameSpan?: TextSpan
   childItems?: NavigationTreeViewModel[]
   /**
    * indicates if a node (whith children) should be rendered
@@ -19,9 +25,9 @@ export interface ToNodeScrollableEditor {
    * Scroll the editor to line/column that corresponds to the starting-position
    * of the node.
    *
-   * @param {NavigationTree} node the NavigationTree node to which to scroll the editor
+   * @param {NavigationTreeViewModel} node the node to which to scroll the editor
    */
-  gotoNode(node: NavigationTree): void
+  gotoNode(node: NavigationTreeViewModel): void
 }
 
 export interface SelectableNode {

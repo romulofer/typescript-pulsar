@@ -1,4 +1,5 @@
 import * as fs from "fs-plus"
+import {lspWorkspaceEditToFileEdits} from "../utils"
 import {showRenameDialog} from "../views/renameView"
 import {addCommand} from "./registry"
 
@@ -30,7 +31,7 @@ addCommand("atom-text-editor", "typescript:rename-file", (deps) => ({
       newFilePath: newLocation,
     })
 
-    await deps.applyEdits(response.body)
+    await deps.applyEdits(lspWorkspaceEditToFileEdits(response))
 
     await new Promise<void>((resolve, reject) => {
       fs.move(location, newLocation, (err?: Error) => {

@@ -2,27 +2,21 @@
 import * as Atom from "atom"
 import * as ACP from "atom/autocomplete-plus"
 import * as fuzzaldrin from "fuzzaldrin"
-import {
-  CompletionEntryDetails,
-  CompletionEntryIdentifier,
-  CompletionsTriggerCharacter,
-} from "typescript/lib/protocol"
+import * as lsp from "vscode-languageserver-protocol"
 import {GetClientFunction, TSClient} from "../../client"
 import {handlePromise} from "../../utils"
 import {ApplyEdits} from "../pluginManager"
-import {codeActionTemplate} from "./codeActionTemplate"
-import {FileLocationQuery, spanToRange, typeScriptScopes} from "./utils"
-import {selectListView} from "./views/simpleSelectionView"
+import {FileLocationQuery, lspWorkspaceEditToFileEdits, typeScriptScopes} from "./utils"
 
 type SuggestionWithDetails = ACP.TextSuggestion & {
   replacementRange?: Atom.Range
   isMemberCompletion?: boolean
-  identifier?: CompletionEntryIdentifier | string
+  identifier?: lsp.CompletionItem
   hasAction?: boolean
 }
 
 interface Details {
-  details: CompletionEntryDetails
+  details: lsp.CompletionItem
   rightLabel: string
   description?: string
 }
@@ -32,10 +26,10 @@ export class AutocompleteProvider implements ACP.AutocompleteProvider {
     .map((x) => (x.includes(".") ? `.${x}` : x))
     .join(", ")
 
-  public inclusionPriority = atom.config.get("atom-typescript").autocompletionInclusionPriority
-  public suggestionPriority = atom.config.get("atom-typescript").autocompletionSuggestionPriority
+  public inclusionPriority = atom.config.get("pulsar-typescript").autocompletionInclusionPriority
+  public suggestionPriority = atom.config.get("pulsar-typescript").autocompletionSuggestionPriority
   public excludeLowerPriority =
-    atom.config.get("atom-typescript").autocompletionExcludeLowerPriority
+    atom.config.get("pulsar-typescript").autocompletionExcludeLowerPriority
 
   private lastSuggestions?: {
     // Client used to get the suggestions
@@ -82,7 +76,7 @@ export class AutocompleteProvider implements ACP.AutocompleteProvider {
         activatedManually: opts.activatedManually,
       })
 
-      const config = atom.config.get("atom-typescript")
+      const config = atom.config.get("pulsar-typescript")
       if (config.autocompletionUseFuzzyFilter) {
         suggestions = fuzzaldrin.filter(suggestions, prefix, {
           key: "displayText",
@@ -137,31 +131,16 @@ export class AutocompleteProvider implements ACP.AutocompleteProvider {
     if (!s.hasAction) return
     if (!this.lastSuggestions) return
     const client = this.lastSuggestions.client
+    const file = this.lastSuggestions.location.file
     let details = this.getDetailsFromCache(s)
     handlePromise(
       (async () => {
         if (!details) details = await this.getAdditionalDetails(s)
-        if (!details?.details.codeActions) return
-        let action
-        if (details.details.codeActions.length === 1) {
-          action = details.details.codeActions[0]
-        } else {
-          action = await selectListView({
-            items: details.details.codeActions,
-            itemTemplate: codeActionTemplate,
-            itemFilterKey: "description",
-          })
-        }
-        if (!action) return
-        await this.applyEdits(action.changes)
-        if (!action.commands) return
-        await Promise.all(
-          action.commands.map((cmd) =>
-            client.execute("applyCodeActionCommand", {
-              command: cmd,
-            }),
-          ),
-        )
+        if (!details) return
+        const resolved = details.details
+        await this.applyEdits(lspWorkspaceEditToFileEdits(additionalEditsAsWorkspaceEdit(resolved)))
+        if (!resolved.command) return
+        await client.execute("applyCodeActionCommand", {file, command: resolved.command})
       })(),
     )
   }
@@ -169,34 +148,17 @@ export class AutocompleteProvider implements ACP.AutocompleteProvider {
   private async getAdditionalDetails(suggestion: SuggestionWithDetails) {
     if (suggestion.identifier === undefined) return null
     if (!this.lastSuggestions) return null
-    const reply = await this.lastSuggestions.client.execute("completionEntryDetails", {
+    const [details] = await this.lastSuggestions.client.execute("completionEntryDetails", {
       entryNames: [suggestion.identifier],
       ...this.lastSuggestions.location,
     })
-    if (!reply.body) return null
-    const [details] = reply.body
     // apparently, details can be undefined
     // tslint:disable-next-line: strict-boolean-expressions
     if (!details) return null
-    let parts = details.displayParts
-    if (
-      parts.length >= 3 &&
-      parts[0].text === "(" &&
-      parts[1].text === suggestion.leftLabel &&
-      parts[2].text === ")"
-    ) {
-      parts = parts.slice(3)
-    }
-    let rightLabel = parts.map((d) => d.text).join("")
-    const actionDesc =
-      suggestion.hasAction && details.codeActions?.length === 1
-        ? `${details.codeActions[0].description}\n\n`
-        : ""
-    if (actionDesc) rightLabel = actionDesc
+    const rightLabel = details.detail ?? ""
     const description =
-      actionDesc +
-      details.displayParts.map((d) => d.text).join("") +
-      (details.documentation ? "\n\n" + details.documentation.map((d) => d.text).join(" ") : "")
+      (details.detail ?? "") +
+      (details.documentation ? "\n\n" + markupToString(details.documentation) : "")
     this.lastSuggestions.details.set(suggestion.displayText!, {details, rightLabel, description})
     return {
       ...suggestion,
@@ -222,7 +184,7 @@ export class AutocompleteProvider implements ACP.AutocompleteProvider {
   }: {
     prefix: string
     location: FileLocationQuery
-    triggerCharacter?: CompletionsTriggerCharacter
+    triggerCharacter?: string
     activatedManually: boolean
   }): Promise<SuggestionWithDetails[]> {
     if (this.lastSuggestions && !activatedManually) {
@@ -263,29 +225,28 @@ async function getSuggestionsInternal({
 }: {
   client: TSClient
   location: FileLocationQuery
-  triggerCharacter?: CompletionsTriggerCharacter
+  triggerCharacter?: string
 }) {
-  if (parseInt(client.version.split(".")[0], 10) >= 3) {
-    // use completionInfo
-    const completions = await client.execute("completionInfo", {
-      includeExternalModuleExports: false,
-      includeInsertTextCompletions: true,
-      triggerCharacter,
-      ...location,
-    })
-    return completions.body!.entries.map(
-      completionEntryToSuggestion.bind(null, completions.body?.isMemberCompletion),
-    )
-  } else {
-    // use deprecated completions
-    const completions = await client.execute("completions", {
-      includeExternalModuleExports: false,
-      includeInsertTextCompletions: true,
-      ...location,
-    })
+  const completions = await client.execute("completionInfo", {
+    includeExternalModuleExports: false,
+    includeInsertTextCompletions: true,
+    triggerCharacter,
+    ...location,
+  })
+  const items =
+    completions === null ? [] : Array.isArray(completions) ? completions : completions.items
+  return items.map(completionEntryToSuggestion)
+}
 
-    return completions.body!.map(completionEntryToSuggestion.bind(null, undefined))
-  }
+function markupToString(doc: string | lsp.MarkupContent): string {
+  return typeof doc === "string" ? doc : doc.value
+}
+
+function additionalEditsAsWorkspaceEdit(item: lsp.CompletionItem): lsp.WorkspaceEdit | undefined {
+  if (!item.additionalTextEdits || item.additionalTextEdits.length === 0) return undefined
+  if (!item.data || typeof item.data !== "object" || !("fileName" in item.data)) return undefined
+  const uri = `file://${(item.data as {fileName: string}).fileName}`
+  return {changes: {[uri]: item.additionalTextEdits}}
 }
 
 // this should more or less match ES6 specification for valid identifiers
@@ -347,20 +308,26 @@ function containsScope(scopes: ReadonlyArray<string>, matchScope: string): boole
   return false
 }
 
-function completionEntryToSuggestion(
-  isMemberCompletion: boolean | undefined,
-  entry: protocol.CompletionEntry,
-): SuggestionWithDetails {
+function completionEntryToSuggestion(entry: lsp.CompletionItem): SuggestionWithDetails {
+  const edit = entry.textEdit
+  const range = edit ? ("insert" in edit ? edit.replace : edit.range) : undefined
   return {
-    displayText: entry.name,
-    text: entry.insertText !== undefined ? entry.insertText : entry.name,
-    leftLabel: entry.kind,
-    replacementRange: entry.replacementSpan ? spanToRange(entry.replacementSpan) : undefined,
-    type: kindMap[entry.kind],
-    isMemberCompletion,
-    identifier: entry.source !== undefined ? {name: entry.name, source: entry.source} : entry.name,
-    hasAction: entry.hasAction,
+    displayText: entry.label,
+    text: entry.insertText !== undefined ? entry.insertText : entry.label,
+    leftLabel: kindLabel[entry.kind ?? 0],
+    replacementRange: range ? lspRangeToAtomRangeLocal(range) : undefined,
+    type: kindMap[entry.kind ?? 0],
+    isMemberCompletion: undefined,
+    identifier: entry,
+    hasAction: !!(entry.additionalTextEdits?.length || entry.command),
   }
+}
+
+function lspRangeToAtomRangeLocal(range: lsp.Range): Atom.Range {
+  return new Atom.Range(
+    [range.start.line, range.start.character],
+    [range.end.line, range.end.character],
+  )
 }
 
 function parens(opts: ACP.SuggestionsRequestedEvent) {
@@ -375,7 +342,7 @@ function addCallableParens(
   s: SuggestionWithDetails,
 ): ACP.TextSuggestion | ACP.SnippetSuggestion {
   if (
-    atom.config.get("atom-typescript.autocompleteParens") &&
+    atom.config.get("pulsar-typescript.autocompleteParens") &&
     ["function", "method"].includes(s.leftLabel!) &&
     !parens(opts)
   ) {
@@ -401,61 +368,71 @@ type ACPCompletionType =
   | "require"
   | "snippet"
 
-const kindMap: {[key in protocol.ScriptElementKind]: ACPCompletionType | undefined} = {
-  directory: "require",
-  module: "import",
-  "external module name": "import",
-  class: "class",
-  "local class": "class",
-  method: "method",
-  property: "property",
-  getter: "property",
-  setter: "property",
-  "JSX attribute": "property",
-  constructor: "method",
-  enum: "type",
-  interface: "type",
-  type: "type",
-  "type parameter": "type",
-  "primitive type": "type",
-  function: "function",
-  "local function": "function",
-  label: "variable",
-  alias: "import",
-  var: "variable",
-  let: "variable",
-  "local var": "variable",
-  parameter: "variable",
-  "enum member": "constant",
-  const: "constant",
-  string: "value",
-  keyword: "keyword",
-  "": undefined,
-  warning: undefined,
-  script: undefined,
-  call: undefined,
-  index: undefined,
-  construct: undefined,
+const kindMap: {[key in lsp.CompletionItemKind | 0]: ACPCompletionType | undefined} = {
+  [0]: undefined,
+  [lsp.CompletionItemKind.Text]: "value",
+  [lsp.CompletionItemKind.Method]: "method",
+  [lsp.CompletionItemKind.Function]: "function",
+  [lsp.CompletionItemKind.Constructor]: "method",
+  [lsp.CompletionItemKind.Field]: "property",
+  [lsp.CompletionItemKind.Variable]: "variable",
+  [lsp.CompletionItemKind.Class]: "class",
+  [lsp.CompletionItemKind.Interface]: "type",
+  [lsp.CompletionItemKind.Module]: "import",
+  [lsp.CompletionItemKind.Property]: "property",
+  [lsp.CompletionItemKind.Unit]: undefined,
+  [lsp.CompletionItemKind.Value]: "value",
+  [lsp.CompletionItemKind.Enum]: "type",
+  [lsp.CompletionItemKind.Keyword]: "keyword",
+  [lsp.CompletionItemKind.Snippet]: "snippet",
+  [lsp.CompletionItemKind.Color]: undefined,
+  [lsp.CompletionItemKind.File]: "require",
+  [lsp.CompletionItemKind.Reference]: "import",
+  [lsp.CompletionItemKind.Folder]: "require",
+  [lsp.CompletionItemKind.EnumMember]: "constant",
+  [lsp.CompletionItemKind.Constant]: "constant",
+  [lsp.CompletionItemKind.Struct]: "class",
+  [lsp.CompletionItemKind.Event]: undefined,
+  [lsp.CompletionItemKind.Operator]: undefined,
+  [lsp.CompletionItemKind.TypeParameter]: "type",
 }
 
-// This may look strange, but it guarantees the list is consistent with the type
-const triggerCharactersMap: {[K in CompletionsTriggerCharacter]: null} = {
-  ".": null,
-  '"': null,
-  "'": null,
-  "`": null,
-  "/": null,
-  "@": null,
-  "<": null,
-  "#": null,
+const kindLabel: {[key in lsp.CompletionItemKind | 0]: string} = {
+  [0]: "",
+  [lsp.CompletionItemKind.Text]: "text",
+  [lsp.CompletionItemKind.Method]: "method",
+  [lsp.CompletionItemKind.Function]: "function",
+  [lsp.CompletionItemKind.Constructor]: "constructor",
+  [lsp.CompletionItemKind.Field]: "field",
+  [lsp.CompletionItemKind.Variable]: "variable",
+  [lsp.CompletionItemKind.Class]: "class",
+  [lsp.CompletionItemKind.Interface]: "interface",
+  [lsp.CompletionItemKind.Module]: "module",
+  [lsp.CompletionItemKind.Property]: "property",
+  [lsp.CompletionItemKind.Unit]: "unit",
+  [lsp.CompletionItemKind.Value]: "value",
+  [lsp.CompletionItemKind.Enum]: "enum",
+  [lsp.CompletionItemKind.Keyword]: "keyword",
+  [lsp.CompletionItemKind.Snippet]: "snippet",
+  [lsp.CompletionItemKind.Color]: "color",
+  [lsp.CompletionItemKind.File]: "file",
+  [lsp.CompletionItemKind.Reference]: "reference",
+  [lsp.CompletionItemKind.Folder]: "folder",
+  [lsp.CompletionItemKind.EnumMember]: "enum member",
+  [lsp.CompletionItemKind.Constant]: "constant",
+  [lsp.CompletionItemKind.Struct]: "struct",
+  [lsp.CompletionItemKind.Event]: "event",
+  [lsp.CompletionItemKind.Operator]: "operator",
+  [lsp.CompletionItemKind.TypeParameter]: "type parameter",
 }
-const triggerCharacters = new Set<CompletionsTriggerCharacter>(Object.keys(triggerCharactersMap))
-function getTrigger(prefix: string | undefined): CompletionsTriggerCharacter | undefined {
+
+const triggerCharacters = new Set([".", '"', "'", "`", "/", "@", "<", "#"])
+function getTrigger(prefix: string | undefined): string | undefined {
   if (prefix === undefined) return undefined
   if (!prefix) return undefined
   const c = prefix.slice(-1)
-  if (triggerCharacters.has(c as CompletionsTriggerCharacter)) {
-    return c as CompletionsTriggerCharacter
+  if (triggerCharacters.has(c)) {
+    return c
   }
   return undefined
 }

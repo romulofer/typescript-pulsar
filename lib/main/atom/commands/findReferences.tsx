@@ -1,8 +1,9 @@
 import {TextEditor} from "atom"
 import * as etch from "etch"
 import * as fs from "fs"
+import * as lsp from "vscode-languageserver-protocol"
 import {TsView} from "../components/tsView"
-import {getFilePathPosition, highlight} from "../utils"
+import {getFilePathPosition, highlight, lspPositionToLocation, uriToFilePath} from "../utils"
 import {HighlightComponent} from "../views/highlightComponent"
 import {selectListView} from "../views/simpleSelectionView"
 import {addCommand, Dependencies} from "./registry"
@@ -20,27 +21,27 @@ addCommand("atom-text-editor", "typescript:find-references", (deps) => ({
 }))
 
 export async function handleFindReferencesResult(
-  result: protocol.ReferencesResponse,
+  result: lsp.Location[] | null,
   editor: TextEditor,
   histGoForward: Dependencies["histGoForward"],
 ): Promise<void> {
+  if (!result) return
+
   const refs = Promise.all(
-    result.body!.refs.map(async (ref) => {
+    result.map(async (ref) => {
+      const file = uriToFilePath(ref.uri)
+      const start = lspPositionToLocation(ref.range.start)
       const fileContents = (
         await new Promise<string>((resolve, reject) =>
-          fs.readFile(ref.file, (error, data) => {
+          fs.readFile(file, (error, data) => {
             if (error) reject(error)
             else resolve(data.toString("utf-8"))
           }),
         )
       ).split(/\r?\n/g)
-      const context =
-        ref.contextStart !== undefined && ref.contextEnd !== undefined
-          ? fileContents.slice(ref.contextStart.line - 1, ref.contextEnd.line)
-          : fileContents
-      const fileHlText = (await highlight(context.join("\n"), "source.tsx")).split("\n")
-      const lineText = fileHlText[ref.start.line - (ref.contextStart?.line ?? 1)]
-      return {...ref, hlText: lineText}
+      const line = fileContents[ref.range.start.line] ?? ""
+      const hlText = (await highlight(line, "source.tsx")).split("\n")[0]
+      return {file, start, hlText}
     }),
   )
 

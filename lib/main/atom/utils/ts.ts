@@ -1,27 +1,31 @@
 import * as Atom from "atom"
 import {Signature, SignatureParameter} from "atom-ide-base"
+import * as jsonc from "jsonc-parser"
+import * as fs from "fs"
 import * as path from "path"
-import ts from "typescript"
-import type {
-  CodeEdit,
-  FormatCodeSettings,
-  Location,
-  SignatureHelpItem,
-  SignatureHelpParameter,
-  TextSpan,
-  UserPreferences,
-} from "typescript/lib/protocol"
+import * as lsp from "vscode-languageserver-protocol"
 
-// NOTE: using TypeScript internals here. May be brittle!
-declare module "typescript" {
-  // tslint:disable-next-line: variable-name
-  export const Diagnostics: {
-    [key: string]: DiagnosticMessage
-  }
+/**
+ * 1-based line/offset, matching the old tsserver protocol convention. Kept as the app-wide
+ * internal coordinate type (distinct from LSP's 0-based `Range`/`Position`) since most of the
+ * UI code and the `execute()` request-building call sites are written against it.
+ */
+export interface Location {
+  line: number
+  offset: number
 }
 
-export {TextSpan, CodeEdit, FormatCodeSettings, Location}
-export const DiagnosticCategory = ts.DiagnosticCategory
+export interface TextSpan {
+  start: Location
+  end: Location
+}
+
+export interface CodeEdit extends TextSpan {
+  newText: string
+}
+
+export type FormatCodeSettings = Record<string, unknown>
+export type UserPreferences = Record<string, unknown>
 
 export interface LocationRangeQuery extends Location {
   endLine: number
@@ -57,6 +61,89 @@ export function rangeToLocationRange(range: Atom.Range): LocationRangeQuery {
   }
 }
 
+/** LSP `Position` is 0-based; our internal `Location` is 1-based. */
+export function lspPositionToLocation(pos: lsp.Position): Location {
+  return {line: pos.line + 1, offset: pos.character + 1}
+}
+
+export function locationToLspPosition(loc: Location): lsp.Position {
+  return {line: loc.line - 1, character: loc.offset - 1}
+}
+
+export function lspRangeToSpan(range: lsp.Range): TextSpan {
+  return {start: lspPositionToLocation(range.start), end: lspPositionToLocation(range.end)}
+}
+
+export function lspTextEditToCodeEdit(edit: lsp.TextEdit): CodeEdit {
+  return {...lspRangeToSpan(edit.range), newText: edit.newText}
+}
+
+/** LSP `Position` is already 0-based line/character, exactly matching `Atom.Point`. */
+export function lspPositionToPoint(pos: lsp.Position): Atom.Point {
+  return new Atom.Point(pos.line, pos.character)
+}
+
+export function lspRangeToAtomRange(range: lsp.Range): Atom.Range {
+  return new Atom.Range(lspPositionToPoint(range.start), lspPositionToPoint(range.end))
+}
+
+export function uriToFilePath(uri: string): string {
+  return new URL(uri).pathname
+}
+
+export interface FileEdit {
+  fileName: string
+  textChanges: CodeEdit[]
+}
+
+/** Flattens an LSP `WorkspaceEdit` (which can describe edits via `changes`, `documentChanges`, or
+ * both) into the app's internal per-file edit list, consumed by `pluginManager.ts`'s
+ * `applyEdits`. */
+export function lspWorkspaceEditToFileEdits(
+  edit: lsp.WorkspaceEdit | null | undefined,
+): FileEdit[] {
+  if (!edit) return []
+  const out: FileEdit[] = []
+  if (edit.changes) {
+    for (const [uri, edits] of Object.entries(edit.changes)) {
+      out.push({fileName: uriToFilePath(uri), textChanges: edits.map(lspTextEditToCodeEdit)})
+    }
+  }
+  if (edit.documentChanges) {
+    for (const dc of edit.documentChanges) {
+      if ("textDocument" in dc) {
+        out.push({
+          fileName: uriToFilePath(dc.textDocument.uri),
+          textChanges: (dc.edits as lsp.TextEdit[]).map(lspTextEditToCodeEdit),
+        })
+      }
+      // CreateFile/RenameFile/DeleteFile resource operations aren't applied here; none of our
+      // current LSP call sites produce them.
+    }
+  }
+  return out
+}
+
+export interface FileRange {
+  file: string
+  range: Atom.Range
+}
+
+/** `textDocument/definition` (and friends) may reply with a single `Location`, a `Location[]`, an
+ * array of `LocationLink`s, or nothing at all. Normalize all of those into one flat shape. */
+export function normalizeLocations(
+  result: lsp.Location | lsp.Location[] | lsp.LocationLink[] | null | undefined,
+): FileRange[] {
+  if (!result) return []
+  const arr = Array.isArray(result) ? result : [result]
+  return arr.map(
+    (loc): FileRange =>
+      "targetUri" in loc
+        ? {file: uriToFilePath(loc.targetUri), range: lspRangeToAtomRange(loc.targetRange)}
+        : {file: uriToFilePath(loc.uri), range: lspRangeToAtomRange(loc.range)},
+  )
+}
+
 export interface ProjectConfig {
   formatCodeOptions: FormatCodeSettings
   compileOnSave: boolean
@@ -78,16 +165,19 @@ export function getProjectConfig(configFile: string): ProjectConfig {
   }
 }
 
+/** Reads a tsconfig.json (tolerating comments/trailing commas) and follows its `extends` chain.
+ * Replaces the old `ts.readConfigFile`, which relied on the classic `typescript` JS API that
+ * TypeScript 7 no longer exports. */
 function loadConfig(configFile: string): Partial<ProjectConfig> {
   if (path.extname(configFile) !== ".json") {
     configFile = `${configFile}.json`
   }
-  let {
-    config,
-  }: {
-    config?: {[key: string]: unknown}
-  } = ts.readConfigFile(configFile, (file) => ts.sys.readFile(file))
-  if (config === undefined) return {}
+  let config: {[key: string]: unknown}
+  try {
+    config = (jsonc.parse(fs.readFileSync(configFile, "utf8")) as typeof config) ?? {}
+  } catch {
+    return {}
+  }
   if (typeof config.extends === "string") {
     const extendsPath = path.join(path.dirname(configFile), config.extends)
     const extendsConfig = loadConfig(extendsPath)
@@ -96,43 +186,26 @@ function loadConfig(configFile: string): Partial<ProjectConfig> {
   return config as ReturnType<typeof loadConfig>
 }
 
-export function signatureHelpItemToSignature(i: SignatureHelpItem): Signature {
+export function lspSignatureToSignature(sig: lsp.SignatureInformation): Signature {
   return {
-    label:
-      partsToStr(i.prefixDisplayParts) +
-      i.parameters
-        .map((x) => partsToStr(x.displayParts))
-        .join(partsToStr(i.separatorDisplayParts)) +
-      partsToStr(i.suffixDisplayParts),
-    documentation: partsToStr(i.documentation),
-    parameters: i.parameters.map(signatureHelpParameterToSignatureParameter),
+    label: sig.label,
+    documentation: markupToStr(sig.documentation),
+    parameters: (sig.parameters ?? []).map((p) => lspParameterToSignatureParameter(sig, p)),
   }
 }
 
-export function signatureHelpParameterToSignatureParameter(
-  p: SignatureHelpParameter,
+function lspParameterToSignatureParameter(
+  sig: lsp.SignatureInformation,
+  p: lsp.ParameterInformation,
 ): SignatureParameter {
+  const label = Array.isArray(p.label) ? sig.label.slice(p.label[0], p.label[1]) : p.label
   return {
-    label: partsToStr(p.displayParts),
-    documentation: partsToStr(p.documentation),
+    label,
+    documentation: markupToStr(p.documentation),
   }
 }
 
-export function partsToStr(x: Array<{text: string}>): string {
-  return x.map((i) => i.text).join("")
+function markupToStr(doc: string | lsp.MarkupContent | undefined): string {
+  if (doc === undefined) return ""
+  return typeof doc === "string" ? doc : doc.value
 }
-
-// tslint:disable-next-line: only-arrow-functions
-export const checkDiagnosticCategory = (function () {
-  let codeToCategory: Map<number, ts.DiagnosticCategory> | undefined
-  // tslint:disable-next-line: only-arrow-functions
-  return function (code: number | undefined, category: ts.DiagnosticCategory) {
-    if (code === undefined) return true
-    if (codeToCategory === undefined) {
-      codeToCategory = new Map(Object.values(ts.Diagnostics).map((x) => [x.code, x.category]))
-    }
-    const cat = codeToCategory.get(code)
-    if (cat === undefined) return true
-    return cat === category
-  }
-})()

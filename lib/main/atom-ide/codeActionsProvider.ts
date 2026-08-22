@@ -9,7 +9,7 @@ export function getCodeActionsProvider(codefixProvider: CodefixProvider): CodeAc
     priority: 0,
     async getCodeActions(textEditor: Atom.TextEditor, range: Atom.Range): Promise<CodeAction[]> {
       return (await codefixProvider.runCodeFix(textEditor, range.start)).map((fix) => ({
-        getTitle: async () => ("description" in fix ? fix.description : fix.actionDescription),
+        getTitle: async () => fix.action.title,
         dispose: () => {},
         apply: async () => {
           await codefixProvider.applyFix(fix)

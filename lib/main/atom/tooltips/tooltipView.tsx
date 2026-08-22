@@ -1,4 +1,5 @@
 import * as etch from "etch"
+import * as lsp from "vscode-languageserver-protocol"
 import {renderTooltip} from "./tooltipRenderer"
 import {adjustElementPosition} from "./util"
 
@@ -7,7 +8,7 @@ interface Props extends JSX.Props {
   right: number
   top: number
   bottom: number
-  info?: protocol.QuickInfoResponseBody
+  info?: lsp.Hover
 }
 
 export class TooltipView implements JSX.ElementClass {
@@ -42,7 +43,7 @@ export class TooltipView implements JSX.ElementClass {
       this.element,
       document.body,
       this.props,
-      atom.config.get("atom-typescript").tooltipPosition,
+      atom.config.get("pulsar-typescript").tooltipPosition,
     )
   }
 

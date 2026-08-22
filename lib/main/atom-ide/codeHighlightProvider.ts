@@ -1,10 +1,9 @@
 import {CodeHighlightProvider} from "atom-ide-base"
-import {DocumentHighlightsItem} from "typescript/lib/protocol"
 import {GetClientFunction} from "../../client"
 import {
   getFilePathPosition,
   isTypescriptEditorWithPath,
-  spanToRange,
+  lspRangeToAtomRange,
   typeScriptScopes,
 } from "../atom/utils"
 
@@ -17,19 +16,9 @@ export function getCodeHighlightProvider(getClient: GetClientFunction): CodeHigh
       const location = getFilePathPosition(editor, position)
       if (!location) return
       const client = await getClient(location.file)
-      const result = await client.execute("documentHighlights", {
-        ...location,
-        filesToSearch: [location.file],
-      })
-      if (!result.body) return
-      return Array.from(getSpans(location.file, result.body))
+      const result = await client.execute("documentHighlights", location)
+      if (!result) return
+      return result.map((hl) => lspRangeToAtomRange(hl.range))
     },
-  }
-}
-
-function* getSpans(file: string, data: DocumentHighlightsItem[]) {
-  for (const fileInfo of data) {
-    if (fileInfo.file !== file) continue
-    yield* fileInfo.highlightSpans.map(spanToRange)
   }
 }

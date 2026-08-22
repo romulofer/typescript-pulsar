@@ -1,6 +1,6 @@
 import * as Atom from "atom"
-import {debounce, DebouncedFunc, flatten} from "lodash"
-import {GetClientFunction, TSClient} from "../client"
+import {debounce, DebouncedFunc} from "lodash"
+import {findConfigFile, GetClientFunction, TSClient} from "../client"
 import {handlePromise} from "../utils"
 import {TBuildStatus} from "./atom/components/statusPanel"
 import {getOpenEditorsPaths, getProjectConfig, isTypescriptFile} from "./atom/utils"
@@ -43,7 +43,7 @@ export class TypescriptBuffer {
   private constructor(public buffer: Atom.TextBuffer, private deps: Deps) {
     let debouncedGetErr: DebouncedFunc<() => void>
     this.subscriptions.add(
-      atom.config.observe("atom-typescript.getErrDebounceTimeout", (val) => {
+      atom.config.observe("pulsar-typescript.getErrDebounceTimeout", (val) => {
         debouncedGetErr = debounce(() => {
           handlePromise(this.getErr({allFiles: false, delay: 0}))
         }, val)
@@ -100,19 +100,10 @@ export class TypescriptBuffer {
   private async compile() {
     if (!this.state) return
     const {client, filePath} = this.state
-    const result = await client.execute("compileOnSaveAffectedFileList", {
-      file: filePath,
-    })
-    const fileNames = flatten(result.body.map((project) => project.fileNames))
-
-    if (fileNames.length === 0) return
-
-    const promises = fileNames.map((file) => client.execute("compileOnSaveEmitFile", {file}))
-    const saved = await Promise.all(promises)
-
-    if (!saved.every((res) => !!res.body)) {
-      throw new Error("Some files failed to emit")
-    }
+    // No LSP equivalent for tsserver's compileOnSaveAffectedFileList/compileOnSaveEmitFile
+    // (TypeScript 7 dropped that protocol); this rejects with a clear message rather than
+    // silently doing nothing.
+    await client.execute("compileOnSaveEmitFile", {file: filePath})
   }
 
   private async doCompileOnSave() {
@@ -143,14 +134,9 @@ export class TypescriptBuffer {
 
       await this.init()
 
-      const result = await client.execute("projectInfo", {
-        needFileNameList: false,
-        file: filePath,
-      })
-
-      // TODO: wrong type here, complain on TS repo
-      if ((result.body!.configFileName as string | undefined) !== undefined) {
-        this.state.configFile = new Atom.File(result.body!.configFileName)
+      const configFilePath = await findConfigFile(filePath)
+      if (configFilePath !== undefined) {
+        this.state.configFile = new Atom.File(configFilePath)
         await this.readConfigFile()
         this.state.subscriptions.add(
           this.state.configFile.onDidChange(() => handlePromise(this.readConfigFile())),
@@ -167,7 +153,7 @@ export class TypescriptBuffer {
     if (!this.state || !this.state.configFile) return
     const options = getProjectConfig(this.state.configFile.getPath())
     this.compileOnSave = options.compileOnSave
-    const cfg = atom.config.get("atom-typescript")
+    const cfg = atom.config.get("pulsar-typescript")
     await this.state.client.execute("configure", {
       file: this.state.filePath,
       formatOptions: options.formatCodeOptions,

@@ -1,56 +1,30 @@
+import * as lsp from "vscode-languageserver-protocol"
+
+/** LSP `Hover.contents` bundles the signature and documentation into a single string (unlike the
+ * old tsserver protocol, which sent `displayString`/`documentation`/`tags` as separate fields).
+ * We can't reliably tell where the signature ends and the docs begin, so the first line (up to
+ * the first newline) is treated as code and the rest as plain doc text. */
 export async function renderTooltip(
-  data: protocol.QuickInfoResponseBody | undefined,
+  hover: lsp.Hover | undefined,
   etch: any,
   codeRenderer: (code: string) => Promise<JSX.Element> | JSX.Element,
 ) {
-  if (data === undefined) return null
+  if (hover === undefined) return null
 
-  const kind = (
-    <div className="atom-typescript-datatip-tooltip-kind">
-      {data.kind}
-      {formatKindModifiers(data.kindModifiers)}
-    </div>
-  )
+  const text = hoverContentsToString(hover.contents)
+  const newlineIdx = text.indexOf("\n")
+  const code = newlineIdx === -1 ? text : text.slice(0, newlineIdx)
+  const rest = newlineIdx === -1 ? "" : text.slice(newlineIdx + 1).trim()
 
-  // tslint:disable-next-line: strict-boolean-expressions // TODO: complain on TS
-  const tags = data.tags
-    ? data.tags.map((tag) => {
-        const tagClass =
-          "atom-typescript-datatip-tooltip-doc-tag " +
-          `atom-typescript-datatip-tooltip-doc-tag-name-${tag.name}`
-        return (
-          <div className={tagClass}>
-            <span className="atom-typescript-datatip-tooltip-doc-tag-name">{tag.name}</span>
-            {formatTagText(etch, tag.text)}
-          </div>
-        )
-      })
-    : null
+  const docs = rest ? <div className="atom-typescript-datatip-tooltip-doc">{rest}</div> : undefined
 
-  const docs = (
-    <div className="atom-typescript-datatip-tooltip-doc">
-      {data.documentation}
-      {tags}
-    </div>
-  )
-
-  const codeText = data.displayString.replace(/^\(.+?\)\s+/, "")
-  return [await codeRenderer(codeText), kind, docs]
+  return [await codeRenderer(code), docs].filter((x): x is JSX.Element => x !== undefined)
 }
 
-function formatKindModifiers(etch: any, text?: string) {
-  if (text === undefined) return null
-  return <span className="atom-typescript-datatip-tooltip-kind-modifiers">{text}</span>
-}
-
-function formatTagText(etch: any, tagText?: string) {
-  if (tagText === undefined) return null
-
-  const [, firstWord, restOfText] = /^\s*(\S*)([^]*)$/.exec(tagText)!
-  return (
-    <span className="atom-typescript-datatip-tooltip-doc-tag-text">
-      <span className="atom-typescript-datatip-tooltip-doc-tag-text-first-word">{firstWord}</span>
-      {restOfText}
-    </span>
-  )
+function hoverContentsToString(contents: lsp.Hover["contents"]): string {
+  if (typeof contents === "string") return contents
+  if (Array.isArray(contents)) {
+    return contents.map((c) => (typeof c === "string" ? c : c.value)).join("\n\n")
+  }
+  return contents.value
 }

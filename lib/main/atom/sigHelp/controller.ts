@@ -51,8 +51,8 @@ export class TooltipController {
     const curVisItem =
       visibleItem !== undefined
         ? visibleItem
-        : sigHelp?.selectedItemIndex !== undefined
-        ? sigHelp?.selectedItemIndex
+        : sigHelp?.activeSignature !== undefined && sigHelp?.activeSignature !== null
+        ? sigHelp.activeSignature
         : 0
     await this.view.update({visibleItem: curVisItem + shift})
   }
@@ -111,7 +111,7 @@ export class TooltipController {
         line: bufferPt.row + 1,
         offset: bufferPt.column + 1,
       })
-      return result.body
+      return result ?? undefined
     } catch (e) {
       return
     }

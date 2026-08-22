@@ -1,3 +1,37 @@
+## Unreleased
+
+### Breaking changes
+
+-   Migrate the TypeScript backend from `typescript@^4.2.3` to `typescript@^7.0.2`
+
+    TypeScript 7 replaces the native Go-based compiler ("Corsa"), and drops the classic
+    `tsserver` JSON protocol entirely in favor of standard Language Server Protocol
+    (`tsc --lsp --stdio`). This release rewrites the plugin's TypeScript client
+    (`lib/client/`) to speak LSP instead, and updates every editor feature (hover,
+    completion, definitions, references, outline, rename, code actions/fixes, refactors,
+    format, signature help, diagnostics) to the new protocol. Command names used
+    internally are unchanged, so this is mostly transparent, but a few features have no
+    LSP equivalent yet and are temporarily degraded:
+
+    -   `typescript:build` (project-wide emit) is disabled; use `tsc -p`/`tsc --build`
+        directly for now.
+    -   `typescript:check-all-files` now checks currently-open editors instead of every
+        file in the project (tsserver's `projectInfo` file enumeration has no LSP
+        equivalent).
+    -   `compileOnSave` (in a project's `tsconfig.json`) reports a clear error instead of
+        emitting, for the same reason.
+
+-   Rebrand the package for Pulsar: `name`/`repository`/`homepage` now point at this fork,
+    and `engines.atom` is raised to `>=1.100.0 <2.0.0`.
+-   CI now installs Pulsar (`pulsar-edit/action-pulsar-dependency`) instead of Atom.
+
+### Known follow-ups
+
+-   `tslint` (this project's linter) is long deprecated and largely non-functional;
+    migrating to ESLint is tracked as a separate, later change.
+-   `projectInfo`-based project-file enumeration and `compileOnSaveEmitFile`/
+    `compileOnSaveAffectedFileList` need a bespoke replacement (see above).
+
 ## 14.4.0
 
 ### New features

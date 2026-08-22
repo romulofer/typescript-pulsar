@@ -1,6 +1,7 @@
 import {FindReferencesProvider, Reference} from "atom-ide-base"
+import * as lsp from "vscode-languageserver-protocol"
 import {GetClientFunction} from "../../client"
-import {getFilePathPosition, isTypescriptEditorWithPath, locationsToRange} from "../atom/utils"
+import {getFilePathPosition, isTypescriptEditorWithPath, lspRangeToAtomRange} from "../atom/utils"
 
 export function getFindReferencesProvider(getClient: GetClientFunction): FindReferencesProvider {
   return {
@@ -13,21 +14,21 @@ export function getFindReferencesProvider(getClient: GetClientFunction): FindRef
 
       const client = await getClient(location.file)
       const result = await client.execute("references", location)
-      if (!result.body) return
+      if (!result) return
       return {
         type: "data",
         baseUri: location.file,
-        referencedSymbolName: result.body.symbolDisplayString,
-        references: result.body.refs.map(refTsToIde),
+        referencedSymbolName: "",
+        references: result.map(refToIde),
       }
     },
   }
 }
 
-function refTsToIde(ref: protocol.ReferencesResponseItem): Reference {
+function refToIde(ref: lsp.Location): Reference {
   return {
-    uri: ref.file,
-    range: locationsToRange(ref.start, ref.end),
+    uri: new URL(ref.uri).pathname,
+    range: lspRangeToAtomRange(ref.range),
     name: undefined,
   }
 }

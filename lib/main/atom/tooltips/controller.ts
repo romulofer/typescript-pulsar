@@ -1,4 +1,5 @@
 import * as Atom from "atom"
+import * as lsp from "vscode-languageserver-protocol"
 import {TSClient} from "../../../client"
 import {handlePromise} from "../../../utils"
 import {TooltipView} from "./tooltipView"
@@ -62,7 +63,6 @@ export class TooltipController {
   }
 
   private async getMessage(editor: Atom.TextEditor, bufferPt: Atom.Point) {
-    let result: protocol.QuickInfoResponse
     const client = await this.getClient(editor)
     if (!client) return
     const filePath = editor.getPath()
@@ -70,19 +70,18 @@ export class TooltipController {
       if (filePath === undefined) {
         return
       }
-      result = await client.execute("quickinfo", {
+      const result = await client.execute("quickinfo", {
         file: filePath,
         line: bufferPt.row + 1,
         offset: bufferPt.column + 1,
       })
+      return result ?? undefined
     } catch (e) {
       return
     }
-
-    return result.body
   }
 
-  private async showTooltip(tooltipRect: Rect, info: protocol.QuickInfoResponseBody) {
+  private async showTooltip(tooltipRect: Rect, info: lsp.Hover) {
     this.view = new TooltipView()
     document.body.appendChild(this.view.element)
     await this.view.update({...tooltipRect, info})

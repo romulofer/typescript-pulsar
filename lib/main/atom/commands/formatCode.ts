@@ -1,5 +1,11 @@
 import {TextEditor} from "atom"
-import {CodeEdit, LocationRangeQuery, rangeToLocationRange, spanToRange} from "../utils"
+import {
+  CodeEdit,
+  LocationRangeQuery,
+  lspTextEditToCodeEdit,
+  rangeToLocationRange,
+  spanToRange,
+} from "../utils"
 import {addCommand} from "./registry"
 
 addCommand("atom-text-editor", "typescript:format-code", (deps) => ({
@@ -33,8 +39,8 @@ addCommand("atom-text-editor", "typescript:format-code", (deps) => ({
     // Collect all edits together so we can update everything in a single transaction
     for (const range of ranges) {
       const result = await client.execute("format", {...range, file: filePath})
-      if (result.body) {
-        edits.push(...result.body)
+      if (result) {
+        edits.push(...result.map(lspTextEditToCodeEdit))
       }
     }
 

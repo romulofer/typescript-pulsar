@@ -1,14 +1,14 @@
 import {TextEditorElement} from "atom"
 import * as etch from "etch"
+import * as lsp from "vscode-languageserver-protocol"
 import {adjustElementPosition} from "../tooltips/util"
-import {partsToStr} from "../utils"
 
 interface Props extends JSX.Props {
   left: number
   right: number
   top: number
   bottom: number
-  sigHelp?: protocol.SignatureHelpItems
+  sigHelp?: lsp.SignatureHelp
   visibleItem?: number
 }
 
@@ -32,8 +32,8 @@ export class TooltipView implements JSX.ElementClass {
 
   public async update(props: Partial<Props>) {
     if (
-      props.sigHelp?.selectedItemIndex !== undefined &&
-      props.sigHelp?.selectedItemIndex !== this.props.sigHelp?.selectedItemIndex
+      props.sigHelp?.activeSignature !== undefined &&
+      props.sigHelp?.activeSignature !== this.props.sigHelp?.activeSignature
     ) {
       this.props.visibleItem = undefined
     }
@@ -41,8 +41,8 @@ export class TooltipView implements JSX.ElementClass {
     if (this.props.sigHelp === undefined) {
       this.props.visibleItem = undefined
     } else if (this.props.visibleItem !== undefined) {
-      this.props.visibleItem = this.props.visibleItem % this.props.sigHelp.items.length
-      if (this.props.visibleItem < 0) this.props.visibleItem += this.props.sigHelp.items.length
+      this.props.visibleItem = this.props.visibleItem % this.props.sigHelp.signatures.length
+      if (this.props.visibleItem < 0) this.props.visibleItem += this.props.sigHelp.signatures.length
     }
     await etch.update(this)
   }
@@ -52,7 +52,7 @@ export class TooltipView implements JSX.ElementClass {
       this.element,
       this.parent,
       this.props,
-      atom.config.get("atom-typescript").sigHelpPosition,
+      atom.config.get("pulsar-typescript").sigHelpPosition,
     )
   }
 
@@ -66,23 +66,23 @@ export class TooltipView implements JSX.ElementClass {
 
   private sigHelpHash() {
     if (!this.props.sigHelp) return undefined
-    const {start, end} = this.props.sigHelp.applicableSpan
-    return `${start.line}:${start.offset}-${end.line}:${end.offset}`
+    return this.props.sigHelp.signatures.map((s) => s.label).join("|")
   }
 
   private tooltipContents() {
     if (!this.props.sigHelp) return "…"
     const {sigHelp} = this.props
+    const selectedItemIndex = sigHelp.activeSignature ?? 0
     const visibleItem =
-      this.props.visibleItem !== undefined ? this.props.visibleItem : sigHelp.selectedItemIndex
-    const count = sigHelp.items.length
+      this.props.visibleItem !== undefined ? this.props.visibleItem : selectedItemIndex
+    const count = sigHelp.signatures.length
     const classes = ["atom-typescript-tooltip-signature-help"]
     if (count > 1) {
       classes.push("atom-typescript-tooltip-signature-help-changable")
     }
     function className(idx: number) {
       const newclasses = []
-      if (idx === sigHelp.selectedItemIndex) {
+      if (idx === selectedItemIndex) {
         newclasses.push("atom-typescript-tooltip-signature-help-selected")
       }
       if (idx === visibleItem) {
@@ -90,29 +90,36 @@ export class TooltipView implements JSX.ElementClass {
       }
       return [...classes, ...newclasses].join(" ")
     }
-    return sigHelp.items.map((sig, idx) => (
+    return sigHelp.signatures.map((sig, idx) => (
       <div className={className(idx)}>
         <div>
-          {partsToStr(sig.prefixDisplayParts)}
-          {this.renderSigHelpParams(sig.parameters, sigHelp.argumentIndex)}
-          {partsToStr(sig.suffixDisplayParts)}
+          {this.renderLabel(
+            sig,
+            idx === selectedItemIndex ? sigHelp.activeParameter ?? undefined : undefined,
+          )}
           <div className="atom-typescript-tooltip-signature-help-documentation">
-            {partsToStr(sig.documentation)}
+            {markupToStr(sig.documentation)}
           </div>
         </div>
       </div>
     ))
   }
 
-  private renderSigHelpParams(params: protocol.SignatureHelpParameter[], selIdx: number) {
-    return params.map((p, i) => (
-      <span className={`atom-typescript-tooltip-signature-help-parameter`}>
-        {i > 0 ? ", " : null}
-        <span
-          className={i === selIdx ? "atom-typescript-tooltip-signature-help-selected" : undefined}>
-          {partsToStr(p.displayParts)}
-        </span>
-      </span>
-    ))
+  private renderLabel(sig: lsp.SignatureInformation, activeParameter: number | undefined) {
+    const param = activeParameter !== undefined ? sig.parameters?.[activeParameter] : undefined
+    if (!param || typeof param.label === "string") return sig.label
+    const [start, end] = param.label
+    return [
+      sig.label.slice(0, start),
+      <span className="atom-typescript-tooltip-signature-help-selected">
+        {sig.label.slice(start, end)}
+      </span>,
+      sig.label.slice(end),
+    ]
   }
+}
+
+function markupToStr(doc: string | lsp.MarkupContent | undefined): string {
+  if (doc === undefined) return ""
+  return typeof doc === "string" ? doc : doc.value
 }

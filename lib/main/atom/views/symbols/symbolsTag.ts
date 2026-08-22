@@ -1,7 +1,9 @@
-import {NavigationTree, NavtoItem} from "typescript/lib/protocol"
+import * as lsp from "vscode-languageserver-protocol"
+import {symbolKindNames} from "../outline/navTreeUtils"
+import {NavigationTreeViewModel} from "../outline/semanticViewModel"
 
 export class Tag {
-  public static fromNavTree(navTree: NavigationTree, parent?: Tag | null) {
+  public static fromNavTree(navTree: NavigationTreeViewModel, parent?: Tag | null) {
     const start = navTree.spans[0].start
     return new Tag({
       name: navTree.text,
@@ -11,14 +13,21 @@ export class Tag {
     })
   }
 
-  public static fromNavto(navTo: NavtoItem, parent?: Tag | null) {
-    const start = navTo.start
+  public static fromWorkspaceSymbol(
+    sym: lsp.SymbolInformation | lsp.WorkspaceSymbol,
+    parent?: Tag | null,
+  ) {
+    const location = sym.location
+    const range = "range" in location ? location.range : undefined
+    const start = range
+      ? {row: range.start.line, column: range.start.character}
+      : {row: 0, column: 0}
     return new Tag({
-      name: navTo.name,
-      type: navTo.kind,
-      position: {row: start.line - 1, column: start.offset - 1},
+      name: sym.name,
+      type: symbolKindNames[sym.kind],
+      position: start,
       parent: parent != null ? parent : null,
-      file: navTo.file,
+      file: new URL(location.uri).pathname,
     })
   }
 

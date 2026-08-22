@@ -1,7 +1,7 @@
 import {CompositeDisposable, Point, TextEditor} from "atom"
 import {SignatureHelp, SignatureHelpProvider} from "atom-ide-base"
 import {GetClientFunction} from "../../client"
-import {signatureHelpItemToSignature, typeScriptScopes} from "../atom/utils"
+import {lspSignatureToSignature, typeScriptScopes} from "../atom/utils"
 
 export class TSSigHelpProvider implements SignatureHelpProvider {
   public triggerCharacters = new Set<string>([])
@@ -13,7 +13,7 @@ export class TSSigHelpProvider implements SignatureHelpProvider {
     const triggerCharsDefault = new Set(["<", "(", ","])
     const triggerCharsDisabled = new Set<string>([])
     this.disposables.add(
-      atom.config.observe("atom-typescript.sigHelpDisplayOnChange", (newVal) => {
+      atom.config.observe("pulsar-typescript.sigHelpDisplayOnChange", (newVal) => {
         this.triggerCharacters = newVal ? triggerCharsDefault : triggerCharsDisabled
       }),
     )
@@ -31,17 +31,16 @@ export class TSSigHelpProvider implements SignatureHelpProvider {
       const filePath = editor.getPath()
       if (filePath === undefined) return
       const client = await this.getClient(filePath)
-      const result = await client.execute("signatureHelp", {
+      const data = await client.execute("signatureHelp", {
         file: filePath,
         line: pos.row + 1,
         offset: pos.column + 1,
       })
-      const data = result.body!
-      const signatures = data.items.map(signatureHelpItemToSignature)
+      if (!data) return
       return {
-        signatures,
-        activeParameter: data.argumentIndex,
-        activeSignature: data.selectedItemIndex,
+        signatures: data.signatures.map(lspSignatureToSignature),
+        activeParameter: data.activeParameter ?? 0,
+        activeSignature: data.activeSignature ?? 0,
       }
     } catch (e) {
       return

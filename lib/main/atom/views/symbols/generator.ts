@@ -1,23 +1,22 @@
-import {NavigationTree, NavtoItem} from "typescript/lib/protocol"
+import * as lsp from "vscode-languageserver-protocol"
+import {symbolsToNavTree} from "../outline/navTreeUtils"
+import {NavigationTreeViewModel} from "../outline/semanticViewModel"
 import {Deps} from "./deps"
 import {Tag} from "./symbolsTag"
 
 export async function generateFile(filePath: string, deps: Deps) {
   const navtree = await getNavTree(filePath, deps)
-  if (navtree && navtree.childItems) {
-    // NOTE omit root NavigationTree tree element (which corresponds to the file itself)
-    return Array.from(parseNavTree(navtree.childItems))
-  } else return []
+  return Array.from(parseNavTree(navtree))
 }
 
 export async function generateProject(filePath: string, search: string, deps: Deps) {
-  const navtree = await getNavTo(filePath, search, deps)
-  if (navtree) {
-    return Array.from(parseNavTo(navtree))
+  const symbols = await getNavTo(filePath, search, deps)
+  if (symbols) {
+    return Array.from(parseNavTo(symbols))
   } else return []
 }
 
-function* parseNavTree(navTree: NavigationTree[], parent?: Tag): IterableIterator<Tag> {
+function* parseNavTree(navTree: NavigationTreeViewModel[], parent?: Tag): IterableIterator<Tag> {
   navTree.sort((a, b) => a.spans[0].start.line - b.spans[0].start.line)
   for (const item of navTree) {
     const tag = Tag.fromNavTree(item, parent)
@@ -26,19 +25,20 @@ function* parseNavTree(navTree: NavigationTree[], parent?: Tag): IterableIterato
   }
 }
 
-function* parseNavTo(navTree: NavtoItem[], parent?: Tag) {
-  for (const item of navTree) {
-    yield Tag.fromNavto(item, parent)
+function* parseNavTo(symbols: Array<lsp.SymbolInformation | lsp.WorkspaceSymbol>) {
+  for (const item of symbols) {
+    yield Tag.fromWorkspaceSymbol(item)
   }
 }
 
 async function getNavTree(filePath: string, deps: Deps) {
   try {
     const client = await deps.getClient(filePath)
-    const navtreeResult = await client.execute("navtree", {file: filePath})
-    return navtreeResult.body
+    const symbols = await client.execute("navtree", {file: filePath})
+    return symbols ? symbolsToNavTree(symbols) : []
   } catch (e) {
     console.error(filePath, e)
+    return []
   }
 }
 
@@ -47,11 +47,10 @@ async function getNavTo(filePath: string, search: string, deps: Deps) {
     const client = await deps.getClient(filePath)
     const navtoResult = await client.execute("navto", {
       file: filePath,
-      currentFileOnly: false,
       searchValue: search,
       maxResultCount: 1000,
     })
-    return navtoResult.body
+    return navtoResult
   } catch (e) {
     console.error(filePath, e)
   }

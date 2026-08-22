@@ -2,7 +2,6 @@ import {CompositeDisposable, Disposable, Point, TextEditor} from "atom"
 import * as etch from "etch"
 import {isEqual} from "lodash"
 import debounce from "lodash/debounce"
-import {NavigationTree} from "typescript/lib/protocol"
 import {GetClientFunction} from "../../../../client"
 import * as atomUtils from "../../utils"
 import {NavigationNodeComponent} from "./navigationNodeComponent"
@@ -12,6 +11,7 @@ import {
   getNodeStartOffset,
   prepareNavTree,
   restoreCollapsed,
+  symbolsToNavTree,
 } from "./navTreeUtils"
 import {NavigationTreeViewModel, SelectableNode, ToNodeScrollableEditor} from "./semanticViewModel"
 
@@ -45,18 +45,18 @@ export class NavigationTreeComponent
           },
         },
       }),
-      atom.config.observe("atom-typescript.longLineLength", (value) => {
+      atom.config.observe("pulsar-typescript.longLineLength", (value) => {
         if (value > 0) this.longLineLength = value
       }),
-      atom.config.observe("atom-typescript.largeFileLineCount", (value) => {
+      atom.config.observe("pulsar-typescript.largeFileLineCount", (value) => {
         if (value > 0) this.largeFileLineCount = value
       }),
       atom.config.observe("linter-ui-default.longLineLength", (value) => {
-        if (atom.config.get("atom-typescript.longLineLength") > 0) return
+        if (atom.config.get("pulsar-typescript.longLineLength") > 0) return
         if (typeof value === "number") this.longLineLength = value
       }),
       atom.config.observe("linter-ui-default.largeFileLineCount", (value) => {
-        if (atom.config.get("atom-typescript.largeFileLineCount") > 0) return
+        if (atom.config.get("pulsar-typescript.largeFileLineCount") > 0) return
         if (typeof value === "number") this.largeFileLineCount = value / 6
       }),
     )
@@ -130,7 +130,7 @@ export class NavigationTreeComponent
    * @param  {NavigationTree} node
    *              the node which's element should be made visible in the editor
    */
-  public gotoNode(node: NavigationTree): void {
+  public gotoNode(node: NavigationTreeViewModel): void {
     if (!this.editor) return
     const gotoLine = getNodeStartLine(node)
     const gotoOffset = getNodeStartOffset(node)
@@ -166,10 +166,16 @@ export class NavigationTreeComponent
     if (filePath === undefined) return
     try {
       const client = await this.getClient(filePath)
-      const navtreeResult = await client.execute("navtree", {file: filePath})
-      const navTree = navtreeResult.body
-      if (navTree) {
-        this.setNavTree(navTree as NavigationTreeViewModel)
+      const symbols = await client.execute("navtree", {file: filePath})
+      if (symbols) {
+        const navTree: NavigationTreeViewModel = {
+          text: filePath,
+          kind: "file",
+          spans: [],
+          childItems: symbolsToNavTree(symbols),
+          collapsed: undefined,
+        }
+        this.setNavTree(navTree)
         await etch.update(this)
       }
     } catch (err) {
@@ -224,7 +230,7 @@ export class NavigationTreeComponent
     await this.loadNavTree()
 
     const lineCount = this.lineCountIfLarge(editor)
-    if (!atom.config.get("atom-typescript.largeFileNoFollowCursor") || lineCount === 0) {
+    if (!atom.config.get("pulsar-typescript.largeFileNoFollowCursor") || lineCount === 0) {
       this.editorScrolling = editor.onDidChangeCursorPosition(this.selectAtCursorLine)
     }
     this.editorChanging = editor.onDidStopChanging(

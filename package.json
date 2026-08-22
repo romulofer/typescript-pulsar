@@ -1,5 +1,5 @@
 {
-  "name": "atom-typescript",
+  "name": "pulsar-typescript",
   "version": "14.4.0",
   "main": "./loader.js",
   "bundle": "./dist/main.js",
@@ -27,7 +27,7 @@
     "gen-config-types": "node scripts/typed-config.js lib/typings/atom-config.d.ts && prettier --write lib/typings/atom-config.d.ts"
   },
   "engines": {
-    "atom": ">=1.31.0 <2.0.0",
+    "atom": ">=1.100.0 <2.0.0",
     "node": "*"
   },
   "configSchema": {
@@ -460,22 +460,22 @@
       }
     }
   },
-  "homepage": "https://github.com/TypeStrong/atom-typescript",
+  "homepage": "https://github.com/romulofer/pulsar-typescript",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TypeStrong/atom-typescript.git"
+    "url": "https://github.com/romulofer/pulsar-typescript.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TypeStrong/atom-typescript/issues"
+    "url": "https://github.com/romulofer/pulsar-typescript/issues"
   },
   "dependencies": {
-    "typescript": "^4.2.3"
+    "typescript": "^7.0.2",
+    "vscode-jsonrpc": "^9.0.1"
   },
   "devDependencies": {
     "@parcel/transformer-typescript-tsc": "^2.0.0-beta.2",
     "@types/atom": "^1.40.10",
-    "@types/byline": "^4.2.32",
     "@types/chai": "^4.2.15",
     "@types/fs-plus": "^3.0.1",
     "@types/fuzzaldrin": "^2.1.3",
@@ -488,7 +488,6 @@
     "atom-select-list": "^0.8.0",
     "atom-ts-spec-runner": "^1.1.1",
     "atom-ts-transpiler": "^1.5.3",
-    "byline": "^5.0.0",
     "chai": "^4.3.4",
     "cross-env": "7.0.3",
     "etch": "^0.14.1",
@@ -502,7 +501,8 @@
     "tslib": "^2.1.0",
     "tslint": "^6.1.3",
     "tslint-use-atom-disposables": "0.0.1",
-    "typescript-tslint-plugin": "1.0.1"
+    "typescript-tslint-plugin": "1.0.1",
+    "vscode-languageserver-protocol": "^3.18.2"
   },
   "package-deps": [
     [

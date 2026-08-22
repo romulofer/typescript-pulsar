@@ -1,6 +1,65 @@
 import {isEqual} from "lodash"
-import {NavigationTree} from "typescript/lib/protocol"
+import * as lsp from "vscode-languageserver-protocol"
+import {lspRangeToSpan} from "../../utils"
 import {NavigationTreeViewModel} from "./semanticViewModel"
+
+export const symbolKindNames: Record<lsp.SymbolKind, string> = {
+  [lsp.SymbolKind.File]: "file",
+  [lsp.SymbolKind.Module]: "module",
+  [lsp.SymbolKind.Namespace]: "module",
+  [lsp.SymbolKind.Package]: "module",
+  [lsp.SymbolKind.Class]: "class",
+  [lsp.SymbolKind.Method]: "method",
+  [lsp.SymbolKind.Property]: "property",
+  [lsp.SymbolKind.Field]: "property",
+  [lsp.SymbolKind.Constructor]: "constructor",
+  [lsp.SymbolKind.Enum]: "enum",
+  [lsp.SymbolKind.Interface]: "interface",
+  [lsp.SymbolKind.Function]: "function",
+  [lsp.SymbolKind.Variable]: "variable",
+  [lsp.SymbolKind.Constant]: "constant",
+  [lsp.SymbolKind.String]: "string",
+  [lsp.SymbolKind.Number]: "primitive-type",
+  [lsp.SymbolKind.Boolean]: "primitive-type",
+  [lsp.SymbolKind.Array]: "type",
+  [lsp.SymbolKind.Object]: "type",
+  [lsp.SymbolKind.Key]: "property",
+  [lsp.SymbolKind.Null]: "primitive-type",
+  [lsp.SymbolKind.EnumMember]: "enum-member",
+  [lsp.SymbolKind.Struct]: "class",
+  [lsp.SymbolKind.Event]: "function",
+  [lsp.SymbolKind.Operator]: "function",
+  [lsp.SymbolKind.TypeParameter]: "type-parameter",
+}
+
+export function documentSymbolToNavTree(sym: lsp.DocumentSymbol): NavigationTreeViewModel {
+  return {
+    text: sym.name,
+    kind: symbolKindNames[sym.kind],
+    spans: [lspRangeToSpan(sym.range)],
+    nameSpan: lspRangeToSpan(sym.selectionRange),
+    childItems: sym.children?.map(documentSymbolToNavTree),
+    collapsed: undefined,
+  }
+}
+
+export function symbolInformationToNavTree(sym: lsp.SymbolInformation): NavigationTreeViewModel {
+  return {
+    text: sym.name,
+    kind: symbolKindNames[sym.kind],
+    spans: [lspRangeToSpan(sym.location.range)],
+    collapsed: undefined,
+  }
+}
+
+export function symbolsToNavTree(
+  symbols: lsp.DocumentSymbol[] | lsp.SymbolInformation[],
+): NavigationTreeViewModel[] {
+  if (symbols.length === 0) return []
+  return "location" in symbols[0]
+    ? (symbols as lsp.SymbolInformation[]).map(symbolInformationToNavTree)
+    : (symbols as lsp.DocumentSymbol[]).map(documentSymbolToNavTree)
+}
 
 function getElStartLine(elem: HTMLElement): number {
   // tslint:disable-next-line: no-string-literal
@@ -72,7 +131,7 @@ export function findNodeAt(
  * @param  node the NavTre node
  * @return the start line for the NavTree node, or 0, if none could be determined
  */
-export function getNodeStartLine(node: NavigationTree): number {
+export function getNodeStartLine(node: NavigationTreeViewModel): number {
   return node.spans.length > 0 ? node.spans[0].start.line - 1 : 0
 }
 
@@ -81,7 +140,7 @@ export function getNodeStartLine(node: NavigationTree): number {
  * @param  node the NavTre node
  * @return the start column for the NavTree node, or 0, if none could be determined
  */
-export function getNodeStartOffset(node: NavigationTree): number {
+export function getNodeStartOffset(node: NavigationTreeViewModel): number {
   return node.spans.length > 0 ? node.spans[0].start.offset - 1 : 0
 }
 
@@ -90,7 +149,7 @@ export function getNodeStartOffset(node: NavigationTree): number {
  * @param  node the NavTre node
  * @return the end line for the NavTree node, or 0, if none could be determined
  */
-export function getNodeEndLine(node: NavigationTree): number {
+export function getNodeEndLine(node: NavigationTreeViewModel): number {
   const s = node.spans
   return s.length > 0 ? s[s.length - 1].end.line - 1 : 0
 }

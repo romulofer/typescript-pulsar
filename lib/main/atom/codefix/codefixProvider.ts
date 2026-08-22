@@ -1,17 +1,17 @@
 import * as Atom from "atom"
-import {ClientResolver, TSClient} from "../../../client"
+import * as lsp from "vscode-languageserver-protocol"
+import {ClientResolver} from "../../../client"
 import {ErrorPusher} from "../../errorPusher"
 import {ApplyEdits} from "../../pluginManager"
-import {
-  applyRefactors,
-  getApplicableRefactorsActions,
-  RefactorAction,
-} from "../commands/refactorCode"
-import {pointToLocation, spanToRange} from "../utils"
+import {getApplicableRefactorsActions, RefactorAction} from "../commands/refactorCode"
+import {lspWorkspaceEditToFileEdits, pointToLocation, spanToRange} from "../utils"
+
+export interface CodeFixAction {
+  file: string
+  action: lsp.CodeAction | lsp.Command
+}
 
 export class CodefixProvider {
-  private supportedFixes: WeakMap<TSClient, Set<number>> = new WeakMap()
-
   constructor(
     private clientResolver: ClientResolver,
     private errorPusher: ErrorPusher,
@@ -22,89 +22,72 @@ export class CodefixProvider {
     const filePath = textEditor.getPath()
     if (filePath === undefined) return []
     const errors = this.errorPusher.getErrorsInRange(filePath, range)
-    const client = await this.clientResolver.get(filePath)
-    const supportedCodes = await this.getSupportedFixes(client)
-
-    const ranges = Array.from(errors)
-      .filter((error) => error.code !== undefined && supportedCodes.has(error.code))
-      .map((error) => spanToRange(error))
-
-    return ranges
+    return Array.from(errors).map((error) => spanToRange(error))
   }
 
   public async runCodeFix(
     textEditor: Atom.TextEditor,
     bufferPosition: Atom.Point,
-  ): Promise<Array<protocol.CodeAction | RefactorAction>> {
+  ): Promise<Array<CodeFixAction | RefactorAction>> {
     const filePath = textEditor.getPath()
 
     if (filePath === undefined) return []
 
     const client = await this.clientResolver.get(filePath)
-    const supportedCodes = await this.getSupportedFixes(client)
 
     const requests = Array.from(this.errorPusher.getErrorsAt(filePath, bufferPosition))
-      .filter((error) => error.code !== undefined && supportedCodes.has(error.code))
+      .filter((error) => error.code !== undefined)
       .map((error) =>
         client.execute("getCodeFixes", {
           file: filePath,
-          startLine: error.start.line,
-          startOffset: error.start.offset,
+          line: error.start.line,
+          offset: error.start.offset,
           endLine: error.end.line,
           endOffset: error.end.offset,
-          errorCodes: [error.code!],
+          errorCodes: [error.code!].map((c) => (typeof c === "string" ? parseInt(c, 10) : c)),
         }),
       )
 
     const fixes = await Promise.all(requests)
-    const results: Array<protocol.CodeAction | RefactorAction> = []
+    const results: CodeFixAction[] = []
 
     for (const result of fixes) {
-      if (result.body) {
-        for (const fix of result.body) {
-          results.push(fix)
-        }
+      for (const fix of result) {
+        results.push({file: filePath, action: fix})
       }
     }
 
     const refactors = await getApplicableRefactorsActions(client, {
       file: filePath,
       ...pointToLocation(bufferPosition),
+      endLine: bufferPosition.row + 1,
+      endOffset: bufferPosition.column + 1,
     })
 
-    results.push(...refactors)
-
-    return results
+    return [...results, ...refactors]
   }
 
-  public async applyFix(fix: protocol.CodeAction | RefactorAction) {
-    if ("changes" in fix) return this.applyEdits(fix.changes)
-    else {
-      const client = await this.clientResolver.get(fix.refactorRange.file)
-      return applyRefactors(fix, client, {
-        applyEdits: this.applyEdits,
-      })
+  public async applyFix(fix: CodeFixAction | RefactorAction) {
+    const client = await this.clientResolver.get(fix.file)
+    const action = fix.action
+    if (isCodeAction(action)) {
+      const resolved = action.edit
+        ? action
+        : await client.execute("resolveCodeAction", {file: fix.file, action})
+      await this.applyEdits(lspWorkspaceEditToFileEdits(resolved.edit))
+      if (resolved.command) {
+        await client.execute("applyCodeActionCommand", {file: fix.file, command: resolved.command})
+      }
+    } else {
+      await client.execute("applyCodeActionCommand", {file: fix.file, command: action})
     }
   }
 
   public dispose() {
     // NOOP
   }
+}
 
-  private async getSupportedFixes(client: TSClient) {
-    let codes = this.supportedFixes.get(client)
-    if (codes) {
-      return codes
-    }
-
-    const result = await client.execute("getSupportedCodeFixes")
-
-    if (!result.body) {
-      throw new Error("No code fixes are supported")
-    }
-
-    codes = new Set(result.body.map((code) => parseInt(code, 10)))
-    this.supportedFixes.set(client, codes)
-    return codes
-  }
+function isCodeAction(action: lsp.CodeAction | lsp.Command): action is lsp.CodeAction {
+  return typeof (action as lsp.Command).command !== "string"
 }

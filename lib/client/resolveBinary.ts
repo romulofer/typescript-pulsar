@@ -16,45 +16,46 @@ interface VSCodeConfigObject {
   "typescript.tsdk": string
 }
 
-export async function resolveBinary(
-  sourcePath: string,
-  binBaseName: "tsc" | "tsserver",
-): Promise<Binary> {
+/**
+ * Locates the `tsc` binary (TypeScript >=7's native compiler, which also serves as the LSP
+ * server via `tsc --lsp --stdio`). Unlike the classic `typescript` package, TypeScript 7 no
+ * longer ships `lib/tsserver.js` — the only entry point is `bin/tsc`.
+ */
+export async function resolveBinary(sourcePath: string): Promise<Binary> {
   const {NODE_PATH} = process.env as {NODE_PATH?: string}
-  const binName = `${binBaseName}.js`
 
-  const resolvedPath = await resolveModule(`typescript/lib/${binName}`, {
+  const resolvedPath = await resolveModule("typescript/package.json", {
     basedir: path.dirname(sourcePath),
     paths: NODE_PATH !== undefined ? NODE_PATH.split(path.delimiter) : undefined,
   }).catch(async () => {
     // try to get typescript from auxiliary config file
     const auxTsdkPath = await getSDKPath(path.dirname(sourcePath))
     if (auxTsdkPath !== undefined) {
-      const binPath = path.join(auxTsdkPath, "lib", binName)
-      const exists = await fsExists(binPath)
-      if (exists) return binPath
+      const pkgPath = path.join(auxTsdkPath, "package.json")
+      const exists = await fsExists(pkgPath)
+      if (exists) return pkgPath
     }
 
     // try to get typescript from configured tsdkPath
-    const tsdkPath = atom.config.get("atom-typescript.tsdkPath")
+    const tsdkPath = atom.config.get("pulsar-typescript.tsdkPath")
     if (tsdkPath) {
-      const binPath = path.join(tsdkPath, "lib", binName)
-      const exists = await fsExists(binPath)
-      if (exists) return binPath
+      const pkgPath = path.join(tsdkPath, "package.json")
+      const exists = await fsExists(pkgPath)
+      if (exists) return pkgPath
     }
 
     // use bundled version
-    const defaultPath = require.resolve(`typescript/lib/${binName}`)
-    return defaultPath
+    return require.resolve("typescript/package.json")
   })
 
-  const packagePath = path.resolve(resolvedPath, "../../package.json")
   // tslint:disable-next-line:no-unsafe-any
-  const version: string = require(packagePath).version
+  const pkg = require(resolvedPath) as {version: string; bin?: Record<string, string>}
+  const packageDir = path.dirname(resolvedPath)
+  const binRelPath = pkg.bin?.tsc ?? "bin/tsc"
 
   return {
-    version,
-    pathToBin: resolvedPath,
+    version: pkg.version,
+    pathToBin: path.join(packageDir, binRelPath),
   }
 }
 
@@ -141,5 +142,20 @@ async function getSDKPath(dirname: string) {
     } catch (e) {
       console.warn(e)
     }
+  }
+}
+
+/** Walks up from `fromPath` looking for the nearest `tsconfig.json`. Replaces the old
+ * `ts.findConfigFile`, which relied on the classic `typescript` JS API that TypeScript 7 no
+ * longer exports. */
+export async function findConfigFile(fromPath: string): Promise<string | undefined> {
+  let dir = path.dirname(fromPath)
+  let parent = path.dirname(dir)
+  for (;;) {
+    const candidate = path.join(dir, "tsconfig.json")
+    if (await fsExists(candidate)) return candidate
+    if (dir === parent) return undefined
+    dir = parent
+    parent = path.dirname(dir)
   }
 }

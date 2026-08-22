@@ -1,3 +1,4 @@
+import {lspTextEditToCodeEdit} from "../utils"
 import {addCommand} from "./registry"
 
 addCommand("atom-text-editor", "typescript:organize-imports", (deps) => ({
@@ -10,6 +11,8 @@ addCommand("atom-text-editor", "typescript:organize-imports", (deps) => ({
     const result = await client.execute("organizeImports", {
       scope: {type: "file", args: {file: filePath}},
     })
-    if (result.body.length > 0) await deps.applyEdits(result.body)
+    if (result.length > 0) {
+      await deps.applyEdits([{fileName: filePath, textChanges: result.map(lspTextEditToCodeEdit)}])
+    }
   },
 }))

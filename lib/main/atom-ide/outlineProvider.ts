@@ -1,7 +1,7 @@
 import {OutlineProvider, OutlineTree, OutlineTreeKind} from "atom-ide-base"
-import {NavigationTree, ScriptElementKind} from "typescript/lib/protocol"
+import * as lsp from "vscode-languageserver-protocol"
 import {GetClientFunction} from "../../client"
-import {spanToRange, typeScriptScopes} from "../atom/utils"
+import {lspRangeToAtomRange, typeScriptScopes} from "../atom/utils"
 
 export function getOutlineProvider(getClient: GetClientFunction): OutlineProvider {
   return {
@@ -13,24 +13,43 @@ export function getOutlineProvider(getClient: GetClientFunction): OutlineProvide
       const filePath = editor.getPath()
       if (filePath === undefined) return
       const client = await getClient(filePath)
-      const navTreeResult = await client.execute("navtree", {file: filePath})
-      const navTree = navTreeResult.body
-      if (!navTree) return
-      return {outlineTrees: [navTreeToOutline(navTree)]}
+      const navTree = await client.execute("navtree", {file: filePath})
+      if (!navTree || navTree.length === 0) return
+      if (isDocumentSymbols(navTree)) {
+        return {outlineTrees: navTree.map(docSymbolToOutline).sort(compareNodes)}
+      }
+      return {outlineTrees: navTree.map(symbolInfoToOutline).sort(compareNodes)}
     },
   }
 }
 
-function navTreeToOutline(navTree: NavigationTree): OutlineTree {
-  const ranges = navTree.spans.map(spanToRange)
-  const range = ranges.reduce((prev, cur) => cur.union(prev))
+function isDocumentSymbols(
+  symbols: lsp.DocumentSymbol[] | lsp.SymbolInformation[],
+): symbols is lsp.DocumentSymbol[] {
+  return !("location" in symbols[0])
+}
+
+function docSymbolToOutline(sym: lsp.DocumentSymbol): OutlineTree {
+  const range = lspRangeToAtomRange(sym.range)
   return {
-    kind: kindMap[navTree.kind],
-    plainText: navTree.text,
+    kind: kindMap[sym.kind],
+    plainText: sym.name,
     startPosition: range.start,
     endPosition: range.end,
-    landingPosition: navTree.nameSpan ? spanToRange(navTree.nameSpan).start : undefined,
-    children: navTree.childItems ? navTree.childItems.map(navTreeToOutline).sort(compareNodes) : [],
+    landingPosition: lspRangeToAtomRange(sym.selectionRange).start,
+    children: (sym.children ?? []).map(docSymbolToOutline).sort(compareNodes),
+  }
+}
+
+function symbolInfoToOutline(sym: lsp.SymbolInformation): OutlineTree {
+  const range = lspRangeToAtomRange(sym.location.range)
+  return {
+    kind: kindMap[sym.kind],
+    plainText: sym.name,
+    startPosition: range.start,
+    endPosition: range.end,
+    landingPosition: range.start,
+    children: [],
   }
 }
 
@@ -40,58 +59,31 @@ function compareNodes(a: OutlineTree, b: OutlineTree): number {
   return apos.compare(bpos)
 }
 
-const kindMap: {[key in ScriptElementKind]: OutlineTreeKind | undefined} = {
-  // | "file"
-  directory: "file",
-  // | "module"
-  module: "module",
-  "external module name": "module",
-  // | "namespace"
-  // | "package"
-  // | "class"
-  class: "class",
-  "local class": "class",
-  // | "method"
-  method: "method",
-  // | "property"
-  property: "property",
-  getter: "property",
-  setter: "property",
-  // | "field"
-  "JSX attribute": "field",
-  // | "constructor"
-  constructor: "constructor",
-  // | "enum"
-  enum: "enum",
-  // | "interface"
-  interface: "interface",
-  type: "interface",
-  // | "function"
-  function: "function",
-  "local function": "function",
-  // | "variable"
-  label: "variable",
-  alias: "variable",
-  var: "variable",
-  let: "variable",
-  "local var": "variable",
-  parameter: "variable",
-  // | "constant"
-  "enum member": "constant",
-  const: "constant",
-  // | "string"
-  string: "string",
-  // | "number"
-  // | "boolean"
-  // | "array"
-  // ???
-  "": undefined,
-  warning: undefined,
-  keyword: undefined,
-  script: undefined,
-  call: undefined,
-  index: undefined,
-  construct: undefined,
-  "type parameter": undefined,
-  "primitive type": undefined,
+const kindMap: {[key in lsp.SymbolKind]: OutlineTreeKind | undefined} = {
+  [lsp.SymbolKind.File]: "file",
+  [lsp.SymbolKind.Module]: "module",
+  [lsp.SymbolKind.Namespace]: "module",
+  [lsp.SymbolKind.Package]: "module",
+  [lsp.SymbolKind.Class]: "class",
+  [lsp.SymbolKind.Method]: "method",
+  [lsp.SymbolKind.Property]: "property",
+  [lsp.SymbolKind.Field]: "field",
+  [lsp.SymbolKind.Constructor]: "constructor",
+  [lsp.SymbolKind.Enum]: "enum",
+  [lsp.SymbolKind.Interface]: "interface",
+  [lsp.SymbolKind.Function]: "function",
+  [lsp.SymbolKind.Variable]: "variable",
+  [lsp.SymbolKind.Constant]: "constant",
+  [lsp.SymbolKind.String]: "string",
+  [lsp.SymbolKind.Number]: undefined,
+  [lsp.SymbolKind.Boolean]: undefined,
+  [lsp.SymbolKind.Array]: undefined,
+  [lsp.SymbolKind.Object]: undefined,
+  [lsp.SymbolKind.Key]: undefined,
+  [lsp.SymbolKind.Null]: undefined,
+  [lsp.SymbolKind.EnumMember]: "constant",
+  [lsp.SymbolKind.Struct]: "class",
+  [lsp.SymbolKind.Event]: undefined,
+  [lsp.SymbolKind.Operator]: undefined,
+  [lsp.SymbolKind.TypeParameter]: undefined,
 }

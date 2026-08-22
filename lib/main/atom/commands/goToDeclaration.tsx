@@ -1,6 +1,7 @@
 import {TextEditor} from "atom"
 import * as etch from "etch"
-import {getFilePathPosition} from "../utils"
+import * as lsp from "vscode-languageserver-protocol"
+import {getFilePathPosition, normalizeLocations, pointToLocation} from "../utils"
 import {HighlightComponent} from "../views/highlightComponent"
 import {selectListView} from "../views/simpleSelectionView"
 import {addCommand, Dependencies} from "./registry"
@@ -18,15 +19,20 @@ addCommand("atom-text-editor", "typescript:go-to-declaration", (deps) => ({
 }))
 
 export async function handleDefinitionResult(
-  result: protocol.DefinitionResponse,
+  result: lsp.Location | lsp.Location[] | lsp.LocationLink[] | null,
   editor: TextEditor,
   histGoForward: Dependencies["histGoForward"],
 ): Promise<void> {
-  if (!result.body) {
+  const locations = normalizeLocations(result).map((loc) => ({
+    file: loc.file,
+    start: pointToLocation(loc.range.start),
+  }))
+
+  if (locations.length === 0) {
     return
-  } else if (result.body.length > 1) {
+  } else if (locations.length > 1) {
     const res = await selectListView({
-      items: result.body,
+      items: locations,
       itemTemplate: (item, ctx) => {
         return (
           <li>
@@ -38,7 +44,7 @@ export async function handleDefinitionResult(
       itemFilterKey: "file",
     })
     if (res) await histGoForward(editor, res)
-  } else if (result.body.length > 0) {
-    await histGoForward(editor, result.body[0])
+  } else {
+    await histGoForward(editor, locations[0])
   }
 }

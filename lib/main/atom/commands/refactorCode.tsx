@@ -1,18 +1,14 @@
 import * as etch from "etch"
-import protocol from "typescript/lib/protocol"
+import * as lsp from "vscode-languageserver-protocol"
 import {TSClient} from "../../../client"
-import {getFilePathPosition} from "../utils"
+import {getFilePathPosition, lspWorkspaceEditToFileEdits, rangeToLocationRange} from "../utils"
 import {HighlightComponent} from "../views/highlightComponent"
 import {selectListView} from "../views/simpleSelectionView"
 import {addCommand, Dependencies} from "./registry"
 
 export interface RefactorAction {
-  refactorName: string
-  refactorDescription: string
-  refactorRange: protocol.FileLocationOrRangeRequestArgs
-  actionName: string
-  actionDescription: string
-  inlineable: boolean
+  file: string
+  action: lsp.CodeAction
 }
 
 addCommand("atom-text-editor", "typescript:refactor-selection", (deps) => ({
@@ -24,17 +20,16 @@ addCommand("atom-text-editor", "typescript:refactor-selection", (deps) => ({
     const selection = editor.getSelectedBufferRange()
     const client = await deps.getClient(location.file)
 
-    const fileRange: protocol.FileLocationOrRangeRequestArgs = selection.isEmpty()
-      ? location
-      : {
-          file: location.file,
-          startLine: selection.start.row + 1,
-          startOffset: selection.start.column + 1,
-          endLine: selection.end.row + 1,
-          endOffset: selection.end.column + 1,
+    const range = selection.isEmpty()
+      ? {
+          line: location.line,
+          offset: location.offset,
+          endLine: location.line,
+          endOffset: location.offset,
         }
+      : rangeToLocationRange(selection)
 
-    const actions = await getApplicableRefactorsActions(client, fileRange)
+    const actions = await getApplicableRefactorsActions(client, {...range, file: location.file})
 
     if (actions.length === 0) {
       atom.notifications.addInfo("AtomTS: No applicable refactors for the selection")
@@ -42,18 +37,15 @@ addCommand("atom-text-editor", "typescript:refactor-selection", (deps) => ({
     }
 
     const selectedAction = await selectListView({
-      items: actions,
+      items: actions.map((a) => ({...a, title: a.action.title})),
       itemTemplate: (item, ctx) => {
         return (
           <li>
-            <HighlightComponent
-              label={`${item.refactorDescription}: ${item.actionDescription}`}
-              query={ctx.getFilterQuery()}
-            />
+            <HighlightComponent label={item.title} query={ctx.getFilterQuery()} />
           </li>
         )
       },
-      itemFilterKey: "actionDescription",
+      itemFilterKey: "title",
     })
 
     if (selectedAction === undefined) return
@@ -63,67 +55,27 @@ addCommand("atom-text-editor", "typescript:refactor-selection", (deps) => ({
 
 export async function getApplicableRefactorsActions(
   client: TSClient,
-  pointOrRange: protocol.FileLocationOrRangeRequestArgs,
-) {
-  const responseApplicable = await getApplicabeRefactors(client, pointOrRange)
-  if (!responseApplicable) return []
-  if (responseApplicable.body === undefined || responseApplicable.body.length === 0) {
-    return []
-  }
-
-  const actions: RefactorAction[] = []
-  for (const refactor of responseApplicable.body) {
-    for (const action of refactor.actions) {
-      actions.push({
-        refactorName: refactor.name,
-        refactorDescription: refactor.description,
-        refactorRange: pointOrRange,
-        actionName: action.name,
-        actionDescription: action.description,
-        inlineable: refactor.inlineable !== undefined ? refactor.inlineable : true,
-      })
-    }
-  }
-
-  return actions
-}
-
-async function getApplicabeRefactors(
-  client: TSClient,
-  pointOrRange: protocol.FileLocationOrRangeRequestArgs,
-) {
+  range: {file: string; line: number; offset: number; endLine: number; endOffset: number},
+): Promise<RefactorAction[]> {
   try {
-    return await client.execute("getApplicableRefactors", {
-      triggerReason: "invoked",
-      ...pointOrRange,
-    })
+    const results = await client.execute("getApplicableRefactors", range)
+    return results
+      .filter((r): r is lsp.CodeAction => "edit" in r || "kind" in r)
+      .map((action) => ({file: range.file, action}))
   } catch {
-    return undefined
+    return []
   }
 }
 
 export async function applyRefactors(
-  selectedAction: RefactorAction,
+  selected: RefactorAction,
   client: TSClient,
   deps: Pick<Dependencies, "applyEdits">,
 ) {
-  const responseEdits = await client.execute("getEditsForRefactor", {
-    ...selectedAction.refactorRange,
-    refactor: selectedAction.refactorName,
-    action: selectedAction.actionName,
+  const resolved = await client.execute("resolveCodeAction", {
+    file: selected.file,
+    action: selected.action,
   })
 
-  if (responseEdits.body === undefined) return
-  const {edits, renameFilename, renameLocation} = responseEdits.body
-
-  await deps.applyEdits(edits)
-
-  if (renameFilename === undefined || renameLocation === undefined) return
-
-  const editor = await atom.workspace.open(renameFilename, {
-    searchAllPanes: true,
-    initialLine: renameLocation.line - 1,
-    initialColumn: renameLocation.offset - 1,
-  })
-  await atom.commands.dispatch(atom.views.getView(editor), "typescript:rename-refactor")
+  await deps.applyEdits(lspWorkspaceEditToFileEdits(resolved.edit))
 }

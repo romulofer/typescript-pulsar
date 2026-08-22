@@ -1,83 +1,57 @@
-// tslint:disable:max-classes-per-file
 import {BufferedNodeProcess, BufferedProcess, Emitter} from "atom"
-import byline from "byline"
 import {ChildProcess} from "child_process"
-import {Readable, Transform} from "stream"
-import protocol from "typescript/lib/protocol"
+import {pathToFileURL} from "url"
+import * as lsp from "vscode-languageserver-protocol"
+import * as rpc from "vscode-jsonrpc/node"
 import {ReportBusyWhile} from "../main/pluginManager"
-import {Callbacks} from "./callbacks"
 import {
   AllTSClientCommands,
+  ChangeParams,
+  CloseParams,
   CommandArg,
   CommandRes,
-  CommandsWithMultistep,
-  CommandsWithResponse,
+  CompletionEntryDetailsParams,
+  CompletionsParams,
+  ConfigureParams,
+  FileLocationQuery,
+  FormatParams,
+  GetApplicableRefactorsParams,
+  GetCodeFixesParams,
+  GetEditsForFileRenameParams,
+  GetErrParams,
+  LocationRangeQuery,
+  NavtoParams,
+  OpenParams,
+  OrganizeImportsParams,
+  RenameParams,
+  ResolveCodeActionParams,
 } from "./commandArgsResponseMap"
 import {DiagnosticEventTypes} from "./events"
 
-// Set this to true to start tsserver with node --inspect
+// Set this to true to start the LSP server with node --inspect
 const INSPECT_TSSERVER = false
 
-const commandWithResponseMap: {readonly [K in CommandsWithResponse]: true} = {
-  compileOnSaveAffectedFileList: true,
-  compileOnSaveEmitFile: true,
-  completionEntryDetails: true,
-  completions: true,
-  completionInfo: true,
-  configure: true,
-  definition: true,
-  format: true,
-  getCodeFixes: true,
-  getSupportedCodeFixes: true,
-  documentHighlights: true,
-  projectInfo: true,
-  quickinfo: true,
-  references: true,
-  reload: true,
-  rename: true,
-  navtree: true,
-  navto: true,
-  getApplicableRefactors: true,
-  getEditsForRefactor: true,
-  organizeImports: true,
-  signatureHelp: true,
-  getEditsForFileRename: true,
-  applyCodeActionCommand: true,
+/** 1-based tsserver-style line/offset -> 0-based LSP position. */
+function toLspPosition(line: number, offset: number): lsp.Position {
+  return {line: line - 1, character: offset - 1}
 }
 
-const commandsWithMultistepMap: {readonly [K in CommandsWithMultistep]: true} = {
-  geterr: true,
-  geterrForProject: true,
+function toLspRange(x: LocationRangeQuery): lsp.Range {
+  return {
+    start: toLspPosition(x.line, x.offset),
+    end: toLspPosition(x.endLine, x.endOffset),
+  }
 }
 
-const eventTypesMap: {readonly [K in keyof DiagnosticEventTypes]: true} = {
-  configFileDiag: true,
-  semanticDiag: true,
-  suggestionDiag: true,
-  syntaxDiag: true,
+function fileToUri(file: string): string {
+  return pathToFileURL(file).toString()
 }
 
-const commandWithResponse = new Set<string>(Object.keys(commandWithResponseMap))
-const commandWithMultistep = new Set<string>(Object.keys(commandsWithMultistepMap))
-const eventTypes = new Set<string>(Object.keys(eventTypesMap))
-
-function isCommandWithResponse(command: AllTSClientCommands): command is CommandsWithResponse {
-  return commandWithResponse.has(command)
-}
-
-function isCommandWithMultistep(command: AllTSClientCommands): command is CommandsWithMultistep {
-  return commandWithMultistep.has(command)
-}
-
-function isKnownDiagEventType(event: string): event is keyof DiagnosticEventTypes {
-  return eventTypes.has(event)
+function uriToFile(uri: string): string {
+  return new URL(uri).pathname
 }
 
 export class TypescriptServiceClient {
-  public readonly multistepSupported: boolean
-  /** Callbacks that are waiting for responses */
-  private readonly callbacks: Callbacks
-
   private readonly emitter = new Emitter<
     {
       restarted: void
@@ -85,10 +59,11 @@ export class TypescriptServiceClient {
     },
     DiagnosticEventTypes
   >()
-  private seq = 0
 
   private server?: ChildProcess
+  private connection?: rpc.MessageConnection
   private lastStderrOutput = ""
+  private openFileVersions = new Map<string, number>()
 
   // tslint:disable-next-line:member-ordering
   public on = this.emitter.on.bind(this.emitter)
@@ -98,14 +73,6 @@ export class TypescriptServiceClient {
     public version: string,
     private reportBusyWhile: ReportBusyWhile,
   ) {
-    // multistep completion event is supported as of TS version 2.2
-    const [major, minor] = version
-      .split(".")
-      .slice(0, 2)
-      .map((x) => parseInt(x, 10))
-    this.multistepSupported = major > 2 || (major === 2 && minor >= 2)
-
-    this.callbacks = new Callbacks(this.reportBusyWhile)
     this.server = this.startServer()
   }
 
@@ -113,42 +80,23 @@ export class TypescriptServiceClient {
     command: T,
     ...args: CommandArg<T>
   ): Promise<CommandRes<T>> {
-    if (!this.server) {
+    if (!this.connection) {
       this.server = this.startServer()
       this.emitter.emit("restarted")
     }
 
-    const req = {
-      seq: this.seq++,
-      command,
-      arguments: args[0],
-    }
-
     if (window.atom_typescript_debug) {
-      console.log("sending request", req)
+      console.log("sending request", command, args[0])
     }
 
-    let result: CommandRes<T> | Promise<CommandRes<T>> = undefined as CommandRes<T>
-    if (
-      isCommandWithResponse(command) ||
-      (this.multistepSupported && isCommandWithMultistep(command))
-    ) {
-      result = this.callbacks.add(req.seq, command)
-    }
-
-    try {
-      if (!this.server.stdin) throw new Error("Server stdin is missing")
-      this.server.stdin.write(JSON.stringify(req) + "\n")
-    } catch (error) {
-      this.callbacks.error(req.seq, error as Error)
-    }
-    return result
+    return this.reportBusyWhile(command, () => this.dispatch(command, args[0] as any)) as Promise<
+      CommandRes<T>
+    >
   }
 
   public async restartServer() {
     await this.stopServer()
-    // can't guarantee this.server value after await
-    if (!this.server) {
+    if (!this.connection) {
       this.server = this.startServer()
       this.emitter.emit("restarted")
     }
@@ -165,19 +113,244 @@ export class TypescriptServiceClient {
     return Promise.all([terminated, this.stopServer()])
   }
 
+  private conn(): rpc.MessageConnection {
+    if (!this.connection) throw new Error("TS language server connection is not available")
+    return this.connection
+  }
+
+  // tslint:disable-next-line:cyclomatic-complexity
+  private async dispatch(command: AllTSClientCommands, arg: any): Promise<any> {
+    const c = this.conn()
+    switch (command) {
+      case "open": {
+        const x = arg as OpenParams
+        this.openFileVersions.set(x.file, 1)
+        c.sendNotification("textDocument/didOpen", {
+          textDocument: {
+            uri: fileToUri(x.file),
+            languageId: "typescript",
+            version: 1,
+            text: x.fileContent,
+          },
+        })
+        return
+      }
+      case "close": {
+        const x = arg as CloseParams
+        this.openFileVersions.delete(x.file)
+        c.sendNotification("textDocument/didClose", {textDocument: {uri: fileToUri(x.file)}})
+        return
+      }
+      case "change": {
+        const x = arg as ChangeParams
+        const version = (this.openFileVersions.get(x.file) ?? 1) + 1
+        this.openFileVersions.set(x.file, version)
+        c.sendNotification("textDocument/didChange", {
+          textDocument: {uri: fileToUri(x.file), version},
+          contentChanges: [{range: toLspRange(x), text: x.insertString}],
+        })
+        return
+      }
+      case "configure": {
+        const x = arg as ConfigureParams
+        c.sendNotification("workspace/didChangeConfiguration", {
+          settings: {typescript: {format: x.formatOptions, preferences: x.preferences}},
+        })
+        return
+      }
+      case "geterr": {
+        const x = arg as GetErrParams
+        for (const file of x.files) {
+          const report = (await c.sendRequest("textDocument/diagnostic", {
+            textDocument: {uri: fileToUri(file)},
+          })) as lsp.DocumentDiagnosticReport
+          const diagnostics = report.kind === "full" ? report.items : []
+          this.emitter.emit("semanticDiag", {file, diagnostics})
+        }
+        return
+      }
+      case "quickinfo": {
+        const x = arg as FileLocationQuery
+        return c.sendRequest("textDocument/hover", {
+          textDocument: {uri: fileToUri(x.file)},
+          position: toLspPosition(x.line, x.offset),
+        })
+      }
+      case "signatureHelp": {
+        const x = arg as FileLocationQuery
+        return c.sendRequest("textDocument/signatureHelp", {
+          textDocument: {uri: fileToUri(x.file)},
+          position: toLspPosition(x.line, x.offset),
+        })
+      }
+      case "definition": {
+        const x = arg as FileLocationQuery
+        return c.sendRequest("textDocument/definition", {
+          textDocument: {uri: fileToUri(x.file)},
+          position: toLspPosition(x.line, x.offset),
+        })
+      }
+      case "references": {
+        const x = arg as FileLocationQuery
+        return c.sendRequest("textDocument/references", {
+          textDocument: {uri: fileToUri(x.file)},
+          position: toLspPosition(x.line, x.offset),
+          context: {includeDeclaration: true},
+        })
+      }
+      case "documentHighlights": {
+        const x = arg as FileLocationQuery
+        return c.sendRequest("textDocument/documentHighlight", {
+          textDocument: {uri: fileToUri(x.file)},
+          position: toLspPosition(x.line, x.offset),
+        })
+      }
+      case "navtree": {
+        const x = arg as {file: string}
+        return c.sendRequest("textDocument/documentSymbol", {
+          textDocument: {uri: fileToUri(x.file)},
+        })
+      }
+      case "navto": {
+        const x = arg as NavtoParams
+        return c.sendRequest("workspace/symbol", {query: x.searchValue})
+      }
+      case "format": {
+        const x = arg as FormatParams
+        return c.sendRequest("textDocument/rangeFormatting", {
+          textDocument: {uri: fileToUri(x.file)},
+          range: toLspRange(x),
+          options: {tabSize: 4, insertSpaces: true},
+        })
+      }
+      case "completionInfo":
+      case "completions": {
+        const x = arg as CompletionsParams
+        return c.sendRequest("textDocument/completion", {
+          textDocument: {uri: fileToUri(x.file)},
+          position: toLspPosition(x.line, x.offset),
+          context: x.triggerCharacter
+            ? {
+                triggerKind: lsp.CompletionTriggerKind.TriggerCharacter,
+                triggerCharacter: x.triggerCharacter,
+              }
+            : {triggerKind: lsp.CompletionTriggerKind.Invoked},
+        })
+      }
+      case "completionEntryDetails": {
+        const x = arg as CompletionEntryDetailsParams
+        return Promise.all(
+          x.entryNames.map((item) =>
+            c.sendRequest("completionItem/resolve", item).catch(() => null),
+          ),
+        )
+      }
+      case "applyCodeActionCommand": {
+        const x = arg as {file: string; command: lsp.Command}
+        return c.sendRequest("workspace/executeCommand", {
+          command: x.command.command,
+          arguments: x.command.arguments,
+        })
+      }
+      case "getCodeFixes": {
+        const x = arg as GetCodeFixesParams
+        return c.sendRequest("textDocument/codeAction", {
+          textDocument: {uri: fileToUri(x.file)},
+          range: toLspRange(x),
+          context: {
+            diagnostics: [],
+            only: ["quickfix"],
+            triggerKind: lsp.CodeActionTriggerKind.Automatic,
+          },
+        })
+      }
+      case "getApplicableRefactors": {
+        const x = arg as GetApplicableRefactorsParams
+        return c.sendRequest("textDocument/codeAction", {
+          textDocument: {uri: fileToUri(x.file)},
+          range: toLspRange(x),
+          context: {
+            diagnostics: [],
+            only: ["refactor"],
+            triggerKind: lsp.CodeActionTriggerKind.Invoked,
+          },
+        })
+      }
+      case "resolveCodeAction": {
+        const x = arg as ResolveCodeActionParams
+        if (x.action.edit) return x.action
+        return c.sendRequest("codeAction/resolve", x.action)
+      }
+      case "organizeImports": {
+        const x = arg as OrganizeImportsParams
+        const actions = (await c.sendRequest("textDocument/codeAction", {
+          textDocument: {uri: fileToUri(x.scope.args.file)},
+          range: {start: {line: 0, character: 0}, end: {line: 0, character: 0}},
+          context: {
+            diagnostics: [],
+            only: ["source.organizeImports"],
+            triggerKind: lsp.CodeActionTriggerKind.Invoked,
+          },
+        })) as lsp.CodeAction[]
+        const edits: lsp.TextEdit[] = []
+        for (const a of actions) {
+          for (const fileEdits of Object.values(a.edit?.changes ?? {})) {
+            edits.push(...fileEdits)
+          }
+        }
+        return edits
+      }
+      case "prepareRename": {
+        const x = arg as FileLocationQuery
+        return c.sendRequest("textDocument/prepareRename", {
+          textDocument: {uri: fileToUri(x.file)},
+          position: toLspPosition(x.line, x.offset),
+        })
+      }
+      case "rename": {
+        const x = arg as RenameParams
+        return c.sendRequest("textDocument/rename", {
+          textDocument: {uri: fileToUri(x.file)},
+          position: toLspPosition(x.line, x.offset),
+          newName: x.newName,
+        })
+      }
+      case "getEditsForFileRename": {
+        const x = arg as GetEditsForFileRenameParams
+        return c.sendRequest("workspace/willRenameFiles", {
+          files: [{oldUri: fileToUri(x.oldFilePath), newUri: fileToUri(x.newFilePath)}],
+        })
+      }
+      case "projectInfo":
+      case "compileOnSaveEmitFile":
+      case "compileOnSaveAffectedFileList":
+      case "reloadProjects":
+        throw new Error(
+          `"${command}" has no TypeScript 7 LSP equivalent and is not yet implemented`,
+        )
+      default:
+        throw new Error(`Unknown command: ${command as string}`)
+    }
+  }
+
   private async stopServer() {
     if (this.server) {
       const server = this.server
       const graceTimer = setTimeout(() => server.kill(), 10000)
-      await Promise.all([
-        this.execute("exit"),
-        new Promise<void>((resolve) => {
-          const disp = this.emitter.once("terminated", () => {
-            disp.dispose()
-            resolve()
-          })
-        }),
-      ])
+      try {
+        if (this.connection) {
+          await this.connection.sendRequest("shutdown")
+          this.connection.sendNotification("exit")
+        }
+      } catch (e) {
+        // server may already be gone; fall through to the kill timer
+      }
+      await new Promise<void>((resolve) => {
+        const disp = this.emitter.once("terminated", () => {
+          disp.dispose()
+          resolve()
+        })
+      })
       clearTimeout(graceTimer)
     }
   }
@@ -188,7 +361,6 @@ export class TypescriptServiceClient {
     }
 
     const cp = startServer(this.tsServerPath)
-
     if (!cp) throw new Error("ChildProcess failed to start")
 
     const h = this.exitHandler
@@ -199,26 +371,69 @@ export class TypescriptServiceClient {
       else if (signal !== null) h(new Error(`terminated on signal: ${signal}`))
     })
 
-    // Pipe both stdout and stderr appropriately
     if (!cp.stdout) throw new Error("ChildProcess stdout missing")
+    if (!cp.stdin) throw new Error("ChildProcess stdin missing")
     if (!cp.stderr) throw new Error("ChildProcess stderr missing")
-    messageStream(cp.stdout).on("data", this.onMessage)
     cp.stderr.on("data", (data: Buffer) => {
-      console.warn("tsserver stderr:", (this.lastStderrOutput = data.toString()))
+      console.warn("tsc --lsp stderr:", (this.lastStderrOutput = data.toString()))
     })
+
+    const connection = rpc.createMessageConnection(
+      new rpc.StreamMessageReader(cp.stdout),
+      new rpc.StreamMessageWriter(cp.stdin),
+    )
+    connection.onNotification(
+      "textDocument/publishDiagnostics",
+      (params: lsp.PublishDiagnosticsParams) => {
+        const file = uriToFile(params.uri)
+        const type = /tsconfig(\..+)?\.json$/.test(file) ? "configFileDiag" : "semanticDiag"
+        this.emitter.emit(type, {file, diagnostics: params.diagnostics})
+      },
+    )
+    connection.listen()
+    this.connection = connection
+
+    const capabilities: lsp.ClientCapabilities = {
+      textDocument: {
+        documentSymbol: {hierarchicalDocumentSymbolSupport: true},
+        codeAction: {
+          codeActionLiteralSupport: {
+            codeActionKind: {valueSet: Object.values(lsp.CodeActionKind)},
+          },
+          resolveSupport: {properties: ["edit"]},
+        },
+        rename: {prepareSupport: true},
+        completion: {
+          completionItem: {resolveSupport: {properties: ["detail", "documentation"]}},
+        },
+        publishDiagnostics: {relatedInformation: true, tagSupport: {valueSet: [1, 2]}},
+      },
+      workspace: {applyEdit: true, workspaceEdit: {documentChanges: true}},
+    }
+
+    handlePromise(
+      connection
+        .sendRequest("initialize", {
+          processId: process.pid,
+          rootUri: null,
+          capabilities,
+        })
+        .then(() => connection.sendNotification("initialized", {})),
+    )
+
     return cp
   }
 
   private exitHandler = (err: Error, report = true) => {
-    this.callbacks.rejectAll(err)
-    if (report) console.error("tsserver: ", err)
+    this.connection = undefined
     this.server = undefined
     this.emitter.emit("terminated")
+    if (report) console.error("tsc --lsp: ", err)
 
     if (report) {
       let detail = err.message
       if (this.lastStderrOutput) {
-        detail = `Last output from tsserver:\n${this.lastStderrOutput}\n\n${detail}`
+        detail = `Last output from tsc --lsp:\n${this.lastStderrOutput}\n\n${detail}`
       }
       atom.notifications.addError("TypeScript server quit unexpectedly", {
         detail,
@@ -227,30 +442,10 @@ export class TypescriptServiceClient {
       })
     }
   }
-
-  private onMessage = (res: protocol.Response | protocol.Event) => {
-    if (res.type === "response") this.callbacks.resolve(res)
-    else this.onEvent(res)
-  }
-
-  private onEvent(res: protocol.Event) {
-    if (window.atom_typescript_debug) {
-      console.log("received event", res)
-    }
-
-    if (res.body) {
-      if (isKnownDiagEventType(res.event)) {
-        this.emitter.emit(res.event, res.body as DiagnosticEventTypes[keyof DiagnosticEventTypes])
-      } else if (res.event === "requestCompleted") {
-        this.callbacks.resolveMS(res.body as protocol.RequestCompletedEventBody)
-      }
-    }
-  }
 }
 
 function startServer(tsServerPath: string): ChildProcess | undefined {
-  const locale = atom.config.get("atom-typescript").locale
-  const tsServerArgs: string[] = locale ? ["--locale", locale] : []
+  const tsServerArgs: string[] = ["--lsp", "--stdio"]
   if (INSPECT_TSSERVER) {
     return new BufferedProcess({
       command: "node",
@@ -264,29 +459,6 @@ function startServer(tsServerPath: string): ChildProcess | undefined {
   }
 }
 
-function messageStream(input: Readable) {
-  return input.pipe(byline()).pipe(new MessageStream())
-}
-
-/** Helper to parse the tsserver output stream to a message stream  */
-class MessageStream extends Transform {
-  constructor() {
-    super({objectMode: true})
-  }
-
-  public _transform(buf: Buffer, _encoding: string, callback: (n: Error | undefined) => void) {
-    const line = buf.toString()
-
-    try {
-      if (line.startsWith("{")) {
-        this.push(JSON.parse(line))
-      } else if (!line.startsWith("Content-Length:")) {
-        console.warn(line)
-      }
-    } catch (error) {
-      console.error("client: failed to parse: ", line)
-    } finally {
-      callback(undefined)
-    }
-  }
+function handlePromise(p: Promise<unknown>) {
+  p.catch((e) => console.error(e))
 }

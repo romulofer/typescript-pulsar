@@ -3,7 +3,7 @@ import {join} from "path"
 
 const packagePath = join(__dirname, "..")
 
-describe("atom-typescript", function () {
+describe("pulsar-typescript", function () {
   this.timeout(8000)
 
   it("should activate", async () => {
@@ -17,6 +17,6 @@ describe("atom-typescript", function () {
 
     await promise
 
-    expect(atom.packages.isPackageActive("atom-typescript")).to.equal(true)
+    expect(atom.packages.isPackageActive("pulsar-typescript")).to.equal(true)
   })
 })

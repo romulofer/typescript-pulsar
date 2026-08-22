@@ -32,7 +32,7 @@ export function activate(state: State) {
 async function checkAndInstallDependencies() {
   const packagesProvidingUIServices = ["atom-ide-ui", "linter", "nuclide"]
   if (!packagesProvidingUIServices.some((p) => atom.packages.isPackageLoaded(p))) {
-    await packageDeps.install("atom-typescript", true)
+    await packageDeps.install("pulsar-typescript", true)
   }
 }
 

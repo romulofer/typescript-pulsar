@@ -1,9 +1,9 @@
 import {CompositeDisposable, DisplayMarker, TextEditor} from "atom"
 import {debounce, DebouncedFunc} from "lodash"
-import {DocumentHighlightsItem} from "typescript/lib/protocol"
+import * as lsp from "vscode-languageserver-protocol"
 import {GetClientFunction} from "../../../client"
 import {handlePromise} from "../../../utils"
-import {isTypescriptEditorWithPath, spanToRange} from "../utils"
+import {isTypescriptEditorWithPath, lspRangeToAtomRange} from "../utils"
 
 export class OccurenceController {
   private readonly disposables = new CompositeDisposable()
@@ -16,7 +16,7 @@ export class OccurenceController {
     let changeDelay: number
     let shouldHighlight: boolean = false
     this.disposables.add(
-      atom.config.observe("atom-typescript.occurrenceHighlightDebounceTimeout", (val) => {
+      atom.config.observe("pulsar-typescript.occurrenceHighlightDebounceTimeout", (val) => {
         debouncedUpdate = debounce(() => {
           handlePromise(this.update())
         }, val)
@@ -73,11 +73,10 @@ export class OccurenceController {
         file: filePath,
         line: pos.row + 1,
         offset: pos.column + 1,
-        filesToSearch: [filePath],
       })
       if (this.disposed) return
 
-      const newOccurrenceMarkers = Array.from(this.getNewOccurrenceMarkers(result.body!))
+      const newOccurrenceMarkers = Array.from(this.getNewOccurrenceMarkers(result ?? []))
       for (const m of this.occurrenceMarkers) {
         if (!newOccurrenceMarkers.includes(m)) m.destroy()
       }
@@ -87,21 +86,18 @@ export class OccurenceController {
     }
   }
 
-  private *getNewOccurrenceMarkers(data: DocumentHighlightsItem[]) {
-    for (const fileInfo of data) {
-      if (fileInfo.file !== this.editor.getPath()) continue
-      for (const span of fileInfo.highlightSpans) {
-        const range = spanToRange(span)
-        const oldMarker = this.occurrenceMarkers.find((m) => m.getBufferRange().isEqual(range))
-        if (oldMarker) yield oldMarker
-        else {
-          const marker = this.editor.markBufferRange(range)
-          this.editor.decorateMarker(marker, {
-            type: "highlight",
-            class: "atom-typescript-occurrence",
-          })
-          yield marker
-        }
+  private *getNewOccurrenceMarkers(data: lsp.DocumentHighlight[]) {
+    for (const hl of data) {
+      const range = lspRangeToAtomRange(hl.range)
+      const oldMarker = this.occurrenceMarkers.find((m) => m.getBufferRange().isEqual(range))
+      if (oldMarker) yield oldMarker
+      else {
+        const marker = this.editor.markBufferRange(range)
+        this.editor.decorateMarker(marker, {
+          type: "highlight",
+          class: "atom-typescript-occurrence",
+        })
+        yield marker
       }
     }
   }

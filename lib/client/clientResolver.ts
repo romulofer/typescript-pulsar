@@ -1,16 +1,24 @@
 import {CompositeDisposable, Emitter} from "atom"
-import ts from "typescript"
-import {
-  ConfigFileDiagnosticEventBody,
-  Diagnostic,
-  DiagnosticEventBody,
-} from "typescript/lib/protocol"
+import * as lsp from "vscode-languageserver-protocol"
 import {ReportBusyWhile} from "../main/pluginManager"
 import {handlePromise} from "../utils"
 import {TypescriptServiceClient as Client} from "./client"
-import {resolveBinary} from "./resolveBinary"
+import {DiagnosticEventBody} from "./events"
+import {findConfigFile, resolveBinary} from "./resolveBinary"
 
-export type DiagnosticTypes = protocol.DiagnosticEventKind | "configFileDiag"
+export type DiagnosticTypes = "semanticDiag" | "configFileDiag"
+
+/** Old tsserver-protocol-shaped diagnostic (1-based line/offset). `errorPusher.ts` and the rest
+ * of the UI are written against this shape, so LSP `Diagnostic`s are converted to it here, at the
+ * single point where they enter the app. */
+export interface Diagnostic {
+  start: {line: number; offset: number}
+  end: {line: number; offset: number}
+  text: string
+  code?: number | string
+  category: "error" | "warning" | "suggestion" | "message"
+  reportsUnnecessary?: boolean
+}
 
 interface DiagnosticsPayload {
   diagnostics: Diagnostic[]
@@ -24,8 +32,8 @@ export interface EventTypes {
 }
 
 /**
- * ClientResolver takes care of finding the correct tsserver for a source file based on how a
- * require("typescript") from the same source file would resolve.
+ * ClientResolver takes care of finding the correct tsc (LSP mode) for a source file based on how
+ * a require("typescript") from the same source file would resolve.
  */
 export class ClientResolver {
   private clients = new Map<string, Map<string | undefined, Client>>()
@@ -33,7 +41,7 @@ export class ClientResolver {
   private emitter = new Emitter<{}, EventTypes>()
   private subscriptions = new CompositeDisposable()
   private tsserverInstancePerTsconfig =
-    atom.config.get("atom-typescript").tsserverInstancePerTsconfig
+    atom.config.get("pulsar-typescript").tsserverInstancePerTsconfig
   // This is just here so TypeScript can infer the types of the callbacks when using "on" method
   // tslint:disable-next-line:member-ordering
   public on = this.emitter.on.bind(this.emitter)
@@ -72,9 +80,9 @@ export class ClientResolver {
   }
 
   private async _get(pFilePath: string): Promise<Client> {
-    const {pathToBin, version} = await resolveBinary(pFilePath, "tsserver")
+    const {pathToBin, version} = await resolveBinary(pFilePath)
     const tsconfigPath = this.tsserverInstancePerTsconfig
-      ? ts.findConfigFile(pFilePath, (f) => ts.sys.fileExists(f))
+      ? await findConfigFile(pFilePath)
       : undefined
 
     let tsconfigMap = this.clients.get(pathToBin)
@@ -91,8 +99,6 @@ export class ClientResolver {
     this.subscriptions.add(
       newClient.on("configFileDiag", this.diagnosticHandler(pathToBin, "configFileDiag")),
       newClient.on("semanticDiag", this.diagnosticHandler(pathToBin, "semanticDiag")),
-      newClient.on("syntaxDiag", this.diagnosticHandler(pathToBin, "syntaxDiag")),
-      newClient.on("suggestionDiag", this.diagnosticHandler(pathToBin, "suggestionDiag")),
     )
 
     return newClient
@@ -105,22 +111,38 @@ export class ClientResolver {
   }
 
   private diagnosticHandler =
-    (serverPath: string, type: DiagnosticTypes) =>
-    (result: DiagnosticEventBody | ConfigFileDiagnosticEventBody) => {
-      const filePath = isConfDiagBody(result) ? result.configFile : result.file
-
-      if (filePath) {
-        this.emitter.emit("diagnostics", {
-          type,
-          serverPath,
-          filePath,
-          diagnostics: result.diagnostics,
-        })
-      }
+    (serverPath: string, type: DiagnosticTypes) => (result: DiagnosticEventBody) => {
+      this.emitter.emit("diagnostics", {
+        type,
+        serverPath,
+        filePath: result.file,
+        diagnostics: result.diagnostics.map(lspDiagnosticToDiagnostic),
+      })
     }
 }
 
-function isConfDiagBody(body: any): body is ConfigFileDiagnosticEventBody {
-  // tslint:disable-next-line:no-unsafe-any
-  return body && body.triggerFile && body.configFile
+export function lspDiagnosticToDiagnostic(d: lsp.Diagnostic): Diagnostic {
+  return {
+    start: {line: d.range.start.line + 1, offset: d.range.start.character + 1},
+    end: {line: d.range.end.line + 1, offset: d.range.end.character + 1},
+    text: lsp.Diagnostic.getMessageString(d),
+    code: d.code,
+    category: severityToCategory(d.severity),
+    reportsUnnecessary: d.tags?.includes(lsp.DiagnosticTag.Unnecessary),
+  }
+}
+
+export function severityToCategory(
+  severity: lsp.DiagnosticSeverity | undefined,
+): Diagnostic["category"] {
+  switch (severity) {
+    case lsp.DiagnosticSeverity.Error:
+      return "error"
+    case lsp.DiagnosticSeverity.Warning:
+      return "warning"
+    case lsp.DiagnosticSeverity.Hint:
+      return "suggestion"
+    default:
+      return "message"
+  }
 }
