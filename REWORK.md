@@ -124,12 +124,66 @@ datatip timing, debounced `geterr` firing close to another in-flight request).
 
 This lives inside vendored native Go code (`typescript-go`, via the `typescript@7`
 npm package) — there is nothing to patch in this repository's own TypeScript/JS
-source. If picked back up: instrument `lib/client/client.ts` (or a copy of the
-standalone probe, see the git history of this session's scratch work — it was not
-committed, write a new one under `scripts/` if useful) to log every request/
-notification sent in the real editor flow immediately before a crash, then try to
-reproduce that exact sequence in a standalone probe to narrow it down. Once narrowed,
-it's an upstream `typescript-go` bug report, not a `pulsar-typescript` fix.
+source. It's an upstream `typescript-go` bug report, not a `pulsar-typescript` fix,
+once narrowed.
+
+### Update: real sequence captured, but standalone replay of it still doesn't crash
+
+Followed this doc's own next step: added temporary `fs.appendFileSync`-based logging
+to every `dispatch()` call, `startServer()`, stderr, and `exitHandler()` in
+`lib/client/client.ts` (not committed, reverted after use — see
+`scripts/lsp-segfault-probe.js` for the reusable standalone half of this work), then
+reproduced the crash live under Xvfb (see AGENTS.md's Manual verification section for
+the how-to). Result: **the crash is not hover-specific and not rare** — it fired
+3/3 times, immediately on opening a two-line `.ts` file with an obvious type error, no
+hover needed. The full captured sequence for one crash (timestamps in ms):
+
+```
+starting server .../node_modules/typescript/bin/tsc
+-> open      {file, fileContent}                    (textDocument/didOpen)
+-> navtree   {file}                                  (textDocument/documentSymbol, +1ms)
+<- open ok
+-> geterr    {files, delay:0}                        (textDocument/diagnostic, same ms)
+-> configure {formatOptions, preferences}             (workspace/didChangeConfiguration, +6ms)
+<- configure ok
+stderr: panic: runtime error: invalid memory address or nil pointer dereference
+        (*Session).getSnapshot(0x0, ...)              <- nil receiver
+        (*Session).getSnapshotAndDefaultProject(...)
+        (*Session).GetLanguageService(...)
+exitHandler: exited with code: 2
+```
+
+Same panic signature as originally found (`getSnapshotAndDefaultProject` /
+`GetLanguageService`), now with a `0x0` (nil) `*Session` receiver visible in the
+trace — strongly suggests a request handler racing session/project creation for a
+just-opened file, not anything content-specific. The crash lands ~70ms after
+`didOpen`, with `navtree` and `geterr`'s responses never arriving (crashed before
+either resolved).
+
+Replayed this exact sequence in a standalone probe (`scripts/lsp-segfault-probe.js`):
+`initialize` → `didOpen` → `documentSymbol` request → (+1ms) `diagnostic` request →
+(+5ms) `didChangeConfiguration` notification, matching the real client's capabilities
+object and millisecond-level spacing. **0/45 crashed** (15 runs with everything fired
+in the same tick, 30 more with the realistic staggering above). So the trigger is
+real and 100% reproducible in the actual editor, but isn't fully explained by
+"these three messages in roughly this order" alone. Also ruled out this round:
+`ClientResolver.get()`'s per-file memoization is synchronous before its first
+`await`, so it can't be spawning a second racing client for the same file.
+
+Remaining candidates, roughly in the order worth trying next: (1) more concurrent
+request types than just documentSymbol+diagnostic — enumerate every
+`client.execute(...)` call site under `lib/main/` (there are ~30) and check which
+ones a fresh activation with the Outline panel open could plausibly fire within the
+first ~100ms, then add those to the probe; (2) something specific to how Atom's
+`BufferedNodeProcess` (used in `client.ts`'s real `startServer()`, vs. plain
+`child_process.spawn` in the probe) pipes stdin/stdout — worth trying the probe
+against a `BufferedNodeProcess`-spawned process if it can be exercised outside a full
+Atom/Pulsar process, otherwise instrument further inside the real editor; (3)
+restored-editor-session state (the Xvfb repro environment persists window state
+across launches, so a killed-not-closed prior run's unsaved buffer/cursor position
+gets restored on the next launch) — try a repro with a fresh `~/.pulsar` config dir
+or explicit session-restore-disabled launch to rule this out as a contributing
+factor.
 
 ## Attempted and reverted: fixing `pulsar --test spec` / `npm run lint`
 
@@ -197,7 +251,11 @@ Carried over from the original migration (`f313cf99`), not touched this round:
 
 1. Narrow down and report (or fix, if it turns out to be a client-side trigger after
    all) the `typescript-go` segfault — this is the thing most likely to make the
-   package unusable in real-world editing, not just in this minimal repro.
+   package unusable in real-world editing, not just in this minimal repro. Confirmed
+   this round: it's not rare (3/3 live reproductions on a trivial two-line file, no
+   hover needed) but still not reproduced standalone outside the real editor — see
+   the "Update" under "Open issue" above and `scripts/lsp-segfault-probe.js` for where
+   to pick this up.
 2. Do a real manual pass through the feature list in `README.md` (autocomplete,
    definitions, references, rename, code actions, format, signature help) the way
    hover was spot-checked this round, now that the LSP client actually reaches the
