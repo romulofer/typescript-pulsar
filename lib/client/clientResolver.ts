@@ -1,4 +1,5 @@
 import {CompositeDisposable, Emitter} from "atom"
+import * as path from "path"
 import type * as lsp from "vscode-languageserver-protocol"
 import {ReportBusyWhile} from "../main/pluginManager"
 import {handlePromise} from "../utils"
@@ -82,9 +83,9 @@ export class ClientResolver {
 
   private async _get(pFilePath: string): Promise<Client> {
     const {pathToBin, version} = await resolveBinary(pFilePath)
-    const tsconfigPath = this.tsserverInstancePerTsconfig
-      ? await findConfigFile(pFilePath)
-      : undefined
+    const configFile = await findConfigFile(pFilePath)
+    const tsconfigPath = this.tsserverInstancePerTsconfig ? configFile : undefined
+    const projectRootPath = configFile !== undefined ? path.dirname(configFile) : path.dirname(pFilePath)
 
     let tsconfigMap = this.clients.get(pathToBin)
     if (!tsconfigMap) {
@@ -94,7 +95,7 @@ export class ClientResolver {
     const client = tsconfigMap.get(tsconfigPath)
     if (client) return client
 
-    const newClient = new Client(pathToBin, version, this.reportBusyWhile)
+    const newClient = new Client(pathToBin, version, projectRootPath, this.reportBusyWhile)
     tsconfigMap.set(tsconfigPath, newClient)
 
     this.subscriptions.add(

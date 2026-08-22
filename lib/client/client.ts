@@ -1,5 +1,6 @@
 import {BufferedNodeProcess, BufferedProcess, Emitter} from "atom"
 import {ChildProcess} from "child_process"
+import * as path from "path"
 import {pathToFileURL} from "url"
 import type * as lsp from "vscode-languageserver-protocol"
 import * as rpc from "vscode-jsonrpc/node"
@@ -72,6 +73,7 @@ export class TypescriptServiceClient {
   constructor(
     public tsServerPath: string,
     public version: string,
+    private projectRootPath: string,
     private reportBusyWhile: ReportBusyWhile,
   ) {
     this.server = this.startServer()
@@ -412,11 +414,13 @@ export class TypescriptServiceClient {
       workspace: {applyEdit: true, workspaceEdit: {documentChanges: true}},
     }
 
+    const rootUri = fileToUri(this.projectRootPath)
     handlePromise(
       connection
         .sendRequest("initialize", {
           processId: process.pid,
-          rootUri: null,
+          rootUri,
+          workspaceFolders: [{uri: rootUri, name: path.basename(this.projectRootPath)}],
           capabilities,
         })
         .then(() => connection.sendNotification("initialized", {})),

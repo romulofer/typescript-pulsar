@@ -28220,6 +28220,8 @@ var $4uNLx = parcelRequire("4uNLx");
 
 
 
+
+
 // Set this to true to start the LSP server with node --inspect
 const $4a7c92c14df36848$var$INSPECT_TSSERVER = false;
 /** 1-based tsserver-style line/offset -> 0-based LSP position. */ function $4a7c92c14df36848$var$toLspPosition(line, offset) {
@@ -28674,16 +28676,24 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                 }
             }
         };
+        const rootUri = $4a7c92c14df36848$var$fileToUri(this.projectRootPath);
         $4a7c92c14df36848$var$handlePromise(connection.sendRequest("initialize", {
             processId: process.pid,
-            rootUri: null,
+            rootUri: rootUri,
+            workspaceFolders: [
+                {
+                    uri: rootUri,
+                    name: $1X1Jj$path.basename(this.projectRootPath)
+                }
+            ],
             capabilities: capabilities
         }).then(()=>connection.sendNotification("initialized", {})));
         return cp;
     }
-    constructor(tsServerPath, version, reportBusyWhile){
+    constructor(tsServerPath, version, projectRootPath, reportBusyWhile){
         this.tsServerPath = tsServerPath;
         this.version = version;
+        this.projectRootPath = projectRootPath;
         this.reportBusyWhile = reportBusyWhile;
         this.emitter = new (0, $1X1Jj$atom.Emitter)();
         this.lastStderrOutput = "";
@@ -29164,7 +29174,9 @@ class $5f392212ffd20e34$export$dceb19333e080e82 {
     }
     async _get(pFilePath) {
         const { pathToBin: pathToBin, version: version } = await (0, $5687b95b3c956613$export$369fb36245591db0)(pFilePath);
-        const tsconfigPath = this.tsserverInstancePerTsconfig ? await (0, $5687b95b3c956613$export$c406ae411cd6ed11)(pFilePath) : undefined;
+        const configFile = await (0, $5687b95b3c956613$export$c406ae411cd6ed11)(pFilePath);
+        const tsconfigPath = this.tsserverInstancePerTsconfig ? configFile : undefined;
+        const projectRootPath = configFile !== undefined ? $1X1Jj$path.dirname(configFile) : $1X1Jj$path.dirname(pFilePath);
         let tsconfigMap = this.clients.get(pathToBin);
         if (!tsconfigMap) {
             tsconfigMap = new Map();
@@ -29172,7 +29184,7 @@ class $5f392212ffd20e34$export$dceb19333e080e82 {
         }
         const client = tsconfigMap.get(tsconfigPath);
         if (client) return client;
-        const newClient = new (0, $4a7c92c14df36848$export$21f68d6aa461e875)(pathToBin, version, this.reportBusyWhile);
+        const newClient = new (0, $4a7c92c14df36848$export$21f68d6aa461e875)(pathToBin, version, projectRootPath, this.reportBusyWhile);
         tsconfigMap.set(tsconfigPath, newClient);
         this.subscriptions.add(newClient.on("configFileDiag", this.diagnosticHandler(pathToBin, "configFileDiag")), newClient.on("semanticDiag", this.diagnosticHandler(pathToBin, "semanticDiag")));
         return newClient;
