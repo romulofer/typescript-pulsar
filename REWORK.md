@@ -424,12 +424,21 @@ Carried over from the original migration (`f313cf99`), not touched this round:
    just filing and waiting. What's left is optional — see "Options for the
    `typescript-go` finding" above for whether to also report the missing server-side
    guard.
-2. Do a real manual pass through the feature list in `README.md` (autocomplete,
-   definitions, references, rename, code actions, format, signature help) the way
-   hover was spot-checked this round. Partially started this round (hover, outline,
-   diagnostics all confirmed live-working post-fix); autocomplete, definitions,
-   references, rename, code actions, format, and signature help still need individual
-   live verification.
+2. ~~Do a real manual pass through the feature list~~ Done for all but one. Live in
+   Pulsar (Xvfb, fixed build, fresh project), all confirmed working: **hover**,
+   **outline/diagnostics**, **autocomplete** (typed `sal`, `salute` ranked top),
+   **signature help** (typed `salute(`, correct `salute(name: string): string`
+   tooltip with `name` parameter highlighted), **go-to-declaration** (F12 jumped
+   cursor to the definition), **find-references** (shift-F12 listed all 4 real
+   usages), **rename** (F2, renamed `greet` → `salute` project-wide including the
+   Outline panel), **format** (`alt-ctrl-l` on a selection turned `let
+   badSpace=1+2;` into `let badSpace = 1 + 2;`). **Not confirmed**: code actions —
+   no command-palette entry and `alt+enter` didn't surface a fix list for the
+   "Cannot find name 'y'" diagnostic in this pass; the `code-actions` service is
+   consumed by the third-party `intentions` atom-ide-ui package under whatever
+   keybinding *it* registers, not one this package defines, so this needs the actual
+   keybinding for that package (or its own UI affordance, e.g. a lightbulb) rather
+   than more guessing at shortcuts.
 3. Decide on and execute one of the three options above for
    `npm run lint`/`pulsar --test spec`.
 4. ~~Once tests can run, add coverage for the `resolveBinary.ts` dynamic-require
