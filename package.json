@@ -1,6 +1,6 @@
 {
   "name": "pulsar-typescript",
-  "version": "16.1.0",
+  "version": "15.0.0",
   "main": "./loader.js",
   "bundle": "./dist/main.js",
   "preferGlobal": true,
