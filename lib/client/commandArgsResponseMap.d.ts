@@ -68,6 +68,10 @@ export interface ApplyCodeActionCommandParams {
 
 export interface GetCodeFixesParams extends LocationRangeQuery {
   errorCodes: ReadonlyArray<number>
+  /** The fixable diagnostic's own message, needed to populate the codeAction request's
+   * context.diagnostics - typescript-go's code fix providers only look at diagnostics passed
+   * there, not at anything they can see server-side on their own. */
+  diagnosticMessage: string
 }
 
 export type GetApplicableRefactorsParams = LocationRangeQuery
@@ -146,6 +150,9 @@ export type CommandsWithResponse = {
   [K in AllTSClientCommands]: CommandRes<K> extends void ? never : K
 }[AllTSClientCommands]
 
+// Same shape as TypeScript's own built-in Parameters<T> utility type; `any` here is the
+// generic function-type constraint idiom, not a type we can usefully narrow.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ArgType<T extends (x: any) => any> = T extends (...x: infer U) => any ? U : never
 
 export type CommandArg<T extends AllTSClientCommands> = ArgType<CommandArgResponseMap[T]>

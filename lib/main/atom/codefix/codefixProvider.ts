@@ -45,6 +45,7 @@ export class CodefixProvider {
           endLine: error.end.line,
           endOffset: error.end.offset,
           errorCodes: [error.code!].map((c) => (typeof c === "string" ? parseInt(c, 10) : c)),
+          diagnosticMessage: error.text,
         }),
       )
 

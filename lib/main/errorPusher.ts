@@ -139,5 +139,10 @@ function config<T extends keyof ConfigValues["pulsar-typescript"]>(
   option: T,
   scope: string,
 ): ConfigValues["pulsar-typescript"][typeof option] {
-  return atom.config.get(`pulsar-typescript.${option}`, {scope: [scope]}) as any
+  // atom.config.get<T>'s T is inferred from a literal keyPath; a template-literal keyPath like
+  // this one can't be matched against `keyof ConfigValues`, so TS can't verify the result
+  // against our own declared return type on its own.
+  return atom.config.get(`pulsar-typescript.${option}`, {
+    scope: [scope],
+  }) as unknown as ConfigValues["pulsar-typescript"][typeof option]
 }

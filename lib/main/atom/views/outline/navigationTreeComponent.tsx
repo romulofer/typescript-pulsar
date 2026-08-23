@@ -3,6 +3,7 @@ import * as etch from "etch"
 import {isEqual} from "lodash"
 import debounce from "lodash/debounce"
 import {GetClientFunction} from "../../../../client"
+import {handlePromise} from "../../../../utils"
 import * as atomUtils from "../../utils"
 import {NavigationNodeComponent} from "./navigationNodeComponent"
 import {
@@ -35,7 +36,9 @@ export class NavigationTreeComponent
     prepareNavTree(props.navTree)
     etch.initialize(this)
     this.subscriptions.add(
-      atom.workspace.observeActiveTextEditor(this.subscribeToEditor),
+      atom.workspace.observeActiveTextEditor((editor) =>
+        handlePromise(this.subscribeToEditor(editor)),
+      ),
       atom.commands.add("atom-text-editor.typescript-editor" as "atom-text-editor", {
         "typescript:reveal-in-semantic-view": {
           description: "Reveal the symbol under the text cursor in semantic view",
@@ -233,8 +236,9 @@ export class NavigationTreeComponent
     if (!atom.config.get("pulsar-typescript.largeFileNoFollowCursor") || lineCount === 0) {
       this.editorScrolling = editor.onDidChangeCursorPosition(this.selectAtCursorLine)
     }
+    const loadNavTree = () => handlePromise(this.loadNavTree())
     this.editorChanging = editor.onDidStopChanging(
-      lineCount === 0 ? this.loadNavTree : debounce(this.loadNavTree, Math.max(lineCount / 5, 300)),
+      lineCount === 0 ? loadNavTree : debounce(loadNavTree, Math.max(lineCount / 5, 300)),
     )
   }
 

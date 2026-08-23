@@ -459,13 +459,9 @@ Carried over from the original migration (`f313cf99`), not touched this round:
    cursor to the definition), **find-references** (shift-F12 listed all 4 real
    usages), **rename** (F2, renamed `greet` → `salute` project-wide including the
    Outline panel), **format** (`alt-ctrl-l` on a selection turned `let
-   badSpace=1+2;` into `let badSpace = 1 + 2;`). **Not confirmed**: code actions —
-   no command-palette entry and `alt+enter` didn't surface a fix list for the
-   "Cannot find name 'y'" diagnostic in this pass; the `code-actions` service is
-   consumed by the third-party `intentions` atom-ide-ui package under whatever
-   keybinding *it* registers, not one this package defines, so this needs the actual
-   keybinding for that package (or its own UI affordance, e.g. a lightbulb) rather
-   than more guessing at shortcuts.
+   badSpace=1+2;` into `let badSpace = 1 + 2;`), and **code actions** (see "RESOLVED:
+   code actions never returned anything" below — found and fixed a real bug, not
+   just a UI-discovery problem).
 3. ~~Decide on and execute one of the three options above for
    `npm run lint`/`pulsar --test spec`~~ Done, see "RESOLVED" above.
 4. ~~Once tests can run, add coverage for the `resolveBinary.ts` dynamic-require
@@ -477,13 +473,65 @@ Carried over from the original migration (`f313cf99`), not touched this round:
    exact call site; reverting and rebuilding passes clean. This doesn't need
    `npm test`'s broken spec runner (see below) since it operates on the built
    artifact, not source.
-5. Confirm code actions live (the one feature item 2 above couldn't confirm) — find
-   the `intentions` atom-ide-ui package's actual keybinding/UI affordance for
-   surfacing quick fixes (a lightbulb icon, most likely) rather than guessing at
-   shortcuts, then verify the "Cannot find name 'y'. Did you mean 'x'?" style fix
-   actually applies correctly.
-6. `npm run lint` currently has 86 warnings (mostly `@typescript-eslint/no-explicit-any`,
-   concentrated in `lib/typings/etch.d.ts`'s ambient etch typings and a handful of
-   LSP-boundary adapter spots). None block `npm test` (deliberately set to `warn`,
-   see AGENTS.md), but working through them for real types where practical would be
-   a reasonable, low-risk follow-up now that there's a real linter to guide it.
+5. ~~Confirm code actions live~~ Done, see "RESOLVED: code actions never returned
+   anything" below.
+6. ~~`npm run lint` had 86 warnings~~ Done: fixed all of them. 53 were vendored/ambient
+   typings (`lib/typings/etch.d.ts`/`typings.d.ts`, scoped `any` off for that
+   directory in `eslint.config.js` rather than "fixed" - `any` there matches the
+   upstream React/lib.d.ts conventions being described, not something to give real
+   types). The rest were real: a few genuine `any`→`unknown`/proper-type fixes
+   (`resolveBinary.ts`'s type guards, `errorPusher.ts`'s config helper,
+   `utils.ts`'s `handlePromise`), and ~20 `no-floating-promises`/`no-misused-promises`
+   across `client.ts`, `pluginManager.ts`, `hyperclickProvider.ts`,
+   `navigationTreeComponent.tsx`, `simpleSelectionView.tsx`, `typescriptEditorPane.ts`
+   — all fire-and-forget async callbacks that weren't wrapped with the existing
+   `handlePromise()` house helper, now are. `npm run lint`: 0 errors, 0 warnings.
+   Verified nothing broke: full spec suite (26 passing), a rebuild, and live
+   Xvfb smoke tests of outline (`navigationTreeComponent.tsx`) and hyperclick
+   (`hyperclickProvider.ts`) specifically, since those had the most substantial
+   rewiring.
+
+## RESOLVED: code actions never returned anything (`getCodeFixes` sent no diagnostics)
+
+Found while chasing item 5 above. The `intentions` atom-ide-ui package (`alt-enter` →
+`intentions:show`, confirmed via its own `keymaps/intentions.json` at
+`~/.pulsar/packages/intentions/`) was never the problem — it was finding *no* code
+actions because there genuinely were none, not because of a UI-discovery issue.
+
+Root cause: `client.ts`'s `"getCodeFixes"` case built its
+`textDocument/codeAction` request with `context.diagnostics: []`, always empty.
+typescript-go's code-fix providers (`internal/ls/codeactions.go`) only look at
+diagnostics passed in the request's own `context.diagnostics` — they have no
+server-side diagnostic cache to fall back on — so an empty array there means every
+fix request silently returns `[]`, for every diagnostic, unconditionally.
+
+Confirmed directly against the real server (same technique as the segfault work:
+`node` + `vscode-jsonrpc/node`, no Atom involved) with an auto-importable undefined
+name (`greetHelper`, exported from a sibling file but not imported): requesting
+`textDocument/codeAction` with `context.diagnostics: []` returns `[]`; the exact
+same request with the real diagnostic in `context.diagnostics` returns a correct
+"Add import from './other'" quickfix with a working edit. Also discovered along the
+way: typescript-go's LSP mode currently implements only three code-fix providers
+(`ImportFixProvider`, `IsolatedDeclarationsFixProvider`,
+`FixClassIncorrectlyImplementsInterfaceProvider` — see the `codeFixProviders` list
+in `internal/ls/codeactions.go`, explicitly commented "Add more code fix providers
+here as they are implemented"). So plenty of classic-tsserver quickfixes (unused
+imports/locals, "did you mean" spelling suggestions, etc.) genuinely don't have a
+fix to offer yet upstream, independent of this bug — but import fixes, which do
+exist, were silently broken by our client regardless.
+
+**Fix**: `codefixProvider.ts` now passes the diagnostic's own message through to
+`client.execute("getCodeFixes", ...)` (`GetCodeFixesParams.diagnosticMessage`, new
+field), and `client.ts` builds a real `context.diagnostics` entry per error code
+from `range`/`code`/`message`/`source: "ts"` instead of sending `[]`.
+
+**Verified two ways**: standalone against the real server (as above), and live in
+Pulsar — a fixture with an undefined `greetHelper` importable from a sibling file,
+`alt-enter` correctly showed "Add import from './other'", and confirming it applied
+the correct edit (`import { greetHelper } from "./other";` inserted, diagnostic
+cleared). Also added `spec/client/client.spec.ts`'s second test
+(`TypescriptServiceClient getCodeFixes`) using a fake server fixture
+(`spec/fixtures/codeaction-diagnostics-server.js`) that records and exposes the
+`context.diagnostics` it actually received; verified it catches the regression by
+reverting the fix and confirming the test fails with a clear message
+(`expected [] to have a length of 1 but got +0`).

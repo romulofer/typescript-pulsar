@@ -33,16 +33,19 @@ export async function selectListView<T>({
         handlePromise(select.update(props))
       }
       if (typeof items === "function") {
-        didChangeQuery = async (query: string) => {
-          const timeout = setTimeout(() => update({loadingMessage: "Loading..."}), 300)
-          const is = await items(query)
-          clearTimeout(timeout)
-          update({
-            items: is,
-            emptyMessage: "Nothing matches the search value",
-            loadingMessage: undefined,
-          })
-        }
+        didChangeQuery = (query: string) =>
+          handlePromise(
+            (async () => {
+              const timeout = setTimeout(() => update({loadingMessage: "Loading..."}), 300)
+              const is = await items(query)
+              clearTimeout(timeout)
+              update({
+                items: is,
+                emptyMessage: "Nothing matches the search value",
+                loadingMessage: undefined,
+              })
+            })(),
+          )
         loadingMessage = undefined
         emptyMessage = "Please enter a search value"
       }

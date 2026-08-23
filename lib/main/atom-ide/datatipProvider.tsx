@@ -4,8 +4,13 @@ import {GetClientFunction} from "../../client"
 import {renderTooltip} from "../atom/tooltips/tooltipRenderer"
 import {highlight, lspRangeToAtomRange, typeScriptScopes} from "../atom/utils"
 
-// Note: a horrible hack to avoid dependency on React
+// Note: a horrible hack to avoid dependency on React. There's no real type to give
+// props/children/the return value against: atom-ide-base's ReactComponentDatatip just wants
+// something shaped like a React element for its own internal rendering, and doesn't export a
+// type for that shape.
 const REACT_ELEMENT_SYMBOL = Symbol.for("react.element")
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment --
+   see the comment above: props/children are arbitrary JSX props, genuinely untyped here. */
 const etch = {
   dom(type: string, props: any, ...children: any[]): any {
     if (children.length > 0) {
@@ -25,6 +30,7 @@ const etch = {
     }
   },
 }
+/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment */
 
 export class TSDatatipProvider implements DatatipProvider {
   public readonly providerName = "TypeScript type tooltips"

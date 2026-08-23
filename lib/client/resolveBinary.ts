@@ -120,13 +120,15 @@ async function resolveConfigFile(initialBaseDir: string) {
   }
 }
 
-function isConfigObject(x: any): x is ConfigObject {
-  // tslint:disable-next-line: no-unsafe-any
-  return typeof x === "object" && x !== null && typeof x.tsdkPath === "string"
+function isConfigObject(x: unknown): x is ConfigObject {
+  return typeof x === "object" && x !== null && typeof (x as ConfigObject).tsdkPath === "string"
 }
-function isVSCodeConfigObject(x: any): x is VSCodeConfigObject {
-  // tslint:disable-next-line: no-unsafe-any
-  return typeof x === "object" && x !== null && typeof x["typescript.tsdk"] === "string"
+function isVSCodeConfigObject(x: unknown): x is VSCodeConfigObject {
+  return (
+    typeof x === "object" &&
+    x !== null &&
+    typeof (x as VSCodeConfigObject)["typescript.tsdk"] === "string"
+  )
 }
 
 async function getSDKPath(dirname: string) {

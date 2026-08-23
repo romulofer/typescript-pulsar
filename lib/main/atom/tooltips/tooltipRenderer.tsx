@@ -6,6 +6,12 @@ import type * as lsp from "vscode-languageserver-protocol"
  * the first newline) is treated as code and the rest as plain doc text. */
 export async function renderTooltip(
   hover: lsp.Hover | undefined,
+  // Not referenced by name; this file's own JSX below (`<div>...`) compiles to
+  // `etch.dom(...)` calls per the project's jsxFactory, so this parameter has to be
+  // named `etch` and in scope for that to resolve, whichever real/fake etch a caller
+  // passes in (see the two call sites: real `etch` package vs the React-shape shim
+  // in datatipProvider.tsx).
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   etch: any,
   codeRenderer: (code: string) => Promise<JSX.Element> | JSX.Element,
 ) {

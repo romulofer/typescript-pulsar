@@ -39,6 +39,15 @@ module.exports = tseslint.config(
     },
   },
   {
+    // Ambient typings adapted from React's own JSX HTMLAttributes (etch.d.ts) and TypeScript's
+    // own lib.d.ts CallableFunction.bind signature (typings.d.ts). `any` here matches the
+    // upstream conventions being described, not something to give real types.
+    files: ["lib/typings/**/*.d.ts"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
+  {
     files: ["scripts/**/*.js"],
     extends: [eslint.configs.recommended],
     languageOptions: {

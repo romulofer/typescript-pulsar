@@ -101,6 +101,11 @@ export class TypescriptServiceClient {
       console.log("sending request", command, args[0])
     }
 
+    // dispatch() is a runtime switch over `command`, each case re-narrowing `arg` to its own
+    // specific params type; there's no single type args[0] could have here that would make
+    // that unnecessary, so this and dispatch()'s own signature stay loosely typed at the
+    // boundary between them. The strongly-typed public surface is execute<T>()'s signature.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return this.reportBusyWhile(command, () => this.dispatch(command, args[0] as any)) as Promise<
       CommandRes<T>
     >
@@ -130,44 +135,54 @@ export class TypescriptServiceClient {
     return this.connection
   }
 
-  // tslint:disable-next-line:cyclomatic-complexity
+  // Runtime switch over `command`, each case re-narrowing `arg` to its own params type and
+  // returning its own response type; see the comment at the execute() call site above.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private async dispatch(command: AllTSClientCommands, arg: any): Promise<any> {
     const c = this.conn()
     switch (command) {
       case "open": {
         const x = arg as OpenParams
         this.openFileVersions.set(x.file, 1)
-        c.sendNotification("textDocument/didOpen", {
-          textDocument: {
-            uri: fileToUri(x.file),
-            languageId: "typescript",
-            version: 1,
-            text: x.fileContent,
-          },
-        })
+        handlePromise(
+          c.sendNotification("textDocument/didOpen", {
+            textDocument: {
+              uri: fileToUri(x.file),
+              languageId: "typescript",
+              version: 1,
+              text: x.fileContent,
+            },
+          }),
+        )
         return
       }
       case "close": {
         const x = arg as CloseParams
         this.openFileVersions.delete(x.file)
-        c.sendNotification("textDocument/didClose", {textDocument: {uri: fileToUri(x.file)}})
+        handlePromise(
+          c.sendNotification("textDocument/didClose", {textDocument: {uri: fileToUri(x.file)}}),
+        )
         return
       }
       case "change": {
         const x = arg as ChangeParams
         const version = (this.openFileVersions.get(x.file) ?? 1) + 1
         this.openFileVersions.set(x.file, version)
-        c.sendNotification("textDocument/didChange", {
-          textDocument: {uri: fileToUri(x.file), version},
-          contentChanges: [{range: toLspRange(x), text: x.insertString}],
-        })
+        handlePromise(
+          c.sendNotification("textDocument/didChange", {
+            textDocument: {uri: fileToUri(x.file), version},
+            contentChanges: [{range: toLspRange(x), text: x.insertString}],
+          }),
+        )
         return
       }
       case "configure": {
         const x = arg as ConfigureParams
-        c.sendNotification("workspace/didChangeConfiguration", {
-          settings: {typescript: {format: x.formatOptions, preferences: x.preferences}},
-        })
+        handlePromise(
+          c.sendNotification("workspace/didChangeConfiguration", {
+            settings: {typescript: {format: x.formatOptions, preferences: x.preferences}},
+          }),
+        )
         return
       }
       case "geterr": {
@@ -270,11 +285,20 @@ export class TypescriptServiceClient {
       }
       case "getCodeFixes": {
         const x = arg as GetCodeFixesParams
+        const range = toLspRange(x)
         return c.sendRequest("textDocument/codeAction", {
           textDocument: {uri: fileToUri(x.file)},
-          range: toLspRange(x),
+          range,
           context: {
-            diagnostics: [],
+            // typescript-go's code fix providers only look at diagnostics passed here (they
+            // don't have their own server-side diagnostic cache to fall back on), so an empty
+            // array here means every fix request silently returns nothing, for every diagnostic.
+            diagnostics: x.errorCodes.map((code) => ({
+              range,
+              code,
+              message: x.diagnosticMessage,
+              source: "ts",
+            })),
             only: ["quickfix"],
             triggerKind: CodeActionTriggerKind.Automatic,
           },
@@ -358,7 +382,9 @@ export class TypescriptServiceClient {
       try {
         if (this.connection) {
           await this.connection.sendRequest("shutdown")
-          this.connection.sendNotification("exit")
+          // Not awaited: fire-and-forget, same as the try/catch around it already assumes -
+          // if the server is gone, this rejecting too is expected and fine either way.
+          void this.connection.sendNotification("exit")
         }
       } catch (e) {
         // server may already be gone; fall through to the kill timer
@@ -437,9 +463,7 @@ export class TypescriptServiceClient {
         workspaceFolders: [{uri: rootUri, name: path.basename(this.projectRootPath)}],
         capabilities,
       })
-      .then(() => {
-        connection.sendNotification("initialized", {})
-      })
+      .then(() => connection.sendNotification("initialized", {}))
     handlePromise(this.initializePromise)
 
     return cp

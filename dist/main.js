@@ -25402,7 +25402,6 @@ $502c484fba974c5e$exports.install = $502c484fba974c5e$var$install;
 var $eusZd = parcelRequire("eusZd");
 function $8012570b1032009f$export$8080b7556d9d6445(promise) {
     if (promise === undefined) return;
-    // tslint:disable-next-line:strict-type-predicates no-unbound-method
     if (typeof promise.catch !== "function") {
         atom.notifications.addFatalError("Atom-Typescript: non-promise passed to handlePromise. Please report this.", {
             stack: new Error().stack,
@@ -25828,6 +25827,7 @@ $98fdad460d491e13$exports = $98fdad460d491e13$var$toNumber;
     return debounced;
 }
 $df14f2f83bfe2ed7$exports = $df14f2f83bfe2ed7$var$debounce;
+
 
 
 
@@ -28132,11 +28132,12 @@ class $bc25d7fe2a60a2c0$export$1beacdeb2d370927 {
             await this.loadNavTree();
             const lineCount = this.lineCountIfLarge(editor);
             if (!atom.config.get("pulsar-typescript.largeFileNoFollowCursor") || lineCount === 0) this.editorScrolling = editor.onDidChangeCursorPosition(this.selectAtCursorLine);
-            this.editorChanging = editor.onDidStopChanging(lineCount === 0 ? this.loadNavTree : (0, (/*@__PURE__*/$parcel$interopDefault($df14f2f83bfe2ed7$exports)))(this.loadNavTree, Math.max(lineCount / 5, 300)));
+            const loadNavTree = ()=>(0, $8012570b1032009f$export$8080b7556d9d6445)(this.loadNavTree());
+            this.editorChanging = editor.onDidStopChanging(lineCount === 0 ? loadNavTree : (0, (/*@__PURE__*/$parcel$interopDefault($df14f2f83bfe2ed7$exports)))(loadNavTree, Math.max(lineCount / 5, 300)));
         };
         (0, $cfd723393c3c1165$export$c2b0a16388cba90f)(props.navTree);
         $eusZd.initialize(this);
-        this.subscriptions.add(atom.workspace.observeActiveTextEditor(this.subscribeToEditor), atom.commands.add("atom-text-editor.typescript-editor", {
+        this.subscriptions.add(atom.workspace.observeActiveTextEditor((editor)=>(0, $8012570b1032009f$export$8080b7556d9d6445)(this.subscribeToEditor(editor))), atom.commands.add("atom-text-editor.typescript-editor", {
             "typescript:reveal-in-semantic-view": {
                 description: "Reveal the symbol under the text cursor in semantic view",
                 didDispatch: (event)=>{
@@ -28251,6 +28252,11 @@ class $9c69cf0119f8d160$export$21f68d6aa461e875 {
         }
         await this.initializePromise;
         if (window.atom_typescript_debug) console.log("sending request", command, args[0]);
+        // dispatch() is a runtime switch over `command`, each case re-narrowing `arg` to its own
+        // specific params type; there's no single type args[0] could have here that would make
+        // that unnecessary, so this and dispatch()'s own signature stay loosely typed at the
+        // boundary between them. The strongly-typed public surface is execute<T>()'s signature.
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return this.reportBusyWhile(command, ()=>this.dispatch(command, args[0]));
     }
     async restartServer() {
@@ -28277,7 +28283,9 @@ class $9c69cf0119f8d160$export$21f68d6aa461e875 {
         if (!this.connection) throw new Error("TS language server connection is not available");
         return this.connection;
     }
-    // tslint:disable-next-line:cyclomatic-complexity
+    // Runtime switch over `command`, each case re-narrowing `arg` to its own params type and
+    // returning its own response type; see the comment at the execute() call site above.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async dispatch(command, arg) {
         const c = this.conn();
         switch(command){
@@ -28285,25 +28293,25 @@ class $9c69cf0119f8d160$export$21f68d6aa461e875 {
                 {
                     const x = arg;
                     this.openFileVersions.set(x.file, 1);
-                    c.sendNotification("textDocument/didOpen", {
+                    $9c69cf0119f8d160$var$handlePromise(c.sendNotification("textDocument/didOpen", {
                         textDocument: {
                             uri: $9c69cf0119f8d160$var$fileToUri(x.file),
                             languageId: "typescript",
                             version: 1,
                             text: x.fileContent
                         }
-                    });
+                    }));
                     return;
                 }
             case "close":
                 {
                     const x = arg;
                     this.openFileVersions.delete(x.file);
-                    c.sendNotification("textDocument/didClose", {
+                    $9c69cf0119f8d160$var$handlePromise(c.sendNotification("textDocument/didClose", {
                         textDocument: {
                             uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         }
-                    });
+                    }));
                     return;
                 }
             case "change":
@@ -28312,7 +28320,7 @@ class $9c69cf0119f8d160$export$21f68d6aa461e875 {
                     var _this_openFileVersions_get;
                     const version = ((_this_openFileVersions_get = this.openFileVersions.get(x.file)) !== null && _this_openFileVersions_get !== void 0 ? _this_openFileVersions_get : 1) + 1;
                     this.openFileVersions.set(x.file, version);
-                    c.sendNotification("textDocument/didChange", {
+                    $9c69cf0119f8d160$var$handlePromise(c.sendNotification("textDocument/didChange", {
                         textDocument: {
                             uri: $9c69cf0119f8d160$var$fileToUri(x.file),
                             version: version
@@ -28323,20 +28331,20 @@ class $9c69cf0119f8d160$export$21f68d6aa461e875 {
                                 text: x.insertString
                             }
                         ]
-                    });
+                    }));
                     return;
                 }
             case "configure":
                 {
                     const x = arg;
-                    c.sendNotification("workspace/didChangeConfiguration", {
+                    $9c69cf0119f8d160$var$handlePromise(c.sendNotification("workspace/didChangeConfiguration", {
                         settings: {
                             typescript: {
                                 format: x.formatOptions,
                                 preferences: x.preferences
                             }
                         }
-                    });
+                    }));
                     return;
                 }
             case "geterr":
@@ -28476,13 +28484,22 @@ class $9c69cf0119f8d160$export$21f68d6aa461e875 {
             case "getCodeFixes":
                 {
                     const x = arg;
+                    const range = $9c69cf0119f8d160$var$toLspRange(x);
                     return c.sendRequest("textDocument/codeAction", {
                         textDocument: {
                             uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        range: $9c69cf0119f8d160$var$toLspRange(x),
+                        range: range,
                         context: {
-                            diagnostics: [],
+                            // typescript-go's code fix providers only look at diagnostics passed here (they
+                            // don't have their own server-side diagnostic cache to fall back on), so an empty
+                            // array here means every fix request silently returns nothing, for every diagnostic.
+                            diagnostics: x.errorCodes.map((code)=>({
+                                    range: range,
+                                    code: code,
+                                    message: x.diagnosticMessage,
+                                    source: "ts"
+                                })),
                             only: [
                                 "quickfix"
                             ],
@@ -28595,6 +28612,8 @@ class $9c69cf0119f8d160$export$21f68d6aa461e875 {
             try {
                 if (this.connection) {
                     await this.connection.sendRequest("shutdown");
+                    // Not awaited: fire-and-forget, same as the try/catch around it already assumes -
+                    // if the server is gone, this rejecting too is expected and fine either way.
                     this.connection.sendNotification("exit");
                 }
             } catch (e) {
@@ -28695,9 +28714,7 @@ class $9c69cf0119f8d160$export$21f68d6aa461e875 {
                 }
             ],
             capabilities: capabilities
-        }).then(()=>{
-            connection.sendNotification("initialized", {});
-        });
+        }).then(()=>connection.sendNotification("initialized", {}));
         $9c69cf0119f8d160$var$handlePromise(this.initializePromise);
         return cp;
     }
@@ -29129,11 +29146,9 @@ async function $b9d01e6e14801847$var$resolveConfigFile(initialBaseDir) {
     }
 }
 function $b9d01e6e14801847$var$isConfigObject(x) {
-    // tslint:disable-next-line: no-unsafe-any
     return typeof x === "object" && x !== null && typeof x.tsdkPath === "string";
 }
 function $b9d01e6e14801847$var$isVSCodeConfigObject(x) {
-    // tslint:disable-next-line: no-unsafe-any
     return typeof x === "object" && x !== null && typeof x["typescript.tsdk"] === "string";
 }
 async function $b9d01e6e14801847$var$getSDKPath(dirname) {
@@ -29298,7 +29313,13 @@ function $d7f83046f837bd80$export$6413bc8b6e281ffa(getClient) {
 
 
 
-async function $1c5f37451923ba5a$export$2c9a28f937ef04fb(hover, etch1, codeRenderer) {
+async function $1c5f37451923ba5a$export$2c9a28f937ef04fb(hover, // Not referenced by name; this file's own JSX below (`<div>...`) compiles to
+// `etch.dom(...)` calls per the project's jsxFactory, so this parameter has to be
+// named `etch` and in scope for that to resolve, whichever real/fake etch a caller
+// passes in (see the two call sites: real `etch` package vs the React-shape shim
+// in datatipProvider.tsx).
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+etch1, codeRenderer) {
     if (hover === undefined) return null;
     const text = $1c5f37451923ba5a$var$hoverContentsToString(hover.contents);
     const newlineIdx = text.indexOf("\n");
@@ -29320,9 +29341,13 @@ function $1c5f37451923ba5a$var$hoverContentsToString(contents) {
 
 
 
-// Note: a horrible hack to avoid dependency on React
+// Note: a horrible hack to avoid dependency on React. There's no real type to give
+// props/children/the return value against: atom-ide-base's ReactComponentDatatip just wants
+// something shaped like a React element for its own internal rendering, and doesn't export a
+// type for that shape.
 const $6093dabc0d97121a$var$REACT_ELEMENT_SYMBOL = Symbol.for("react.element");
-const $6093dabc0d97121a$var$etch = {
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment --
+   see the comment above: props/children are arbitrary JSX props, genuinely untyped here. */ const $6093dabc0d97121a$var$etch = {
     dom (type, props, ...children) {
         if (children.length > 0) return {
             $$typeof: $6093dabc0d97121a$var$REACT_ELEMENT_SYMBOL,
@@ -29936,18 +29961,18 @@ async function $b450fffbd3075fc1$export$12cb8c60c107136e({ items: items, itemTem
                 (0, $8012570b1032009f$export$8080b7556d9d6445)(select.update(props));
             };
             if (typeof items === "function") {
-                didChangeQuery = async (query)=>{
-                    const timeout = setTimeout(()=>update({
-                            loadingMessage: "Loading..."
-                        }), 300);
-                    const is = await items(query);
-                    clearTimeout(timeout);
-                    update({
-                        items: is,
-                        emptyMessage: "Nothing matches the search value",
-                        loadingMessage: undefined
-                    });
-                };
+                didChangeQuery = (query)=>(0, $8012570b1032009f$export$8080b7556d9d6445)((async ()=>{
+                        const timeout = setTimeout(()=>update({
+                                loadingMessage: "Loading..."
+                            }), 300);
+                        const is = await items(query);
+                        clearTimeout(timeout);
+                        update({
+                            items: is,
+                            emptyMessage: "Nothing matches the search value",
+                            loadingMessage: undefined
+                        });
+                    })());
                 loadingMessage = undefined;
                 emptyMessage = "Please enter a search value";
             }
@@ -30093,6 +30118,7 @@ async function $65db6aab1dc53ca3$export$680a91dbc2dcff04(result, editor, histGoF
 
 
 
+
 function $c1be9f16fc4968e0$export$51c07c30fb16d966(getClient, histGoForward) {
     return {
         priority: 0,
@@ -30102,23 +30128,24 @@ function $c1be9f16fc4968e0$export$51c07c30fb16d966(getClient, histGoForward) {
             if (!(0, $6f0bc47c7fee627c$export$3aecee58e23ede2c)(editor)) return;
             const filePath = editor.getPath();
             if (filePath === undefined) return;
+            const runCallback = async ()=>{
+                const location = {
+                    file: filePath,
+                    line: range.start.row + 1,
+                    offset: range.start.column + 1
+                };
+                const client = await getClient(location.file);
+                const result = await client.execute("definition", location);
+                const locations = (0, $2196ddae34004bed$export$210060adb63ee720)(result);
+                const resLoc = locations[0];
+                if (locations.length === 1 && resLoc.range.start.row === range.start.row && resLoc.range.start.column === range.start.column) {
+                    const references = await client.execute("references", location);
+                    await (0, $566961609dec1922$export$2904681fe8c977be)(references, editor, histGoForward);
+                } else await (0, $65db6aab1dc53ca3$export$680a91dbc2dcff04)(result, editor, histGoForward);
+            };
             return {
                 range: range,
-                callback: async ()=>{
-                    const location = {
-                        file: filePath,
-                        line: range.start.row + 1,
-                        offset: range.start.column + 1
-                    };
-                    const client = await getClient(location.file);
-                    const result = await client.execute("definition", location);
-                    const locations = (0, $2196ddae34004bed$export$210060adb63ee720)(result);
-                    const resLoc = locations[0];
-                    if (locations.length === 1 && resLoc.range.start.row === range.start.row && resLoc.range.start.column === range.start.column) {
-                        const references = await client.execute("references", location);
-                        await (0, $566961609dec1922$export$2904681fe8c977be)(references, editor, histGoForward);
-                    } else await (0, $65db6aab1dc53ca3$export$680a91dbc2dcff04)(result, editor, histGoForward);
-                }
+                callback: ()=>(0, $8012570b1032009f$export$8080b7556d9d6445)(runCallback())
             };
         }
     };
@@ -30688,7 +30715,8 @@ class $cdc3c3d09a128bcb$export$9262ee226e3cab9d {
                 endOffset: error.end.offset,
                 errorCodes: [
                     error.code
-                ].map((c)=>typeof c === "string" ? parseInt(c, 10) : c)
+                ].map((c)=>typeof c === "string" ? parseInt(c, 10) : c),
+                diagnosticMessage: error.text
             }));
         const fixes = await Promise.all(requests);
         const results = [];
@@ -32619,6 +32647,9 @@ class $2e77e3cc1be7f995$export$a4d36ae2cf2e8cd {
     }
 }
 function $2e77e3cc1be7f995$var$config(option, scope) {
+    // atom.config.get<T>'s T is inferred from a literal keyPath; a template-literal keyPath like
+    // this one can't be matched against `keyof ConfigValues`, so TS can't verify the result
+    // against our own declared return type on its own.
     return atom.config.get(`pulsar-typescript.${option}`, {
         scope: [
             scope
@@ -32875,7 +32906,10 @@ class $f2c40572991b2c33$export$a0bbaae59860162e {
         this.subscriptions.add(this.buffer.on("opened", this.onOpened));
         this.checkIfTypescript();
         this.subscriptions.add(editor.onDidChangePath(this.checkIfTypescript), editor.onDidChangeGrammar(this.checkIfTypescript), editor.onDidDestroy(this.destroy), editor.onDidSave(()=>{
-            if (atom.config.get("pulsar-typescript.checkAllFilesOnSave")) atom.commands.dispatch(atom.views.getView(editor), "typescript:check-all-files");
+            if (atom.config.get("pulsar-typescript.checkAllFilesOnSave")) {
+                const result = atom.commands.dispatch(atom.views.getView(editor), "typescript:check-all-files");
+                if (result) (0, $8012570b1032009f$export$8080b7556d9d6445)(result);
+            }
         }));
     }
 }
@@ -33139,8 +33173,8 @@ class $e48a1ebc82bcd025$export$f2c0a16002429d72 {
             histGoForward: this.histGoForward,
             histGoBack: ()=>this.editorPosHist.goBack(),
             histShowHistory: ()=>this.editorPosHist.showHistory(),
-            showTooltipAt: this.showTooltipAt,
-            showSigHelpAt: this.showSigHelpAt,
+            showTooltipAt: (ed)=>(0, $8012570b1032009f$export$8080b7556d9d6445)(this.showTooltipAt(ed)),
+            showSigHelpAt: (ed)=>(0, $8012570b1032009f$export$8080b7556d9d6445)(this.showSigHelpAt(ed)),
             hideSigHelpAt: this.hideSigHelpAt,
             rotateSigHelp: this.rotateSigHelp
         }));
