@@ -8,7 +8,8 @@
   "author": "Rômulo Fernandes Evangelista (https://github.com/romulofer)",
   "atomTestRunner": "./node_modules/atom-ts-spec-runner/runner.js",
   "activationHooks": [
-    "language-typescript:grammar-used"
+    "language-typescript:grammar-used",
+    "language-javascript:grammar-used"
   ],
   "activationCommands": {
     "atom-workspace": [
