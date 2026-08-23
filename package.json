@@ -4,7 +4,8 @@
   "main": "./loader.js",
   "bundle": "./dist/main.js",
   "preferGlobal": true,
-  "description": "The only TypeScript plugin you will ever need.",
+  "description": "TypeScript language support for Pulsar: autocomplete, diagnostics, hover docs, and go-to-definition, powered by TypeScript 7's native LSP compiler.",
+  "author": "Rômulo Fernandes Evangelista (https://github.com/romulofer)",
   "atomTestRunner": "./node_modules/atom-ts-spec-runner/runner.js",
   "activationHooks": [
     "language-typescript:grammar-used"
