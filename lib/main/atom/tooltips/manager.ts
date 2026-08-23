@@ -124,7 +124,7 @@ export class TooltipManager {
       this.clearExprTypeTimeout()
       this.exprTypeTimeout = window.setTimeout(
         () => this.showExpressionType(editor, e, bufferPt),
-        atom.config.get("pulsar-typescript").tooltipDelay,
+        atom.config.get("typescript-pulsar").tooltipDelay,
       )
     }
   }

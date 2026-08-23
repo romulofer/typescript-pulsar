@@ -1,5 +1,5 @@
 {
-  "name": "pulsar-typescript",
+  "name": "typescript-pulsar",
   "version": "15.0.0",
   "main": "./loader.js",
   "bundle": "./dist/main.js",
@@ -462,14 +462,14 @@
       }
     }
   },
-  "homepage": "https://github.com/romulofer/pulsar-typescript",
+  "homepage": "https://github.com/romulofer/typescript-pulsar",
   "repository": {
     "type": "git",
-    "url": "https://github.com/romulofer/pulsar-typescript.git"
+    "url": "https://github.com/romulofer/typescript-pulsar.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/romulofer/pulsar-typescript/issues"
+    "url": "https://github.com/romulofer/typescript-pulsar/issues"
   },
   "dependencies": {
     "@typescript/native": "npm:typescript@^7.0.2",

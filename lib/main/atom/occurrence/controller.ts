@@ -16,7 +16,7 @@ export class OccurenceController {
     let changeDelay: number
     let shouldHighlight: boolean = false
     this.disposables.add(
-      atom.config.observe("pulsar-typescript.occurrenceHighlightDebounceTimeout", (val) => {
+      atom.config.observe("typescript-pulsar.occurrenceHighlightDebounceTimeout", (val) => {
         debouncedUpdate = debounce(() => {
           handlePromise(this.update())
         }, val)

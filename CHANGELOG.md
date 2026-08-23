@@ -23,6 +23,12 @@
 
 -   Rebrand the package for Pulsar: `name`/`repository`/`homepage` now point at this fork,
     and `engines.atom` is raised to `>=1.100.0 <2.0.0`.
+-   Package (and config namespace) renamed from `pulsar-typescript` to `typescript-pulsar`:
+    the former name was already registered on the Pulsar package registry by an unrelated,
+    archived fork, and publishing under it failed silently (a generic "Internal Server
+    Error", not a clear name-conflict message). All `atom.config` keys move from the
+    `pulsar-typescript.*` namespace to `typescript-pulsar.*` accordingly; the GitHub repo
+    and local checkout were renamed to match.
 -   CI now installs Pulsar (`pulsar-edit/action-pulsar-dependency`) instead of Atom.
 
 ### Fixes

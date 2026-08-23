@@ -9,7 +9,7 @@ import {
 
 export function getDefinitionProvider(getClient: GetClientFunction): DefinitionProvider {
   return {
-    name: "pulsar-typescript",
+    name: "typescript-pulsar",
     priority: 0,
     grammarScopes: typeScriptScopes(),
     wordRegExp: /([A-Za-z0-9_])+|['"`](\\.|[^'"`\\\\])*['"`]/g,

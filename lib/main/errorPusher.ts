@@ -71,7 +71,7 @@ export class ErrorPusher {
   }
 
   private getLinterErrors(): Message[] {
-    if (atom.config.get("pulsar-typescript.suppressAllDiagnostics")) return []
+    if (atom.config.get("typescript-pulsar.suppressAllDiagnostics")) return []
     const result: Message[] = []
     for (const fileErrors of this.errors.values()) {
       for (const [filePath, diagnostics] of fileErrors) {
@@ -135,14 +135,14 @@ export class ErrorPusher {
   }
 }
 
-function config<T extends keyof ConfigValues["pulsar-typescript"]>(
+function config<T extends keyof ConfigValues["typescript-pulsar"]>(
   option: T,
   scope: string,
-): ConfigValues["pulsar-typescript"][typeof option] {
+): ConfigValues["typescript-pulsar"][typeof option] {
   // atom.config.get<T>'s T is inferred from a literal keyPath; a template-literal keyPath like
   // this one can't be matched against `keyof ConfigValues`, so TS can't verify the result
   // against our own declared return type on its own.
-  return atom.config.get(`pulsar-typescript.${option}`, {
+  return atom.config.get(`typescript-pulsar.${option}`, {
     scope: [scope],
-  }) as unknown as ConfigValues["pulsar-typescript"][typeof option]
+  }) as unknown as ConfigValues["typescript-pulsar"][typeof option]
 }

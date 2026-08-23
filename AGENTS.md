@@ -1,4 +1,4 @@
-# AGENTS.md — pulsar-typescript
+# AGENTS.md — typescript-pulsar
 
 Guidance for AI agents working in this repository. Read this before touching code.
 
@@ -180,7 +180,7 @@ and its LSP features work (see Known Broken below). To check by hand:
 ```bash
 # One-time setup (if not already linked):
 #   ppm link <path-to-this-repo>
-# then confirm: readlink -f ~/.pulsar/packages/pulsar-typescript  ==  this repo
+# then confirm: readlink -f ~/.pulsar/packages/typescript-pulsar  ==  this repo
 
 npm run build
 unset ELECTRON_RUN_AS_NODE   # otherwise the CLI wrapper launches node's own --help
@@ -258,7 +258,7 @@ listed above as "attempted and reverted".
 - No comments explaining *what* code does; only *why*, when non-obvious (see the
   gotcha comments already in `resolveBinary.ts` and `typescriptBuffer.ts` for the
   house style).
-- Config keys live under the `pulsar-typescript.*` namespace in `atom.config`
+- Config keys live under the `typescript-pulsar.*` namespace in `atom.config`
   (renamed from `atom-typescript.*` during the Pulsar rebrand — don't reintroduce the
   old prefix).
 - `lib/typings/atom-config.d.ts` is **generated** from package.json's `configSchema`

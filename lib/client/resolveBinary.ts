@@ -37,7 +37,7 @@ export async function resolveBinary(sourcePath: string): Promise<Binary> {
     }
 
     // try to get typescript from configured tsdkPath
-    const tsdkPath = atom.config.get("pulsar-typescript.tsdkPath")
+    const tsdkPath = atom.config.get("typescript-pulsar.tsdkPath")
     if (tsdkPath) {
       const pkgPath = path.join(tsdkPath, "package.json")
       const exists = await fsExists(pkgPath)

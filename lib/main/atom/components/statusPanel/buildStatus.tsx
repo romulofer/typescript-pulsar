@@ -20,11 +20,11 @@ export class BuildStatus implements JSX.ElementClass {
     this.props = {
       ...props,
     }
-    this.setHideBuildStatus(atom.config.get("pulsar-typescript").buildStatusTimeout)
+    this.setHideBuildStatus(atom.config.get("typescript-pulsar").buildStatusTimeout)
     this.resetBuildStatusTimeout()
     etch.initialize(this)
     this.disposables.add(
-      atom.config.onDidChange("pulsar-typescript.buildStatusTimeout", ({newValue}) => {
+      atom.config.onDidChange("typescript-pulsar.buildStatusTimeout", ({newValue}) => {
         this.setHideBuildStatus(newValue)
         handlePromise(this.update({}))
       }),

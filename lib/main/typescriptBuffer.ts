@@ -43,7 +43,7 @@ export class TypescriptBuffer {
   private constructor(public buffer: Atom.TextBuffer, private deps: Deps) {
     let debouncedGetErr: DebouncedFunc<() => void>
     this.subscriptions.add(
-      atom.config.observe("pulsar-typescript.getErrDebounceTimeout", (val) => {
+      atom.config.observe("typescript-pulsar.getErrDebounceTimeout", (val) => {
         debouncedGetErr = debounce(() => {
           handlePromise(this.getErr({allFiles: false, delay: 0}))
         }, val)
@@ -153,7 +153,7 @@ export class TypescriptBuffer {
     if (!this.state || !this.state.configFile) return
     const options = getProjectConfig(this.state.configFile.getPath())
     this.compileOnSave = options.compileOnSave
-    const cfg = atom.config.get("pulsar-typescript")
+    const cfg = atom.config.get("typescript-pulsar")
     await this.state.client.execute("configure", {
       file: this.state.filePath,
       formatOptions: options.formatCodeOptions,

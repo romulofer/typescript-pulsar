@@ -22,8 +22,8 @@ coding.
 
 1.  Install [Pulsar](https://pulsar-edit.dev).
 2.  Install dependencies (see below).
-3.  Install `pulsar-typescript` from Pulsar's package manager (`Settings → Install`),
-    or `ppm install pulsar-typescript` (`ppm` needs `git` in your path).
+3.  Install `typescript-pulsar` from Pulsar's package manager (`Settings → Install`),
+    or `ppm install typescript-pulsar` (`ppm` needs `git` in your path).
 4.  Fire up Pulsar. Open a TypeScript file.
 
 **Dependencies**:

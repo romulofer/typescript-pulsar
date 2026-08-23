@@ -13,7 +13,7 @@ export class TSSigHelpProvider implements SignatureHelpProvider {
     const triggerCharsDefault = new Set(["<", "(", ","])
     const triggerCharsDisabled = new Set<string>([])
     this.disposables.add(
-      atom.config.observe("pulsar-typescript.sigHelpDisplayOnChange", (newVal) => {
+      atom.config.observe("typescript-pulsar.sigHelpDisplayOnChange", (newVal) => {
         this.triggerCharacters = newVal ? triggerCharsDefault : triggerCharsDisabled
       }),
     )

@@ -22,7 +22,7 @@ export class SemanticViewController {
           handlePromise(this.view.destroy())
         }
       }),
-      atom.config.observe("pulsar-typescript.showSemanticView", (val) => {
+      atom.config.observe("typescript-pulsar.showSemanticView", (val) => {
         if (val) handlePromise(this.show())
         else this.hide()
       }),

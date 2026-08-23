@@ -27,10 +27,10 @@ export class AutocompleteProvider implements ACP.AutocompleteProvider {
     .map((x) => (x.includes(".") ? `.${x}` : x))
     .join(", ")
 
-  public inclusionPriority = atom.config.get("pulsar-typescript").autocompletionInclusionPriority
-  public suggestionPriority = atom.config.get("pulsar-typescript").autocompletionSuggestionPriority
+  public inclusionPriority = atom.config.get("typescript-pulsar").autocompletionInclusionPriority
+  public suggestionPriority = atom.config.get("typescript-pulsar").autocompletionSuggestionPriority
   public excludeLowerPriority =
-    atom.config.get("pulsar-typescript").autocompletionExcludeLowerPriority
+    atom.config.get("typescript-pulsar").autocompletionExcludeLowerPriority
 
   private lastSuggestions?: {
     // Client used to get the suggestions
@@ -77,7 +77,7 @@ export class AutocompleteProvider implements ACP.AutocompleteProvider {
         activatedManually: opts.activatedManually,
       })
 
-      const config = atom.config.get("pulsar-typescript")
+      const config = atom.config.get("typescript-pulsar")
       if (config.autocompletionUseFuzzyFilter) {
         suggestions = fuzzaldrin.filter(suggestions, prefix, {
           key: "displayText",
@@ -343,7 +343,7 @@ function addCallableParens(
   s: SuggestionWithDetails,
 ): ACP.TextSuggestion | ACP.SnippetSuggestion {
   if (
-    atom.config.get("pulsar-typescript.autocompleteParens") &&
+    atom.config.get("typescript-pulsar.autocompleteParens") &&
     ["function", "method"].includes(s.leftLabel!) &&
     !parens(opts)
   ) {

@@ -192,7 +192,7 @@ export class PluginManager {
   }
 
   public consumeDatatipService(datatip: DatatipService) {
-    if (atom.config.get("pulsar-typescript").preferBuiltinTooltips) return
+    if (atom.config.get("typescript-pulsar").preferBuiltinTooltips) return
     const disp = datatip.addProvider(new TSDatatipProvider(this.getClient))
     this.subscriptions.add(disp)
     this.tooltipManager.dispose()
@@ -201,7 +201,7 @@ export class PluginManager {
   }
 
   public consumeSigHelpService(registry: SignatureHelpRegistry): void | Atom.DisposableLike {
-    if (atom.config.get("pulsar-typescript").preferBuiltinSigHelp) return
+    if (atom.config.get("typescript-pulsar").preferBuiltinSigHelp) return
     const provider = new TSSigHelpProvider(this.getClient)
     const disp = registry(provider)
     this.subscriptions.add(disp, provider)
@@ -211,7 +211,7 @@ export class PluginManager {
   }
 
   public consumeBusySignal(busySignalService: BusySignalService): void | Atom.DisposableLike {
-    if (atom.config.get("pulsar-typescript").preferBuiltinBusySignal) return
+    if (atom.config.get("typescript-pulsar").preferBuiltinBusySignal) return
     this.busySignalService = busySignalService
     const disp = {
       dispose: () => {
@@ -253,12 +253,12 @@ export class PluginManager {
   }
 
   public provideDefinitions() {
-    if (atom.config.get("pulsar-typescript").disableAtomIdeDefinitions) return
+    if (atom.config.get("typescript-pulsar").disableAtomIdeDefinitions) return
     return getDefinitionProvider(this.getClient)
   }
 
   public provideCodeHighlight() {
-    if (atom.config.get("pulsar-typescript").preferBuiltinOccurrenceHighlight) return
+    if (atom.config.get("typescript-pulsar").preferBuiltinOccurrenceHighlight) return
     this.occurrenceManager.dispose()
     return getCodeHighlightProvider(this.getClient)
   }

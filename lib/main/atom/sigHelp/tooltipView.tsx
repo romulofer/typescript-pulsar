@@ -52,7 +52,7 @@ export class TooltipView implements JSX.ElementClass {
       this.element,
       this.parent,
       this.props,
-      atom.config.get("pulsar-typescript").sigHelpPosition,
+      atom.config.get("typescript-pulsar").sigHelpPosition,
     )
   }
 
