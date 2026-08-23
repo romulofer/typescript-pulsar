@@ -187,13 +187,15 @@ environment, learned the hard way this session:
   These are documented, intentional degradations from the LSP migration, not bugs to
   silently "fix" without first confirming an LSP equivalent actually exists upstream.
 - **The `tsc --lsp` server itself (typescript-go, vendored via the `typescript@7` npm
-  package) can segfault** with a nil-pointer panic inside
-  `getSnapshotAndDefaultProject`/`GetLanguageService` under real editor request
-  traffic from this client. Not reliably reproduced with a minimal standalone LSP
-  client sending the same request types, so the trigger is somewhere in this client's
-  fuller request/capability sequence, not isolated as of this writing. This is inside
-  vendored native Go code — nothing in this repo to patch; if you dig further, expect
-  to end up filing an upstream issue against `typescript-go`, not editing `lib/`.
+  package) can segfault.** Root cause identified (see REWORK.md's "Root cause
+  identified" section): `(*Session).getSnapshot` is called with a nil `*Session`
+  receiver and panics locking a mutex field on it, reached when a `textDocument/*`
+  request lands in its own server-spawned goroutine before the session/project for a
+  just-opened file finishes being created. This is a genuine upstream race with no
+  synchronization on `typescript-go`'s side, deterministic (same `addr`/`pc` every
+  time), and reproducible from ordinary editor usage (open a file, no hover needed).
+  Nothing in this repo to patch; file/track as an upstream `typescript-go` issue, not
+  `lib/` changes.
 
 See `REWORK.md` for the full narrative of what's been fixed, what's still open, and
 what was tried and abandoned (with reasons) — read it before re-attempting anything

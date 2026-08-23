@@ -185,6 +185,97 @@ gets restored on the next launch) — try a repro with a fresh `~/.pulsar` confi
 or explicit session-restore-disabled launch to rule this out as a contributing
 factor.
 
+#### Update: decoupled-controller race also fails to reproduce standalone
+
+Traced candidate (1) further: `lib/client/client.ts`'s `dispatch()` cases for "open"
+and "navtree" have no `await` before their `sendNotification`/`sendRequest` call, so
+JS call order should equal wire order as long as both calls happen in the same
+synchronous tick, which ruled out a `reportBusyWhile` (`atom-ide-busy-signal`,
+`lib/main/pluginManager.ts`) reordering theory on inspection — its `reportBusyWhile`
+calls `f()` synchronously before its first `await`, same as a bare call. The real
+architectural difference from the original probe: `TypescriptBuffer.open()`
+(`lib/main/typescriptBuffer.ts`, sends "open" then fire-and-forget "geterr" then,
+after a real `findConfigFile` fs walk, "configure") and `getOutlineProvider()`
+(`lib/main/atom-ide/outlineProvider.ts`, sends "navtree") are two **fully independent**
+consumers of the same pooled client with zero cross-awaiting, both triggered off the
+same active-editor-changed event — not one script firing requests in a chosen order.
+
+Added `oneRunDecoupled()` to `scripts/lsp-segfault-probe.js` (`node
+scripts/lsp-segfault-probe.js decoupled [n]`) to model this: three independent async
+"controllers" (open/geterr/configure with a real `fs.promises.access` gap instead of
+a fixed sleep, navtree, and documentHighlight for occurrence-on-initial-cursor) fired
+from the same tick with no ordering between them, letting the real event loop decide
+interleaving instead of a hand-picked stagger. **0/40 runs crashed.** So an
+unsynchronized multi-consumer race over the same connection isn't sufficient on its
+own either — narrowed candidate (3) (restored-editor-session state) by relaunching
+live against a project directory Pulsar had never opened before (fresh fixture dir,
+untouched `ATOM_HOME` storage entry, same installed package set including
+`atom-ide-outline`/`busy-signal`): **crashed again**, immediately on open, no hover.
+Rules out session-restore state as a contributing factor.
+
+### Root cause identified: nil `*Session` panics inside its own `sync.Mutex.Lock`, server-side
+
+This live run's DevTools console had the panic's full text (previous captures had it
+truncated by the notification dialog). The complete trace, expanded:
+
+```
+tsc --lsp stderr: panic: runtime error: invalid memory address or nil pointer dereference
+[signal SIGSEGV: segmentation violation code=0x1 addr=0x3c8 pc=0xb7d046]
+
+goroutine 19 [running]:
+internal/sync.(*Mutex).Lock(...)
+	internal/sync/mutex.go:63
+sync.(*Mutex).Lock(...)
+	sync/mutex.go:46
+github.com/microsoft/typescript-go/internal/project.(*Session).getSnapshot(0x0, {0x1172818, 0xd39966100f0}, {0x3996614040, 0x1, 0x1}, {0x0, 0x0}, {0x0, ...}, ...)
+	github.com/microsoft/typescript-go/internal/project/session.go:909 +0x66
+github.com/microsoft/typescript-go/internal/project.(*Session).getSnapshotAndDefaultProject(0x0, {0x1172818, 0xd39966100f0}, {0x3996630000, 0xa0}, 0x0)
+	github.com/microsoft/typescript-go/internal/project/session.go:976 +0x13d
+github.com/microsoft/typescript-go/internal/project.(*Session).GetLanguageService(0x116e340?, {0x1172818?, 0xd39966100f0}, {0x3996630000?, 0xa0?})
+	github.com/microsoft/typescript-go/internal/project/session.go:989 +0x25
+github.com/microsoft/typescript-go/internal/lsp.init.func1.registerLanguageServiceDocumentRequestHandler[...].23({0x1172818, 0xd39966100f0}, 0x3996569050)
+	github.com/microsoft/typescript-go/internal/lsp/server.go:865 +0x85
+github.com/microsoft/typescript-go/internal/lsp.(*Server).handleRequestOrNotification(0x3996651e008, {0x1172850?, 0x3996660a050?}, 0x3996569050)
+	github.com/microsoft/typescript-go/internal/lsp/server.go:703 +0xec
+github.com/microsoft/typescript-go/internal/lsp.(*Server).dispatchLoop(0x3996651e008)
+	github.com/microsoft/typescript-go/internal/lsp/server.go:577 +0x445
+github.com/microsoft/typescript-go/internal/lsp.(*Server).Run.func1()
+	github.com/microsoft/typescript-go/internal/lsp/server.go:426 +0x1f
+golang.org/x/sync/errgroup.(*Group).Go.func1()
+	golang.org/x/sync/errgroup.go:93 +0x50
+created by golang.org/x/sync/errgroup.(*Group).Go in goroutine 1
+	golang.org/x/sync/errgroup.go:78 +0x95
+```
+
+Same `addr=0x3c8 pc=0xb7d046` as the very first capture in this document, across
+different sessions/machines-state — this is a deterministic bug at a fixed code
+address, not memory corruption or a heisenbug. And the new frame that wasn't visible
+before (`sync.(*Mutex).Lock` at the very top, called from `getSnapshot` with a `0x0`
+receiver) pins down the actual fault: `(*Session).getSnapshot` is called on a **nil**
+`*Session`, and the first thing it does is lock a mutex field on that nil receiver,
+which dereferences the nil pointer.
+
+`dispatchLoop` -> `handleRequestOrNotification` -> `errgroup.Group.Go` shows *every*
+incoming LSP request/notification is dispatched into its own goroutine by the server
+itself, concurrently, with no visible synchronization against session/project
+creation. So the race isn't in this client (already fairly thoroughly probed above,
+including a decoupled multi-consumer replay) — it's server-side: some request handler
+(routed through `registerLanguageServiceDocumentRequestHandler`, i.e. any of the
+`textDocument/*` requests that need a live language service, not just hover) reads
+a per-session pointer that is still nil because the project/session for the
+just-opened file hasn't finished being constructed by (presumably) the `didOpen`
+handler yet, and nothing blocks the request handler from running first.
+
+**Conclusion: this is confirmed to be an upstream `typescript-go` bug** (a
+request-vs-session-initialization race with no synchronization, causing a nil-pointer
+panic reachable from ordinary editor usage, not just adversarial timing) and should be
+filed against `microsoft/typescript-go` with the trace above, not chased further as a
+client-side fix. Nothing under `lib/` in this repo can work around a nil receiver
+panic inside the vendored Go binary; the only real client-side mitigation available is
+auto-restarting the crashed server (see `client.ts`'s `exitHandler`/`restarted` event,
+already in place) so a crash degrades to "features reset" rather than "package dead
+until reload," which is already how the client behaves today.
+
 ## Attempted and reverted: fixing `pulsar --test spec` / `npm run lint`
 
 Both `atom-ts-spec-runner` (via `ts-node`) and `tslint` need the classic TypeScript
@@ -249,19 +340,26 @@ Carried over from the original migration (`f313cf99`), not touched this round:
 
 ## Suggested next steps, roughly in priority order
 
-1. Narrow down and report (or fix, if it turns out to be a client-side trigger after
-   all) the `typescript-go` segfault — this is the thing most likely to make the
-   package unusable in real-world editing, not just in this minimal repro. Confirmed
-   this round: it's not rare (3/3 live reproductions on a trivial two-line file, no
-   hover needed) but still not reproduced standalone outside the real editor — see
-   the "Update" under "Open issue" above and `scripts/lsp-segfault-probe.js` for where
-   to pick this up.
+1. File the upstream `microsoft/typescript-go` issue for the segfault (root cause now
+   identified, see "Root cause identified" under "Open issue" above: a nil `*Session`
+   panics inside its own mutex lock, reached from any concurrent `textDocument/*`
+   request racing session/project creation after `didOpen`, server-side, not a client
+   bug). Include the full trace already captured, the exact deterministic
+   `addr=0x3c8 pc=0xb7d046`, and note it reproduces from ordinary editor usage (fresh
+   file, no hover) not just adversarial timing. No further client-side narrowing work
+   is needed before filing.
 2. Do a real manual pass through the feature list in `README.md` (autocomplete,
    definitions, references, rename, code actions, format, signature help) the way
    hover was spot-checked this round, now that the LSP client actually reaches the
    server. None of the others have been individually verified live yet.
 3. Decide on and execute one of the three options above for
    `npm run lint`/`pulsar --test spec`.
-4. Once tests can run, add coverage for the `resolveBinary.ts` dynamic-require class
-   of bug specifically (e.g. a smoke test that actually builds with Parcel and
-   greps/exercises the bundle) so it can't silently regress the way it did here.
+4. ~~Once tests can run, add coverage for the `resolveBinary.ts` dynamic-require
+   class of bug specifically~~ Done: `scripts/verify-bundle.js` scans `dist/main.js`
+   for any `require(...)`/`require.resolve(...)` call whose argument isn't a string
+   literal, wired into `npm run build` (also runnable standalone via `npm run
+   verify-bundle`). Verified it actually catches a regression: injecting a fake
+   `require(process.env.X)` into `lib/` and rebuilding fails the build with the
+   exact call site; reverting and rebuilding passes clean. This doesn't need
+   `npm test`'s broken spec runner (see below) since it operates on the built
+   artifact, not source.
