@@ -87,7 +87,51 @@ This is a correctness fix on its own (a well-behaved LSP client tells the server
 project it's serving) independent of the issue below, which it does **not** fully
 explain.
 
-## Open issue: `tsc --lsp` (typescript-go) can segfault
+## RESOLVED: `tsc --lsp` (typescript-go) segfault, fixed client-side (`client.ts`)
+
+**Root cause found and fixed.** Our client was violating the LSP spec's
+initialize/initialized handshake: it fired the real first command (whatever
+triggered `startServer()`, e.g. `open`) concurrently with `initialize` instead of
+waiting for the handshake to complete first, because `startServer()` set
+`this.connection` synchronously and `execute()` dispatched immediately, while the
+actual `initialize` → `initialized` exchange ran as an un-awaited background promise
+chain. That let `textDocument/*` requests reach the server before its session/project
+existed, hitting a nil-pointer bug in `typescript-go`'s server (see full analysis
+below) that crashes the *entire process* instead of returning a graceful error.
+
+Confirmed by cloning `microsoft/typescript-go` at the exact commit tagged
+`typescript/v7.0.2` (matches the vendored binary's `gitHead`, see "Root cause
+identified" below), and by cross-checking two other real LSP clients for the same
+server — VS Code's official `vscode-typescript`/`native-preview` extension (uses
+`vscode-languageclient`, which always waits for `initialize`'s response before
+sending `initialized`, and only exposes a usable server handle after) and Zed's
+generic LSP client (`crates/lsp/src/lsp.rs`'s `initialize()`: explicitly awaits the
+`initialize` response, *then* sends `initialized`, and only returns the `Arc<Self>`
+server handle once both are done — structurally impossible to jump the queue). Both
+behave the way ours now does; neither can trigger the crash.
+
+**Fix**: `lib/client/client.ts` now stores the `initialize`→`initialized` chain in
+`this.initializePromise` (set in `startServer()`) and `execute()` awaits it before
+calling `dispatch()`, for every command including the one that triggered server
+startup in the first place.
+
+**Verified two ways**:
+1. Standalone (`node`, no Atom/Electron, same `node_modules/.bin/tsc` binary): firing
+   `didOpen` + `documentSymbol` + `diagnostic` without waiting for `initialize`'s
+   response crashed the server **15/15** runs; waiting for it first, **0/15** crashed.
+2. Live in Pulsar (Xvfb, fresh project never opened before, same fixture that
+   crashed 100% of the time earlier this session): file opens clean, no crash
+   notification, Outline/semantic-view panel populates correctly (`greet`, `x`,
+   `Foo.bar`, `useFoo`), and diagnostics render correctly (3 real errors shown:
+   undefined `y`, `greet(1)`, `greet()`).
+
+This was found and fixed without needing to touch `typescript-go` at all — but the
+missing guard described below is still real and still worth reporting upstream as
+defense-in-depth (see "Options" in the next section of work), since any other
+LSP-spec-violating client (or some other future nil-session window) would hit the
+same full-process crash instead of a graceful error.
+
+### Narrative: how this was tracked down (historical, kept for the full trail)
 
 While verifying fix #4, the LSP server itself crashed:
 
@@ -266,15 +310,50 @@ a per-session pointer that is still nil because the project/session for the
 just-opened file hasn't finished being constructed by (presumably) the `didOpen`
 handler yet, and nothing blocks the request handler from running first.
 
-**Conclusion: this is confirmed to be an upstream `typescript-go` bug** (a
-request-vs-session-initialization race with no synchronization, causing a nil-pointer
-panic reachable from ordinary editor usage, not just adversarial timing) and should be
-filed against `microsoft/typescript-go` with the trace above, not chased further as a
-client-side fix. Nothing under `lib/` in this repo can work around a nil receiver
-panic inside the vendored Go binary; the only real client-side mitigation available is
-auto-restarting the crashed server (see `client.ts`'s `exitHandler`/`restarted` event,
-already in place) so a crash degrades to "features reset" rather than "package dead
-until reload," which is already how the client behaves today.
+**Update: this turned out to have a client-side fix after all.** The paragraph above
+was written assuming the request-vs-session race was purely server-side and
+untouchable from here. Digging into exactly *why* a `textDocument/*` request could
+ever reach the server before session creation (see "RESOLVED" above) found that our
+own client was the one creating the race window, by not waiting for the initialize/initialized handshake before sending
+its first real command. Fixed in `lib/client/client.ts` (see "RESOLVED" heading
+above) — 0/15 crashes after the fix, standalone and live, versus 15/15 before.
+
+The server-side gap is still real and independently worth reporting: `internal/lsp/server.go`'s
+`registerLanguageServiceDocumentRequestHandler` (used for hover, documentSymbol,
+diagnostics, signatureHelp, format, documentHighlight, codeLens, foldingRange,
+prepareRename, semanticTokens — everything routed through it) is the *only* one of
+the three handler-registration helpers that doesn't check `s.session == nil` before
+using it; `registerRequestHandler` and `registerNotificationHandler` both do (verified
+at commit `2bd066d87f5bafd315be9f40889d0a60b9e58e0b`, tag `typescript/v7.0.2`, the
+exact commit that produced our vendored binary — line numbers match the crash trace
+almost exactly: `getSnapshot`/`getSnapshotAndDefaultProject`/`GetLanguageService` at
+904/975/988, crash trace said 909/976/989). A well-behaved client (ours, now) will
+never hit this, but any client that doesn't wait for `initialized` — or any other
+future code path where `s.session` goes transiently nil — gets a full process crash
+instead of a graceful `ErrorCodeServerNotInitialized`, which is what the other two
+handler categories already return safely. One-line fix, see "Options for the
+`typescript-go` finding" below.
+
+### Options for the `typescript-go` finding
+
+The client-side fix already ships (see "RESOLVED" above), so nothing here blocks
+this package. What's left is purely about whether/how to report the missing guard
+upstream:
+
+1. **File a `microsoft/typescript-go` issue** with the trace, the exact commit/line
+   references, and the one-line fix (add the same `s.session == nil` check that
+   `registerRequestHandler`/`registerNotificationHandler` already have to
+   `registerLanguageServiceDocumentRequestHandler` in `internal/lsp/server.go`).
+   Lowest effort, gives the maintainers full context to fix or wave off.
+2. **File the issue and open a PR** with the fix. Slightly more effort, but it's a
+   genuinely one-line, low-risk change with a clear before/after repro (the 15/15 vs
+   0/15 standalone test in this doc's history) to attach as evidence.
+3. **Don't file anything.** Defensible since it no longer affects this package, but
+   leaves a real crash-the-whole-process footgun in place for the next client (or
+   the next release of `typescript-go` itself) that trips it.
+
+Recommended: option 1 or 2, since the fix is well-understood and cheap to write up
+either way — the hard part (finding it) is already done.
 
 ## Attempted and reverted: fixing `pulsar --test spec` / `npm run lint`
 
@@ -340,18 +419,17 @@ Carried over from the original migration (`f313cf99`), not touched this round:
 
 ## Suggested next steps, roughly in priority order
 
-1. File the upstream `microsoft/typescript-go` issue for the segfault (root cause now
-   identified, see "Root cause identified" under "Open issue" above: a nil `*Session`
-   panics inside its own mutex lock, reached from any concurrent `textDocument/*`
-   request racing session/project creation after `didOpen`, server-side, not a client
-   bug). Include the full trace already captured, the exact deterministic
-   `addr=0x3c8 pc=0xb7d046`, and note it reproduces from ordinary editor usage (fresh
-   file, no hover) not just adversarial timing. No further client-side narrowing work
-   is needed before filing.
+1. ~~File the upstream `microsoft/typescript-go` issue for the segfault~~ Done, and
+   then some: found and shipped a client-side fix (see "RESOLVED" above) rather than
+   just filing and waiting. What's left is optional — see "Options for the
+   `typescript-go` finding" above for whether to also report the missing server-side
+   guard.
 2. Do a real manual pass through the feature list in `README.md` (autocomplete,
    definitions, references, rename, code actions, format, signature help) the way
-   hover was spot-checked this round, now that the LSP client actually reaches the
-   server. None of the others have been individually verified live yet.
+   hover was spot-checked this round. Partially started this round (hover, outline,
+   diagnostics all confirmed live-working post-fix); autocomplete, definitions,
+   references, rename, code actions, format, and signature help still need individual
+   live verification.
 3. Decide on and execute one of the three options above for
    `npm run lint`/`pulsar --test spec`.
 4. ~~Once tests can run, add coverage for the `resolveBinary.ts` dynamic-require

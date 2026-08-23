@@ -186,16 +186,18 @@ environment, learned the hard way this session:
   `compileOnSave` rejects with a clear error message rather than silently no-op'ing.
   These are documented, intentional degradations from the LSP migration, not bugs to
   silently "fix" without first confirming an LSP equivalent actually exists upstream.
-- **The `tsc --lsp` server itself (typescript-go, vendored via the `typescript@7` npm
-  package) can segfault.** Root cause identified (see REWORK.md's "Root cause
-  identified" section): `(*Session).getSnapshot` is called with a nil `*Session`
-  receiver and panics locking a mutex field on it, reached when a `textDocument/*`
-  request lands in its own server-spawned goroutine before the session/project for a
-  just-opened file finishes being created. This is a genuine upstream race with no
-  synchronization on `typescript-go`'s side, deterministic (same `addr`/`pc` every
-  time), and reproducible from ordinary editor usage (open a file, no hover needed).
-  Nothing in this repo to patch; file/track as an upstream `typescript-go` issue, not
-  `lib/` changes.
+- ~~The `tsc --lsp` server itself (typescript-go...) can segfault~~ **Fixed.** Root
+  cause (see REWORK.md's "RESOLVED" section): this client was violating the LSP
+  spec's initialize/initialized handshake, sending its first real command
+  concurrently with `initialize` instead of after `initialized`, which let
+  `textDocument/*` requests reach `typescript-go`'s server before its session existed
+  — hitting a server-side nil-pointer bug that crashes the whole process instead of
+  erroring gracefully. `client.ts`'s `execute()` now awaits the handshake
+  (`initializePromise`) before dispatching anything. Verified standalone (15/15
+  crashes without the fix, 0/15 with it, same binary) and live in Pulsar. The
+  server-side gap (`registerLanguageServiceDocumentRequestHandler` missing the same
+  nil-session guard its sibling handler-registration helpers have) is still real and
+  worth reporting upstream as defense-in-depth, but no longer affects this package.
 
 See `REWORK.md` for the full narrative of what's been fixed, what's still open, and
 what was tried and abandoned (with reasons) — read it before re-attempting anything

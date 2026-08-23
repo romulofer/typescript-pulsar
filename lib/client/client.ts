@@ -64,6 +64,13 @@ export class TypescriptServiceClient {
 
   private server?: ChildProcess
   private connection?: rpc.MessageConnection
+  // Resolves once the initialize/initialized handshake has completed. The LSP spec
+  // forbids sending anything else before that point (see initialize() in client.ts's
+  // startServer(), and the "no dynamic require" gotcha's sibling gotcha in AGENTS.md
+  // for the full story: typescript-go's server crashes the whole process, instead of
+  // erroring gracefully, if a textDocument/* request reaches it before "initialized"
+  // has been processed). execute() must await this before dispatching anything.
+  private initializePromise?: Promise<void>
   private lastStderrOutput = ""
   private openFileVersions = new Map<string, number>()
 
@@ -87,6 +94,8 @@ export class TypescriptServiceClient {
       this.server = this.startServer()
       this.emitter.emit("restarted")
     }
+
+    await this.initializePromise
 
     if (window.atom_typescript_debug) {
       console.log("sending request", command, args[0])
@@ -415,16 +424,17 @@ export class TypescriptServiceClient {
     }
 
     const rootUri = fileToUri(this.projectRootPath)
-    handlePromise(
-      connection
-        .sendRequest("initialize", {
-          processId: process.pid,
-          rootUri,
-          workspaceFolders: [{uri: rootUri, name: path.basename(this.projectRootPath)}],
-          capabilities,
-        })
-        .then(() => connection.sendNotification("initialized", {})),
-    )
+    this.initializePromise = connection
+      .sendRequest("initialize", {
+        processId: process.pid,
+        rootUri,
+        workspaceFolders: [{uri: rootUri, name: path.basename(this.projectRootPath)}],
+        capabilities,
+      })
+      .then(() => {
+        connection.sendNotification("initialized", {})
+      })
+    handlePromise(this.initializePromise)
 
     return cp
   }

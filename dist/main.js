@@ -28248,6 +28248,7 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
             this.server = this.startServer();
             this.emitter.emit("restarted");
         }
+        await this.initializePromise;
         if (window.atom_typescript_debug) console.log("sending request", command, args[0]);
         return this.reportBusyWhile(command, ()=>this.dispatch(command, args[0]));
     }
@@ -28677,7 +28678,7 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
             }
         };
         const rootUri = $4a7c92c14df36848$var$fileToUri(this.projectRootPath);
-        $4a7c92c14df36848$var$handlePromise(connection.sendRequest("initialize", {
+        this.initializePromise = connection.sendRequest("initialize", {
             processId: process.pid,
             rootUri: rootUri,
             workspaceFolders: [
@@ -28687,7 +28688,10 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                 }
             ],
             capabilities: capabilities
-        }).then(()=>connection.sendNotification("initialized", {})));
+        }).then(()=>{
+            connection.sendNotification("initialized", {});
+        });
+        $4a7c92c14df36848$var$handlePromise(this.initializePromise);
         return cp;
     }
     constructor(tsServerPath, version, projectRootPath, reportBusyWhile){
