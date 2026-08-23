@@ -1,4 +1,4 @@
-## Unreleased
+## 15.0.0
 
 ### Breaking changes
 
@@ -25,12 +25,34 @@
     and `engines.atom` is raised to `>=1.100.0 <2.0.0`.
 -   CI now installs Pulsar (`pulsar-edit/action-pulsar-dependency`) instead of Atom.
 
+### Fixes
+
+-   Fix a package activation crash (`ReferenceError: React is not defined`) in the
+    packaged build, caused by the production bundler no longer picking up the JSX
+    pragma config (`etch.dom`) after the TypeScript 7 migration dropped the transformer
+    that used to supply it.
+-   Fix every LSP-backed feature (hover, completion, outline, diagnostics, etc.) being
+    silently non-functional in the packaged build: two dynamic `require()`/
+    `require.resolve()` calls used to locate the `tsc` binary were unresolvable by the
+    bundler and produced a non-callable value at runtime instead of failing the build.
+-   Send a real `rootUri`/`workspaceFolders` in the LSP `initialize` request instead of
+    `rootUri: null`.
+-   Fix a handshake-ordering bug where the client could send its first command before
+    the `initialize`/`initialized` exchange completed, which could crash the
+    `tsc --lsp` (typescript-go) server process entirely.
+-   Fix code actions/quick fixes never returning anything (e.g. "Add missing import"):
+    the request sent an empty diagnostics context, which typescript-go's fix providers
+    require in order to produce a fix.
+-   Replace `tslint` (unmaintained since 2019) with ESLint + `typescript-eslint`, and
+    fix `pulsar --test spec`, both broken by TypeScript 7 dropping the classic compiler
+    API that they depended on.
+
 ### Known follow-ups
 
--   `tslint` (this project's linter) is long deprecated and largely non-functional;
-    migrating to ESLint is tracked as a separate, later change.
--   `projectInfo`-based project-file enumeration and `compileOnSaveEmitFile`/
-    `compileOnSaveAffectedFileList` need a bespoke replacement (see above).
+-   `typescript-go`'s LSP server is missing a nil-session guard in one of its request
+    handlers, which lets a spec-violating client (not this one, after the fix above)
+    crash the whole process instead of getting a graceful error; worth reporting
+    upstream to `microsoft/typescript-go` as defense-in-depth.
 
 ## 14.4.0
 
