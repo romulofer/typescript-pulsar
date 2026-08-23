@@ -2,8 +2,11 @@
 // but only implements enough of the protocol to catch one thing: a client sending anything
 // before the initialize/initialized handshake has completed.
 //
-// This mirrors the real typescript-go bug (see REWORK.md's "RESOLVED" segfault section):
-// a well-behaved client must not send anything else until it has received a response to
+// This mirrors a real typescript-go crash: our client used to send its first command
+// concurrently with `initialize` instead of after `initialized`, letting a request reach
+// typescript-go's server before its session existed and hitting a nil-pointer panic that
+// crashed the whole process. A well-behaved client must not send anything else until it
+// has received a response to
 // `initialize`. Instead of trying to detect that subtly, this fake server does the same
 // thing the real server effectively did when it was hit by the bug: it exits with a
 // distinctive non-zero code the moment it sees a violation, so the test can just assert the

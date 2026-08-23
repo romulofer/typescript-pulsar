@@ -5,7 +5,7 @@
 // Regression coverage for: client.ts's "getCodeFixes" case used to always send
 // `context.diagnostics: []`, which is why code actions never returned anything -
 // typescript-go's code fix providers only look at diagnostics passed in the request, they
-// don't have a server-side diagnostic cache to fall back on. See REWORK.md.
+// don't have a server-side diagnostic cache to fall back on.
 const rpc = require("vscode-jsonrpc/node")
 
 const connection = rpc.createMessageConnection(

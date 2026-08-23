@@ -1,10 +1,16 @@
-// Guards against the class of bug fixed in 700b152b: a dynamic require(someVar) or
-// require.resolve(someVar) anywhere in dist/main.js. Parcel's electron-renderer
-// bundler can't statically resolve those, and silently produces something
-// non-callable at runtime instead of erroring at build time (see AGENTS.md's
-// "Critical gotcha: no dynamic require() in lib/"). npm run typecheck/build proves
-// nothing about this class of bug, since it's a bundler-output problem, not a
-// TypeScript-level error - this scans the actual built artifact.
+// Guards against two classes of bug that only show up in the built artifact, not at the
+// TypeScript-source level, so npm run typecheck/build alone proves nothing about them:
+//
+// 1. (fixed in 700b152b) A dynamic require(someVar) or require.resolve(someVar) anywhere
+//    in dist/main.js. Parcel's electron-renderer bundler can't statically resolve those,
+//    and silently produces something non-callable at runtime instead of erroring at
+//    build time (see AGENTS.md's "Critical gotcha: no dynamic require() in lib/").
+// 2. (fixed in 8ccc6b45) A React.createElement(...) call anywhere in dist/main.js. This
+//    package uses etch (jsxFactory: "etch.dom"), not React, and has no react dependency
+//    - if the root tsconfig.json's jsxFactory ever goes missing or drifts out of sync
+//    with lib/tsconfig.json (see AGENTS.md's "JSX pragma gotcha"), every .tsx file
+//    silently compiles to React.createElement(...) calls instead, and the package
+//    crashes on activation with "ReferenceError: React is not defined".
 //
 // Usage: npm run build && node scripts/verify-bundle.js
 
@@ -51,7 +57,19 @@ function main() {
     process.exit(1)
   }
 
-  console.log("OK: no dynamic require()/require.resolve() calls in dist/main.js")
+  if (src.includes("React.createElement(")) {
+    console.error(
+      "Found React.createElement(...) in dist/main.js - this package uses etch " +
+        '(jsxFactory: "etch.dom"), not React, and has no react dependency. This means ' +
+        "the root tsconfig.json's jsxFactory setting is missing or out of sync with " +
+        "lib/tsconfig.json (see AGENTS.md's JSX pragma gotcha); every .tsx file compiled " +
+        "to React calls instead and the package will crash on activation with " +
+        '"ReferenceError: React is not defined".',
+    )
+    process.exit(1)
+  }
+
+  console.log("OK: no dynamic require()/require.resolve() calls or stray React.createElement() in dist/main.js")
 }
 
 main()

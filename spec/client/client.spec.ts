@@ -40,7 +40,7 @@ describe("TypescriptServiceClient handshake ordering", function () {
     // Triggers startServer() and, per the LSP spec, must not reach the fake server before
     // its initialize response does. If it does, handshake-order-server.js exits immediately
     // with a distinctive code, and the client surfaces that as "terminated" - the same
-    // symptom the real typescript-go crash (see REWORK.md) had.
+    // symptom the real typescript-go crash had.
     await client.execute("open", {file: "test.ts", fileContent: "const x = 1"})
 
     // Give the fake server's own message handling a moment to run (and, if there were a
@@ -48,6 +48,44 @@ describe("TypescriptServiceClient handshake ordering", function () {
     await sleep(200)
 
     expect(terminated).to.equal(false)
+  })
+})
+
+describe("TypescriptServiceClient initialize params", function () {
+  this.timeout(8000)
+
+  const fixturePath = join(__dirname, "..", "fixtures", "initialize-params-server.js")
+  let client: TypescriptServiceClient
+
+  afterEach(async () => {
+    await client.destroy()
+  })
+
+  it("sends a real rootUri and workspaceFolders, not rootUri: null", async () => {
+    const projectRootPath = __dirname
+    client = new TypescriptServiceClient(
+      fixturePath,
+      "1.0.0-test",
+      projectRootPath,
+      (_title, generator) => generator(),
+    )
+
+    // Any command is enough to force execute() to await the initialize/initialized
+    // handshake before we ask the fake server what it received.
+    await client.execute("open", {file: "test.ts", fileContent: "const x = 1"})
+
+    const connection = (client as unknown as ClientWithConnection).connection
+    const params = (await connection?.sendRequest("test/getLastInitializeParams")) as {
+      rootUri: string | null
+      workspaceFolders: Array<{uri: string; name: string}> | null
+    }
+
+    // The bug this guards against: initialize used to hardcode rootUri: null and send no
+    // workspaceFolders at all, which is a correctness bug for any well-behaved LSP client.
+    expect(params.rootUri).to.be.a("string")
+    expect(params.rootUri).to.not.equal(null)
+    expect(params.workspaceFolders).to.have.lengthOf(1)
+    expect(params.workspaceFolders?.[0].uri).to.equal(params.rootUri)
   })
 })
 
@@ -85,8 +123,8 @@ describe("TypescriptServiceClient getCodeFixes", function () {
     }
 
     // The bug this guards against: context.diagnostics used to always be [], which is why
-    // typescript-go's code fix providers (which only look at diagnostics passed here, see
-    // REWORK.md) never returned anything for any diagnostic, ever.
+    // typescript-go's code fix providers (which only look at diagnostics passed here) never
+    // returned anything for any diagnostic, ever.
     expect(context.diagnostics).to.have.lengthOf(1)
     expect(context.diagnostics[0].code).to.equal(2304)
     expect(context.diagnostics[0].message).to.equal("Cannot find name 'greetHelper'.")
