@@ -43,7 +43,9 @@ function notNullary<T>(x: T | undefined | null): x is T {
 
 function memoizeThrottle<T, U>(func: (arg: T) => U, wait: number): (arg: T) => U {
   const mem = memoize((_param: T) => throttle(func, wait, {leading: true}))
-  return (param: T) => mem(param)(param)! // NOTE: leading MUST be true for this ! to hold
+  // NOTE: leading MUST be true, otherwise the throttled call below can return undefined
+  // on the first invocation for a given param instead of calling func synchronously.
+  return (param: T) => mem(param)(param)
 }
 
 const isAllowedExtension = memoizeThrottle((ext: string) => {

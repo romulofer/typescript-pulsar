@@ -44,8 +44,12 @@ export async function resolveBinary(sourcePath: string): Promise<Binary> {
       if (exists) return pkgPath
     }
 
-    // use bundled version
-    return resolveModule("typescript/package.json", {basedir: __dirname})
+    // use bundled version. Our own dependency is aliased to "@typescript/native" (not the
+    // plain "typescript" name) so that our devDependencies can use the plain name for a
+    // classic-API TypeScript 6 build instead, which tooling that still needs
+    // ts.createProgram/ts.transpileModule (ESLint's typescript-eslint, ts-node) requires --
+    // TypeScript 7's own package no longer exports that API at all. See AGENTS.md.
+    return resolveModule("@typescript/native/package.json", {basedir: __dirname})
   })
 
   const pkg = JSON.parse(await fsReadFile(resolvedPath)) as {

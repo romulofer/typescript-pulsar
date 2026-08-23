@@ -16,15 +16,15 @@
     ]
   },
   "scripts": {
-    "tsc": "tsc -p ./lib",
+    "tsc": "node_modules/@typescript/native/bin/tsc -p ./lib",
     "dev": "cross-env NODE_ENV=development parcel watch --target bundle lib/main/atomts.ts",
     "build": "npm run gen-config-types && cross-env NODE_ENV=production parcel build --target bundle lib/main/atomts.ts && node scripts/verify-bundle.js",
     "verify-bundle": "node scripts/verify-bundle.js",
     "prettier": "prettier --write \"./{lib,scripts,spec}/**/*.{ts,tsx}\"",
     "prettier-check": "prettier --check \"./{lib,scripts,spec}/**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit -p ./lib && tsc --noEmit -p ./spec",
-    "lint": "tslint --project ./lib && tslint --project ./spec",
-    "test": "npm run typecheck && npm run prettier-check",
+    "typecheck": "node_modules/@typescript/native/bin/tsc --noEmit -p ./lib && node_modules/@typescript/native/bin/tsc --noEmit -p ./spec",
+    "lint": "eslint .",
+    "test": "npm run typecheck && npm run prettier-check && npm run lint",
     "gen-config-types": "node scripts/typed-config.js lib/typings/atom-config.d.ts && prettier --write lib/typings/atom-config.d.ts",
     "postinstall": "node scripts/postinstall.js"
   },
@@ -472,7 +472,7 @@
     "url": "https://github.com/romulofer/pulsar-typescript/issues"
   },
   "dependencies": {
-    "typescript": "^7.0.2",
+    "@typescript/native": "npm:typescript@^7.0.2",
     "vscode-jsonrpc": "^9.0.1"
   },
   "peerDependencies": {
@@ -480,6 +480,7 @@
     "electron": "*"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/atom": "^1.40.10",
     "@types/chai": "^4.2.15",
     "@types/fs-plus": "^3.0.1",
@@ -495,18 +496,19 @@
     "atom-ts-transpiler": "^1.5.3",
     "chai": "^4.3.4",
     "cross-env": "7.0.3",
+    "eslint": "^10.9.0",
     "etch": "^0.14.1",
     "fs-plus": "^3.1.1",
     "fuzzaldrin": "^2.1.0",
+    "globals": "^17.11.0",
     "jsonc-parser": "^3.0.0",
     "lodash": "^4.17.21",
     "parcel": "^2.16.4",
     "prettier": "^2.3.2",
     "resolve": "^1.20.0",
     "tslib": "^2.1.0",
-    "tslint": "^6.1.3",
-    "tslint-use-atom-disposables": "0.0.1",
-    "typescript-tslint-plugin": "1.0.1",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "typescript-eslint": "^8.67.0",
     "vscode-languageserver-protocol": "^3.18.2"
   },
   "package-deps": [
@@ -528,7 +530,7 @@
       "includeNodeModules": {
         "atom": false,
         "electron": false,
-        "typescript": false,
+        "@typescript/native": false,
         "vscode-jsonrpc": false
       },
       "outputFormat": "commonjs",

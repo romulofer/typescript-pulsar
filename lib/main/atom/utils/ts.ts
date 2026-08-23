@@ -183,7 +183,7 @@ function loadConfig(configFile: string): Partial<ProjectConfig> {
     const extendsConfig = loadConfig(extendsPath)
     config = Object.assign({}, extendsConfig, config)
   }
-  return config as ReturnType<typeof loadConfig>
+  return config
 }
 
 export function lspSignatureToSignature(sig: lsp.SignatureInformation): Signature {

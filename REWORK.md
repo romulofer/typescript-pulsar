@@ -355,7 +355,34 @@ upstream:
 Recommended: option 1 or 2, since the fix is well-understood and cheap to write up
 either way — the hard part (finding it) is already done.
 
-## Attempted and reverted: fixing `pulsar --test spec` / `npm run lint`
+## RESOLVED: `pulsar --test spec` and `npm run lint`, both fixed by one change
+
+See "Attempted and reverted" below for the history (options 1/2 there, both
+essentially "vendor a second classic-API TypeScript somehow," is what actually
+worked in the end — just via option 2's spirit, done properly). The fix: alias the
+plain `"typescript"` devDependency to the official `@typescript/typescript6` package
+(classic API, published by the TypeScript team specifically for this transition),
+and alias the real native `typescript@7` engine under `"@typescript/native"`
+instead — the exact pattern `microsoft/vscode`'s own repo uses for the same
+problem (see AGENTS.md's "Classic-TypeScript-for-tooling gotcha" for the full
+mechanics and a real gotcha it surfaces: classic TS6 and native TS7 occasionally
+disagree on generic type inference).
+
+This fixed `npm run lint` directly (ESLint + `typescript-eslint`, replacing tslint)
+and `pulsar --test spec` as a side effect (`ts-node`'s own `require("typescript")`
+now resolves to the same classic TS6). 25 specs pass, including a new regression
+test (`spec/client/client.spec.ts`) for this session's handshake-ordering fix,
+verified to actually catch that regression by temporarily reverting the fix.
+
+Unlike the earlier `overrides`-based nesting attempt (below), this doesn't nest
+anything — it renames the *top-level* `"typescript"` entry itself, so there's only
+ever one `node_modules/typescript` for anything to resolve, deterministically, no
+lockfile-accident risk. Verified from a clean `npm install`.
+
+## Attempted and reverted (historical): fixing `pulsar --test spec` / `npm run lint`
+
+The nested-`overrides` approach below was abandoned as unreliable; see "RESOLVED"
+above for what actually worked instead.
 
 Both `atom-ts-spec-runner` (via `ts-node`) and `tslint` need the classic TypeScript
 compiler API (`ts.sys`, `ts.createProgram`, `ts.transpileModule`), which the
@@ -439,8 +466,8 @@ Carried over from the original migration (`f313cf99`), not touched this round:
    keybinding *it* registers, not one this package defines, so this needs the actual
    keybinding for that package (or its own UI affordance, e.g. a lightbulb) rather
    than more guessing at shortcuts.
-3. Decide on and execute one of the three options above for
-   `npm run lint`/`pulsar --test spec`.
+3. ~~Decide on and execute one of the three options above for
+   `npm run lint`/`pulsar --test spec`~~ Done, see "RESOLVED" above.
 4. ~~Once tests can run, add coverage for the `resolveBinary.ts` dynamic-require
    class of bug specifically~~ Done: `scripts/verify-bundle.js` scans `dist/main.js`
    for any `require(...)`/`require.resolve(...)` call whose argument isn't a string
@@ -450,3 +477,13 @@ Carried over from the original migration (`f313cf99`), not touched this round:
    exact call site; reverting and rebuilding passes clean. This doesn't need
    `npm test`'s broken spec runner (see below) since it operates on the built
    artifact, not source.
+5. Confirm code actions live (the one feature item 2 above couldn't confirm) — find
+   the `intentions` atom-ide-ui package's actual keybinding/UI affordance for
+   surfacing quick fixes (a lightbulb icon, most likely) rather than guessing at
+   shortcuts, then verify the "Cannot find name 'y'. Did you mean 'x'?" style fix
+   actually applies correctly.
+6. `npm run lint` currently has 86 warnings (mostly `@typescript-eslint/no-explicit-any`,
+   concentrated in `lib/typings/etch.d.ts`'s ambient etch typings and a handful of
+   LSP-boundary adapter spots). None block `npm test` (deliberately set to `warn`,
+   see AGENTS.md), but working through them for real types where practical would be
+   a reasonable, low-risk follow-up now that there's a real linter to guide it.

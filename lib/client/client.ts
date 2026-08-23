@@ -173,6 +173,10 @@ export class TypescriptServiceClient {
       case "geterr": {
         const x = arg as GetErrParams
         for (const file of x.files) {
+          // eslint's classic-TS6-backed type inference disagrees with the real native
+          // TS7 compiler here; without the assertion `npm run typecheck` fails with
+          // "'report' is of type 'unknown'".
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
           const report = (await c.sendRequest("textDocument/diagnostic", {
             textDocument: {uri: fileToUri(file)},
           })) as lsp.DocumentDiagnosticReport
@@ -295,6 +299,8 @@ export class TypescriptServiceClient {
       }
       case "organizeImports": {
         const x = arg as OrganizeImportsParams
+        // same TS6-vs-TS7 inference mismatch as the geterr case above.
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
         const actions = (await c.sendRequest("textDocument/codeAction", {
           textDocument: {uri: fileToUri(x.scope.args.file)},
           range: {start: {line: 0, character: 0}, end: {line: 0, character: 0}},

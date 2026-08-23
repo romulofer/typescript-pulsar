@@ -34,8 +34,8 @@ request/response on the wire is LSP-shaped.
 | Bundler | Parcel 2 | `lib/main/atomts.ts` → `dist/main.js`, target `electron-renderer` |
 | UI | [etch](https://github.com/atom/etch) | **not React** — `jsxFactory: "etch.dom"`. See the JSX pragma gotcha below. |
 | LSP transport | `vscode-jsonrpc` / `vscode-languageserver-protocol` | types-only import for the protocol types; a small hand-picked set of LSP enum values lives in `lib/client/lspConstants.ts` so the full `vscode-languageserver-protocol` package never needs to be bundled |
-| Test runner | `atom-ts-spec-runner` (mocha under the hood) | **currently broken**, see Known Broken below |
-| Linter | tslint | **currently broken**, see Known Broken below |
+| Test runner | `atom-ts-spec-runner` (mocha under the hood) | working, see the classic-TypeScript-for-tooling gotcha below |
+| Linter | ESLint + typescript-eslint (`eslint.config.js`) | working, same gotcha |
 
 ## Architecture
 
@@ -68,12 +68,15 @@ a Pulsar/atom-ide service, wire it there and add the matching entry in package.j
 ```bash
 npm run build          # production build: dist/main.js (must be committed, see below)
 npm run dev             # parcel watch, development build
-npm run typecheck       # tsc --noEmit on lib/ and spec/
+npm run typecheck       # node_modules/@typescript/native/bin/tsc --noEmit on lib/ and spec/
 npm run prettier        # prettier --write
 npm run prettier-check  # prettier --check
-npm test                # typecheck + prettier-check (this is what CI runs)
-npm run lint             # tslint — currently broken, not part of `npm test`, see below
+npm run lint             # eslint . (type-aware; see the classic-TypeScript-for-tooling gotcha below)
+npm test                # typecheck + prettier-check + lint (this is what CI's "Run static checks" step runs)
 ```
+
+CI also runs `pulsar --no-sandbox --test spec` as a separate step before `npm test` (see
+`.github/workflows/ci.yml`) — that's the actual `spec/` suite, not part of `npm test`.
 
 **`dist/` is committed.** Atom/Pulsar packages ship transpiled/bundled JS, not source
 — `dist/main.js` and `dist/main.js.map` are checked into git and must be rebuilt and
@@ -119,6 +122,56 @@ ever changes in `lib/tsconfig.json`, mirror it there too**, or every `.tsx` file
 silently compile to `React.createElement(...)` calls and crash activation with
 `ReferenceError: React is not defined` (this exact bug: `8ccc6b45`).
 
+## Classic-TypeScript-for-tooling gotcha (`typescript` vs `@typescript/native`)
+
+TypeScript 7's npm package no longer exports the classic compiler API at all
+(`require("typescript")` in a plain `typescript@7` install returns only
+`{version, versionMajorMinor}` — no `ts.sys`, no `ts.createProgram`, no
+`ts.transpileModule`). But plenty of tooling still needs that API: `ts-node`
+(via `atom-ts-spec-runner`, for running `spec/**/*.spec.ts`), `atom-ts-transpiler`,
+and `typescript-eslint` (confirmed: it refuses to even parse against `typescript@7`,
+see https://github.com/typescript-eslint/typescript-eslint/issues/10940) all break.
+
+Fixed by following the exact pattern VS Code's own repo uses for this transition
+(see `references/vscode-ts-extension` if still around, or its `package.json`): alias
+the plain `"typescript"` dependency name to the classic-API-compatible
+`@typescript/typescript6` package (published by the TypeScript team specifically for
+this), and alias the real native `typescript@7` engine under a different name instead.
+
+Concretely, in this repo:
+- `dependencies`: `"@typescript/native": "npm:typescript@^7.0.2"` — the real engine.
+  `lib/client/resolveBinary.ts`'s bundled-fallback lookup resolves this name.
+- `devDependencies`: `"typescript": "npm:@typescript/typescript6@^6.0.2"` — classic
+  API, used by ESLint (`eslint.config.js`) and transitively by `ts-node`/
+  `atom-ts-transpiler` (this incidentally also fixed `pulsar --test spec`, which
+  needs `ts-node`, at the same time — same underlying blocker, same fix).
+- `includeNodeModules` in the Parcel `bundle` target marks `"@typescript/native"`
+  external (not `"typescript"`).
+- `npm run typecheck`/`npm run tsc` invoke `node_modules/@typescript/native/bin/tsc`
+  **explicitly**, not the bare `tsc` on PATH — classic TS6 doesn't ship its own CLI
+  binary so there's no actual collision today, but don't rely on that; always use the
+  explicit path so `typecheck` can never silently start using the wrong compiler.
+
+**A real, sharp edge from this**: classic TS6's type inference occasionally
+*disagrees* with the real native TS7 compiler on generic overload resolution (seen
+concretely: `@typescript-eslint/no-unnecessary-type-assertion`'s `--fix` removed two
+type assertions in `client.ts` that TS6 considered redundant but TS7 does not —
+`npm run typecheck` failed until they were restored). **Never blindly trust
+`eslint --fix` for `no-unnecessary-type-assertion` in this repo** — always run
+`npm run typecheck` (against the real `@typescript/native`) after, and if it
+disagrees, restore the assertion with an inline
+`// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion`
+and a comment explaining why (see the two spots in `client.ts` for the pattern).
+Also note: the disable comment must be immediately above the **first line of the
+statement**, not above the line where the `as X` token itself appears — this rule
+attributes the violation to the start of the expression, not the assertion site.
+
+If a real user's project has its own `typescript` dependency (any version), that is
+completely unaffected by any of this — `resolveBinary.ts`'s *first* lookup (searching
+from the file being edited) still resolves the literal `"typescript"` name from the
+user's own `node_modules`, exactly as before. Only this package's own bundled
+fallback and dev tooling changed names.
+
 ## Manual verification (no automated UI test exists yet)
 
 There is currently no working automated way to verify the package actually activates
@@ -161,25 +214,22 @@ environment, learned the hard way this session:
 
 ## Known Broken (do not assume these work without checking first)
 
-- **`npm run lint` (tslint).** TypeScript 7's npm package no longer exports the
-  classic compiler API at all (`require("typescript")` now returns only
-  `{version, versionMajorMinor}` — no `ts.sys`, no `ts.createProgram`, no
-  `ts.transpileModule`, nothing). tslint needs `ts.sys` to build a `ts.Program` and
-  crashes immediately. tslint is also unmaintained upstream since 2019, and
-  `tslint.json` has been an empty `{}` ruleset since 2016 — it was catching nothing
-  even before this broke, so it was deliberately dropped from `npm test`'s chain
-  rather than "fixed". If you want real linting, that means adopting ESLint +
-  `typescript-eslint`, a real migration (rule selection, config) — not a quick patch.
-- **`pulsar --test spec`.** Same root cause: `atom-ts-spec-runner` uses `ts-node` to
-  transpile `.spec.ts` files on the fly, and `ts-node` also needs the classic
-  compiler API. A partial fix via npm `overrides` (pinning a nested TypeScript 5 for
-  just `ts-node`/`atom-ts-transpiler`) was attempted and reverted: it works under
-  npm's legacy peer-deps resolver only by accident (lockfile-sticky, not reproducible
-  from a clean install), and doing it properly means either dropping
-  `legacy-peer-deps=true` from `.npmrc` (which itself exists to route around
-  `atom-ts-transpiler`'s `typescript@<5` peer range being unsatisfiable under
-  `typescript@7` — see `14735972`) or hand-patching `node_modules`. Needs a
-  deliberate decision, not a quick fix.
+- ~~`npm run lint` (tslint)~~ **Fixed.** Replaced tslint (unmaintained since 2019,
+  empty `{}` ruleset anyway) with ESLint + `typescript-eslint`, made to actually work
+  against TypeScript 7 by the classic-TypeScript-for-tooling fix above. Real,
+  type-aware linting: `@typescript-eslint/recommendedTypeChecked` for `lib/`/`spec/`,
+  plain `eslint:recommended` for `scripts/**/*.js`. `any`/unsafe-*/floating-promise
+  rules are deliberately set to `warn` rather than `error` (86 pre-existing warnings
+  as of this fix, not worth a mass unrelated refactor to silence); everything else is
+  `error` and `npm run lint` is clean. Wired into `npm test`.
+- ~~`pulsar --test spec`~~ **Fixed**, for free, by the same classic-TypeScript fix
+  above (`ts-node`'s `require("typescript")` now resolves to classic TS6 too). 25
+  passing specs as of this fix, including `spec/client/client.spec.ts`, a regression
+  test for the handshake-ordering bug (see REWORK.md's "RESOLVED" section) using a
+  fake LSP server fixture (`spec/fixtures/handshake-order-server.js`) that exits with
+  a distinctive code if it receives anything before responding to `initialize` —
+  verified to actually catch the regression by temporarily reverting the fix and
+  confirming the test fails.
 - **`typescript:build` (project-wide emit)** is disabled — no LSP equivalent exists
   yet for tsserver's old `compileOnSaveAffectedFileList`/`compileOnSaveEmitFile`.
   `typescript:check-all-files` now only checks open editors, not the whole project.

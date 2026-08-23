@@ -1,15 +1,15 @@
-var $1X1Jj$fs = require("fs");
-var $1X1Jj$path = require("path");
-var $1X1Jj$os = require("os");
-var $1X1Jj$module = require("module");
-var $1X1Jj$crypto = require("crypto");
-var $1X1Jj$assert = require("assert");
-var $1X1Jj$events = require("events");
+var $lcjJR$fs = require("fs");
+var $lcjJR$path = require("path");
+var $lcjJR$os = require("os");
+var $lcjJR$module = require("module");
+var $lcjJR$crypto = require("crypto");
+var $lcjJR$assert = require("assert");
+var $lcjJR$events = require("events");
 require("util");
-var $1X1Jj$child_process = require("child_process");
-var $1X1Jj$atom = require("atom");
-var $1X1Jj$url = require("url");
-var $1X1Jj$vscodejsonrpcnode = require("vscode-jsonrpc/node");
+var $lcjJR$child_process = require("child_process");
+var $lcjJR$atom = require("atom");
+var $lcjJR$url = require("url");
+var $lcjJR$vscodejsonrpcnode = require("vscode-jsonrpc/node");
 
 
 function $parcel$export(e, n, v, s) {
@@ -83,41 +83,41 @@ if (parcelRequire == null) {
 }
 
 var parcelRegister = parcelRequire.register;
-parcelRegister("f0CHF", function(module, exports) {
+parcelRegister("eusZd", function(module, exports) {
 
-var $3jGDU = parcelRequire("3jGDU");
+var $XwYuz = parcelRequire("XwYuz");
 
-var $l1Bcz = parcelRequire("l1Bcz");
+var $bzUfH = parcelRequire("bzUfH");
 
-var $lp6kj = parcelRequire("lp6kj");
-var $aed4e0c636177ef3$require$initialize = $lp6kj.initialize;
-var $aed4e0c636177ef3$require$update = $lp6kj.update;
-var $aed4e0c636177ef3$require$updateSync = $lp6kj.updateSync;
-var $aed4e0c636177ef3$require$destroy = $lp6kj.destroy;
-var $aed4e0c636177ef3$require$destroySync = $lp6kj.destroySync;
+var $26tNC = parcelRequire("26tNC");
+var $a8ca5a1a86ca2f4e$require$initialize = $26tNC.initialize;
+var $a8ca5a1a86ca2f4e$require$update = $26tNC.update;
+var $a8ca5a1a86ca2f4e$require$updateSync = $26tNC.updateSync;
+var $a8ca5a1a86ca2f4e$require$destroy = $26tNC.destroy;
+var $a8ca5a1a86ca2f4e$require$destroySync = $26tNC.destroySync;
 
-var $b0nUk = parcelRequire("b0nUk");
-var $aed4e0c636177ef3$require$setScheduler = $b0nUk.setScheduler;
-var $aed4e0c636177ef3$require$getScheduler = $b0nUk.getScheduler;
+var $HTLkW = parcelRequire("HTLkW");
+var $a8ca5a1a86ca2f4e$require$setScheduler = $HTLkW.setScheduler;
+var $a8ca5a1a86ca2f4e$require$getScheduler = $HTLkW.getScheduler;
 module.exports = {
-    dom: $3jGDU,
-    render: $l1Bcz,
-    initialize: $aed4e0c636177ef3$require$initialize,
-    update: $aed4e0c636177ef3$require$update,
-    updateSync: $aed4e0c636177ef3$require$updateSync,
-    destroy: $aed4e0c636177ef3$require$destroy,
-    destroySync: $aed4e0c636177ef3$require$destroySync,
-    setScheduler: $aed4e0c636177ef3$require$setScheduler,
-    getScheduler: $aed4e0c636177ef3$require$getScheduler
+    dom: $XwYuz,
+    render: $bzUfH,
+    initialize: $a8ca5a1a86ca2f4e$require$initialize,
+    update: $a8ca5a1a86ca2f4e$require$update,
+    updateSync: $a8ca5a1a86ca2f4e$require$updateSync,
+    destroy: $a8ca5a1a86ca2f4e$require$destroy,
+    destroySync: $a8ca5a1a86ca2f4e$require$destroySync,
+    setScheduler: $a8ca5a1a86ca2f4e$require$setScheduler,
+    getScheduler: $a8ca5a1a86ca2f4e$require$getScheduler
 };
 
 });
-parcelRegister("3jGDU", function(module, exports) {
+parcelRegister("XwYuz", function(module, exports) {
 
-var $pK0bE = parcelRequire("pK0bE");
+var $jl0Ml = parcelRequire("jl0Ml");
 
-var $4KaY7 = parcelRequire("4KaY7");
-function $26a4395f3eb06152$var$dom(tag, props, ...children) {
+var $eXSjJ = parcelRequire("eXSjJ");
+function $0b2f16e32b98135d$var$dom(tag, props, ...children) {
     let ambiguous = [];
     for(let i = 0; i < children.length;){
         const child = children[i];
@@ -146,7 +146,7 @@ function $26a4395f3eb06152$var$dom(tag, props, ...children) {
     }
     if (props) {
         for(const propName in props){
-            const eventName = $pK0bE[propName];
+            const eventName = $jl0Ml[propName];
             if (eventName) {
                 if (!props.on) props.on = {};
                 props.on[eventName] = props[propName];
@@ -161,7 +161,7 @@ function $26a4395f3eb06152$var$dom(tag, props, ...children) {
         ambiguous: ambiguous
     };
 }
-const $26a4395f3eb06152$var$HTML_TAGS = [
+const $0b2f16e32b98135d$var$HTML_TAGS = [
     'a',
     'abbr',
     'address',
@@ -272,16 +272,16 @@ const $26a4395f3eb06152$var$HTML_TAGS = [
     'track',
     'wbr'
 ];
-for (const tagName of $26a4395f3eb06152$var$HTML_TAGS)$26a4395f3eb06152$var$dom[tagName] = (props, ...children)=>{
-    return $26a4395f3eb06152$var$dom(tagName, props, ...children);
+for (const tagName of $0b2f16e32b98135d$var$HTML_TAGS)$0b2f16e32b98135d$var$dom[tagName] = (props, ...children)=>{
+    return $0b2f16e32b98135d$var$dom(tagName, props, ...children);
 };
-for (const tagName of $4KaY7)$26a4395f3eb06152$var$dom[tagName] = (props, ...children)=>{
-    return $26a4395f3eb06152$var$dom(tagName, props, ...children);
+for (const tagName of $eXSjJ)$0b2f16e32b98135d$var$dom[tagName] = (props, ...children)=>{
+    return $0b2f16e32b98135d$var$dom(tagName, props, ...children);
 };
-module.exports = $26a4395f3eb06152$var$dom;
+module.exports = $0b2f16e32b98135d$var$dom;
 
 });
-parcelRegister("pK0bE", function(module, exports) {
+parcelRegister("jl0Ml", function(module, exports) {
 module.exports = {
     onCopy: 'copy',
     onCut: 'cut',
@@ -354,7 +354,7 @@ module.exports = {
 
 });
 
-parcelRegister("4KaY7", function(module, exports) {
+parcelRegister("eXSjJ", function(module, exports) {
 // taken from https://github.com/facebook/react/blob/67f8524e88abbf1ac0fd86d38a0477d11fbc7b3e/src/isomorphic/classic/element/ReactDOMFactories.js#L153
 module.exports = new Set([
     'circle',
@@ -381,12 +381,12 @@ module.exports = new Set([
 });
 
 
-parcelRegister("l1Bcz", function(module, exports) {
+parcelRegister("bzUfH", function(module, exports) {
 
-var $3JcRC = parcelRequire("3JcRC");
+var $2Nl3G = parcelRequire("2Nl3G");
 
-var $4KaY7 = parcelRequire("4KaY7");
-function $f4e68c7103880129$var$render(virtualNode, options) {
+var $eXSjJ = parcelRequire("eXSjJ");
+function $86de991cacf6c362$var$render(virtualNode, options) {
     let domNode;
     if (virtualNode.text != null) domNode = document.createTextNode(virtualNode.text);
     else {
@@ -404,35 +404,35 @@ function $f4e68c7103880129$var$render(virtualNode, options) {
             domNode = component.element;
             if (typeof ref === "function") ref(component);
             else if (options && options.refs && ref) options.refs[ref] = component;
-        } else if ($4KaY7.has(tag)) {
+        } else if ($eXSjJ.has(tag)) {
             domNode = document.createElementNS("http://www.w3.org/2000/svg", tag);
-            if (children) $f4e68c7103880129$var$addChildren(domNode, children, options);
-            if (props) $3JcRC(domNode, null, virtualNode, options);
+            if (children) $86de991cacf6c362$var$addChildren(domNode, children, options);
+            if (props) $2Nl3G(domNode, null, virtualNode, options);
         } else {
             domNode = document.createElement(tag);
-            if (children) $f4e68c7103880129$var$addChildren(domNode, children, options);
-            if (props) $3JcRC(domNode, null, virtualNode, options);
+            if (children) $86de991cacf6c362$var$addChildren(domNode, children, options);
+            if (props) $2Nl3G(domNode, null, virtualNode, options);
         }
     }
     virtualNode.domNode = domNode;
     return domNode;
 }
-function $f4e68c7103880129$var$addChildren(parent, children, options) {
-    for(let i = 0; i < children.length; i++)parent.appendChild($f4e68c7103880129$var$render(children[i], options));
+function $86de991cacf6c362$var$addChildren(parent, children, options) {
+    for(let i = 0; i < children.length; i++)parent.appendChild($86de991cacf6c362$var$render(children[i], options));
 }
-module.exports = $f4e68c7103880129$var$render;
+module.exports = $86de991cacf6c362$var$render;
 
 });
-parcelRegister("3JcRC", function(module, exports) {
+parcelRegister("2Nl3G", function(module, exports) {
 
-var $pK0bE = parcelRequire("pK0bE");
+var $jl0Ml = parcelRequire("jl0Ml");
 
-var $4KaY7 = parcelRequire("4KaY7");
+var $eXSjJ = parcelRequire("eXSjJ");
 
-var $agxZY = parcelRequire("agxZY");
-const $2b6f8d8d20544629$var$EMPTY = '';
+var $kqZUw = parcelRequire("kqZUw");
+const $20907e225e472df4$var$EMPTY = '';
 
-var $7gV0h = parcelRequire("7gV0h");
+var $keWV4 = parcelRequire("keWV4");
 module.exports = function(domNode, oldVirtualNode, newVirtualNode, options) {
     const oldProps = oldVirtualNode && oldVirtualNode.props;
     const newProps = newVirtualNode.props;
@@ -441,51 +441,51 @@ module.exports = function(domNode, oldVirtualNode, newVirtualNode, options) {
         refs = options.refs;
         listenerContext = options.listenerContext;
     }
-    $2b6f8d8d20544629$var$updateProps(domNode, oldVirtualNode, oldProps, newVirtualNode, newProps);
-    if (refs) $7gV0h(domNode, oldProps && oldProps.ref, newProps && newProps.ref, refs);
-    $2b6f8d8d20544629$var$updateEventListeners(domNode, oldVirtualNode, newVirtualNode, listenerContext);
+    $20907e225e472df4$var$updateProps(domNode, oldVirtualNode, oldProps, newVirtualNode, newProps);
+    if (refs) $keWV4(domNode, oldProps && oldProps.ref, newProps && newProps.ref, refs);
+    $20907e225e472df4$var$updateEventListeners(domNode, oldVirtualNode, newVirtualNode, listenerContext);
 };
 // Using var to avoid "Unsupported phi use of variable" deoptimization in Chrome 56
-function $2b6f8d8d20544629$var$updateProps(domNode, oldVirtualNode, oldProps, newVirtualNode, newProps) {
+function $20907e225e472df4$var$updateProps(domNode, oldVirtualNode, oldProps, newVirtualNode, newProps) {
     if (oldProps) for(var name in oldProps){
         if (name === 'ref' || name === 'on') continue;
-        if (name in $pK0bE) continue;
+        if (name in $jl0Ml) continue;
         if (!newProps || !(name in newProps)) {
-            if (name === 'dataset') $2b6f8d8d20544629$var$updateProps(domNode.dataset, null, oldProps && oldProps.dataset, null, null);
-            else if (name !== 'innerHTML' && oldVirtualNode && $4KaY7.has(oldVirtualNode.tag)) domNode.removeAttribute($agxZY.get(name) || name);
+            if (name === 'dataset') $20907e225e472df4$var$updateProps(domNode.dataset, null, oldProps && oldProps.dataset, null, null);
+            else if (name !== 'innerHTML' && oldVirtualNode && $eXSjJ.has(oldVirtualNode.tag)) domNode.removeAttribute($kqZUw.get(name) || name);
             else {
                 // Clear property for objects that don't support deletion (e.g. style
                 // or className). If we used null instead of an empty string, the DOM
                 // could sometimes stringify the value and mistakenly assign 'null'.
-                domNode[name] = $2b6f8d8d20544629$var$EMPTY;
+                domNode[name] = $20907e225e472df4$var$EMPTY;
                 delete domNode[name];
             }
         }
     }
     if (newProps) for(var name in newProps){
         if (name === 'ref' || name === 'on') continue;
-        if (name in $pK0bE) continue;
+        if (name in $jl0Ml) continue;
         var oldValue = oldProps && oldProps[name];
         var newValue = newProps[name];
-        if (name === 'dataset') $2b6f8d8d20544629$var$updateNestedProps(domNode.dataset, oldValue, newValue, false);
+        if (name === 'dataset') $20907e225e472df4$var$updateNestedProps(domNode.dataset, oldValue, newValue, false);
         else if (name === 'style' && typeof newValue !== 'string') {
             if (typeof oldValue === 'string') {
                 domNode.style = '';
                 oldValue = null;
             }
-            $2b6f8d8d20544629$var$updateNestedProps(domNode.style, oldValue, newValue, true);
-        } else if (name === 'attributes') $2b6f8d8d20544629$var$updateAttributes(domNode, oldValue, newValue);
+            $20907e225e472df4$var$updateNestedProps(domNode.style, oldValue, newValue, true);
+        } else if (name === 'attributes') $20907e225e472df4$var$updateAttributes(domNode, oldValue, newValue);
         else if (newValue !== oldValue) {
-            if (name !== 'innerHTML' && newVirtualNode && $4KaY7.has(newVirtualNode.tag)) domNode.setAttribute($agxZY.get(name) || name, newValue);
+            if (name !== 'innerHTML' && newVirtualNode && $eXSjJ.has(newVirtualNode.tag)) domNode.setAttribute($kqZUw.get(name) || name, newValue);
             else if (newVirtualNode && newVirtualNode.tag === 'input' && name === 'value' && domNode[name] === newValue) ;
             else domNode[name] = newValue;
         }
     }
 }
-function $2b6f8d8d20544629$var$updateNestedProps(domProps, oldProps, newProps, isStyleObject) {
+function $20907e225e472df4$var$updateNestedProps(domProps, oldProps, newProps, isStyleObject) {
     if (oldProps) {
         for(var name in oldProps)if (!newProps || !(name in newProps)) {
-            if (isStyleObject) domProps[name] = $2b6f8d8d20544629$var$EMPTY;
+            if (isStyleObject) domProps[name] = $20907e225e472df4$var$EMPTY;
             else delete domProps[name];
         }
     }
@@ -495,7 +495,7 @@ function $2b6f8d8d20544629$var$updateNestedProps(domProps, oldProps, newProps, i
         if (newValue !== oldValue) domProps[name] = newValue;
     }
 }
-function $2b6f8d8d20544629$var$updateAttributes(domNode, oldAttributes, newAttributes) {
+function $20907e225e472df4$var$updateAttributes(domNode, oldAttributes, newAttributes) {
     if (oldAttributes) {
         for(var name in oldAttributes)if (!newAttributes || !(name in newAttributes)) domNode.removeAttribute(name);
     }
@@ -505,7 +505,7 @@ function $2b6f8d8d20544629$var$updateAttributes(domNode, oldAttributes, newAttri
         if (newValue !== oldValue) domNode.setAttribute(name, newValue);
     }
 }
-function $2b6f8d8d20544629$var$updateEventListeners(domNode, oldVirtualNode, newVirtualNode, listenerContext) {
+function $20907e225e472df4$var$updateEventListeners(domNode, oldVirtualNode, newVirtualNode, listenerContext) {
     const oldListeners = oldVirtualNode && oldVirtualNode.props && oldVirtualNode.props.on;
     const newListeners = newVirtualNode.props && newVirtualNode.props.on;
     for(const eventName in oldListeners)if (!(newListeners && eventName in newListeners)) {
@@ -538,7 +538,7 @@ function $2b6f8d8d20544629$var$updateEventListeners(domNode, oldVirtualNode, new
 }
 
 });
-parcelRegister("agxZY", function(module, exports) {
+parcelRegister("kqZUw", function(module, exports) {
 // Based on https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute
 module.exports = new Map([
     [
@@ -829,7 +829,7 @@ module.exports = new Map([
 
 });
 
-parcelRegister("7gV0h", function(module, exports) {
+parcelRegister("keWV4", function(module, exports) {
 module.exports = function updateRef(domNode, oldRefName, newRefName, refs) {
     if (newRefName !== oldRefName) {
         if (typeof oldRefName === 'function') oldRefName(null);
@@ -843,21 +843,21 @@ module.exports = function updateRef(domNode, oldRefName, newRefName, refs) {
 
 
 
-parcelRegister("lp6kj", function(module, exports) {
+parcelRegister("26tNC", function(module, exports) {
 
-var $l1Bcz = parcelRequire("l1Bcz");
+var $bzUfH = parcelRequire("bzUfH");
 
-var $8Tysj = parcelRequire("8Tysj");
+var $2vd3P = parcelRequire("2vd3P");
 
-var $b0nUk = parcelRequire("b0nUk");
-var $f950d71f221bfa84$require$getScheduler = $b0nUk.getScheduler;
-const $f950d71f221bfa84$var$componentsWithPendingUpdates = new WeakSet();
-let $f950d71f221bfa84$var$syncUpdatesInProgressCounter = 0;
-let $f950d71f221bfa84$var$syncDestructionsInProgressCounter = 0;
-function $f950d71f221bfa84$var$isValidVirtualNode(virtualNode) {
+var $HTLkW = parcelRequire("HTLkW");
+var $188341d7aaa32c96$require$getScheduler = $HTLkW.getScheduler;
+const $188341d7aaa32c96$var$componentsWithPendingUpdates = new WeakSet();
+let $188341d7aaa32c96$var$syncUpdatesInProgressCounter = 0;
+let $188341d7aaa32c96$var$syncDestructionsInProgressCounter = 0;
+function $188341d7aaa32c96$var$isValidVirtualNode(virtualNode) {
     return virtualNode != null && virtualNode !== false;
 }
-function $f950d71f221bfa84$var$applyContext(context, virtualNode) {
+function $188341d7aaa32c96$var$applyContext(context, virtualNode) {
     virtualNode.context = context;
     if (virtualNode.ambiguous) {
         virtualNode.ambiguous.forEach((node)=>{
@@ -880,17 +880,17 @@ function $f950d71f221bfa84$var$applyContext(context, virtualNode) {
 // nodes of the `virtual-dom` tree. Before calling into `virtual-dom` to create
 // the DOM tree, it pushes this `refs` object to a shared stack so it can be
 // accessed by hooks during the creation of individual elements.
-function $f950d71f221bfa84$var$initialize(component) {
+function $188341d7aaa32c96$var$initialize(component) {
     if (typeof component.update !== 'function') throw new Error('Etch components must implement `update(props, children)`.');
     let virtualNode = component.render();
-    if (!$f950d71f221bfa84$var$isValidVirtualNode(virtualNode)) {
+    if (!$188341d7aaa32c96$var$isValidVirtualNode(virtualNode)) {
         let namePart = component.constructor && component.constructor.name ? ' in ' + component.constructor.name : '';
         throw new Error('invalid falsy value ' + virtualNode + ' returned from render()' + namePart);
     }
-    $f950d71f221bfa84$var$applyContext(component, virtualNode);
+    $188341d7aaa32c96$var$applyContext(component, virtualNode);
     component.refs = {};
     component.virtualNode = virtualNode;
-    component.element = $l1Bcz(component.virtualNode, {
+    component.element = $bzUfH(component.virtualNode, {
         refs: component.refs,
         listenerContext: component
     });
@@ -910,17 +910,17 @@ function $f950d71f221bfa84$var$initialize(component) {
 //
 // Returns a promise that will resolve when the requested update has been
 // completed.
-function $f950d71f221bfa84$var$update(component, replaceNode = true) {
-    if ($f950d71f221bfa84$var$syncUpdatesInProgressCounter > 0) {
-        $f950d71f221bfa84$var$updateSync(component, replaceNode);
+function $188341d7aaa32c96$var$update(component, replaceNode = true) {
+    if ($188341d7aaa32c96$var$syncUpdatesInProgressCounter > 0) {
+        $188341d7aaa32c96$var$updateSync(component, replaceNode);
         return Promise.resolve();
     }
-    let scheduler = $f950d71f221bfa84$require$getScheduler();
-    if (!$f950d71f221bfa84$var$componentsWithPendingUpdates.has(component)) {
-        $f950d71f221bfa84$var$componentsWithPendingUpdates.add(component);
+    let scheduler = $188341d7aaa32c96$require$getScheduler();
+    if (!$188341d7aaa32c96$var$componentsWithPendingUpdates.has(component)) {
+        $188341d7aaa32c96$var$componentsWithPendingUpdates.add(component);
         scheduler.updateDocument(function() {
-            $f950d71f221bfa84$var$componentsWithPendingUpdates.delete(component);
-            $f950d71f221bfa84$var$updateSync(component, replaceNode);
+            $188341d7aaa32c96$var$componentsWithPendingUpdates.delete(component);
+            $188341d7aaa32c96$var$updateSync(component, replaceNode);
         });
     }
     return scheduler.getNextUpdatePromise();
@@ -944,19 +944,19 @@ function $f950d71f221bfa84$var$update(component, replaceNode = true) {
 // For now, etch does not allow the root tag of the `render` method to change
 // between invocations, because we want to preserve a one-to-one relationship
 // between component objects and DOM elements for simplicity.
-function $f950d71f221bfa84$var$updateSync(component, replaceNode = true) {
-    if (!$f950d71f221bfa84$var$isValidVirtualNode(component.virtualNode)) throw new Error(`${component.constructor ? component.constructor.name + ' instance' : component} is not associated with a valid virtualNode. Perhaps this component was never initialized?`);
+function $188341d7aaa32c96$var$updateSync(component, replaceNode = true) {
+    if (!$188341d7aaa32c96$var$isValidVirtualNode(component.virtualNode)) throw new Error(`${component.constructor ? component.constructor.name + ' instance' : component} is not associated with a valid virtualNode. Perhaps this component was never initialized?`);
     if (component.element == null) throw new Error(`${component.constructor ? component.constructor.name + ' instance' : component} is not associated with a DOM element. Perhaps this component was never initialized?`);
     let newVirtualNode = component.render();
-    if (!$f950d71f221bfa84$var$isValidVirtualNode(newVirtualNode)) {
+    if (!$188341d7aaa32c96$var$isValidVirtualNode(newVirtualNode)) {
         const namePart = component.constructor && component.constructor.name ? ' in ' + component.constructor.name : '';
         throw new Error('invalid falsy value ' + newVirtualNode + ' returned from render()' + namePart);
     }
-    $f950d71f221bfa84$var$applyContext(component, newVirtualNode);
-    $f950d71f221bfa84$var$syncUpdatesInProgressCounter++;
+    $188341d7aaa32c96$var$applyContext(component, newVirtualNode);
+    $188341d7aaa32c96$var$syncUpdatesInProgressCounter++;
     let oldVirtualNode = component.virtualNode;
     let oldDomNode = component.element;
-    let newDomNode = $8Tysj(oldVirtualNode, newVirtualNode, {
+    let newDomNode = $2vd3P(oldVirtualNode, newVirtualNode, {
         refs: component.refs,
         listenerContext: component
     });
@@ -970,10 +970,10 @@ function $f950d71f221bfa84$var$updateSync(component, replaceNode = true) {
     // was invoked outside of the scheduler, the default scheduler will defer
     // reads until the next animation frame.
     if (typeof component.writeAfterUpdate === 'function') component.writeAfterUpdate();
-    if (typeof component.readAfterUpdate === 'function') $f950d71f221bfa84$require$getScheduler().readDocument(function() {
+    if (typeof component.readAfterUpdate === 'function') $188341d7aaa32c96$require$getScheduler().readDocument(function() {
         component.readAfterUpdate();
     });
-    $f950d71f221bfa84$var$syncUpdatesInProgressCounter--;
+    $188341d7aaa32c96$var$syncUpdatesInProgressCounter--;
 }
 // Removes the component's associated element and calls `destroy` on any child
 // components. Normally, this function is asynchronous and will perform the
@@ -982,14 +982,14 @@ function $f950d71f221bfa84$var$updateSync(component, replaceNode = true) {
 // If called as the result of destroying a component higher in the DOM, the
 // element is not removed to avoid redundant DOM manipulation. Returns a promise
 // that resolves when the destruction is completed.
-function $f950d71f221bfa84$var$destroy(component, removeNode = true) {
-    if ($f950d71f221bfa84$var$syncUpdatesInProgressCounter > 0 || $f950d71f221bfa84$var$syncDestructionsInProgressCounter > 0) {
-        $f950d71f221bfa84$var$destroySync(component, removeNode);
+function $188341d7aaa32c96$var$destroy(component, removeNode = true) {
+    if ($188341d7aaa32c96$var$syncUpdatesInProgressCounter > 0 || $188341d7aaa32c96$var$syncDestructionsInProgressCounter > 0) {
+        $188341d7aaa32c96$var$destroySync(component, removeNode);
         return Promise.resolve();
     }
-    let scheduler = $f950d71f221bfa84$require$getScheduler();
+    let scheduler = $188341d7aaa32c96$require$getScheduler();
     scheduler.updateDocument(function() {
-        $f950d71f221bfa84$var$destroySync(component, removeNode);
+        $188341d7aaa32c96$var$destroySync(component, removeNode);
     });
     return scheduler.getNextUpdatePromise();
 }
@@ -997,44 +997,44 @@ function $f950d71f221bfa84$var$destroy(component, removeNode = true) {
 //
 // Note that we track whether `destroy` calls are in progress and only remove
 // the element if we are not a nested call.
-function $f950d71f221bfa84$var$destroySync(component, removeNode = true) {
-    $f950d71f221bfa84$var$syncDestructionsInProgressCounter++;
-    $f950d71f221bfa84$var$destroyChildComponents(component.virtualNode);
-    if ($f950d71f221bfa84$var$syncDestructionsInProgressCounter === 1 && removeNode) component.element.remove();
-    $f950d71f221bfa84$var$syncDestructionsInProgressCounter--;
+function $188341d7aaa32c96$var$destroySync(component, removeNode = true) {
+    $188341d7aaa32c96$var$syncDestructionsInProgressCounter++;
+    $188341d7aaa32c96$var$destroyChildComponents(component.virtualNode);
+    if ($188341d7aaa32c96$var$syncDestructionsInProgressCounter === 1 && removeNode) component.element.remove();
+    $188341d7aaa32c96$var$syncDestructionsInProgressCounter--;
 }
-function $f950d71f221bfa84$var$destroyChildComponents(virtualNode) {
+function $188341d7aaa32c96$var$destroyChildComponents(virtualNode) {
     if (virtualNode.component && typeof virtualNode.component.destroy === 'function') virtualNode.component.destroy();
-    else if (virtualNode.children) virtualNode.children.forEach($f950d71f221bfa84$var$destroyChildComponents);
+    else if (virtualNode.children) virtualNode.children.forEach($188341d7aaa32c96$var$destroyChildComponents);
 }
 module.exports = {
-    initialize: $f950d71f221bfa84$var$initialize,
-    update: $f950d71f221bfa84$var$update,
-    updateSync: $f950d71f221bfa84$var$updateSync,
-    destroy: $f950d71f221bfa84$var$destroy,
-    destroySync: $f950d71f221bfa84$var$destroySync
+    initialize: $188341d7aaa32c96$var$initialize,
+    update: $188341d7aaa32c96$var$update,
+    updateSync: $188341d7aaa32c96$var$updateSync,
+    destroy: $188341d7aaa32c96$var$destroy,
+    destroySync: $188341d7aaa32c96$var$destroySync
 };
 
 });
-parcelRegister("8Tysj", function(module, exports) {
+parcelRegister("2vd3P", function(module, exports) {
 
-var $l1Bcz = parcelRequire("l1Bcz");
+var $bzUfH = parcelRequire("bzUfH");
 
-var $3JcRC = parcelRequire("3JcRC");
+var $2Nl3G = parcelRequire("2Nl3G");
 
-var $7gV0h = parcelRequire("7gV0h");
-function $679e2ff8c6a0b934$var$patch(oldVirtualNode, newVirtualNode, options) {
+var $keWV4 = parcelRequire("keWV4");
+function $1d289b99166dec6b$var$patch(oldVirtualNode, newVirtualNode, options) {
     const oldNode = oldVirtualNode.domNode;
     if (newVirtualNode === oldVirtualNode) return oldNode;
-    if ($679e2ff8c6a0b934$var$virtualNodesAreEqual(oldVirtualNode, newVirtualNode)) {
+    if ($1d289b99166dec6b$var$virtualNodesAreEqual(oldVirtualNode, newVirtualNode)) {
         let newNode;
         if (newVirtualNode.text != null) {
             oldNode.nodeValue = newVirtualNode.text;
             newNode = oldNode;
-        } else if (typeof newVirtualNode.tag === 'function') newNode = $679e2ff8c6a0b934$var$updateComponent(oldVirtualNode, newVirtualNode, options);
+        } else if (typeof newVirtualNode.tag === 'function') newNode = $1d289b99166dec6b$var$updateComponent(oldVirtualNode, newVirtualNode, options);
         else {
-            $679e2ff8c6a0b934$var$updateChildren(oldNode, oldVirtualNode.children, newVirtualNode.children, options);
-            $3JcRC(oldNode, oldVirtualNode, newVirtualNode, options);
+            $1d289b99166dec6b$var$updateChildren(oldNode, oldVirtualNode.children, newVirtualNode.children, options);
+            $2Nl3G(oldNode, oldVirtualNode, newVirtualNode, options);
             newNode = oldNode;
         }
         newVirtualNode.domNode = newNode;
@@ -1043,29 +1043,29 @@ function $679e2ff8c6a0b934$var$patch(oldVirtualNode, newVirtualNode, options) {
     } else {
         const parentNode = oldNode.parentNode;
         const nextSibling = oldNode.nextSibling;
-        $679e2ff8c6a0b934$var$removeVirtualNode(oldVirtualNode, options && options.refs);
-        const newNode = $l1Bcz(newVirtualNode, options);
+        $1d289b99166dec6b$var$removeVirtualNode(oldVirtualNode, options && options.refs);
+        const newNode = $bzUfH(newVirtualNode, options);
         if (parentNode) parentNode.insertBefore(newNode, nextSibling);
         newVirtualNode.domNode = newNode;
         return newNode;
     }
 }
-function $679e2ff8c6a0b934$var$updateComponent(oldVirtualNode, newVirtualNode, options) {
+function $1d289b99166dec6b$var$updateComponent(oldVirtualNode, newVirtualNode, options) {
     const { component: component, props: oldProps } = oldVirtualNode;
     let { props: newProps, children: newChildren } = newVirtualNode;
     newVirtualNode.component = component;
     const refs = options && options.refs;
-    if (refs) $7gV0h(component, oldProps && oldProps.ref, newProps && newProps.ref, refs);
+    if (refs) $keWV4(component, oldProps && oldProps.ref, newProps && newProps.ref, refs);
     component.update(newProps || {}, newChildren);
     return component.element;
 }
-let $679e2ff8c6a0b934$var$mapPool = [
+let $1d289b99166dec6b$var$mapPool = [
     new Map(),
     new Map(),
     new Map(),
     new Map()
 ];
-function $679e2ff8c6a0b934$var$updateChildren(parentElement, oldChildren, newChildren, options) {
+function $1d289b99166dec6b$var$updateChildren(parentElement, oldChildren, newChildren, options) {
     var oldStartIndex = 0;
     var oldEndIndex = oldChildren.length - 1;
     var oldStartChild = oldChildren[0];
@@ -1078,40 +1078,40 @@ function $679e2ff8c6a0b934$var$updateChildren(parentElement, oldChildren, newChi
     while(oldStartIndex <= oldEndIndex && newStartIndex <= newEndIndex){
         if (!oldStartChild) oldStartChild = oldChildren[++oldStartIndex];
         else if (!oldEndChild) oldEndChild = oldChildren[--oldEndIndex];
-        else if ($679e2ff8c6a0b934$var$virtualNodesAreEqual(oldStartChild, newStartChild)) {
-            $679e2ff8c6a0b934$var$patch(oldStartChild, newStartChild, options);
+        else if ($1d289b99166dec6b$var$virtualNodesAreEqual(oldStartChild, newStartChild)) {
+            $1d289b99166dec6b$var$patch(oldStartChild, newStartChild, options);
             oldStartChild = oldChildren[++oldStartIndex];
             newStartChild = newChildren[++newStartIndex];
-        } else if ($679e2ff8c6a0b934$var$virtualNodesAreEqual(oldEndChild, newEndChild)) {
-            $679e2ff8c6a0b934$var$patch(oldEndChild, newEndChild, options);
+        } else if ($1d289b99166dec6b$var$virtualNodesAreEqual(oldEndChild, newEndChild)) {
+            $1d289b99166dec6b$var$patch(oldEndChild, newEndChild, options);
             oldEndChild = oldChildren[--oldEndIndex];
             newEndChild = newChildren[--newEndIndex];
-        } else if ($679e2ff8c6a0b934$var$virtualNodesAreEqual(oldStartChild, newEndChild)) {
-            $679e2ff8c6a0b934$var$patch(oldStartChild, newEndChild, options);
+        } else if ($1d289b99166dec6b$var$virtualNodesAreEqual(oldStartChild, newEndChild)) {
+            $1d289b99166dec6b$var$patch(oldStartChild, newEndChild, options);
             parentElement.insertBefore(oldStartChild.domNode, oldEndChild.domNode.nextSibling);
             oldStartChild = oldChildren[++oldStartIndex];
             newEndChild = newChildren[--newEndIndex];
-        } else if ($679e2ff8c6a0b934$var$virtualNodesAreEqual(oldEndChild, newStartChild)) {
-            $679e2ff8c6a0b934$var$patch(oldEndChild, newStartChild, options);
+        } else if ($1d289b99166dec6b$var$virtualNodesAreEqual(oldEndChild, newStartChild)) {
+            $1d289b99166dec6b$var$patch(oldEndChild, newStartChild, options);
             parentElement.insertBefore(oldEndChild.domNode, oldStartChild.domNode);
             oldEndChild = oldChildren[--oldEndIndex];
             newStartChild = newChildren[++newStartIndex];
         } else {
             if (!oldIndicesByKey) {
-                if ($679e2ff8c6a0b934$var$mapPool.length > 0) {
-                    oldIndicesByKey = $679e2ff8c6a0b934$var$mapPool.pop();
+                if ($1d289b99166dec6b$var$mapPool.length > 0) {
+                    oldIndicesByKey = $1d289b99166dec6b$var$mapPool.pop();
                     oldIndicesByKey.clear();
                 } else oldIndicesByKey = new Map();
-                $679e2ff8c6a0b934$var$mapOldKeysToIndices(oldIndicesByKey, oldChildren, oldStartIndex, oldEndIndex);
+                $1d289b99166dec6b$var$mapOldKeysToIndices(oldIndicesByKey, oldChildren, oldStartIndex, oldEndIndex);
             }
-            var key = $679e2ff8c6a0b934$var$getKey(newStartChild);
+            var key = $1d289b99166dec6b$var$getKey(newStartChild);
             var oldIndex = key ? oldIndicesByKey.get(key) : null;
             if (oldIndex == null) {
-                parentElement.insertBefore($l1Bcz(newStartChild, options), oldStartChild.domNode);
+                parentElement.insertBefore($bzUfH(newStartChild, options), oldStartChild.domNode);
                 newStartChild = newChildren[++newStartIndex];
             } else {
                 var oldChildToMove = oldChildren[oldIndex];
-                $679e2ff8c6a0b934$var$patch(oldChildToMove, newStartChild, options);
+                $1d289b99166dec6b$var$patch(oldChildToMove, newStartChild, options);
                 oldChildren[oldIndex] = undefined;
                 parentElement.insertBefore(oldChildToMove.domNode, oldStartChild.domNode);
                 newStartChild = newChildren[++newStartIndex];
@@ -1120,14 +1120,14 @@ function $679e2ff8c6a0b934$var$updateChildren(parentElement, oldChildren, newChi
     }
     if (oldStartIndex > oldEndIndex) {
         var subsequentElement = newChildren[newEndIndex + 1] ? newChildren[newEndIndex + 1].domNode : null;
-        for(let i = newStartIndex; i <= newEndIndex; i++)parentElement.insertBefore($l1Bcz(newChildren[i], options), subsequentElement);
+        for(let i = newStartIndex; i <= newEndIndex; i++)parentElement.insertBefore($bzUfH(newChildren[i], options), subsequentElement);
     } else if (newStartIndex > newEndIndex) for(let i = oldStartIndex; i <= oldEndIndex; i++){
         var child = oldChildren[i];
-        if (child) $679e2ff8c6a0b934$var$removeVirtualNode(child, options && options.refs);
+        if (child) $1d289b99166dec6b$var$removeVirtualNode(child, options && options.refs);
     }
-    if (oldIndicesByKey) $679e2ff8c6a0b934$var$mapPool.push(oldIndicesByKey);
+    if (oldIndicesByKey) $1d289b99166dec6b$var$mapPool.push(oldIndicesByKey);
 }
-function $679e2ff8c6a0b934$var$removeVirtualNode(virtualNode, refs, removeDOMNode = true) {
+function $1d289b99166dec6b$var$removeVirtualNode(virtualNode, refs, removeDOMNode = true) {
     const { domNode: domNode, props: props, children: children, component: component } = virtualNode;
     const ref = props && props.ref;
     if (component) {
@@ -1137,31 +1137,31 @@ function $679e2ff8c6a0b934$var$removeVirtualNode(virtualNode, refs, removeDOMNod
     } else {
         if (typeof ref === 'function') ref(null);
         else if (refs && ref && refs[ref] === domNode) delete refs[ref];
-        if (children) for(let i = 0; i < children.length; i++)$679e2ff8c6a0b934$var$removeVirtualNode(children[i], refs, false);
+        if (children) for(let i = 0; i < children.length; i++)$1d289b99166dec6b$var$removeVirtualNode(children[i], refs, false);
     }
     if (removeDOMNode) domNode.remove();
 }
-function $679e2ff8c6a0b934$var$virtualNodesAreEqual(oldVirtualNode, newVirtualNode) {
-    return $679e2ff8c6a0b934$var$getKey(oldVirtualNode) === $679e2ff8c6a0b934$var$getKey(newVirtualNode) && oldVirtualNode.tag === newVirtualNode.tag;
+function $1d289b99166dec6b$var$virtualNodesAreEqual(oldVirtualNode, newVirtualNode) {
+    return $1d289b99166dec6b$var$getKey(oldVirtualNode) === $1d289b99166dec6b$var$getKey(newVirtualNode) && oldVirtualNode.tag === newVirtualNode.tag;
 }
-function $679e2ff8c6a0b934$var$getKey(virtualNode) {
+function $1d289b99166dec6b$var$getKey(virtualNode) {
     return virtualNode.props ? virtualNode.props.key : undefined;
 }
-function $679e2ff8c6a0b934$var$mapOldKeysToIndices(oldIndicesByKey, children, startIndex, endIndex) {
+function $1d289b99166dec6b$var$mapOldKeysToIndices(oldIndicesByKey, children, startIndex, endIndex) {
     for(let i = startIndex; i <= endIndex; i++){
-        const key = $679e2ff8c6a0b934$var$getKey(children[i]);
+        const key = $1d289b99166dec6b$var$getKey(children[i]);
         if (key) oldIndicesByKey.set(key, i);
     }
     return oldIndicesByKey;
 }
-module.exports = $679e2ff8c6a0b934$var$patch;
+module.exports = $1d289b99166dec6b$var$patch;
 
 });
 
-parcelRegister("b0nUk", function(module, exports) {
+parcelRegister("HTLkW", function(module, exports) {
 
-$parcel$export(module.exports, "setScheduler", () => $80323d5828763e14$export$8be1eb74e6a9a577, (v) => $80323d5828763e14$export$8be1eb74e6a9a577 = v);
-$parcel$export(module.exports, "getScheduler", () => $80323d5828763e14$export$5cff7ac265db316a, (v) => $80323d5828763e14$export$5cff7ac265db316a = v);
+$parcel$export(module.exports, "setScheduler", () => $083f4589785d86a8$export$8be1eb74e6a9a577, (v) => $083f4589785d86a8$export$8be1eb74e6a9a577 = v);
+$parcel$export(module.exports, "getScheduler", () => $083f4589785d86a8$export$5cff7ac265db316a, (v) => $083f4589785d86a8$export$5cff7ac265db316a = v);
 // This file implements getter and setter functions for a scheduler to be used
 // by this library when updating the DOM. The scheduler's job is to ensure that
 // DOM interaction is performed efficiently. When using `etch` in Atom, you
@@ -1185,21 +1185,21 @@ $parcel$export(module.exports, "getScheduler", () => $80323d5828763e14$export$5c
 // * `pollDocument` This method is similar to `readDocument`, but it runs the
 // associated functions repeatedly. Again, they should be scheduled in such a
 // way so as to avoid synchronous reflows.
-var $80323d5828763e14$export$8be1eb74e6a9a577;
-var $80323d5828763e14$export$5cff7ac265db316a;
+var $083f4589785d86a8$export$8be1eb74e6a9a577;
+var $083f4589785d86a8$export$5cff7ac265db316a;
 
-var $6pXyy = parcelRequire("6pXyy");
-let $80323d5828763e14$var$scheduler = null;
-$80323d5828763e14$export$8be1eb74e6a9a577 = function setScheduler(customScheduler) {
-    $80323d5828763e14$var$scheduler = customScheduler;
+var $boDwR = parcelRequire("boDwR");
+let $083f4589785d86a8$var$scheduler = null;
+$083f4589785d86a8$export$8be1eb74e6a9a577 = function setScheduler(customScheduler) {
+    $083f4589785d86a8$var$scheduler = customScheduler;
 };
-$80323d5828763e14$export$5cff7ac265db316a = function getScheduler() {
-    if (!$80323d5828763e14$var$scheduler) $80323d5828763e14$var$scheduler = new $6pXyy();
-    return $80323d5828763e14$var$scheduler;
+$083f4589785d86a8$export$5cff7ac265db316a = function getScheduler() {
+    if (!$083f4589785d86a8$var$scheduler) $083f4589785d86a8$var$scheduler = new $boDwR();
+    return $083f4589785d86a8$var$scheduler;
 };
 
 });
-parcelRegister("6pXyy", function(module, exports) {
+parcelRegister("boDwR", function(module, exports) {
 // If the scheduler is not customized via `etch.setScheduler`, an instance of
 // this class will be used to schedule updates to the document. The
 // `updateDocument` method accepts functions to be run at some point in the
@@ -1259,7 +1259,7 @@ module.exports = class DefaultScheduler {
 
 
 
-parcelRegister("4uNLx", function(module, exports) {
+parcelRegister("6DBYc", function(module, exports) {
 /**
  * @license
  * Lodash <https://lodash.com/>
@@ -15532,18 +15532,18 @@ parcelRegister("4uNLx", function(module, exports) {
 
 });
 
-parcelRegister("5zdPZ", function(module, exports) {
+parcelRegister("e9ZTD", function(module, exports) {
 'use strict';
-var $40daf48024214f25$var$isWindows = process.platform === 'win32';
+var $a4f1eb41af7eadf7$var$isWindows = process.platform === 'win32';
 // Regex to split a windows path into into [dir, root, basename, name, ext]
-var $40daf48024214f25$var$splitWindowsRe = /^(((?:[a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/]+[^\\\/]+)?[\\\/]?)(?:[^\\\/]*[\\\/])*)((\.{1,2}|[^\\\/]+?|)(\.[^.\/\\]*|))[\\\/]*$/;
-var $40daf48024214f25$var$win32 = {};
-function $40daf48024214f25$var$win32SplitPath(filename) {
-    return $40daf48024214f25$var$splitWindowsRe.exec(filename).slice(1);
+var $a4f1eb41af7eadf7$var$splitWindowsRe = /^(((?:[a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/]+[^\\\/]+)?[\\\/]?)(?:[^\\\/]*[\\\/])*)((\.{1,2}|[^\\\/]+?|)(\.[^.\/\\]*|))[\\\/]*$/;
+var $a4f1eb41af7eadf7$var$win32 = {};
+function $a4f1eb41af7eadf7$var$win32SplitPath(filename) {
+    return $a4f1eb41af7eadf7$var$splitWindowsRe.exec(filename).slice(1);
 }
-$40daf48024214f25$var$win32.parse = function(pathString) {
+$a4f1eb41af7eadf7$var$win32.parse = function(pathString) {
     if (typeof pathString !== 'string') throw new TypeError("Parameter 'pathString' must be a string, not " + typeof pathString);
-    var allParts = $40daf48024214f25$var$win32SplitPath(pathString);
+    var allParts = $a4f1eb41af7eadf7$var$win32SplitPath(pathString);
     if (!allParts || allParts.length !== 5) throw new TypeError("Invalid path '" + pathString + "'");
     return {
         root: allParts[1],
@@ -15555,14 +15555,14 @@ $40daf48024214f25$var$win32.parse = function(pathString) {
 };
 // Split a filename into [dir, root, basename, name, ext], unix version
 // 'root' is just a slash, or nothing.
-var $40daf48024214f25$var$splitPathRe = /^((\/?)(?:[^\/]*\/)*)((\.{1,2}|[^\/]+?|)(\.[^.\/]*|))[\/]*$/;
-var $40daf48024214f25$var$posix = {};
-function $40daf48024214f25$var$posixSplitPath(filename) {
-    return $40daf48024214f25$var$splitPathRe.exec(filename).slice(1);
+var $a4f1eb41af7eadf7$var$splitPathRe = /^((\/?)(?:[^\/]*\/)*)((\.{1,2}|[^\/]+?|)(\.[^.\/]*|))[\/]*$/;
+var $a4f1eb41af7eadf7$var$posix = {};
+function $a4f1eb41af7eadf7$var$posixSplitPath(filename) {
+    return $a4f1eb41af7eadf7$var$splitPathRe.exec(filename).slice(1);
 }
-$40daf48024214f25$var$posix.parse = function(pathString) {
+$a4f1eb41af7eadf7$var$posix.parse = function(pathString) {
     if (typeof pathString !== 'string') throw new TypeError("Parameter 'pathString' must be a string, not " + typeof pathString);
-    var allParts = $40daf48024214f25$var$posixSplitPath(pathString);
+    var allParts = $a4f1eb41af7eadf7$var$posixSplitPath(pathString);
     if (!allParts || allParts.length !== 5) throw new TypeError("Invalid path '" + pathString + "'");
     return {
         root: allParts[1],
@@ -15572,29 +15572,29 @@ $40daf48024214f25$var$posix.parse = function(pathString) {
         name: allParts[3]
     };
 };
-if ($40daf48024214f25$var$isWindows) module.exports = $40daf48024214f25$var$win32.parse;
-else /* posix */ module.exports = $40daf48024214f25$var$posix.parse;
-module.exports.posix = $40daf48024214f25$var$posix.parse;
-module.exports.win32 = $40daf48024214f25$var$win32.parse;
+if ($a4f1eb41af7eadf7$var$isWindows) module.exports = $a4f1eb41af7eadf7$var$win32.parse;
+else /* posix */ module.exports = $a4f1eb41af7eadf7$var$posix.parse;
+module.exports.posix = $a4f1eb41af7eadf7$var$posix.parse;
+module.exports.win32 = $a4f1eb41af7eadf7$var$win32.parse;
 
 });
 
-parcelRegister("aPK9d", function(module, exports) {
+parcelRegister("39hpt", function(module, exports) {
 'use strict';
 
-var $a8Rlb = parcelRequire("a8Rlb");
+var $5ZL5o = parcelRequire("5ZL5o");
 
-var $go8Ut = parcelRequire("go8Ut");
-var $7e3276bcf920e22f$var$core = {};
-for(var $7e3276bcf920e22f$var$mod in $go8Ut)if (Object.prototype.hasOwnProperty.call($go8Ut, $7e3276bcf920e22f$var$mod)) $7e3276bcf920e22f$var$core[$7e3276bcf920e22f$var$mod] = $a8Rlb($7e3276bcf920e22f$var$mod);
-module.exports = $7e3276bcf920e22f$var$core;
+var $h5s2I = parcelRequire("h5s2I");
+var $24afb79c4d6e2da5$var$core = {};
+for(var $24afb79c4d6e2da5$var$mod in $h5s2I)if (Object.prototype.hasOwnProperty.call($h5s2I, $24afb79c4d6e2da5$var$mod)) $24afb79c4d6e2da5$var$core[$24afb79c4d6e2da5$var$mod] = $5ZL5o($24afb79c4d6e2da5$var$mod);
+module.exports = $24afb79c4d6e2da5$var$core;
 
 });
-parcelRegister("a8Rlb", function(module, exports) {
+parcelRegister("5ZL5o", function(module, exports) {
 'use strict';
 
-var $heUXb = parcelRequire("heUXb");
-function $7624071a6c75b1d1$var$specifierIncluded(current, specifier) {
+var $R0MXx = parcelRequire("R0MXx");
+function $45d72c90a74bbfb9$var$specifierIncluded(current, specifier) {
     var nodeParts = current.split('.');
     var parts = specifier.split(' ');
     var op = parts.length > 1 ? parts[0] : '=';
@@ -15609,67 +15609,67 @@ function $7624071a6c75b1d1$var$specifierIncluded(current, specifier) {
     }
     return op === '>=';
 }
-function $7624071a6c75b1d1$var$matchesRange(current, range) {
+function $45d72c90a74bbfb9$var$matchesRange(current, range) {
     var specifiers = range.split(/ ?&& ?/);
     if (specifiers.length === 0) return false;
     for(var i = 0; i < specifiers.length; ++i){
-        if (!$7624071a6c75b1d1$var$specifierIncluded(current, specifiers[i])) return false;
+        if (!$45d72c90a74bbfb9$var$specifierIncluded(current, specifiers[i])) return false;
     }
     return true;
 }
-function $7624071a6c75b1d1$var$versionIncluded(nodeVersion, specifierValue) {
+function $45d72c90a74bbfb9$var$versionIncluded(nodeVersion, specifierValue) {
     if (typeof specifierValue === 'boolean') return specifierValue;
     var current = typeof nodeVersion === 'undefined' ? process.versions && process.versions.node : nodeVersion;
     if (typeof current !== 'string') throw new TypeError(typeof nodeVersion === 'undefined' ? 'Unable to determine current node version' : 'If provided, a valid node version is required');
     if (specifierValue && typeof specifierValue === 'object') {
         for(var i = 0; i < specifierValue.length; ++i){
-            if ($7624071a6c75b1d1$var$matchesRange(current, specifierValue[i])) return true;
+            if ($45d72c90a74bbfb9$var$matchesRange(current, specifierValue[i])) return true;
         }
         return false;
     }
-    return $7624071a6c75b1d1$var$matchesRange(current, specifierValue);
+    return $45d72c90a74bbfb9$var$matchesRange(current, specifierValue);
 }
 
-var $7qmb0 = parcelRequire("7qmb0");
+var $bnJUu = parcelRequire("bnJUu");
 module.exports = function isCore(x, nodeVersion) {
-    return $heUXb($7qmb0, x) && $7624071a6c75b1d1$var$versionIncluded(nodeVersion, $7qmb0[x]);
+    return $R0MXx($bnJUu, x) && $45d72c90a74bbfb9$var$versionIncluded(nodeVersion, $bnJUu[x]);
 };
 
 });
-parcelRegister("heUXb", function(module, exports) {
+parcelRegister("R0MXx", function(module, exports) {
 'use strict';
-var $c8cfec4018df343f$var$call = Function.prototype.call;
-var $c8cfec4018df343f$var$$hasOwn = Object.prototype.hasOwnProperty;
+var $09f58ff6e1e94d05$var$call = Function.prototype.call;
+var $09f58ff6e1e94d05$var$$hasOwn = Object.prototype.hasOwnProperty;
 
-var $s7VGt = parcelRequire("s7VGt");
-/** @type {import('.')} */ module.exports = $s7VGt.call($c8cfec4018df343f$var$call, $c8cfec4018df343f$var$$hasOwn);
+var $7xOQ3 = parcelRequire("7xOQ3");
+/** @type {import('.')} */ module.exports = $7xOQ3.call($09f58ff6e1e94d05$var$call, $09f58ff6e1e94d05$var$$hasOwn);
 
 });
-parcelRegister("s7VGt", function(module, exports) {
+parcelRegister("7xOQ3", function(module, exports) {
 'use strict';
 
-var $lMBwY = parcelRequire("lMBwY");
-module.exports = Function.prototype.bind || $lMBwY;
+var $1XAx1 = parcelRequire("1XAx1");
+module.exports = Function.prototype.bind || $1XAx1;
 
 });
-parcelRegister("lMBwY", function(module, exports) {
+parcelRegister("1XAx1", function(module, exports) {
 'use strict';
-/* eslint no-invalid-this: 1 */ var $fdbb31842f7e1582$var$ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
-var $fdbb31842f7e1582$var$toStr = Object.prototype.toString;
-var $fdbb31842f7e1582$var$max = Math.max;
-var $fdbb31842f7e1582$var$funcType = '[object Function]';
-var $fdbb31842f7e1582$var$concatty = function concatty(a, b) {
+/* eslint no-invalid-this: 1 */ var $16d7a38c13ad3557$var$ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
+var $16d7a38c13ad3557$var$toStr = Object.prototype.toString;
+var $16d7a38c13ad3557$var$max = Math.max;
+var $16d7a38c13ad3557$var$funcType = '[object Function]';
+var $16d7a38c13ad3557$var$concatty = function concatty(a, b) {
     var arr = [];
     for(var i = 0; i < a.length; i += 1)arr[i] = a[i];
     for(var j = 0; j < b.length; j += 1)arr[j + a.length] = b[j];
     return arr;
 };
-var $fdbb31842f7e1582$var$slicy = function slicy(arrLike, offset) {
+var $16d7a38c13ad3557$var$slicy = function slicy(arrLike, offset) {
     var arr = [];
     for(var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1)arr[j] = arrLike[i];
     return arr;
 };
-var $fdbb31842f7e1582$var$joiny = function(arr, joiner) {
+var $16d7a38c13ad3557$var$joiny = function(arr, joiner) {
     var str = '';
     for(var i = 0; i < arr.length; i += 1){
         str += arr[i];
@@ -15679,21 +15679,21 @@ var $fdbb31842f7e1582$var$joiny = function(arr, joiner) {
 };
 module.exports = function bind(that) {
     var target = this;
-    if (typeof target !== 'function' || $fdbb31842f7e1582$var$toStr.apply(target) !== $fdbb31842f7e1582$var$funcType) throw new TypeError($fdbb31842f7e1582$var$ERROR_MESSAGE + target);
-    var args = $fdbb31842f7e1582$var$slicy(arguments, 1);
+    if (typeof target !== 'function' || $16d7a38c13ad3557$var$toStr.apply(target) !== $16d7a38c13ad3557$var$funcType) throw new TypeError($16d7a38c13ad3557$var$ERROR_MESSAGE + target);
+    var args = $16d7a38c13ad3557$var$slicy(arguments, 1);
     var bound;
     var binder = function() {
         if (this instanceof bound) {
-            var result = target.apply(this, $fdbb31842f7e1582$var$concatty(args, arguments));
+            var result = target.apply(this, $16d7a38c13ad3557$var$concatty(args, arguments));
             if (Object(result) === result) return result;
             return this;
         }
-        return target.apply(that, $fdbb31842f7e1582$var$concatty(args, arguments));
+        return target.apply(that, $16d7a38c13ad3557$var$concatty(args, arguments));
     };
-    var boundLength = $fdbb31842f7e1582$var$max(0, target.length - args.length);
+    var boundLength = $16d7a38c13ad3557$var$max(0, target.length - args.length);
     var boundArgs = [];
     for(var i = 0; i < boundLength; i++)boundArgs[i] = '$' + i;
-    bound = Function('binder', 'return function (' + $fdbb31842f7e1582$var$joiny(boundArgs, ',') + '){ return binder.apply(this,arguments); }')(binder);
+    bound = Function('binder', 'return function (' + $16d7a38c13ad3557$var$joiny(boundArgs, ',') + '){ return binder.apply(this,arguments); }')(binder);
     if (target.prototype) {
         var Empty = function Empty() {};
         Empty.prototype = target.prototype;
@@ -15707,59 +15707,59 @@ module.exports = function bind(that) {
 
 
 
-parcelRegister("7qmb0", function(module, exports) {
+parcelRegister("bnJUu", function(module, exports) {
 module.exports = JSON.parse("{\"assert\":true,\"node:assert\":[\">= 14.18 && < 15\",\">= 16\"],\"assert/strict\":\">= 15\",\"node:assert/strict\":\">= 16\",\"async_hooks\":\">= 8\",\"node:async_hooks\":[\">= 14.18 && < 15\",\">= 16\"],\"buffer_ieee754\":\">= 0.5 && < 0.9.7\",\"buffer\":true,\"node:buffer\":[\">= 14.18 && < 15\",\">= 16\"],\"child_process\":true,\"node:child_process\":[\">= 14.18 && < 15\",\">= 16\"],\"cluster\":\">= 0.5\",\"node:cluster\":[\">= 14.18 && < 15\",\">= 16\"],\"console\":true,\"node:console\":[\">= 14.18 && < 15\",\">= 16\"],\"constants\":true,\"node:constants\":[\">= 14.18 && < 15\",\">= 16\"],\"crypto\":true,\"node:crypto\":[\">= 14.18 && < 15\",\">= 16\"],\"_debug_agent\":\">= 1 && < 8\",\"_debugger\":\"< 8\",\"dgram\":true,\"node:dgram\":[\">= 14.18 && < 15\",\">= 16\"],\"diagnostics_channel\":[\">= 14.17 && < 15\",\">= 15.1\"],\"node:diagnostics_channel\":[\">= 14.18 && < 15\",\">= 16\"],\"dns\":true,\"node:dns\":[\">= 14.18 && < 15\",\">= 16\"],\"dns/promises\":\">= 15\",\"node:dns/promises\":\">= 16\",\"domain\":\">= 0.7.12\",\"node:domain\":[\">= 14.18 && < 15\",\">= 16\"],\"events\":true,\"node:events\":[\">= 14.18 && < 15\",\">= 16\"],\"freelist\":\"< 6\",\"fs\":true,\"node:fs\":[\">= 14.18 && < 15\",\">= 16\"],\"fs/promises\":[\">= 10 && < 10.1\",\">= 14\"],\"node:fs/promises\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_agent\":\">= 0.11.1\",\"node:_http_agent\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_client\":\">= 0.11.1\",\"node:_http_client\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_common\":\">= 0.11.1\",\"node:_http_common\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_incoming\":\">= 0.11.1\",\"node:_http_incoming\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_outgoing\":\">= 0.11.1\",\"node:_http_outgoing\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_server\":\">= 0.11.1\",\"node:_http_server\":[\">= 14.18 && < 15\",\">= 16\"],\"http\":true,\"node:http\":[\">= 14.18 && < 15\",\">= 16\"],\"http2\":\">= 8.8\",\"node:http2\":[\">= 14.18 && < 15\",\">= 16\"],\"https\":true,\"node:https\":[\">= 14.18 && < 15\",\">= 16\"],\"inspector\":\">= 8\",\"node:inspector\":[\">= 14.18 && < 15\",\">= 16\"],\"inspector/promises\":[\">= 19\"],\"node:inspector/promises\":[\">= 19\"],\"_linklist\":\"< 8\",\"module\":true,\"node:module\":[\">= 14.18 && < 15\",\">= 16\"],\"net\":true,\"node:net\":[\">= 14.18 && < 15\",\">= 16\"],\"node-inspect/lib/_inspect\":\">= 7.6 && < 12\",\"node-inspect/lib/internal/inspect_client\":\">= 7.6 && < 12\",\"node-inspect/lib/internal/inspect_repl\":\">= 7.6 && < 12\",\"os\":true,\"node:os\":[\">= 14.18 && < 15\",\">= 16\"],\"path\":true,\"node:path\":[\">= 14.18 && < 15\",\">= 16\"],\"path/posix\":\">= 15.3\",\"node:path/posix\":\">= 16\",\"path/win32\":\">= 15.3\",\"node:path/win32\":\">= 16\",\"perf_hooks\":\">= 8.5\",\"node:perf_hooks\":[\">= 14.18 && < 15\",\">= 16\"],\"process\":\">= 1\",\"node:process\":[\">= 14.18 && < 15\",\">= 16\"],\"punycode\":\">= 0.5\",\"node:punycode\":[\">= 14.18 && < 15\",\">= 16\"],\"querystring\":true,\"node:querystring\":[\">= 14.18 && < 15\",\">= 16\"],\"readline\":true,\"node:readline\":[\">= 14.18 && < 15\",\">= 16\"],\"readline/promises\":\">= 17\",\"node:readline/promises\":\">= 17\",\"repl\":true,\"node:repl\":[\">= 14.18 && < 15\",\">= 16\"],\"node:sea\":[\">= 20.12 && < 21\",\">= 21.7\"],\"smalloc\":\">= 0.11.5 && < 3\",\"node:sqlite\":[\">= 22.13 && < 23\",\">= 23.4\"],\"_stream_duplex\":\">= 0.9.4 && < 26\",\"node:_stream_duplex\":[\">= 14.18 && < 15\",\">= 16 && < 26\"],\"_stream_transform\":\">= 0.9.4 && < 26\",\"node:_stream_transform\":[\">= 14.18 && < 15\",\">= 16 && < 26\"],\"_stream_wrap\":\">= 1.4.1 && < 26\",\"node:_stream_wrap\":[\">= 14.18 && < 15\",\">= 16 && < 26\"],\"_stream_passthrough\":\">= 0.9.4 && < 26\",\"node:_stream_passthrough\":[\">= 14.18 && < 15\",\">= 16 && < 26\"],\"_stream_readable\":\">= 0.9.4 && < 26\",\"node:_stream_readable\":[\">= 14.18 && < 15\",\">= 16 && < 26\"],\"_stream_writable\":\">= 0.9.4 && < 26\",\"node:_stream_writable\":[\">= 14.18 && < 15\",\">= 16 && < 26\"],\"stream\":true,\"node:stream\":[\">= 14.18 && < 15\",\">= 16\"],\"stream/consumers\":\">= 16.7\",\"node:stream/consumers\":\">= 16.7\",\"stream/promises\":\">= 15\",\"node:stream/promises\":\">= 16\",\"stream/web\":\">= 16.5\",\"node:stream/web\":\">= 16.5\",\"string_decoder\":true,\"node:string_decoder\":[\">= 14.18 && < 15\",\">= 16\"],\"sys\":[\">= 0.4 && < 0.7\",\">= 0.8\"],\"node:sys\":[\">= 14.18 && < 15\",\">= 16\"],\"test/reporters\":\">= 19.9 && < 20.2\",\"node:test/reporters\":[\">= 18.17 && < 19\",\">= 19.9\",\">= 20\"],\"test/mock_loader\":\">= 22.3 && < 22.7\",\"node:test/mock_loader\":\">= 22.3 && < 22.7\",\"node:test\":[\">= 16.17 && < 17\",\">= 18\"],\"timers\":true,\"node:timers\":[\">= 14.18 && < 15\",\">= 16\"],\"timers/promises\":\">= 15\",\"node:timers/promises\":\">= 16\",\"_tls_common\":\">= 0.11.13\",\"node:_tls_common\":[\">= 14.18 && < 15\",\">= 16\"],\"_tls_legacy\":\">= 0.11.3 && < 10\",\"_tls_wrap\":\">= 0.11.3\",\"node:_tls_wrap\":[\">= 14.18 && < 15\",\">= 16\"],\"tls\":true,\"node:tls\":[\">= 14.18 && < 15\",\">= 16\"],\"trace_events\":\">= 10\",\"node:trace_events\":[\">= 14.18 && < 15\",\">= 16\"],\"tty\":true,\"node:tty\":[\">= 14.18 && < 15\",\">= 16\"],\"url\":true,\"node:url\":[\">= 14.18 && < 15\",\">= 16\"],\"util\":true,\"node:util\":[\">= 14.18 && < 15\",\">= 16\"],\"util/types\":\">= 15.3\",\"node:util/types\":\">= 16\",\"v8/tools/arguments\":\">= 10 && < 12\",\"v8/tools/codemap\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8/tools/consarray\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8/tools/csvparser\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8/tools/logreader\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8/tools/profile_view\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8/tools/splaytree\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8\":\">= 1\",\"node:v8\":[\">= 14.18 && < 15\",\">= 16\"],\"vm\":true,\"node:vm\":[\">= 14.18 && < 15\",\">= 16\"],\"wasi\":[\">= 13.4 && < 13.5\",\">= 18.17 && < 19\",\">= 20\"],\"node:wasi\":[\">= 18.17 && < 19\",\">= 20\"],\"worker_threads\":\">= 11.7\",\"node:worker_threads\":[\">= 14.18 && < 15\",\">= 16\"],\"zlib\":\">= 0.5\",\"node:zlib\":[\">= 14.18 && < 15\",\">= 16\"]}");
 
 });
 
 
-parcelRegister("go8Ut", function(module, exports) {
+parcelRegister("h5s2I", function(module, exports) {
 module.exports = JSON.parse("{\"assert\":true,\"node:assert\":[\">= 14.18 && < 15\",\">= 16\"],\"assert/strict\":\">= 15\",\"node:assert/strict\":\">= 16\",\"async_hooks\":\">= 8\",\"node:async_hooks\":[\">= 14.18 && < 15\",\">= 16\"],\"buffer_ieee754\":\">= 0.5 && < 0.9.7\",\"buffer\":true,\"node:buffer\":[\">= 14.18 && < 15\",\">= 16\"],\"child_process\":true,\"node:child_process\":[\">= 14.18 && < 15\",\">= 16\"],\"cluster\":\">= 0.5\",\"node:cluster\":[\">= 14.18 && < 15\",\">= 16\"],\"console\":true,\"node:console\":[\">= 14.18 && < 15\",\">= 16\"],\"constants\":true,\"node:constants\":[\">= 14.18 && < 15\",\">= 16\"],\"crypto\":true,\"node:crypto\":[\">= 14.18 && < 15\",\">= 16\"],\"_debug_agent\":\">= 1 && < 8\",\"_debugger\":\"< 8\",\"dgram\":true,\"node:dgram\":[\">= 14.18 && < 15\",\">= 16\"],\"diagnostics_channel\":[\">= 14.17 && < 15\",\">= 15.1\"],\"node:diagnostics_channel\":[\">= 14.18 && < 15\",\">= 16\"],\"dns\":true,\"node:dns\":[\">= 14.18 && < 15\",\">= 16\"],\"dns/promises\":\">= 15\",\"node:dns/promises\":\">= 16\",\"domain\":\">= 0.7.12\",\"node:domain\":[\">= 14.18 && < 15\",\">= 16\"],\"events\":true,\"node:events\":[\">= 14.18 && < 15\",\">= 16\"],\"freelist\":\"< 6\",\"fs\":true,\"node:fs\":[\">= 14.18 && < 15\",\">= 16\"],\"fs/promises\":[\">= 10 && < 10.1\",\">= 14\"],\"node:fs/promises\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_agent\":\">= 0.11.1\",\"node:_http_agent\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_client\":\">= 0.11.1\",\"node:_http_client\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_common\":\">= 0.11.1\",\"node:_http_common\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_incoming\":\">= 0.11.1\",\"node:_http_incoming\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_outgoing\":\">= 0.11.1\",\"node:_http_outgoing\":[\">= 14.18 && < 15\",\">= 16\"],\"_http_server\":\">= 0.11.1\",\"node:_http_server\":[\">= 14.18 && < 15\",\">= 16\"],\"http\":true,\"node:http\":[\">= 14.18 && < 15\",\">= 16\"],\"http2\":\">= 8.8\",\"node:http2\":[\">= 14.18 && < 15\",\">= 16\"],\"https\":true,\"node:https\":[\">= 14.18 && < 15\",\">= 16\"],\"inspector\":\">= 8\",\"node:inspector\":[\">= 14.18 && < 15\",\">= 16\"],\"inspector/promises\":[\">= 19\"],\"node:inspector/promises\":[\">= 19\"],\"_linklist\":\"< 8\",\"module\":true,\"node:module\":[\">= 14.18 && < 15\",\">= 16\"],\"net\":true,\"node:net\":[\">= 14.18 && < 15\",\">= 16\"],\"node-inspect/lib/_inspect\":\">= 7.6 && < 12\",\"node-inspect/lib/internal/inspect_client\":\">= 7.6 && < 12\",\"node-inspect/lib/internal/inspect_repl\":\">= 7.6 && < 12\",\"os\":true,\"node:os\":[\">= 14.18 && < 15\",\">= 16\"],\"path\":true,\"node:path\":[\">= 14.18 && < 15\",\">= 16\"],\"path/posix\":\">= 15.3\",\"node:path/posix\":\">= 16\",\"path/win32\":\">= 15.3\",\"node:path/win32\":\">= 16\",\"perf_hooks\":\">= 8.5\",\"node:perf_hooks\":[\">= 14.18 && < 15\",\">= 16\"],\"process\":\">= 1\",\"node:process\":[\">= 14.18 && < 15\",\">= 16\"],\"punycode\":\">= 0.5\",\"node:punycode\":[\">= 14.18 && < 15\",\">= 16\"],\"querystring\":true,\"node:querystring\":[\">= 14.18 && < 15\",\">= 16\"],\"readline\":true,\"node:readline\":[\">= 14.18 && < 15\",\">= 16\"],\"readline/promises\":\">= 17\",\"node:readline/promises\":\">= 17\",\"repl\":true,\"node:repl\":[\">= 14.18 && < 15\",\">= 16\"],\"node:sea\":[\">= 20.12 && < 21\",\">= 21.7\"],\"smalloc\":\">= 0.11.5 && < 3\",\"node:sqlite\":[\">= 22.13 && < 23\",\">= 23.4\"],\"_stream_duplex\":\">= 0.9.4\",\"node:_stream_duplex\":[\">= 14.18 && < 15\",\">= 16\"],\"_stream_transform\":\">= 0.9.4\",\"node:_stream_transform\":[\">= 14.18 && < 15\",\">= 16\"],\"_stream_wrap\":\">= 1.4.1\",\"node:_stream_wrap\":[\">= 14.18 && < 15\",\">= 16\"],\"_stream_passthrough\":\">= 0.9.4\",\"node:_stream_passthrough\":[\">= 14.18 && < 15\",\">= 16\"],\"_stream_readable\":\">= 0.9.4\",\"node:_stream_readable\":[\">= 14.18 && < 15\",\">= 16\"],\"_stream_writable\":\">= 0.9.4\",\"node:_stream_writable\":[\">= 14.18 && < 15\",\">= 16\"],\"stream\":true,\"node:stream\":[\">= 14.18 && < 15\",\">= 16\"],\"stream/consumers\":\">= 16.7\",\"node:stream/consumers\":\">= 16.7\",\"stream/promises\":\">= 15\",\"node:stream/promises\":\">= 16\",\"stream/web\":\">= 16.5\",\"node:stream/web\":\">= 16.5\",\"string_decoder\":true,\"node:string_decoder\":[\">= 14.18 && < 15\",\">= 16\"],\"sys\":[\">= 0.4 && < 0.7\",\">= 0.8\"],\"node:sys\":[\">= 14.18 && < 15\",\">= 16\"],\"test/reporters\":\">= 19.9 && < 20.2\",\"node:test/reporters\":[\">= 18.17 && < 19\",\">= 19.9\",\">= 20\"],\"test/mock_loader\":\">= 22.3 && < 22.7\",\"node:test/mock_loader\":\">= 22.3 && < 22.7\",\"node:test\":[\">= 16.17 && < 17\",\">= 18\"],\"timers\":true,\"node:timers\":[\">= 14.18 && < 15\",\">= 16\"],\"timers/promises\":\">= 15\",\"node:timers/promises\":\">= 16\",\"_tls_common\":\">= 0.11.13\",\"node:_tls_common\":[\">= 14.18 && < 15\",\">= 16\"],\"_tls_legacy\":\">= 0.11.3 && < 10\",\"_tls_wrap\":\">= 0.11.3\",\"node:_tls_wrap\":[\">= 14.18 && < 15\",\">= 16\"],\"tls\":true,\"node:tls\":[\">= 14.18 && < 15\",\">= 16\"],\"trace_events\":\">= 10\",\"node:trace_events\":[\">= 14.18 && < 15\",\">= 16\"],\"tty\":true,\"node:tty\":[\">= 14.18 && < 15\",\">= 16\"],\"url\":true,\"node:url\":[\">= 14.18 && < 15\",\">= 16\"],\"util\":true,\"node:util\":[\">= 14.18 && < 15\",\">= 16\"],\"util/types\":\">= 15.3\",\"node:util/types\":\">= 16\",\"v8/tools/arguments\":\">= 10 && < 12\",\"v8/tools/codemap\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8/tools/consarray\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8/tools/csvparser\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8/tools/logreader\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8/tools/profile_view\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8/tools/splaytree\":[\">= 4.4 && < 5\",\">= 5.2 && < 12\"],\"v8\":\">= 1\",\"node:v8\":[\">= 14.18 && < 15\",\">= 16\"],\"vm\":true,\"node:vm\":[\">= 14.18 && < 15\",\">= 16\"],\"wasi\":[\">= 13.4 && < 13.5\",\">= 18.17 && < 19\",\">= 20\"],\"node:wasi\":[\">= 18.17 && < 19\",\">= 20\"],\"worker_threads\":\">= 11.7\",\"node:worker_threads\":[\">= 14.18 && < 15\",\">= 16\"],\"zlib\":\">= 0.5\",\"node:zlib\":[\">= 14.18 && < 15\",\">= 16\"]}");
 
 });
 
 
-parcelRegister("2R3Wg", function(module, exports) {
+parcelRegister("bYC0d", function(module, exports) {
 
-var $a8Rlb = parcelRequire("a8Rlb");
+var $5ZL5o = parcelRequire("5ZL5o");
 module.exports = function isCore(x) {
-    return $a8Rlb(x);
+    return $5ZL5o(x);
 };
 
 });
 
-parcelRegister("fwJbw", function(module, exports) {
+parcelRegister("1WnoS", function(module, exports) {
 
-var $a8Rlb = parcelRequire("a8Rlb");
+var $5ZL5o = parcelRequire("5ZL5o");
 
 
 
-var $jksN6 = parcelRequire("jksN6");
+var $6e3Ld = parcelRequire("6e3Ld");
 
-var $crKCf = parcelRequire("crKCf");
+var $fxFNb = parcelRequire("fxFNb");
 
-var $kVwso = parcelRequire("kVwso");
+var $fGb7i = parcelRequire("fGb7i");
 
-var $jni7p = parcelRequire("jni7p");
+var $e8sbp = parcelRequire("e8sbp");
 
-var $cneqJ = parcelRequire("cneqJ");
+var $4FLE4 = parcelRequire("4FLE4");
 
-var $kAfXv = parcelRequire("kAfXv");
-var $b4dce4ed51ca44a9$var$realpathFS = process.platform !== 'win32' && $1X1Jj$fs.realpathSync && typeof $1X1Jj$fs.realpathSync.native === 'function' ? $1X1Jj$fs.realpathSync.native : $1X1Jj$fs.realpathSync;
-var $b4dce4ed51ca44a9$var$relativePathRegex = /^(?:\.\.?(?:\/|$)|\/|([A-Za-z]:)?[/\\])/;
-var $b4dce4ed51ca44a9$var$windowsDriveRegex = /^\w:[/\\]*$/;
-var $b4dce4ed51ca44a9$var$nodeModulesRegex = /[/\\]node_modules[/\\]*$/;
-var $b4dce4ed51ca44a9$var$homedir = $kVwso();
-function $b4dce4ed51ca44a9$var$defaultPaths() {
-    if (!$b4dce4ed51ca44a9$var$homedir) return [];
+var $6ogy5 = parcelRequire("6ogy5");
+var $169d5c0c4638b9b3$var$realpathFS = process.platform !== 'win32' && $lcjJR$fs.realpathSync && typeof $lcjJR$fs.realpathSync.native === 'function' ? $lcjJR$fs.realpathSync.native : $lcjJR$fs.realpathSync;
+var $169d5c0c4638b9b3$var$relativePathRegex = /^(?:\.\.?(?:\/|$)|\/|([A-Za-z]:)?[/\\])/;
+var $169d5c0c4638b9b3$var$windowsDriveRegex = /^\w:[/\\]*$/;
+var $169d5c0c4638b9b3$var$nodeModulesRegex = /[/\\]node_modules[/\\]*$/;
+var $169d5c0c4638b9b3$var$homedir = $fGb7i();
+function $169d5c0c4638b9b3$var$defaultPaths() {
+    if (!$169d5c0c4638b9b3$var$homedir) return [];
     return [
-        $1X1Jj$path.join($b4dce4ed51ca44a9$var$homedir, '.node_modules'),
-        $1X1Jj$path.join($b4dce4ed51ca44a9$var$homedir, '.node_libraries')
+        $lcjJR$path.join($169d5c0c4638b9b3$var$homedir, '.node_modules'),
+        $lcjJR$path.join($169d5c0c4638b9b3$var$homedir, '.node_libraries')
     ];
 }
-var $b4dce4ed51ca44a9$var$defaultIsFile = function isFile(file) {
+var $169d5c0c4638b9b3$var$defaultIsFile = function isFile(file) {
     try {
-        var stat = $1X1Jj$fs.statSync(file, {
+        var stat = $lcjJR$fs.statSync(file, {
             throwIfNoEntry: false
         });
     } catch (e) {
@@ -15768,9 +15768,9 @@ var $b4dce4ed51ca44a9$var$defaultIsFile = function isFile(file) {
     }
     return !!stat && (stat.isFile() || stat.isFIFO());
 };
-var $b4dce4ed51ca44a9$var$defaultIsDir = function isDirectory(dir) {
+var $169d5c0c4638b9b3$var$defaultIsDir = function isDirectory(dir) {
     try {
-        var stat = $1X1Jj$fs.statSync(dir, {
+        var stat = $lcjJR$fs.statSync(dir, {
             throwIfNoEntry: false
         });
     } catch (e) {
@@ -15779,68 +15779,68 @@ var $b4dce4ed51ca44a9$var$defaultIsDir = function isDirectory(dir) {
     }
     return !!stat && stat.isDirectory();
 };
-var $b4dce4ed51ca44a9$var$defaultRealpathSync = function realpathSync(x) {
+var $169d5c0c4638b9b3$var$defaultRealpathSync = function realpathSync(x) {
     try {
-        return $b4dce4ed51ca44a9$var$realpathFS(x);
+        return $169d5c0c4638b9b3$var$realpathFS(x);
     } catch (realpathErr) {
         if (realpathErr.code !== 'ENOENT') throw realpathErr;
     }
     return x;
 };
-function $b4dce4ed51ca44a9$var$maybeRealpathSync(realpathSync, x, opts) {
+function $169d5c0c4638b9b3$var$maybeRealpathSync(realpathSync, x, opts) {
     if (opts && opts.preserveSymlinks === false) return realpathSync(x);
     return x;
 }
-function $b4dce4ed51ca44a9$var$defaultReadPackageSync(readFileSync, pkgfile) {
+function $169d5c0c4638b9b3$var$defaultReadPackageSync(readFileSync, pkgfile) {
     var body = readFileSync(pkgfile);
     try {
         var pkg = JSON.parse(body);
         return pkg;
     } catch (jsonErr) {}
 }
-function $b4dce4ed51ca44a9$var$getPackageCandidates(x, start, opts) {
-    var dirs = $cneqJ(start, opts, x);
-    for(var i = 0; i < dirs.length; i++)dirs[i] = $1X1Jj$path.join(dirs[i], x);
+function $169d5c0c4638b9b3$var$getPackageCandidates(x, start, opts) {
+    var dirs = $4FLE4(start, opts, x);
+    for(var i = 0; i < dirs.length; i++)dirs[i] = $lcjJR$path.join(dirs[i], x);
     return dirs;
 }
 module.exports = function resolveSync(x, options) {
-    if (typeof x !== 'string') throw new $crKCf('Path must be a string.');
-    var opts = $kAfXv(x, options);
-    var isFile = opts.isFile || $b4dce4ed51ca44a9$var$defaultIsFile;
-    var readFileSync = opts.readFileSync || $1X1Jj$fs.readFileSync;
-    var isDirectory = opts.isDirectory || $b4dce4ed51ca44a9$var$defaultIsDir;
-    var realpathSync = opts.realpathSync || $b4dce4ed51ca44a9$var$defaultRealpathSync;
-    var readPackageSync = opts.readPackageSync || $b4dce4ed51ca44a9$var$defaultReadPackageSync;
-    if (opts.readFileSync && opts.readPackageSync) throw new $crKCf('`readFileSync` and `readPackageSync` are mutually exclusive.');
+    if (typeof x !== 'string') throw new $fxFNb('Path must be a string.');
+    var opts = $6ogy5(x, options);
+    var isFile = opts.isFile || $169d5c0c4638b9b3$var$defaultIsFile;
+    var readFileSync = opts.readFileSync || $lcjJR$fs.readFileSync;
+    var isDirectory = opts.isDirectory || $169d5c0c4638b9b3$var$defaultIsDir;
+    var realpathSync = opts.realpathSync || $169d5c0c4638b9b3$var$defaultRealpathSync;
+    var readPackageSync = opts.readPackageSync || $169d5c0c4638b9b3$var$defaultReadPackageSync;
+    if (opts.readFileSync && opts.readPackageSync) throw new $fxFNb('`readFileSync` and `readPackageSync` are mutually exclusive.');
     var packageIterator = opts.packageIterator;
     var extensions = opts.extensions || [
         '.js'
     ];
     var includeCoreModules = opts.includeCoreModules !== false;
-    var basedir = opts.basedir || $1X1Jj$path.dirname($jni7p());
+    var basedir = opts.basedir || $lcjJR$path.dirname($e8sbp());
     var parent = opts.filename || basedir;
-    opts.paths = opts.paths || $b4dce4ed51ca44a9$var$defaultPaths();
+    opts.paths = opts.paths || $169d5c0c4638b9b3$var$defaultPaths();
     // ensure that `basedir` is an absolute path at this point, resolving against the process' current working directory
-    var absoluteStart = $b4dce4ed51ca44a9$var$maybeRealpathSync(realpathSync, $1X1Jj$path.resolve(basedir), opts);
-    if ($b4dce4ed51ca44a9$var$relativePathRegex.test(x)) {
-        var res = $1X1Jj$path.resolve(absoluteStart, x);
+    var absoluteStart = $169d5c0c4638b9b3$var$maybeRealpathSync(realpathSync, $lcjJR$path.resolve(basedir), opts);
+    if ($169d5c0c4638b9b3$var$relativePathRegex.test(x)) {
+        var res = $lcjJR$path.resolve(absoluteStart, x);
         if (x === '.' || x === '..' || x.slice(-1) === '/') res += '/';
         var m = loadAsFileSync(res) || loadAsDirectorySync(res);
-        if (m) return $b4dce4ed51ca44a9$var$maybeRealpathSync(realpathSync, m, opts);
-    } else if (includeCoreModules && $a8Rlb(x)) return x;
+        if (m) return $169d5c0c4638b9b3$var$maybeRealpathSync(realpathSync, m, opts);
+    } else if (includeCoreModules && $5ZL5o(x)) return x;
     else {
         var n = loadNodeModulesSync(x, absoluteStart);
-        if (n) return $b4dce4ed51ca44a9$var$maybeRealpathSync(realpathSync, n, opts);
+        if (n) return $169d5c0c4638b9b3$var$maybeRealpathSync(realpathSync, n, opts);
     }
-    var err = new $jksN6("Cannot find module '" + x + "' from '" + parent + "'");
+    var err = new $6e3Ld("Cannot find module '" + x + "' from '" + parent + "'");
     err.code = 'MODULE_NOT_FOUND';
     throw err;
     function loadAsFileSync(x) {
-        var pkg = loadpkg($1X1Jj$path.dirname(x));
+        var pkg = loadpkg($lcjJR$path.dirname(x));
         if (pkg && pkg.dir && pkg.pkg && opts.pathFilter) {
-            var rfile = $1X1Jj$path.relative(pkg.dir, x);
+            var rfile = $lcjJR$path.relative(pkg.dir, x);
             var r = opts.pathFilter(pkg.pkg, x, rfile);
-            if (r) x = $1X1Jj$path.resolve(pkg.dir, r); // eslint-disable-line no-param-reassign
+            if (r) x = $lcjJR$path.resolve(pkg.dir, r); // eslint-disable-line no-param-reassign
         }
         if (isFile(x)) return x;
         for(var i = 0; i < extensions.length; i++){
@@ -15850,10 +15850,10 @@ module.exports = function resolveSync(x, options) {
     }
     function loadpkg(dir) {
         if (dir === '' || dir === '/') return;
-        if (process.platform === 'win32' && $b4dce4ed51ca44a9$var$windowsDriveRegex.test(dir)) return;
-        if ($b4dce4ed51ca44a9$var$nodeModulesRegex.test(dir)) return;
-        var pkgfile = $1X1Jj$path.join($b4dce4ed51ca44a9$var$maybeRealpathSync(realpathSync, dir, opts), 'package.json');
-        if (!isFile(pkgfile)) return loadpkg($1X1Jj$path.dirname(dir));
+        if (process.platform === 'win32' && $169d5c0c4638b9b3$var$windowsDriveRegex.test(dir)) return;
+        if ($169d5c0c4638b9b3$var$nodeModulesRegex.test(dir)) return;
+        var pkgfile = $lcjJR$path.join($169d5c0c4638b9b3$var$maybeRealpathSync(realpathSync, dir, opts), 'package.json');
+        if (!isFile(pkgfile)) return loadpkg($lcjJR$path.dirname(dir));
         var pkg = readPackageSync(readFileSync, pkgfile);
         if (pkg && opts.packageFilter) // v2 will pass pkgfile
         pkg = opts.packageFilter(pkg, /*pkgfile,*/ dir); // eslint-disable-line spaced-comment
@@ -15863,7 +15863,7 @@ module.exports = function resolveSync(x, options) {
         };
     }
     function loadAsDirectorySync(x) {
-        var pkgfile = $1X1Jj$path.join($b4dce4ed51ca44a9$var$maybeRealpathSync(realpathSync, x, opts), '/package.json');
+        var pkgfile = $lcjJR$path.join($169d5c0c4638b9b3$var$maybeRealpathSync(realpathSync, x, opts), '/package.json');
         if (isFile(pkgfile)) {
             try {
                 var pkg = readPackageSync(readFileSync, pkgfile);
@@ -15872,29 +15872,29 @@ module.exports = function resolveSync(x, options) {
             pkg = opts.packageFilter(pkg, /*pkgfile,*/ x); // eslint-disable-line spaced-comment
             if (pkg && pkg.main) {
                 if (typeof pkg.main !== 'string') {
-                    var mainError = new $crKCf("package \u201C" + pkg.name + "\u201D `main` must be a string");
+                    var mainError = new $fxFNb("package \u201C" + pkg.name + "\u201D `main` must be a string");
                     mainError.code = 'INVALID_PACKAGE_MAIN';
                     throw mainError;
                 }
                 if (pkg.main === '.' || pkg.main === './') pkg.main = 'index';
                 try {
-                    var m = loadAsFileSync($1X1Jj$path.resolve(x, pkg.main));
+                    var m = loadAsFileSync($lcjJR$path.resolve(x, pkg.main));
                     if (m) return m;
-                    var n = loadAsDirectorySync($1X1Jj$path.resolve(x, pkg.main));
+                    var n = loadAsDirectorySync($lcjJR$path.resolve(x, pkg.main));
                     if (n) return n;
                 } catch (e) {}
             }
         }
-        return loadAsFileSync($1X1Jj$path.join(x, '/index'));
+        return loadAsFileSync($lcjJR$path.join(x, '/index'));
     }
     function loadNodeModulesSync(x, start) {
         var thunk = function() {
-            return $b4dce4ed51ca44a9$var$getPackageCandidates(x, start, opts);
+            return $169d5c0c4638b9b3$var$getPackageCandidates(x, start, opts);
         };
         var dirs = packageIterator ? packageIterator(x, start, thunk, opts) : thunk();
         for(var i = 0; i < dirs.length; i++){
             var dir = dirs[i];
-            if (isDirectory($1X1Jj$path.dirname(dir))) {
+            if (isDirectory($lcjJR$path.dirname(dir))) {
                 var m = loadAsFileSync(dir);
                 if (m) return m;
                 var n = loadAsDirectorySync(dir);
@@ -15905,23 +15905,23 @@ module.exports = function resolveSync(x, options) {
 };
 
 });
-parcelRegister("jksN6", function(module, exports) {
+parcelRegister("6e3Ld", function(module, exports) {
 'use strict';
 /** @type {import('.')} */ module.exports = Error;
 
 });
 
-parcelRegister("crKCf", function(module, exports) {
+parcelRegister("fxFNb", function(module, exports) {
 'use strict';
 /** @type {import('./type')} */ module.exports = TypeError;
 
 });
 
-parcelRegister("kVwso", function(module, exports) {
+parcelRegister("fGb7i", function(module, exports) {
 'use strict';
 
 // adapted from https://github.com/sindresorhus/os-homedir/blob/11e089f4754db38bb535e5a8416320c4446e8cfd/index.js
-module.exports = $1X1Jj$os.homedir || function homedir() {
+module.exports = $lcjJR$os.homedir || function homedir() {
     var home = process.env.HOME;
     var user = process.env.LOGNAME || process.env.USER || process.env.LNAME || process.env.USERNAME;
     if (process.platform === 'win32') return process.env.USERPROFILE || process.env.HOMEDRIVE && process.env.HOMEPATH && process.env.HOMEDRIVE + process.env.HOMEPATH || home || null;
@@ -15932,44 +15932,44 @@ module.exports = $1X1Jj$os.homedir || function homedir() {
 
 });
 
-parcelRegister("jni7p", function(module, exports) {
+parcelRegister("e8sbp", function(module, exports) {
 'use strict';
 
-var $jksN6 = parcelRequire("jksN6");
+var $6e3Ld = parcelRequire("6e3Ld");
 module.exports = function() {
     // see https://code.google.com/p/v8/wiki/JavaScriptStackTraceApi
-    var origPrepareStackTrace = $jksN6.prepareStackTrace;
-    $jksN6.prepareStackTrace = function(_, stack) {
+    var origPrepareStackTrace = $6e3Ld.prepareStackTrace;
+    $6e3Ld.prepareStackTrace = function(_, stack) {
         return stack;
     };
-    var stack = new $jksN6().stack;
-    $jksN6.prepareStackTrace = origPrepareStackTrace;
+    var stack = new $6e3Ld().stack;
+    $6e3Ld.prepareStackTrace = origPrepareStackTrace;
     return stack[2].getFileName();
 };
 
 });
 
-parcelRegister("cneqJ", function(module, exports) {
+parcelRegister("4FLE4", function(module, exports) {
 
 
-var $9022d389022a77c9$var$parse = $1X1Jj$path.parse || (parcelRequire("5zdPZ")); // eslint-disable-line global-require
-var $9022d389022a77c9$var$driveLetterRegex = /^([A-Za-z]:)/;
-var $9022d389022a77c9$var$uncPathRegex = /^\\\\/;
-function $9022d389022a77c9$var$getNodeModulesDirs(absoluteStart, modules) {
+var $366ff31b6eae5ff8$var$parse = $lcjJR$path.parse || (parcelRequire("e9ZTD")); // eslint-disable-line global-require
+var $366ff31b6eae5ff8$var$driveLetterRegex = /^([A-Za-z]:)/;
+var $366ff31b6eae5ff8$var$uncPathRegex = /^\\\\/;
+function $366ff31b6eae5ff8$var$getNodeModulesDirs(absoluteStart, modules) {
     var prefix = '/';
-    if ($9022d389022a77c9$var$driveLetterRegex.test(absoluteStart)) prefix = '';
-    else if ($9022d389022a77c9$var$uncPathRegex.test(absoluteStart)) prefix = '\\\\';
+    if ($366ff31b6eae5ff8$var$driveLetterRegex.test(absoluteStart)) prefix = '';
+    else if ($366ff31b6eae5ff8$var$uncPathRegex.test(absoluteStart)) prefix = '\\\\';
     var paths = [
         absoluteStart
     ];
-    var parsed = $9022d389022a77c9$var$parse(absoluteStart);
+    var parsed = $366ff31b6eae5ff8$var$parse(absoluteStart);
     while(parsed.dir !== paths[paths.length - 1]){
         paths.push(parsed.dir);
-        parsed = $9022d389022a77c9$var$parse(parsed.dir);
+        parsed = $366ff31b6eae5ff8$var$parse(parsed.dir);
     }
     return paths.reduce(function(dirs, aPath) {
         return dirs.concat(modules.map(function(moduleDir) {
-            return $1X1Jj$path.resolve(prefix, aPath, moduleDir);
+            return $lcjJR$path.resolve(prefix, aPath, moduleDir);
         }));
     }, []);
 }
@@ -15978,15 +15978,15 @@ module.exports = function nodeModulesPaths(start, opts, request) {
         'node_modules'
     ];
     if (opts && typeof opts.paths === 'function') return opts.paths(request, start, function() {
-        return $9022d389022a77c9$var$getNodeModulesDirs(start, modules);
+        return $366ff31b6eae5ff8$var$getNodeModulesDirs(start, modules);
     }, opts);
-    var dirs = $9022d389022a77c9$var$getNodeModulesDirs(start, modules);
+    var dirs = $366ff31b6eae5ff8$var$getNodeModulesDirs(start, modules);
     return opts && opts.paths ? dirs.concat(opts.paths) : dirs;
 };
 
 });
 
-parcelRegister("kAfXv", function(module, exports) {
+parcelRegister("6ogy5", function(module, exports) {
 module.exports = function(x, opts) {
     /**
      * This file is purposefully a passthrough. It's expected that third-party
@@ -15999,17 +15999,17 @@ module.exports = function(x, opts) {
 });
 
 
-parcelRegister("fhqqk", function(module, exports) {
+parcelRegister("8rpIb", function(module, exports) {
 
 
 
 
 (function() {
     var PathSeparator, SpaceRegex, filter, matcher, scorer;
-    scorer = (parcelRequire("3NcTU"));
-    filter = (parcelRequire("4S3Bm"));
-    matcher = (parcelRequire("2zfQd"));
-    PathSeparator = $1X1Jj$path.sep;
+    scorer = (parcelRequire("04oig"));
+    filter = (parcelRequire("lgq9l"));
+    matcher = (parcelRequire("7knGz"));
+    PathSeparator = $lcjJR$path.sep;
     SpaceRegex = /\ /g;
     module.exports = {
         filter: function(candidates, query, options) {
@@ -16062,11 +16062,11 @@ parcelRegister("fhqqk", function(module, exports) {
 }).call(module.exports);
 
 });
-parcelRegister("3NcTU", function(module, exports) {
+parcelRegister("04oig", function(module, exports) {
 
 (function() {
     var PathSeparator, queryIsLastPathSegment;
-    PathSeparator = $1X1Jj$path.sep;
+    PathSeparator = $lcjJR$path.sep;
     module.exports.basenameScore = function(string, query, score) {
         var base, depth, index, lastCharacter, segmentCount, slashCount;
         index = string.length - 1;
@@ -16126,11 +16126,11 @@ parcelRegister("3NcTU", function(module, exports) {
 
 });
 
-parcelRegister("4S3Bm", function(module, exports) {
+parcelRegister("lgq9l", function(module, exports) {
 
 (function() {
     var pluckCandidates, scorer, sortCandidates;
-    scorer = (parcelRequire("3NcTU"));
+    scorer = (parcelRequire("04oig"));
     pluckCandidates = function(a) {
         return a.candidate;
     };
@@ -16163,11 +16163,11 @@ parcelRegister("4S3Bm", function(module, exports) {
 
 });
 
-parcelRegister("2zfQd", function(module, exports) {
+parcelRegister("7knGz", function(module, exports) {
 
 (function() {
     var PathSeparator;
-    PathSeparator = $1X1Jj$path.sep;
+    PathSeparator = $lcjJR$path.sep;
     module.exports.basenameMatch = function(string, query) {
         var base, index, lastCharacter, slashCount;
         index = string.length - 1;
@@ -16220,7 +16220,7 @@ parcelRegister("2zfQd", function(module, exports) {
 });
 
 
-parcelRegister("6BABt", function(module, exports) {
+parcelRegister("4FcPr", function(module, exports) {
 
 
 
@@ -16231,13 +16231,13 @@ parcelRegister("6BABt", function(module, exports) {
 
 (function() {
     var BINARY_EXTENSIONS, COMPRESSED_EXTENSIONS, IMAGE_EXTENSIONS, MARKDOWN_EXTENSIONS, Module, async, checkIfElectron2OrLower, fs, fsPlus, isElectron2OrLower, isMoveTargetValid, isMoveTargetValidSync, isPathValid, lstatSyncNoException, mkdirp, path, rimraf, statSyncNoException, _, __slice = [].slice;
-    fs = $1X1Jj$fs;
-    Module = $1X1Jj$module;
-    path = $1X1Jj$path;
-    _ = (parcelRequire("e0gML"));
-    async = (parcelRequire("8NtbJ"));
-    mkdirp = (parcelRequire("i6fWp"));
-    rimraf = (parcelRequire("EOHWl"));
+    fs = $lcjJR$fs;
+    Module = $lcjJR$module;
+    path = $lcjJR$path;
+    _ = (parcelRequire("7ZlV5"));
+    async = (parcelRequire("giiDu"));
+    mkdirp = (parcelRequire("923Tr"));
+    rimraf = (parcelRequire("ei8OV"));
     fsPlus = {
         __esModule: false,
         getHomeDirectory: function() {
@@ -16585,7 +16585,7 @@ parcelRegister("6BABt", function(module, exports) {
         md5ForPath: function(pathToDigest) {
             var contents;
             contents = fs.readFileSync(pathToDigest);
-            return $1X1Jj$crypto.createHash('md5').update(contents).digest('hex');
+            return $lcjJR$crypto.createHash('md5').update(contents).digest('hex');
         },
         resolve: function() {
             var args, candidatePath, extensions, loadPath, loadPaths, pathToResolve, resolvedPath, _i, _len, _ref;
@@ -16798,11 +16798,11 @@ parcelRegister("6BABt", function(module, exports) {
 }).call(this);
 
 });
-parcelRegister("e0gML", function(module, exports) {
+parcelRegister("7ZlV5", function(module, exports) {
 
 (function() {
     var isEqual, isPlainObject, macModifierKeyMap, nonMacModifierKeyMap, plus, shiftKeyMap, splitKeyPath, _, __slice = [].slice;
-    _ = (parcelRequire("KIm9o"));
+    _ = (parcelRequire("jpFZh"));
     macModifierKeyMap = {
         cmd: '\u2318',
         ctrl: '\u2303',
@@ -17200,11 +17200,11 @@ parcelRegister("e0gML", function(module, exports) {
 }).call(module.exports);
 
 });
-parcelRegister("KIm9o", function(module, exports) {
+parcelRegister("jpFZh", function(module, exports) {
 
 $parcel$defineInteropFlag(module.exports);
 
-$parcel$export(module.exports, "default", () => (parcelRequire("iC26w")).default);
+$parcel$export(module.exports, "default", () => (parcelRequire("lu7cP")).default);
 // ESM Exports
 // ===========
 // This module is the package entry point for ES module users. In other words,
@@ -17222,15 +17222,15 @@ $parcel$export(module.exports, "default", () => (parcelRequire("iC26w")).default
 // this reason, we re-export the named exports in addition to providing the same
 // default export as in `./index-default`.
 
-var $iC26w = parcelRequire("iC26w");
+var $lu7cP = parcelRequire("lu7cP");
 
-var $77XBc = parcelRequire("77XBc");
-$parcel$exportWildcard(module.exports, $77XBc);
+var $dGddc = parcelRequire("dGddc");
+$parcel$exportWildcard(module.exports, $dGddc);
 
 });
-parcelRegister("iC26w", function(module, exports) {
+parcelRegister("lu7cP", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $d8cd68755ec00370$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $fa41fd3e3adf8db8$export$2e2bcd8739ae039);
 // Default Export
 // ==============
 // In this module, we mix our bundled exports into the `_` object and export
@@ -17249,167 +17249,167 @@ $parcel$export(module.exports, "default", () => $d8cd68755ec00370$export$2e2bcd8
 // // UMD in the browser
 // // _ is available as a global variable
 // ```
-parcelRequire("77XBc");
-var $lN98Z = parcelRequire("lN98Z");
-var $77XBc = parcelRequire("77XBc");
+parcelRequire("dGddc");
+var $lEeYn = parcelRequire("lEeYn");
+var $dGddc = parcelRequire("dGddc");
 // Add all of the Underscore functions to the wrapper object.
-var $d8cd68755ec00370$var$_ = (0, $lN98Z.default)($77XBc);
+var $fa41fd3e3adf8db8$var$_ = (0, $lEeYn.default)($dGddc);
 // Legacy Node.js API.
-$d8cd68755ec00370$var$_._ = $d8cd68755ec00370$var$_;
+$fa41fd3e3adf8db8$var$_._ = $fa41fd3e3adf8db8$var$_;
 var // Export the Underscore API.
-$d8cd68755ec00370$export$2e2bcd8739ae039 = $d8cd68755ec00370$var$_;
+$fa41fd3e3adf8db8$export$2e2bcd8739ae039 = $fa41fd3e3adf8db8$var$_;
 
 });
-parcelRegister("77XBc", function(module, exports) {
+parcelRegister("dGddc", function(module, exports) {
 
 $parcel$defineInteropFlag(module.exports);
 
-$parcel$export(module.exports, "VERSION", () => (parcelRequire("djUPf")).VERSION);
-$parcel$export(module.exports, "restArguments", () => (parcelRequire("3oj8B")).default);
-$parcel$export(module.exports, "isObject", () => (parcelRequire("2Iljx")).default);
-$parcel$export(module.exports, "isNull", () => (parcelRequire("7jqkK")).default);
-$parcel$export(module.exports, "isUndefined", () => (parcelRequire("8OPBy")).default);
-$parcel$export(module.exports, "isBoolean", () => (parcelRequire("2WZKO")).default);
-$parcel$export(module.exports, "isElement", () => (parcelRequire("85adt")).default);
-$parcel$export(module.exports, "isString", () => (parcelRequire("ewcqG")).default);
-$parcel$export(module.exports, "isNumber", () => (parcelRequire("a7BTo")).default);
-$parcel$export(module.exports, "isDate", () => (parcelRequire("b9W6t")).default);
-$parcel$export(module.exports, "isRegExp", () => (parcelRequire("dpBfy")).default);
-$parcel$export(module.exports, "isError", () => (parcelRequire("dQOuV")).default);
-$parcel$export(module.exports, "isSymbol", () => (parcelRequire("k14L8")).default);
-$parcel$export(module.exports, "isArrayBuffer", () => (parcelRequire("bnQT2")).default);
-$parcel$export(module.exports, "isDataView", () => (parcelRequire("56WZJ")).default);
-$parcel$export(module.exports, "isArray", () => (parcelRequire("3OYK3")).default);
-$parcel$export(module.exports, "isFunction", () => (parcelRequire("2TtDP")).default);
-$parcel$export(module.exports, "isArguments", () => (parcelRequire("cpHyG")).default);
-$parcel$export(module.exports, "isFinite", () => (parcelRequire("4ryGf")).default);
-$parcel$export(module.exports, "isNaN", () => (parcelRequire("01ayK")).default);
-$parcel$export(module.exports, "isTypedArray", () => (parcelRequire("k8Ei3")).default);
-$parcel$export(module.exports, "isEmpty", () => (parcelRequire("7rQHS")).default);
-$parcel$export(module.exports, "isMatch", () => (parcelRequire("1gNbj")).default);
-$parcel$export(module.exports, "isEqual", () => (parcelRequire("7gSvH")).default);
-$parcel$export(module.exports, "isMap", () => (parcelRequire("lAEjy")).default);
-$parcel$export(module.exports, "isWeakMap", () => (parcelRequire("37we4")).default);
-$parcel$export(module.exports, "isSet", () => (parcelRequire("jGKen")).default);
-$parcel$export(module.exports, "isWeakSet", () => (parcelRequire("2S4sF")).default);
-$parcel$export(module.exports, "keys", () => (parcelRequire("9geeU")).default);
-$parcel$export(module.exports, "allKeys", () => (parcelRequire("e2hnW")).default);
-$parcel$export(module.exports, "values", () => (parcelRequire("7qgmo")).default);
-$parcel$export(module.exports, "pairs", () => (parcelRequire("utwpj")).default);
-$parcel$export(module.exports, "invert", () => (parcelRequire("75KFn")).default);
-$parcel$export(module.exports, "functions", () => (parcelRequire("fWj0W")).default);
-$parcel$export(module.exports, "methods", () => (parcelRequire("fWj0W")).default);
-$parcel$export(module.exports, "extend", () => (parcelRequire("bVFHu")).default);
-$parcel$export(module.exports, "extendOwn", () => (parcelRequire("hzJfJ")).default);
-$parcel$export(module.exports, "assign", () => (parcelRequire("hzJfJ")).default);
-$parcel$export(module.exports, "defaults", () => (parcelRequire("k5M1b")).default);
-$parcel$export(module.exports, "create", () => (parcelRequire("cjRW2")).default);
-$parcel$export(module.exports, "clone", () => (parcelRequire("lkw2m")).default);
-$parcel$export(module.exports, "tap", () => (parcelRequire("hBift")).default);
-$parcel$export(module.exports, "get", () => (parcelRequire("ktgrb")).default);
-$parcel$export(module.exports, "has", () => (parcelRequire("atFTt")).default);
-$parcel$export(module.exports, "mapObject", () => (parcelRequire("5bjbX")).default);
-$parcel$export(module.exports, "identity", () => (parcelRequire("f2F1Z")).default);
-$parcel$export(module.exports, "constant", () => (parcelRequire("gYAFw")).default);
-$parcel$export(module.exports, "noop", () => (parcelRequire("ddpDs")).default);
-$parcel$export(module.exports, "toPath", () => (parcelRequire("fjPjA")).default);
-$parcel$export(module.exports, "property", () => (parcelRequire("jvDeG")).default);
-$parcel$export(module.exports, "propertyOf", () => (parcelRequire("8NHLn")).default);
-$parcel$export(module.exports, "matcher", () => (parcelRequire("glHiv")).default);
-$parcel$export(module.exports, "matches", () => (parcelRequire("glHiv")).default);
-$parcel$export(module.exports, "times", () => (parcelRequire("5bfSU")).default);
-$parcel$export(module.exports, "random", () => (parcelRequire("3NfEk")).default);
-$parcel$export(module.exports, "now", () => (parcelRequire("cbWDV")).default);
-$parcel$export(module.exports, "escape", () => (parcelRequire("1vb9w")).default);
-$parcel$export(module.exports, "unescape", () => (parcelRequire("dc6hf")).default);
-$parcel$export(module.exports, "templateSettings", () => (parcelRequire("esvDn")).default);
-$parcel$export(module.exports, "template", () => (parcelRequire("bvwEP")).default);
-$parcel$export(module.exports, "result", () => (parcelRequire("c4q2h")).default);
-$parcel$export(module.exports, "uniqueId", () => (parcelRequire("52Yxy")).default);
-$parcel$export(module.exports, "chain", () => (parcelRequire("6MpBv")).default);
-$parcel$export(module.exports, "iteratee", () => (parcelRequire("ehiRl")).default);
-$parcel$export(module.exports, "partial", () => (parcelRequire("hjxCz")).default);
-$parcel$export(module.exports, "bind", () => (parcelRequire("3DO6g")).default);
-$parcel$export(module.exports, "bindAll", () => (parcelRequire("5lHPx")).default);
-$parcel$export(module.exports, "memoize", () => (parcelRequire("ftmph")).default);
-$parcel$export(module.exports, "delay", () => (parcelRequire("f3eIC")).default);
-$parcel$export(module.exports, "defer", () => (parcelRequire("27GPr")).default);
-$parcel$export(module.exports, "throttle", () => (parcelRequire("6E5ZP")).default);
-$parcel$export(module.exports, "debounce", () => (parcelRequire("gHoNn")).default);
-$parcel$export(module.exports, "wrap", () => (parcelRequire("9h2WR")).default);
-$parcel$export(module.exports, "negate", () => (parcelRequire("ib2Sd")).default);
-$parcel$export(module.exports, "compose", () => (parcelRequire("bYRC9")).default);
-$parcel$export(module.exports, "after", () => (parcelRequire("2dae5")).default);
-$parcel$export(module.exports, "before", () => (parcelRequire("5XeeG")).default);
-$parcel$export(module.exports, "once", () => (parcelRequire("kmHyw")).default);
-$parcel$export(module.exports, "findKey", () => (parcelRequire("bbRWg")).default);
-$parcel$export(module.exports, "findIndex", () => (parcelRequire("fEj2g")).default);
-$parcel$export(module.exports, "findLastIndex", () => (parcelRequire("av1Zy")).default);
-$parcel$export(module.exports, "sortedIndex", () => (parcelRequire("GSsrZ")).default);
-$parcel$export(module.exports, "indexOf", () => (parcelRequire("6hyBW")).default);
-$parcel$export(module.exports, "lastIndexOf", () => (parcelRequire("kMz8I")).default);
-$parcel$export(module.exports, "find", () => (parcelRequire("4Kxf7")).default);
-$parcel$export(module.exports, "detect", () => (parcelRequire("4Kxf7")).default);
-$parcel$export(module.exports, "findWhere", () => (parcelRequire("gIFaP")).default);
-$parcel$export(module.exports, "each", () => (parcelRequire("hkCoB")).default);
-$parcel$export(module.exports, "forEach", () => (parcelRequire("hkCoB")).default);
-$parcel$export(module.exports, "map", () => (parcelRequire("83HM3")).default);
-$parcel$export(module.exports, "collect", () => (parcelRequire("83HM3")).default);
-$parcel$export(module.exports, "reduce", () => (parcelRequire("3xn7b")).default);
-$parcel$export(module.exports, "foldl", () => (parcelRequire("3xn7b")).default);
-$parcel$export(module.exports, "inject", () => (parcelRequire("3xn7b")).default);
-$parcel$export(module.exports, "reduceRight", () => (parcelRequire("k4Z4s")).default);
-$parcel$export(module.exports, "foldr", () => (parcelRequire("k4Z4s")).default);
-$parcel$export(module.exports, "filter", () => (parcelRequire("kSDdi")).default);
-$parcel$export(module.exports, "select", () => (parcelRequire("kSDdi")).default);
-$parcel$export(module.exports, "reject", () => (parcelRequire("bWUm9")).default);
-$parcel$export(module.exports, "every", () => (parcelRequire("lT5Ea")).default);
-$parcel$export(module.exports, "all", () => (parcelRequire("lT5Ea")).default);
-$parcel$export(module.exports, "some", () => (parcelRequire("gkhV6")).default);
-$parcel$export(module.exports, "any", () => (parcelRequire("gkhV6")).default);
-$parcel$export(module.exports, "contains", () => (parcelRequire("hTxcZ")).default);
-$parcel$export(module.exports, "includes", () => (parcelRequire("hTxcZ")).default);
-$parcel$export(module.exports, "include", () => (parcelRequire("hTxcZ")).default);
-$parcel$export(module.exports, "invoke", () => (parcelRequire("h6OqW")).default);
-$parcel$export(module.exports, "pluck", () => (parcelRequire("lKeG9")).default);
-$parcel$export(module.exports, "where", () => (parcelRequire("8exW3")).default);
-$parcel$export(module.exports, "max", () => (parcelRequire("dxShQ")).default);
-$parcel$export(module.exports, "min", () => (parcelRequire("jQAOl")).default);
-$parcel$export(module.exports, "shuffle", () => (parcelRequire("2m7Fb")).default);
-$parcel$export(module.exports, "sample", () => (parcelRequire("gLCuI")).default);
-$parcel$export(module.exports, "sortBy", () => (parcelRequire("hKoCG")).default);
-$parcel$export(module.exports, "groupBy", () => (parcelRequire("4Au2M")).default);
-$parcel$export(module.exports, "indexBy", () => (parcelRequire("8wNBk")).default);
-$parcel$export(module.exports, "countBy", () => (parcelRequire("7Uxxj")).default);
-$parcel$export(module.exports, "partition", () => (parcelRequire("hE9kn")).default);
-$parcel$export(module.exports, "toArray", () => (parcelRequire("c376z")).default);
-$parcel$export(module.exports, "size", () => (parcelRequire("kv0lU")).default);
-$parcel$export(module.exports, "pick", () => (parcelRequire("iNb5f")).default);
-$parcel$export(module.exports, "omit", () => (parcelRequire("dUWth")).default);
-$parcel$export(module.exports, "first", () => (parcelRequire("adLZT")).default);
-$parcel$export(module.exports, "head", () => (parcelRequire("adLZT")).default);
-$parcel$export(module.exports, "take", () => (parcelRequire("adLZT")).default);
-$parcel$export(module.exports, "initial", () => (parcelRequire("eowQU")).default);
-$parcel$export(module.exports, "last", () => (parcelRequire("4z7v7")).default);
-$parcel$export(module.exports, "rest", () => (parcelRequire("2LHnI")).default);
-$parcel$export(module.exports, "tail", () => (parcelRequire("2LHnI")).default);
-$parcel$export(module.exports, "drop", () => (parcelRequire("2LHnI")).default);
-$parcel$export(module.exports, "compact", () => (parcelRequire("gFD5W")).default);
-$parcel$export(module.exports, "flatten", () => (parcelRequire("3mKlP")).default);
-$parcel$export(module.exports, "without", () => (parcelRequire("fziLu")).default);
-$parcel$export(module.exports, "uniq", () => (parcelRequire("hQWc9")).default);
-$parcel$export(module.exports, "unique", () => (parcelRequire("hQWc9")).default);
-$parcel$export(module.exports, "union", () => (parcelRequire("cCOql")).default);
-$parcel$export(module.exports, "intersection", () => (parcelRequire("ioIBd")).default);
-$parcel$export(module.exports, "difference", () => (parcelRequire("auCJ1")).default);
-$parcel$export(module.exports, "unzip", () => (parcelRequire("4bnEW")).default);
-$parcel$export(module.exports, "transpose", () => (parcelRequire("4bnEW")).default);
-$parcel$export(module.exports, "zip", () => (parcelRequire("kwPG2")).default);
-$parcel$export(module.exports, "object", () => (parcelRequire("72fzm")).default);
-$parcel$export(module.exports, "range", () => (parcelRequire("bTm29")).default);
-$parcel$export(module.exports, "chunk", () => (parcelRequire("cWeCo")).default);
-$parcel$export(module.exports, "mixin", () => (parcelRequire("lN98Z")).default);
-$parcel$export(module.exports, "default", () => (parcelRequire("itk65")).default);
+$parcel$export(module.exports, "VERSION", () => (parcelRequire("ai7Cu")).VERSION);
+$parcel$export(module.exports, "restArguments", () => (parcelRequire("aR308")).default);
+$parcel$export(module.exports, "isObject", () => (parcelRequire("cAFpn")).default);
+$parcel$export(module.exports, "isNull", () => (parcelRequire("hGrRC")).default);
+$parcel$export(module.exports, "isUndefined", () => (parcelRequire("48O0R")).default);
+$parcel$export(module.exports, "isBoolean", () => (parcelRequire("6dUgV")).default);
+$parcel$export(module.exports, "isElement", () => (parcelRequire("dax1w")).default);
+$parcel$export(module.exports, "isString", () => (parcelRequire("eDwrC")).default);
+$parcel$export(module.exports, "isNumber", () => (parcelRequire("1xZQP")).default);
+$parcel$export(module.exports, "isDate", () => (parcelRequire("g4s2X")).default);
+$parcel$export(module.exports, "isRegExp", () => (parcelRequire("3GHq4")).default);
+$parcel$export(module.exports, "isError", () => (parcelRequire("kie8R")).default);
+$parcel$export(module.exports, "isSymbol", () => (parcelRequire("3CrSb")).default);
+$parcel$export(module.exports, "isArrayBuffer", () => (parcelRequire("hClVD")).default);
+$parcel$export(module.exports, "isDataView", () => (parcelRequire("A7npz")).default);
+$parcel$export(module.exports, "isArray", () => (parcelRequire("cyywg")).default);
+$parcel$export(module.exports, "isFunction", () => (parcelRequire("cgDwf")).default);
+$parcel$export(module.exports, "isArguments", () => (parcelRequire("1zNEm")).default);
+$parcel$export(module.exports, "isFinite", () => (parcelRequire("6PSrQ")).default);
+$parcel$export(module.exports, "isNaN", () => (parcelRequire("gGAlU")).default);
+$parcel$export(module.exports, "isTypedArray", () => (parcelRequire("cqMYu")).default);
+$parcel$export(module.exports, "isEmpty", () => (parcelRequire("5XynU")).default);
+$parcel$export(module.exports, "isMatch", () => (parcelRequire("8znUE")).default);
+$parcel$export(module.exports, "isEqual", () => (parcelRequire("lwChX")).default);
+$parcel$export(module.exports, "isMap", () => (parcelRequire("5ZU4e")).default);
+$parcel$export(module.exports, "isWeakMap", () => (parcelRequire("cDamw")).default);
+$parcel$export(module.exports, "isSet", () => (parcelRequire("4OKT4")).default);
+$parcel$export(module.exports, "isWeakSet", () => (parcelRequire("7DhK8")).default);
+$parcel$export(module.exports, "keys", () => (parcelRequire("cZNkK")).default);
+$parcel$export(module.exports, "allKeys", () => (parcelRequire("9oduk")).default);
+$parcel$export(module.exports, "values", () => (parcelRequire("aAqcJ")).default);
+$parcel$export(module.exports, "pairs", () => (parcelRequire("4rad9")).default);
+$parcel$export(module.exports, "invert", () => (parcelRequire("TId5j")).default);
+$parcel$export(module.exports, "functions", () => (parcelRequire("lKVst")).default);
+$parcel$export(module.exports, "methods", () => (parcelRequire("lKVst")).default);
+$parcel$export(module.exports, "extend", () => (parcelRequire("b1I5K")).default);
+$parcel$export(module.exports, "extendOwn", () => (parcelRequire("cccDy")).default);
+$parcel$export(module.exports, "assign", () => (parcelRequire("cccDy")).default);
+$parcel$export(module.exports, "defaults", () => (parcelRequire("3aFb2")).default);
+$parcel$export(module.exports, "create", () => (parcelRequire("dxtXe")).default);
+$parcel$export(module.exports, "clone", () => (parcelRequire("b27JZ")).default);
+$parcel$export(module.exports, "tap", () => (parcelRequire("76SkH")).default);
+$parcel$export(module.exports, "get", () => (parcelRequire("9zOQB")).default);
+$parcel$export(module.exports, "has", () => (parcelRequire("jvbAO")).default);
+$parcel$export(module.exports, "mapObject", () => (parcelRequire("gWBBZ")).default);
+$parcel$export(module.exports, "identity", () => (parcelRequire("7uReK")).default);
+$parcel$export(module.exports, "constant", () => (parcelRequire("lUkTz")).default);
+$parcel$export(module.exports, "noop", () => (parcelRequire("btpyN")).default);
+$parcel$export(module.exports, "toPath", () => (parcelRequire("6WrdF")).default);
+$parcel$export(module.exports, "property", () => (parcelRequire("7yVnD")).default);
+$parcel$export(module.exports, "propertyOf", () => (parcelRequire("gHfP3")).default);
+$parcel$export(module.exports, "matcher", () => (parcelRequire("euJXL")).default);
+$parcel$export(module.exports, "matches", () => (parcelRequire("euJXL")).default);
+$parcel$export(module.exports, "times", () => (parcelRequire("jsnEb")).default);
+$parcel$export(module.exports, "random", () => (parcelRequire("jvVab")).default);
+$parcel$export(module.exports, "now", () => (parcelRequire("27EqT")).default);
+$parcel$export(module.exports, "escape", () => (parcelRequire("cDhFn")).default);
+$parcel$export(module.exports, "unescape", () => (parcelRequire("glhfI")).default);
+$parcel$export(module.exports, "templateSettings", () => (parcelRequire("W42bX")).default);
+$parcel$export(module.exports, "template", () => (parcelRequire("2usK5")).default);
+$parcel$export(module.exports, "result", () => (parcelRequire("1xPqX")).default);
+$parcel$export(module.exports, "uniqueId", () => (parcelRequire("bHXYe")).default);
+$parcel$export(module.exports, "chain", () => (parcelRequire("7q4CV")).default);
+$parcel$export(module.exports, "iteratee", () => (parcelRequire("dz7aK")).default);
+$parcel$export(module.exports, "partial", () => (parcelRequire("befnt")).default);
+$parcel$export(module.exports, "bind", () => (parcelRequire("9FHT5")).default);
+$parcel$export(module.exports, "bindAll", () => (parcelRequire("luE0p")).default);
+$parcel$export(module.exports, "memoize", () => (parcelRequire("2wRsQ")).default);
+$parcel$export(module.exports, "delay", () => (parcelRequire("a08Df")).default);
+$parcel$export(module.exports, "defer", () => (parcelRequire("e7EzS")).default);
+$parcel$export(module.exports, "throttle", () => (parcelRequire("8WK45")).default);
+$parcel$export(module.exports, "debounce", () => (parcelRequire("4fnjh")).default);
+$parcel$export(module.exports, "wrap", () => (parcelRequire("ffEMf")).default);
+$parcel$export(module.exports, "negate", () => (parcelRequire("9zn7o")).default);
+$parcel$export(module.exports, "compose", () => (parcelRequire("9qHOS")).default);
+$parcel$export(module.exports, "after", () => (parcelRequire("8vyMb")).default);
+$parcel$export(module.exports, "before", () => (parcelRequire("2pOYn")).default);
+$parcel$export(module.exports, "once", () => (parcelRequire("4cq9i")).default);
+$parcel$export(module.exports, "findKey", () => (parcelRequire("7ftHi")).default);
+$parcel$export(module.exports, "findIndex", () => (parcelRequire("fth89")).default);
+$parcel$export(module.exports, "findLastIndex", () => (parcelRequire("fVKNI")).default);
+$parcel$export(module.exports, "sortedIndex", () => (parcelRequire("1zMAn")).default);
+$parcel$export(module.exports, "indexOf", () => (parcelRequire("2kH4r")).default);
+$parcel$export(module.exports, "lastIndexOf", () => (parcelRequire("40qbi")).default);
+$parcel$export(module.exports, "find", () => (parcelRequire("1IE0p")).default);
+$parcel$export(module.exports, "detect", () => (parcelRequire("1IE0p")).default);
+$parcel$export(module.exports, "findWhere", () => (parcelRequire("178RT")).default);
+$parcel$export(module.exports, "each", () => (parcelRequire("4lteh")).default);
+$parcel$export(module.exports, "forEach", () => (parcelRequire("4lteh")).default);
+$parcel$export(module.exports, "map", () => (parcelRequire("jeKyO")).default);
+$parcel$export(module.exports, "collect", () => (parcelRequire("jeKyO")).default);
+$parcel$export(module.exports, "reduce", () => (parcelRequire("aRBnt")).default);
+$parcel$export(module.exports, "foldl", () => (parcelRequire("aRBnt")).default);
+$parcel$export(module.exports, "inject", () => (parcelRequire("aRBnt")).default);
+$parcel$export(module.exports, "reduceRight", () => (parcelRequire("h1SMw")).default);
+$parcel$export(module.exports, "foldr", () => (parcelRequire("h1SMw")).default);
+$parcel$export(module.exports, "filter", () => (parcelRequire("cjMI3")).default);
+$parcel$export(module.exports, "select", () => (parcelRequire("cjMI3")).default);
+$parcel$export(module.exports, "reject", () => (parcelRequire("fk6tV")).default);
+$parcel$export(module.exports, "every", () => (parcelRequire("k2Y61")).default);
+$parcel$export(module.exports, "all", () => (parcelRequire("k2Y61")).default);
+$parcel$export(module.exports, "some", () => (parcelRequire("1Wj0k")).default);
+$parcel$export(module.exports, "any", () => (parcelRequire("1Wj0k")).default);
+$parcel$export(module.exports, "contains", () => (parcelRequire("eIVEB")).default);
+$parcel$export(module.exports, "includes", () => (parcelRequire("eIVEB")).default);
+$parcel$export(module.exports, "include", () => (parcelRequire("eIVEB")).default);
+$parcel$export(module.exports, "invoke", () => (parcelRequire("3ywKp")).default);
+$parcel$export(module.exports, "pluck", () => (parcelRequire("UUsLf")).default);
+$parcel$export(module.exports, "where", () => (parcelRequire("9S3rJ")).default);
+$parcel$export(module.exports, "max", () => (parcelRequire("dz79G")).default);
+$parcel$export(module.exports, "min", () => (parcelRequire("jlBxd")).default);
+$parcel$export(module.exports, "shuffle", () => (parcelRequire("hMjDg")).default);
+$parcel$export(module.exports, "sample", () => (parcelRequire("e7DzG")).default);
+$parcel$export(module.exports, "sortBy", () => (parcelRequire("i69gC")).default);
+$parcel$export(module.exports, "groupBy", () => (parcelRequire("ckkKh")).default);
+$parcel$export(module.exports, "indexBy", () => (parcelRequire("cb3Xx")).default);
+$parcel$export(module.exports, "countBy", () => (parcelRequire("jMvVo")).default);
+$parcel$export(module.exports, "partition", () => (parcelRequire("cHcPP")).default);
+$parcel$export(module.exports, "toArray", () => (parcelRequire("5aXyu")).default);
+$parcel$export(module.exports, "size", () => (parcelRequire("fX1Nl")).default);
+$parcel$export(module.exports, "pick", () => (parcelRequire("eNcSm")).default);
+$parcel$export(module.exports, "omit", () => (parcelRequire("5BeIJ")).default);
+$parcel$export(module.exports, "first", () => (parcelRequire("3Nmsr")).default);
+$parcel$export(module.exports, "head", () => (parcelRequire("3Nmsr")).default);
+$parcel$export(module.exports, "take", () => (parcelRequire("3Nmsr")).default);
+$parcel$export(module.exports, "initial", () => (parcelRequire("9T195")).default);
+$parcel$export(module.exports, "last", () => (parcelRequire("4b5zX")).default);
+$parcel$export(module.exports, "rest", () => (parcelRequire("k9T8T")).default);
+$parcel$export(module.exports, "tail", () => (parcelRequire("k9T8T")).default);
+$parcel$export(module.exports, "drop", () => (parcelRequire("k9T8T")).default);
+$parcel$export(module.exports, "compact", () => (parcelRequire("h2vkx")).default);
+$parcel$export(module.exports, "flatten", () => (parcelRequire("77MKU")).default);
+$parcel$export(module.exports, "without", () => (parcelRequire("gKaxx")).default);
+$parcel$export(module.exports, "uniq", () => (parcelRequire("ds3UZ")).default);
+$parcel$export(module.exports, "unique", () => (parcelRequire("ds3UZ")).default);
+$parcel$export(module.exports, "union", () => (parcelRequire("MqXgv")).default);
+$parcel$export(module.exports, "intersection", () => (parcelRequire("2s2dI")).default);
+$parcel$export(module.exports, "difference", () => (parcelRequire("7so4L")).default);
+$parcel$export(module.exports, "unzip", () => (parcelRequire("3GWab")).default);
+$parcel$export(module.exports, "transpose", () => (parcelRequire("3GWab")).default);
+$parcel$export(module.exports, "zip", () => (parcelRequire("6IUEB")).default);
+$parcel$export(module.exports, "object", () => (parcelRequire("h3iVJ")).default);
+$parcel$export(module.exports, "range", () => (parcelRequire("hs3tf")).default);
+$parcel$export(module.exports, "chunk", () => (parcelRequire("jnyAT")).default);
+$parcel$export(module.exports, "mixin", () => (parcelRequire("lEeYn")).default);
+$parcel$export(module.exports, "default", () => (parcelRequire("fSCey")).default);
 // Named Exports
 // =============
 //     Underscore.js 1.13.8
@@ -17418,294 +17418,294 @@ $parcel$export(module.exports, "default", () => (parcelRequire("itk65")).default
 //     Underscore may be freely distributed under the MIT license.
 // Baseline setup.
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $2Iljx = parcelRequire("2Iljx");
+var $cAFpn = parcelRequire("cAFpn");
 
-var $7jqkK = parcelRequire("7jqkK");
+var $hGrRC = parcelRequire("hGrRC");
 
-var $8OPBy = parcelRequire("8OPBy");
+var $48O0R = parcelRequire("48O0R");
 
-var $2WZKO = parcelRequire("2WZKO");
+var $6dUgV = parcelRequire("6dUgV");
 
-var $85adt = parcelRequire("85adt");
+var $dax1w = parcelRequire("dax1w");
 
-var $ewcqG = parcelRequire("ewcqG");
+var $eDwrC = parcelRequire("eDwrC");
 
-var $a7BTo = parcelRequire("a7BTo");
+var $1xZQP = parcelRequire("1xZQP");
 
-var $b9W6t = parcelRequire("b9W6t");
+var $g4s2X = parcelRequire("g4s2X");
 
-var $dpBfy = parcelRequire("dpBfy");
+var $3GHq4 = parcelRequire("3GHq4");
 
-var $dQOuV = parcelRequire("dQOuV");
+var $kie8R = parcelRequire("kie8R");
 
-var $k14L8 = parcelRequire("k14L8");
+var $3CrSb = parcelRequire("3CrSb");
 
-var $bnQT2 = parcelRequire("bnQT2");
+var $hClVD = parcelRequire("hClVD");
 
-var $56WZJ = parcelRequire("56WZJ");
+var $A7npz = parcelRequire("A7npz");
 
-var $3OYK3 = parcelRequire("3OYK3");
+var $cyywg = parcelRequire("cyywg");
 
-var $2TtDP = parcelRequire("2TtDP");
+var $cgDwf = parcelRequire("cgDwf");
 
-var $cpHyG = parcelRequire("cpHyG");
+var $1zNEm = parcelRequire("1zNEm");
 
-var $4ryGf = parcelRequire("4ryGf");
+var $6PSrQ = parcelRequire("6PSrQ");
 
-var $01ayK = parcelRequire("01ayK");
+var $gGAlU = parcelRequire("gGAlU");
 
-var $k8Ei3 = parcelRequire("k8Ei3");
+var $cqMYu = parcelRequire("cqMYu");
 
-var $7rQHS = parcelRequire("7rQHS");
+var $5XynU = parcelRequire("5XynU");
 
-var $1gNbj = parcelRequire("1gNbj");
+var $8znUE = parcelRequire("8znUE");
 
-var $7gSvH = parcelRequire("7gSvH");
+var $lwChX = parcelRequire("lwChX");
 
-var $lAEjy = parcelRequire("lAEjy");
+var $5ZU4e = parcelRequire("5ZU4e");
 
-var $37we4 = parcelRequire("37we4");
+var $cDamw = parcelRequire("cDamw");
 
-var $jGKen = parcelRequire("jGKen");
+var $4OKT4 = parcelRequire("4OKT4");
 
-var $2S4sF = parcelRequire("2S4sF");
+var $7DhK8 = parcelRequire("7DhK8");
 
-var $9geeU = parcelRequire("9geeU");
+var $cZNkK = parcelRequire("cZNkK");
 
-var $e2hnW = parcelRequire("e2hnW");
+var $9oduk = parcelRequire("9oduk");
 
-var $7qgmo = parcelRequire("7qgmo");
+var $aAqcJ = parcelRequire("aAqcJ");
 
-var $utwpj = parcelRequire("utwpj");
+var $4rad9 = parcelRequire("4rad9");
 
-var $75KFn = parcelRequire("75KFn");
+var $TId5j = parcelRequire("TId5j");
 
-var $fWj0W = parcelRequire("fWj0W");
+var $lKVst = parcelRequire("lKVst");
 
-var $bVFHu = parcelRequire("bVFHu");
+var $b1I5K = parcelRequire("b1I5K");
 
-var $hzJfJ = parcelRequire("hzJfJ");
+var $cccDy = parcelRequire("cccDy");
 
-var $k5M1b = parcelRequire("k5M1b");
+var $3aFb2 = parcelRequire("3aFb2");
 
-var $cjRW2 = parcelRequire("cjRW2");
+var $dxtXe = parcelRequire("dxtXe");
 
-var $lkw2m = parcelRequire("lkw2m");
+var $b27JZ = parcelRequire("b27JZ");
 
-var $hBift = parcelRequire("hBift");
+var $76SkH = parcelRequire("76SkH");
 
-var $ktgrb = parcelRequire("ktgrb");
+var $9zOQB = parcelRequire("9zOQB");
 
-var $atFTt = parcelRequire("atFTt");
+var $jvbAO = parcelRequire("jvbAO");
 
-var $5bjbX = parcelRequire("5bjbX");
+var $gWBBZ = parcelRequire("gWBBZ");
 
-var $f2F1Z = parcelRequire("f2F1Z");
+var $7uReK = parcelRequire("7uReK");
 
-var $gYAFw = parcelRequire("gYAFw");
+var $lUkTz = parcelRequire("lUkTz");
 
-var $ddpDs = parcelRequire("ddpDs");
+var $btpyN = parcelRequire("btpyN");
 
-var $fjPjA = parcelRequire("fjPjA");
+var $6WrdF = parcelRequire("6WrdF");
 
-var $jvDeG = parcelRequire("jvDeG");
+var $7yVnD = parcelRequire("7yVnD");
 
-var $8NHLn = parcelRequire("8NHLn");
+var $gHfP3 = parcelRequire("gHfP3");
 
-var $glHiv = parcelRequire("glHiv");
+var $euJXL = parcelRequire("euJXL");
 
-var $5bfSU = parcelRequire("5bfSU");
+var $jsnEb = parcelRequire("jsnEb");
 
-var $3NfEk = parcelRequire("3NfEk");
+var $jvVab = parcelRequire("jvVab");
 
-var $cbWDV = parcelRequire("cbWDV");
+var $27EqT = parcelRequire("27EqT");
 
-var $1vb9w = parcelRequire("1vb9w");
+var $cDhFn = parcelRequire("cDhFn");
 
-var $dc6hf = parcelRequire("dc6hf");
+var $glhfI = parcelRequire("glhfI");
 
-var $esvDn = parcelRequire("esvDn");
+var $W42bX = parcelRequire("W42bX");
 
-var $bvwEP = parcelRequire("bvwEP");
+var $2usK5 = parcelRequire("2usK5");
 
-var $c4q2h = parcelRequire("c4q2h");
+var $1xPqX = parcelRequire("1xPqX");
 
-var $52Yxy = parcelRequire("52Yxy");
+var $bHXYe = parcelRequire("bHXYe");
 
-var $6MpBv = parcelRequire("6MpBv");
+var $7q4CV = parcelRequire("7q4CV");
 
-var $ehiRl = parcelRequire("ehiRl");
+var $dz7aK = parcelRequire("dz7aK");
 
-var $hjxCz = parcelRequire("hjxCz");
+var $befnt = parcelRequire("befnt");
 
-var $3DO6g = parcelRequire("3DO6g");
+var $9FHT5 = parcelRequire("9FHT5");
 
-var $5lHPx = parcelRequire("5lHPx");
+var $luE0p = parcelRequire("luE0p");
 
-var $ftmph = parcelRequire("ftmph");
+var $2wRsQ = parcelRequire("2wRsQ");
 
-var $f3eIC = parcelRequire("f3eIC");
+var $a08Df = parcelRequire("a08Df");
 
-var $27GPr = parcelRequire("27GPr");
+var $e7EzS = parcelRequire("e7EzS");
 
-var $6E5ZP = parcelRequire("6E5ZP");
+var $8WK45 = parcelRequire("8WK45");
 
-var $gHoNn = parcelRequire("gHoNn");
+var $4fnjh = parcelRequire("4fnjh");
 
-var $9h2WR = parcelRequire("9h2WR");
+var $ffEMf = parcelRequire("ffEMf");
 
-var $ib2Sd = parcelRequire("ib2Sd");
+var $9zn7o = parcelRequire("9zn7o");
 
-var $bYRC9 = parcelRequire("bYRC9");
+var $9qHOS = parcelRequire("9qHOS");
 
-var $2dae5 = parcelRequire("2dae5");
+var $8vyMb = parcelRequire("8vyMb");
 
-var $5XeeG = parcelRequire("5XeeG");
+var $2pOYn = parcelRequire("2pOYn");
 
-var $kmHyw = parcelRequire("kmHyw");
+var $4cq9i = parcelRequire("4cq9i");
 
-var $bbRWg = parcelRequire("bbRWg");
+var $7ftHi = parcelRequire("7ftHi");
 
-var $fEj2g = parcelRequire("fEj2g");
+var $fth89 = parcelRequire("fth89");
 
-var $av1Zy = parcelRequire("av1Zy");
+var $fVKNI = parcelRequire("fVKNI");
 
-var $GSsrZ = parcelRequire("GSsrZ");
+var $1zMAn = parcelRequire("1zMAn");
 
-var $6hyBW = parcelRequire("6hyBW");
+var $2kH4r = parcelRequire("2kH4r");
 
-var $kMz8I = parcelRequire("kMz8I");
+var $40qbi = parcelRequire("40qbi");
 
-var $4Kxf7 = parcelRequire("4Kxf7");
+var $1IE0p = parcelRequire("1IE0p");
 
-var $gIFaP = parcelRequire("gIFaP");
+var $178RT = parcelRequire("178RT");
 
-var $hkCoB = parcelRequire("hkCoB");
+var $4lteh = parcelRequire("4lteh");
 
-var $83HM3 = parcelRequire("83HM3");
+var $jeKyO = parcelRequire("jeKyO");
 
-var $3xn7b = parcelRequire("3xn7b");
+var $aRBnt = parcelRequire("aRBnt");
 
-var $k4Z4s = parcelRequire("k4Z4s");
+var $h1SMw = parcelRequire("h1SMw");
 
-var $kSDdi = parcelRequire("kSDdi");
+var $cjMI3 = parcelRequire("cjMI3");
 
-var $bWUm9 = parcelRequire("bWUm9");
+var $fk6tV = parcelRequire("fk6tV");
 
-var $lT5Ea = parcelRequire("lT5Ea");
+var $k2Y61 = parcelRequire("k2Y61");
 
-var $gkhV6 = parcelRequire("gkhV6");
+var $1Wj0k = parcelRequire("1Wj0k");
 
-var $hTxcZ = parcelRequire("hTxcZ");
+var $eIVEB = parcelRequire("eIVEB");
 
-var $h6OqW = parcelRequire("h6OqW");
+var $3ywKp = parcelRequire("3ywKp");
 
-var $lKeG9 = parcelRequire("lKeG9");
+var $UUsLf = parcelRequire("UUsLf");
 
-var $8exW3 = parcelRequire("8exW3");
+var $9S3rJ = parcelRequire("9S3rJ");
 
-var $dxShQ = parcelRequire("dxShQ");
+var $dz79G = parcelRequire("dz79G");
 
-var $jQAOl = parcelRequire("jQAOl");
+var $jlBxd = parcelRequire("jlBxd");
 
-var $2m7Fb = parcelRequire("2m7Fb");
+var $hMjDg = parcelRequire("hMjDg");
 
-var $gLCuI = parcelRequire("gLCuI");
+var $e7DzG = parcelRequire("e7DzG");
 
-var $hKoCG = parcelRequire("hKoCG");
+var $i69gC = parcelRequire("i69gC");
 
-var $4Au2M = parcelRequire("4Au2M");
+var $ckkKh = parcelRequire("ckkKh");
 
-var $8wNBk = parcelRequire("8wNBk");
+var $cb3Xx = parcelRequire("cb3Xx");
 
-var $7Uxxj = parcelRequire("7Uxxj");
+var $jMvVo = parcelRequire("jMvVo");
 
-var $hE9kn = parcelRequire("hE9kn");
+var $cHcPP = parcelRequire("cHcPP");
 
-var $c376z = parcelRequire("c376z");
+var $5aXyu = parcelRequire("5aXyu");
 
-var $kv0lU = parcelRequire("kv0lU");
+var $fX1Nl = parcelRequire("fX1Nl");
 
-var $iNb5f = parcelRequire("iNb5f");
+var $eNcSm = parcelRequire("eNcSm");
 
-var $dUWth = parcelRequire("dUWth");
+var $5BeIJ = parcelRequire("5BeIJ");
 
-var $adLZT = parcelRequire("adLZT");
+var $3Nmsr = parcelRequire("3Nmsr");
 
-var $eowQU = parcelRequire("eowQU");
+var $9T195 = parcelRequire("9T195");
 
-var $4z7v7 = parcelRequire("4z7v7");
+var $4b5zX = parcelRequire("4b5zX");
 
-var $2LHnI = parcelRequire("2LHnI");
+var $k9T8T = parcelRequire("k9T8T");
 
-var $gFD5W = parcelRequire("gFD5W");
+var $h2vkx = parcelRequire("h2vkx");
 
-var $3mKlP = parcelRequire("3mKlP");
+var $77MKU = parcelRequire("77MKU");
 
-var $fziLu = parcelRequire("fziLu");
+var $gKaxx = parcelRequire("gKaxx");
 
-var $hQWc9 = parcelRequire("hQWc9");
+var $ds3UZ = parcelRequire("ds3UZ");
 
-var $cCOql = parcelRequire("cCOql");
+var $MqXgv = parcelRequire("MqXgv");
 
-var $ioIBd = parcelRequire("ioIBd");
+var $2s2dI = parcelRequire("2s2dI");
 
-var $auCJ1 = parcelRequire("auCJ1");
+var $7so4L = parcelRequire("7so4L");
 
-var $4bnEW = parcelRequire("4bnEW");
+var $3GWab = parcelRequire("3GWab");
 
-var $kwPG2 = parcelRequire("kwPG2");
+var $6IUEB = parcelRequire("6IUEB");
 
-var $72fzm = parcelRequire("72fzm");
+var $h3iVJ = parcelRequire("h3iVJ");
 
-var $bTm29 = parcelRequire("bTm29");
+var $hs3tf = parcelRequire("hs3tf");
 
-var $cWeCo = parcelRequire("cWeCo");
+var $jnyAT = parcelRequire("jnyAT");
 
-var $lN98Z = parcelRequire("lN98Z");
+var $lEeYn = parcelRequire("lEeYn");
 
-var $itk65 = parcelRequire("itk65");
+var $fSCey = parcelRequire("fSCey");
 
 });
-parcelRegister("djUPf", function(module, exports) {
+parcelRegister("ai7Cu", function(module, exports) {
 
-$parcel$export(module.exports, "VERSION", () => $9b292118e5374ff2$export$a4ad2735b021c132);
-$parcel$export(module.exports, "root", () => $9b292118e5374ff2$export$e8e78c978b129247);
-$parcel$export(module.exports, "ArrayProto", () => $9b292118e5374ff2$export$aabeece9448a227a);
-$parcel$export(module.exports, "ObjProto", () => $9b292118e5374ff2$export$e77bb59b5e655b3d);
-$parcel$export(module.exports, "SymbolProto", () => $9b292118e5374ff2$export$e229dcb397ceea81);
-$parcel$export(module.exports, "push", () => $9b292118e5374ff2$export$4cbf152802aa238);
-$parcel$export(module.exports, "slice", () => $9b292118e5374ff2$export$58adb3bec8346d0f);
-$parcel$export(module.exports, "toString", () => $9b292118e5374ff2$export$f84e8e69fd4488a5);
-$parcel$export(module.exports, "hasOwnProperty", () => $9b292118e5374ff2$export$5a15a386532a5ea4);
-$parcel$export(module.exports, "supportsArrayBuffer", () => $9b292118e5374ff2$export$20eaf89d899ede58);
-$parcel$export(module.exports, "supportsDataView", () => $9b292118e5374ff2$export$a2e478ad34dac33e);
-$parcel$export(module.exports, "nativeIsArray", () => $9b292118e5374ff2$export$552cf9b635cef256);
-$parcel$export(module.exports, "nativeKeys", () => $9b292118e5374ff2$export$e676cf06d7fd2114);
-$parcel$export(module.exports, "nativeCreate", () => $9b292118e5374ff2$export$5b53dc95b548c58c);
-$parcel$export(module.exports, "nativeIsView", () => $9b292118e5374ff2$export$35fc70fc5e80d5a7);
-$parcel$export(module.exports, "_isNaN", () => $9b292118e5374ff2$export$a739ba33a90be0a1);
-$parcel$export(module.exports, "_isFinite", () => $9b292118e5374ff2$export$8b48b92f6c9d5ad);
-$parcel$export(module.exports, "hasEnumBug", () => $9b292118e5374ff2$export$7dcea4d27900b116);
-$parcel$export(module.exports, "nonEnumerableProps", () => $9b292118e5374ff2$export$f8fa596d5e31cb19);
-$parcel$export(module.exports, "MAX_ARRAY_INDEX", () => $9b292118e5374ff2$export$63b3abc5cd28bc48);
+$parcel$export(module.exports, "VERSION", () => $77e17eefb43b6d8f$export$a4ad2735b021c132);
+$parcel$export(module.exports, "root", () => $77e17eefb43b6d8f$export$e8e78c978b129247);
+$parcel$export(module.exports, "ArrayProto", () => $77e17eefb43b6d8f$export$aabeece9448a227a);
+$parcel$export(module.exports, "ObjProto", () => $77e17eefb43b6d8f$export$e77bb59b5e655b3d);
+$parcel$export(module.exports, "SymbolProto", () => $77e17eefb43b6d8f$export$e229dcb397ceea81);
+$parcel$export(module.exports, "push", () => $77e17eefb43b6d8f$export$4cbf152802aa238);
+$parcel$export(module.exports, "slice", () => $77e17eefb43b6d8f$export$58adb3bec8346d0f);
+$parcel$export(module.exports, "toString", () => $77e17eefb43b6d8f$export$f84e8e69fd4488a5);
+$parcel$export(module.exports, "hasOwnProperty", () => $77e17eefb43b6d8f$export$5a15a386532a5ea4);
+$parcel$export(module.exports, "supportsArrayBuffer", () => $77e17eefb43b6d8f$export$20eaf89d899ede58);
+$parcel$export(module.exports, "supportsDataView", () => $77e17eefb43b6d8f$export$a2e478ad34dac33e);
+$parcel$export(module.exports, "nativeIsArray", () => $77e17eefb43b6d8f$export$552cf9b635cef256);
+$parcel$export(module.exports, "nativeKeys", () => $77e17eefb43b6d8f$export$e676cf06d7fd2114);
+$parcel$export(module.exports, "nativeCreate", () => $77e17eefb43b6d8f$export$5b53dc95b548c58c);
+$parcel$export(module.exports, "nativeIsView", () => $77e17eefb43b6d8f$export$35fc70fc5e80d5a7);
+$parcel$export(module.exports, "_isNaN", () => $77e17eefb43b6d8f$export$a739ba33a90be0a1);
+$parcel$export(module.exports, "_isFinite", () => $77e17eefb43b6d8f$export$8b48b92f6c9d5ad);
+$parcel$export(module.exports, "hasEnumBug", () => $77e17eefb43b6d8f$export$7dcea4d27900b116);
+$parcel$export(module.exports, "nonEnumerableProps", () => $77e17eefb43b6d8f$export$f8fa596d5e31cb19);
+$parcel$export(module.exports, "MAX_ARRAY_INDEX", () => $77e17eefb43b6d8f$export$63b3abc5cd28bc48);
 // Current version.
-var $9b292118e5374ff2$export$a4ad2735b021c132 = '1.13.8';
-var $9b292118e5374ff2$export$e8e78c978b129247 = typeof self == 'object' && self.self === self && self || typeof $parcel$global == 'object' && $parcel$global.global === $parcel$global && $parcel$global || Function('return this')() || {};
-var $9b292118e5374ff2$export$aabeece9448a227a = Array.prototype, $9b292118e5374ff2$export$e77bb59b5e655b3d = Object.prototype;
-var $9b292118e5374ff2$export$e229dcb397ceea81 = typeof Symbol !== 'undefined' ? Symbol.prototype : null;
-var $9b292118e5374ff2$export$4cbf152802aa238 = $9b292118e5374ff2$export$aabeece9448a227a.push, $9b292118e5374ff2$export$58adb3bec8346d0f = $9b292118e5374ff2$export$aabeece9448a227a.slice, $9b292118e5374ff2$export$f84e8e69fd4488a5 = $9b292118e5374ff2$export$e77bb59b5e655b3d.toString, $9b292118e5374ff2$export$5a15a386532a5ea4 = $9b292118e5374ff2$export$e77bb59b5e655b3d.hasOwnProperty;
-var $9b292118e5374ff2$export$20eaf89d899ede58 = typeof ArrayBuffer !== 'undefined', $9b292118e5374ff2$export$a2e478ad34dac33e = typeof DataView !== 'undefined';
-var $9b292118e5374ff2$export$552cf9b635cef256 = Array.isArray, $9b292118e5374ff2$export$e676cf06d7fd2114 = Object.keys, $9b292118e5374ff2$export$5b53dc95b548c58c = Object.create, $9b292118e5374ff2$export$35fc70fc5e80d5a7 = $9b292118e5374ff2$export$20eaf89d899ede58 && ArrayBuffer.isView;
-var $9b292118e5374ff2$export$a739ba33a90be0a1 = isNaN, $9b292118e5374ff2$export$8b48b92f6c9d5ad = isFinite;
-var $9b292118e5374ff2$export$7dcea4d27900b116 = !({
+var $77e17eefb43b6d8f$export$a4ad2735b021c132 = '1.13.8';
+var $77e17eefb43b6d8f$export$e8e78c978b129247 = typeof self == 'object' && self.self === self && self || typeof $parcel$global == 'object' && $parcel$global.global === $parcel$global && $parcel$global || Function('return this')() || {};
+var $77e17eefb43b6d8f$export$aabeece9448a227a = Array.prototype, $77e17eefb43b6d8f$export$e77bb59b5e655b3d = Object.prototype;
+var $77e17eefb43b6d8f$export$e229dcb397ceea81 = typeof Symbol !== 'undefined' ? Symbol.prototype : null;
+var $77e17eefb43b6d8f$export$4cbf152802aa238 = $77e17eefb43b6d8f$export$aabeece9448a227a.push, $77e17eefb43b6d8f$export$58adb3bec8346d0f = $77e17eefb43b6d8f$export$aabeece9448a227a.slice, $77e17eefb43b6d8f$export$f84e8e69fd4488a5 = $77e17eefb43b6d8f$export$e77bb59b5e655b3d.toString, $77e17eefb43b6d8f$export$5a15a386532a5ea4 = $77e17eefb43b6d8f$export$e77bb59b5e655b3d.hasOwnProperty;
+var $77e17eefb43b6d8f$export$20eaf89d899ede58 = typeof ArrayBuffer !== 'undefined', $77e17eefb43b6d8f$export$a2e478ad34dac33e = typeof DataView !== 'undefined';
+var $77e17eefb43b6d8f$export$552cf9b635cef256 = Array.isArray, $77e17eefb43b6d8f$export$e676cf06d7fd2114 = Object.keys, $77e17eefb43b6d8f$export$5b53dc95b548c58c = Object.create, $77e17eefb43b6d8f$export$35fc70fc5e80d5a7 = $77e17eefb43b6d8f$export$20eaf89d899ede58 && ArrayBuffer.isView;
+var $77e17eefb43b6d8f$export$a739ba33a90be0a1 = isNaN, $77e17eefb43b6d8f$export$8b48b92f6c9d5ad = isFinite;
+var $77e17eefb43b6d8f$export$7dcea4d27900b116 = !({
     toString: null
 }).propertyIsEnumerable('toString');
-var $9b292118e5374ff2$export$f8fa596d5e31cb19 = [
+var $77e17eefb43b6d8f$export$f8fa596d5e31cb19 = [
     'valueOf',
     'isPrototypeOf',
     'toString',
@@ -17713,19 +17713,19 @@ var $9b292118e5374ff2$export$f8fa596d5e31cb19 = [
     'hasOwnProperty',
     'toLocaleString'
 ];
-var $9b292118e5374ff2$export$63b3abc5cd28bc48 = Math.pow(2, 53) - 1;
+var $77e17eefb43b6d8f$export$63b3abc5cd28bc48 = Math.pow(2, 53) - 1;
 
 });
 
-parcelRegister("3oj8B", function(module, exports) {
+parcelRegister("aR308", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $2782755eac16582f$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $7e712e9a18bcf8b6$export$2e2bcd8739ae039);
 // Some functions take a variable number of arguments, or a few expected
 // arguments at the beginning and then a variable number of values to operate
 // on. This helper accumulates all remaining arguments past the function’s
 // argument length (or an explicit `startIndex`), into an array that becomes
 // the last argument. Similar to ES6’s "rest parameter".
-function $2782755eac16582f$export$2e2bcd8739ae039(func, startIndex) {
+function $7e712e9a18bcf8b6$export$2e2bcd8739ae039(func, startIndex) {
     startIndex = startIndex == null ? func.length - 1 : +startIndex;
     return function() {
         var length = Math.max(arguments.length - startIndex, 0), rest = Array(length), index = 0;
@@ -17747,292 +17747,292 @@ function $2782755eac16582f$export$2e2bcd8739ae039(func, startIndex) {
 
 });
 
-parcelRegister("2Iljx", function(module, exports) {
+parcelRegister("cAFpn", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $1fa03962ca5e7381$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $92a8f7a60962be7a$export$2e2bcd8739ae039);
 // Is a given variable an object?
-function $1fa03962ca5e7381$export$2e2bcd8739ae039(obj) {
+function $92a8f7a60962be7a$export$2e2bcd8739ae039(obj) {
     var type = typeof obj;
     return type === 'function' || type === 'object' && !!obj;
 }
 
 });
 
-parcelRegister("7jqkK", function(module, exports) {
+parcelRegister("hGrRC", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $552ebc0ed507892b$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $cdfbf916c47d054c$export$2e2bcd8739ae039);
 // Is a given value equal to null?
-function $552ebc0ed507892b$export$2e2bcd8739ae039(obj) {
+function $cdfbf916c47d054c$export$2e2bcd8739ae039(obj) {
     return obj === null;
 }
 
 });
 
-parcelRegister("8OPBy", function(module, exports) {
+parcelRegister("48O0R", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $66bb05dcaa832584$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $303eb4475e604994$export$2e2bcd8739ae039);
 // Is a given variable undefined?
-function $66bb05dcaa832584$export$2e2bcd8739ae039(obj) {
+function $303eb4475e604994$export$2e2bcd8739ae039(obj) {
     return obj === void 0;
 }
 
 });
 
-parcelRegister("2WZKO", function(module, exports) {
+parcelRegister("6dUgV", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $2260e6a11dc833e4$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $487f9b70c67ee531$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
-function $2260e6a11dc833e4$export$2e2bcd8739ae039(obj) {
-    return obj === true || obj === false || (0, $djUPf.toString).call(obj) === '[object Boolean]';
+var $ai7Cu = parcelRequire("ai7Cu");
+function $487f9b70c67ee531$export$2e2bcd8739ae039(obj) {
+    return obj === true || obj === false || (0, $ai7Cu.toString).call(obj) === '[object Boolean]';
 }
 
 });
 
-parcelRegister("85adt", function(module, exports) {
+parcelRegister("dax1w", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $5e26b71b6916ec95$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $9965d3582ee55f22$export$2e2bcd8739ae039);
 // Is a given value a DOM element?
-function $5e26b71b6916ec95$export$2e2bcd8739ae039(obj) {
+function $9965d3582ee55f22$export$2e2bcd8739ae039(obj) {
     return !!(obj && obj.nodeType === 1);
 }
 
 });
 
-parcelRegister("ewcqG", function(module, exports) {
+parcelRegister("eDwrC", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $a91db20e51aa7a19$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $aa7ddffe9a39cbe4$export$2e2bcd8739ae039);
 
-var $9GVnV = parcelRequire("9GVnV");
-var $a91db20e51aa7a19$export$2e2bcd8739ae039 = (0, $9GVnV.default)('String');
+var $bkkX3 = parcelRequire("bkkX3");
+var $aa7ddffe9a39cbe4$export$2e2bcd8739ae039 = (0, $bkkX3.default)('String');
 
 });
-parcelRegister("9GVnV", function(module, exports) {
+parcelRegister("bkkX3", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $70e48cc48161f090$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $83f1d080d8a6e354$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
-function $70e48cc48161f090$export$2e2bcd8739ae039(name) {
+var $ai7Cu = parcelRequire("ai7Cu");
+function $83f1d080d8a6e354$export$2e2bcd8739ae039(name) {
     var tag = '[object ' + name + ']';
     return function(obj) {
-        return (0, $djUPf.toString).call(obj) === tag;
+        return (0, $ai7Cu.toString).call(obj) === tag;
     };
 }
 
 });
 
 
-parcelRegister("a7BTo", function(module, exports) {
+parcelRegister("1xZQP", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $75e7f373c3869562$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $1208d9ded8a8f0fa$export$2e2bcd8739ae039);
 
-var $9GVnV = parcelRequire("9GVnV");
-var $75e7f373c3869562$export$2e2bcd8739ae039 = (0, $9GVnV.default)('Number');
-
-});
-
-parcelRegister("b9W6t", function(module, exports) {
-
-$parcel$export(module.exports, "default", () => $81fd9b1b0e4d5a11$export$2e2bcd8739ae039);
-
-var $9GVnV = parcelRequire("9GVnV");
-var $81fd9b1b0e4d5a11$export$2e2bcd8739ae039 = (0, $9GVnV.default)('Date');
+var $bkkX3 = parcelRequire("bkkX3");
+var $1208d9ded8a8f0fa$export$2e2bcd8739ae039 = (0, $bkkX3.default)('Number');
 
 });
 
-parcelRegister("dpBfy", function(module, exports) {
+parcelRegister("g4s2X", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $9c3a8139f9fc98f2$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $bb32c687f0e69839$export$2e2bcd8739ae039);
 
-var $9GVnV = parcelRequire("9GVnV");
-var $9c3a8139f9fc98f2$export$2e2bcd8739ae039 = (0, $9GVnV.default)('RegExp');
-
-});
-
-parcelRegister("dQOuV", function(module, exports) {
-
-$parcel$export(module.exports, "default", () => $a1574d7e9664cf22$export$2e2bcd8739ae039);
-
-var $9GVnV = parcelRequire("9GVnV");
-var $a1574d7e9664cf22$export$2e2bcd8739ae039 = (0, $9GVnV.default)('Error');
+var $bkkX3 = parcelRequire("bkkX3");
+var $bb32c687f0e69839$export$2e2bcd8739ae039 = (0, $bkkX3.default)('Date');
 
 });
 
-parcelRegister("k14L8", function(module, exports) {
+parcelRegister("3GHq4", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $e92797bef053d290$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $2af6f98a7bfa4130$export$2e2bcd8739ae039);
 
-var $9GVnV = parcelRequire("9GVnV");
-var $e92797bef053d290$export$2e2bcd8739ae039 = (0, $9GVnV.default)('Symbol');
-
-});
-
-parcelRegister("bnQT2", function(module, exports) {
-
-$parcel$export(module.exports, "default", () => $849adde2d9186e9f$export$2e2bcd8739ae039);
-
-var $9GVnV = parcelRequire("9GVnV");
-var $849adde2d9186e9f$export$2e2bcd8739ae039 = (0, $9GVnV.default)('ArrayBuffer');
+var $bkkX3 = parcelRequire("bkkX3");
+var $2af6f98a7bfa4130$export$2e2bcd8739ae039 = (0, $bkkX3.default)('RegExp');
 
 });
 
-parcelRegister("56WZJ", function(module, exports) {
+parcelRegister("kie8R", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $3b8b466808bf8cbc$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $ec607561db340990$export$2e2bcd8739ae039);
 
-var $9GVnV = parcelRequire("9GVnV");
+var $bkkX3 = parcelRequire("bkkX3");
+var $ec607561db340990$export$2e2bcd8739ae039 = (0, $bkkX3.default)('Error');
 
-var $2TtDP = parcelRequire("2TtDP");
+});
 
-var $bnQT2 = parcelRequire("bnQT2");
+parcelRegister("3CrSb", function(module, exports) {
 
-var $5ThhI = parcelRequire("5ThhI");
-var $3b8b466808bf8cbc$var$isDataView = (0, $9GVnV.default)('DataView');
+$parcel$export(module.exports, "default", () => $2a2a8ab6928def2f$export$2e2bcd8739ae039);
+
+var $bkkX3 = parcelRequire("bkkX3");
+var $2a2a8ab6928def2f$export$2e2bcd8739ae039 = (0, $bkkX3.default)('Symbol');
+
+});
+
+parcelRegister("hClVD", function(module, exports) {
+
+$parcel$export(module.exports, "default", () => $cd36feddb7a7d240$export$2e2bcd8739ae039);
+
+var $bkkX3 = parcelRequire("bkkX3");
+var $cd36feddb7a7d240$export$2e2bcd8739ae039 = (0, $bkkX3.default)('ArrayBuffer');
+
+});
+
+parcelRegister("A7npz", function(module, exports) {
+
+$parcel$export(module.exports, "default", () => $06c915bf5d57aa59$export$2e2bcd8739ae039);
+
+var $bkkX3 = parcelRequire("bkkX3");
+
+var $cgDwf = parcelRequire("cgDwf");
+
+var $hClVD = parcelRequire("hClVD");
+
+var $7hpw5 = parcelRequire("7hpw5");
+var $06c915bf5d57aa59$var$isDataView = (0, $bkkX3.default)('DataView');
 // In IE 10 - Edge 13, we need a different heuristic
 // to determine whether an object is a `DataView`.
 // Also, in cases where the native `DataView` is
 // overridden we can't rely on the tag itself.
-function $3b8b466808bf8cbc$var$alternateIsDataView(obj) {
-    return obj != null && (0, $2TtDP.default)(obj.getInt8) && (0, $bnQT2.default)(obj.buffer);
+function $06c915bf5d57aa59$var$alternateIsDataView(obj) {
+    return obj != null && (0, $cgDwf.default)(obj.getInt8) && (0, $hClVD.default)(obj.buffer);
 }
-var $3b8b466808bf8cbc$export$2e2bcd8739ae039 = (0, $5ThhI.hasDataViewBug) ? $3b8b466808bf8cbc$var$alternateIsDataView : $3b8b466808bf8cbc$var$isDataView;
+var $06c915bf5d57aa59$export$2e2bcd8739ae039 = (0, $7hpw5.hasDataViewBug) ? $06c915bf5d57aa59$var$alternateIsDataView : $06c915bf5d57aa59$var$isDataView;
 
 });
-parcelRegister("2TtDP", function(module, exports) {
+parcelRegister("cgDwf", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $21b7b5faffb58dbf$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $8ee5a2571ba9c04b$export$2e2bcd8739ae039);
 
-var $9GVnV = parcelRequire("9GVnV");
+var $bkkX3 = parcelRequire("bkkX3");
 
-var $djUPf = parcelRequire("djUPf");
-var $21b7b5faffb58dbf$var$isFunction = (0, $9GVnV.default)('Function');
+var $ai7Cu = parcelRequire("ai7Cu");
+var $8ee5a2571ba9c04b$var$isFunction = (0, $bkkX3.default)('Function');
 // Optimize `isFunction` if appropriate. Work around some `typeof` bugs in old
 // v8, IE 11 (#1621), Safari 8 (#1929), and PhantomJS (#2236).
-var $21b7b5faffb58dbf$var$nodelist = (0, $djUPf.root).document && (0, $djUPf.root).document.childNodes;
-if (typeof /./ != 'function' && typeof Int8Array != 'object' && typeof $21b7b5faffb58dbf$var$nodelist != 'function') $21b7b5faffb58dbf$var$isFunction = function(obj) {
+var $8ee5a2571ba9c04b$var$nodelist = (0, $ai7Cu.root).document && (0, $ai7Cu.root).document.childNodes;
+if (typeof /./ != 'function' && typeof Int8Array != 'object' && typeof $8ee5a2571ba9c04b$var$nodelist != 'function') $8ee5a2571ba9c04b$var$isFunction = function(obj) {
     return typeof obj == 'function' || false;
 };
-var $21b7b5faffb58dbf$export$2e2bcd8739ae039 = $21b7b5faffb58dbf$var$isFunction;
+var $8ee5a2571ba9c04b$export$2e2bcd8739ae039 = $8ee5a2571ba9c04b$var$isFunction;
 
 });
 
-parcelRegister("5ThhI", function(module, exports) {
+parcelRegister("7hpw5", function(module, exports) {
 
-$parcel$export(module.exports, "hasDataViewBug", () => $449f7f2dc0e24c50$export$29b9ed4126fa90ab);
-$parcel$export(module.exports, "isIE11", () => $449f7f2dc0e24c50$export$f7bad96d83325a34);
+$parcel$export(module.exports, "hasDataViewBug", () => $54cde9fe328694e3$export$29b9ed4126fa90ab);
+$parcel$export(module.exports, "isIE11", () => $54cde9fe328694e3$export$f7bad96d83325a34);
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $cX1yz = parcelRequire("cX1yz");
-var $449f7f2dc0e24c50$export$29b9ed4126fa90ab = (0, $djUPf.supportsDataView) && (!/\[native code\]/.test(String(DataView)) || (0, $cX1yz.default)(new DataView(new ArrayBuffer(8)))), $449f7f2dc0e24c50$export$f7bad96d83325a34 = typeof Map !== 'undefined' && (0, $cX1yz.default)(new Map);
-
-});
-parcelRegister("cX1yz", function(module, exports) {
-
-$parcel$export(module.exports, "default", () => $96dc33d140e7066d$export$2e2bcd8739ae039);
-
-var $9GVnV = parcelRequire("9GVnV");
-var $96dc33d140e7066d$export$2e2bcd8739ae039 = (0, $9GVnV.default)('Object');
+var $klgXI = parcelRequire("klgXI");
+var $54cde9fe328694e3$export$29b9ed4126fa90ab = (0, $ai7Cu.supportsDataView) && (!/\[native code\]/.test(String(DataView)) || (0, $klgXI.default)(new DataView(new ArrayBuffer(8)))), $54cde9fe328694e3$export$f7bad96d83325a34 = typeof Map !== 'undefined' && (0, $klgXI.default)(new Map);
 
 });
+parcelRegister("klgXI", function(module, exports) {
+
+$parcel$export(module.exports, "default", () => $ecf2ed203530d834$export$2e2bcd8739ae039);
+
+var $bkkX3 = parcelRequire("bkkX3");
+var $ecf2ed203530d834$export$2e2bcd8739ae039 = (0, $bkkX3.default)('Object');
+
+});
 
 
 
-parcelRegister("3OYK3", function(module, exports) {
+parcelRegister("cyywg", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $2c8528aab560a2a0$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $92436fd64251dfdd$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $9GVnV = parcelRequire("9GVnV");
+var $bkkX3 = parcelRequire("bkkX3");
 var // Is a given value an array?
 // Delegates to ECMA5's native `Array.isArray`.
-$2c8528aab560a2a0$export$2e2bcd8739ae039 = (0, $djUPf.nativeIsArray) || (0, $9GVnV.default)('Array');
+$92436fd64251dfdd$export$2e2bcd8739ae039 = (0, $ai7Cu.nativeIsArray) || (0, $bkkX3.default)('Array');
 
 });
 
-parcelRegister("cpHyG", function(module, exports) {
+parcelRegister("1zNEm", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $90999b9eeee89b51$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $125f92cbf7df9ca9$export$2e2bcd8739ae039);
 
-var $9GVnV = parcelRequire("9GVnV");
+var $bkkX3 = parcelRequire("bkkX3");
 
-var $eqZxE = parcelRequire("eqZxE");
-var $90999b9eeee89b51$var$isArguments = (0, $9GVnV.default)('Arguments');
+var $9JuPB = parcelRequire("9JuPB");
+var $125f92cbf7df9ca9$var$isArguments = (0, $bkkX3.default)('Arguments');
 // Define a fallback version of the method in browsers (ahem, IE < 9), where
 // there isn't any inspectable "Arguments" type.
 (function() {
-    if (!$90999b9eeee89b51$var$isArguments(arguments)) $90999b9eeee89b51$var$isArguments = function(obj) {
-        return (0, $eqZxE.default)(obj, 'callee');
+    if (!$125f92cbf7df9ca9$var$isArguments(arguments)) $125f92cbf7df9ca9$var$isArguments = function(obj) {
+        return (0, $9JuPB.default)(obj, 'callee');
     };
 })();
-var $90999b9eeee89b51$export$2e2bcd8739ae039 = $90999b9eeee89b51$var$isArguments;
+var $125f92cbf7df9ca9$export$2e2bcd8739ae039 = $125f92cbf7df9ca9$var$isArguments;
 
 });
-parcelRegister("eqZxE", function(module, exports) {
+parcelRegister("9JuPB", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $a8233b4db2d443cd$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $71603b80f8a719d8$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
-function $a8233b4db2d443cd$export$2e2bcd8739ae039(obj, key) {
-    return obj != null && (0, $djUPf.hasOwnProperty).call(obj, key);
+var $ai7Cu = parcelRequire("ai7Cu");
+function $71603b80f8a719d8$export$2e2bcd8739ae039(obj, key) {
+    return obj != null && (0, $ai7Cu.hasOwnProperty).call(obj, key);
 }
 
 });
 
 
-parcelRegister("4ryGf", function(module, exports) {
+parcelRegister("6PSrQ", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $33c495d9cbc2530f$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $4fa1bdc33f5b493a$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $k14L8 = parcelRequire("k14L8");
-function $33c495d9cbc2530f$export$2e2bcd8739ae039(obj) {
-    return !(0, $k14L8.default)(obj) && (0, $djUPf._isFinite)(obj) && !isNaN(parseFloat(obj));
+var $3CrSb = parcelRequire("3CrSb");
+function $4fa1bdc33f5b493a$export$2e2bcd8739ae039(obj) {
+    return !(0, $3CrSb.default)(obj) && (0, $ai7Cu._isFinite)(obj) && !isNaN(parseFloat(obj));
 }
 
 });
 
-parcelRegister("01ayK", function(module, exports) {
+parcelRegister("gGAlU", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $003849014a85d7eb$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $c25cc46f49584f4c$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $a7BTo = parcelRequire("a7BTo");
-function $003849014a85d7eb$export$2e2bcd8739ae039(obj) {
-    return (0, $a7BTo.default)(obj) && (0, $djUPf._isNaN)(obj);
+var $1xZQP = parcelRequire("1xZQP");
+function $c25cc46f49584f4c$export$2e2bcd8739ae039(obj) {
+    return (0, $1xZQP.default)(obj) && (0, $ai7Cu._isNaN)(obj);
 }
 
 });
 
-parcelRegister("k8Ei3", function(module, exports) {
+parcelRegister("cqMYu", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $ea93cecc1f29fd31$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $90cde710d967df86$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $56WZJ = parcelRequire("56WZJ");
+var $A7npz = parcelRequire("A7npz");
 
-var $gYAFw = parcelRequire("gYAFw");
+var $lUkTz = parcelRequire("lUkTz");
 
-var $6gz8z = parcelRequire("6gz8z");
+var $lUw2y = parcelRequire("lUw2y");
 // Is a given value a typed array?
-var $ea93cecc1f29fd31$var$typedArrayPattern = /\[object ((I|Ui)nt(8|16|32)|Float(32|64)|Uint8Clamped|Big(I|Ui)nt64)Array\]/;
-function $ea93cecc1f29fd31$var$isTypedArray(obj) {
+var $90cde710d967df86$var$typedArrayPattern = /\[object ((I|Ui)nt(8|16|32)|Float(32|64)|Uint8Clamped|Big(I|Ui)nt64)Array\]/;
+function $90cde710d967df86$var$isTypedArray(obj) {
     // `ArrayBuffer.isView` is the most future-proof, so use it when available.
     // Otherwise, fall back on the above regular expression.
-    return (0, $djUPf.nativeIsView) ? (0, $djUPf.nativeIsView)(obj) && !(0, $56WZJ.default)(obj) : (0, $6gz8z.default)(obj) && $ea93cecc1f29fd31$var$typedArrayPattern.test((0, $djUPf.toString).call(obj));
+    return (0, $ai7Cu.nativeIsView) ? (0, $ai7Cu.nativeIsView)(obj) && !(0, $A7npz.default)(obj) : (0, $lUw2y.default)(obj) && $90cde710d967df86$var$typedArrayPattern.test((0, $ai7Cu.toString).call(obj));
 }
-var $ea93cecc1f29fd31$export$2e2bcd8739ae039 = (0, $djUPf.supportsArrayBuffer) ? $ea93cecc1f29fd31$var$isTypedArray : (0, $gYAFw.default)(false);
+var $90cde710d967df86$export$2e2bcd8739ae039 = (0, $ai7Cu.supportsArrayBuffer) ? $90cde710d967df86$var$isTypedArray : (0, $lUkTz.default)(false);
 
 });
-parcelRegister("gYAFw", function(module, exports) {
+parcelRegister("lUkTz", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $c5beb192e0fd8310$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $ff2f0948bad4db89$export$2e2bcd8739ae039);
 // Predicate-generating function. Often useful outside of Underscore.
-function $c5beb192e0fd8310$export$2e2bcd8739ae039(value) {
+function $ff2f0948bad4db89$export$2e2bcd8739ae039(value) {
     return function() {
         return value;
     };
@@ -18040,46 +18040,46 @@ function $c5beb192e0fd8310$export$2e2bcd8739ae039(value) {
 
 });
 
-parcelRegister("6gz8z", function(module, exports) {
+parcelRegister("lUw2y", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $48ff7e34d9454061$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $ff37ae791755dc85$export$2e2bcd8739ae039);
 
-var $lTloK = parcelRequire("lTloK");
+var $g2dNZ = parcelRequire("g2dNZ");
 
-var $AWXVX = parcelRequire("AWXVX");
+var $16K56 = parcelRequire("16K56");
 var // Internal helper to determine whether we should spend extensive checks against
 // `ArrayBuffer` et al.
-$48ff7e34d9454061$export$2e2bcd8739ae039 = (0, $lTloK.default)((0, $AWXVX.default));
+$ff37ae791755dc85$export$2e2bcd8739ae039 = (0, $g2dNZ.default)((0, $16K56.default));
 
 });
-parcelRegister("lTloK", function(module, exports) {
+parcelRegister("g2dNZ", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $feff554564eb5168$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $bac78aac29acbb2e$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
-function $feff554564eb5168$export$2e2bcd8739ae039(getSizeProperty) {
+var $ai7Cu = parcelRequire("ai7Cu");
+function $bac78aac29acbb2e$export$2e2bcd8739ae039(getSizeProperty) {
     return function(collection) {
         var sizeProperty = getSizeProperty(collection);
-        return typeof sizeProperty == 'number' && sizeProperty >= 0 && sizeProperty <= (0, $djUPf.MAX_ARRAY_INDEX);
+        return typeof sizeProperty == 'number' && sizeProperty >= 0 && sizeProperty <= (0, $ai7Cu.MAX_ARRAY_INDEX);
     };
 }
 
 });
 
-parcelRegister("AWXVX", function(module, exports) {
+parcelRegister("16K56", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $06f11a4319b65624$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $0cea18c247e54a26$export$2e2bcd8739ae039);
 
-var $JUMcl = parcelRequire("JUMcl");
+var $aehYo = parcelRequire("aehYo");
 var // Internal helper to obtain the `byteLength` property of an object.
-$06f11a4319b65624$export$2e2bcd8739ae039 = (0, $JUMcl.default)('byteLength');
+$0cea18c247e54a26$export$2e2bcd8739ae039 = (0, $aehYo.default)('byteLength');
 
 });
-parcelRegister("JUMcl", function(module, exports) {
+parcelRegister("aehYo", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $08a03eb125bd718f$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $77292740e7563e3e$export$2e2bcd8739ae039);
 // Internal helper to generate a function to obtain property `key` from `obj`.
-function $08a03eb125bd718f$export$2e2bcd8739ae039(key) {
+function $77292740e7563e3e$export$2e2bcd8739ae039(key) {
     return function(obj) {
         return obj == null ? void 0 : obj[key];
     };
@@ -18090,75 +18090,75 @@ function $08a03eb125bd718f$export$2e2bcd8739ae039(key) {
 
 
 
-parcelRegister("7rQHS", function(module, exports) {
+parcelRegister("5XynU", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $56c3f0743d4179ae$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $456d2289238f1419$export$2e2bcd8739ae039);
 
-var $2wFEM = parcelRequire("2wFEM");
+var $elsid = parcelRequire("elsid");
 
-var $3OYK3 = parcelRequire("3OYK3");
+var $cyywg = parcelRequire("cyywg");
 
-var $ewcqG = parcelRequire("ewcqG");
+var $eDwrC = parcelRequire("eDwrC");
 
-var $cpHyG = parcelRequire("cpHyG");
+var $1zNEm = parcelRequire("1zNEm");
 
-var $9geeU = parcelRequire("9geeU");
-function $56c3f0743d4179ae$export$2e2bcd8739ae039(obj) {
+var $cZNkK = parcelRequire("cZNkK");
+function $456d2289238f1419$export$2e2bcd8739ae039(obj) {
     if (obj == null) return true;
     // Skip the more expensive `toString`-based type checks if `obj` has no
     // `.length`.
-    var length = (0, $2wFEM.default)(obj);
-    if (typeof length == 'number' && ((0, $3OYK3.default)(obj) || (0, $ewcqG.default)(obj) || (0, $cpHyG.default)(obj))) return length === 0;
-    return (0, $2wFEM.default)((0, $9geeU.default)(obj)) === 0;
+    var length = (0, $elsid.default)(obj);
+    if (typeof length == 'number' && ((0, $cyywg.default)(obj) || (0, $eDwrC.default)(obj) || (0, $1zNEm.default)(obj))) return length === 0;
+    return (0, $elsid.default)((0, $cZNkK.default)(obj)) === 0;
 }
 
 });
-parcelRegister("2wFEM", function(module, exports) {
+parcelRegister("elsid", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $1d6ee21504ddc4c3$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $a718f9359f830515$export$2e2bcd8739ae039);
 
-var $JUMcl = parcelRequire("JUMcl");
+var $aehYo = parcelRequire("aehYo");
 var // Internal helper to obtain the `length` property of an object.
-$1d6ee21504ddc4c3$export$2e2bcd8739ae039 = (0, $JUMcl.default)('length');
+$a718f9359f830515$export$2e2bcd8739ae039 = (0, $aehYo.default)('length');
 
 });
 
-parcelRegister("9geeU", function(module, exports) {
+parcelRegister("cZNkK", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $6be0a7546cda9a20$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $97617330bdf7f73f$export$2e2bcd8739ae039);
 
-var $2Iljx = parcelRequire("2Iljx");
+var $cAFpn = parcelRequire("cAFpn");
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $eqZxE = parcelRequire("eqZxE");
+var $9JuPB = parcelRequire("9JuPB");
 
-var $cGSrx = parcelRequire("cGSrx");
-function $6be0a7546cda9a20$export$2e2bcd8739ae039(obj) {
-    if (!(0, $2Iljx.default)(obj)) return [];
-    if (0, $djUPf.nativeKeys) return (0, $djUPf.nativeKeys)(obj);
+var $alVxG = parcelRequire("alVxG");
+function $97617330bdf7f73f$export$2e2bcd8739ae039(obj) {
+    if (!(0, $cAFpn.default)(obj)) return [];
+    if (0, $ai7Cu.nativeKeys) return (0, $ai7Cu.nativeKeys)(obj);
     var keys = [];
-    for(var key in obj)if ((0, $eqZxE.default)(obj, key)) keys.push(key);
+    for(var key in obj)if ((0, $9JuPB.default)(obj, key)) keys.push(key);
     // Ahem, IE < 9.
-    if (0, $djUPf.hasEnumBug) (0, $cGSrx.default)(obj, keys);
+    if (0, $ai7Cu.hasEnumBug) (0, $alVxG.default)(obj, keys);
     return keys;
 }
 
 });
-parcelRegister("cGSrx", function(module, exports) {
+parcelRegister("alVxG", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $93d3a388f9b88d92$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $7898803d4b017138$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $2TtDP = parcelRequire("2TtDP");
+var $cgDwf = parcelRequire("cgDwf");
 
-var $eqZxE = parcelRequire("eqZxE");
+var $9JuPB = parcelRequire("9JuPB");
 // Internal helper to create a simple lookup structure.
 // `collectNonEnumProps` used to depend on `_.contains`, but this led to
 // circular imports. `emulatedSet` is a one-off solution that only works for
 // arrays of strings.
-function $93d3a388f9b88d92$var$emulatedSet(keys) {
+function $7898803d4b017138$var$emulatedSet(keys) {
     var hash = {};
     for(var l = keys.length, i = 0; i < l; ++i)hash[keys[i]] = true;
     return {
@@ -18171,16 +18171,16 @@ function $93d3a388f9b88d92$var$emulatedSet(keys) {
         }
     };
 }
-function $93d3a388f9b88d92$export$2e2bcd8739ae039(obj, keys) {
-    keys = $93d3a388f9b88d92$var$emulatedSet(keys);
-    var nonEnumIdx = (0, $djUPf.nonEnumerableProps).length;
+function $7898803d4b017138$export$2e2bcd8739ae039(obj, keys) {
+    keys = $7898803d4b017138$var$emulatedSet(keys);
+    var nonEnumIdx = (0, $ai7Cu.nonEnumerableProps).length;
     var constructor = obj.constructor;
-    var proto = (0, $2TtDP.default)(constructor) && constructor.prototype || (0, $djUPf.ObjProto);
+    var proto = (0, $cgDwf.default)(constructor) && constructor.prototype || (0, $ai7Cu.ObjProto);
     // Constructor is a special case.
     var prop = 'constructor';
-    if ((0, $eqZxE.default)(obj, prop) && !keys.contains(prop)) keys.push(prop);
+    if ((0, $9JuPB.default)(obj, prop) && !keys.contains(prop)) keys.push(prop);
     while(nonEnumIdx--){
-        prop = (0, $djUPf.nonEnumerableProps)[nonEnumIdx];
+        prop = (0, $ai7Cu.nonEnumerableProps)[nonEnumIdx];
         if (prop in obj && obj[prop] !== proto[prop] && !keys.contains(prop)) keys.push(prop);
     }
 }
@@ -18189,13 +18189,13 @@ function $93d3a388f9b88d92$export$2e2bcd8739ae039(obj, keys) {
 
 
 
-parcelRegister("1gNbj", function(module, exports) {
+parcelRegister("8znUE", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $0ecd6f7b240301da$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $63d424304b711ae6$export$2e2bcd8739ae039);
 
-var $9geeU = parcelRequire("9geeU");
-function $0ecd6f7b240301da$export$2e2bcd8739ae039(object, attrs) {
-    var _keys = (0, $9geeU.default)(attrs), length = _keys.length;
+var $cZNkK = parcelRequire("cZNkK");
+function $63d424304b711ae6$export$2e2bcd8739ae039(object, attrs) {
+    var _keys = (0, $cZNkK.default)(attrs), length = _keys.length;
     if (object == null) return !length;
     var obj = Object(object);
     for(var i = 0; i < length; i++){
@@ -18207,32 +18207,32 @@ function $0ecd6f7b240301da$export$2e2bcd8739ae039(object, attrs) {
 
 });
 
-parcelRegister("7gSvH", function(module, exports) {
+parcelRegister("lwChX", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $54b44fa75d324ee4$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $faba497bc650f869$export$2e2bcd8739ae039);
 
-var $7EDY8 = parcelRequire("7EDY8");
+var $jx45o = parcelRequire("jx45o");
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $AWXVX = parcelRequire("AWXVX");
+var $16K56 = parcelRequire("16K56");
 
-var $k8Ei3 = parcelRequire("k8Ei3");
+var $cqMYu = parcelRequire("cqMYu");
 
-var $2TtDP = parcelRequire("2TtDP");
+var $cgDwf = parcelRequire("cgDwf");
 
-var $5ThhI = parcelRequire("5ThhI");
+var $7hpw5 = parcelRequire("7hpw5");
 
-var $56WZJ = parcelRequire("56WZJ");
+var $A7npz = parcelRequire("A7npz");
 
-var $9geeU = parcelRequire("9geeU");
+var $cZNkK = parcelRequire("cZNkK");
 
-var $eqZxE = parcelRequire("eqZxE");
+var $9JuPB = parcelRequire("9JuPB");
 
-var $4AIF3 = parcelRequire("4AIF3");
+var $4sigR = parcelRequire("4sigR");
 // We use this string twice, so give it a name for minification.
-var $54b44fa75d324ee4$var$tagDataView = '[object DataView]';
-function $54b44fa75d324ee4$export$2e2bcd8739ae039(a, b) {
+var $faba497bc650f869$var$tagDataView = '[object DataView]';
+function $faba497bc650f869$export$2e2bcd8739ae039(a, b) {
     var todo = [
         {
             a: a,
@@ -18269,15 +18269,15 @@ function $54b44fa75d324ee4$export$2e2bcd8739ae039(a, b) {
         if (type !== 'function' && type !== 'object' && typeof b != 'object') return false;
         // Internal recursive comparison function for `_.isEqual`.
         // Unwrap any wrapped objects.
-        if (a instanceof (0, $7EDY8.default)) a = a._wrapped;
-        if (b instanceof (0, $7EDY8.default)) b = b._wrapped;
+        if (a instanceof (0, $jx45o.default)) a = a._wrapped;
+        if (b instanceof (0, $jx45o.default)) b = b._wrapped;
         // Compare `[[Class]]` names.
-        var className = (0, $djUPf.toString).call(a);
-        if (className !== (0, $djUPf.toString).call(b)) return false;
+        var className = (0, $ai7Cu.toString).call(a);
+        if (className !== (0, $ai7Cu.toString).call(b)) return false;
         // Work around a bug in IE 10 - Edge 13.
-        if ((0, $5ThhI.hasDataViewBug) && className == '[object Object]' && (0, $56WZJ.default)(a)) {
-            if (!(0, $56WZJ.default)(b)) return false;
-            className = $54b44fa75d324ee4$var$tagDataView;
+        if ((0, $7hpw5.hasDataViewBug) && className == '[object Object]' && (0, $A7npz.default)(a)) {
+            if (!(0, $A7npz.default)(b)) return false;
+            className = $faba497bc650f869$var$tagDataView;
         }
         switch(className){
             // These types are compared by value.
@@ -18302,21 +18302,21 @@ function $54b44fa75d324ee4$export$2e2bcd8739ae039(a, b) {
                 if (+a === +b) continue;
                 return false;
             case '[object Symbol]':
-                if ((0, $djUPf.SymbolProto).valueOf.call(a) === (0, $djUPf.SymbolProto).valueOf.call(b)) continue;
+                if ((0, $ai7Cu.SymbolProto).valueOf.call(a) === (0, $ai7Cu.SymbolProto).valueOf.call(b)) continue;
                 return false;
             case '[object ArrayBuffer]':
-            case $54b44fa75d324ee4$var$tagDataView:
+            case $faba497bc650f869$var$tagDataView:
                 // Coerce to typed array so we can fall through.
                 todo.push({
-                    a: (0, $4AIF3.default)(a),
-                    b: (0, $4AIF3.default)(b)
+                    a: (0, $4sigR.default)(a),
+                    b: (0, $4sigR.default)(b)
                 });
                 continue;
         }
         var areArrays = className === '[object Array]';
-        if (!areArrays && (0, $k8Ei3.default)(a)) {
-            var byteLength = (0, $AWXVX.default)(a);
-            if (byteLength !== (0, $AWXVX.default)(b)) return false;
+        if (!areArrays && (0, $cqMYu.default)(a)) {
+            var byteLength = (0, $16K56.default)(a);
+            if (byteLength !== (0, $16K56.default)(b)) return false;
             if (a.buffer === b.buffer && a.byteOffset === b.byteOffset) continue;
             areArrays = true;
         }
@@ -18325,7 +18325,7 @@ function $54b44fa75d324ee4$export$2e2bcd8739ae039(a, b) {
             // Objects with different constructors are not equivalent, but `Object`s or `Array`s
             // from different frames are.
             var aCtor = a.constructor, bCtor = b.constructor;
-            if (aCtor !== bCtor && !((0, $2TtDP.default)(aCtor) && aCtor instanceof aCtor && (0, $2TtDP.default)(bCtor) && bCtor instanceof bCtor) && 'constructor' in a && 'constructor' in b) return false;
+            if (aCtor !== bCtor && !((0, $cgDwf.default)(aCtor) && aCtor instanceof aCtor && (0, $cgDwf.default)(bCtor) && bCtor instanceof bCtor) && 'constructor' in a && 'constructor' in b) return false;
         }
         // Assume equality for cyclic structures. The algorithm for detecting cyclic
         // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
@@ -18353,14 +18353,14 @@ function $54b44fa75d324ee4$export$2e2bcd8739ae039(a, b) {
             });
         } else {
             // Deep compare objects.
-            var _keys = (0, $9geeU.default)(a), key;
+            var _keys = (0, $cZNkK.default)(a), key;
             length = _keys.length;
             // Ensure that both objects contain the same number of properties before comparing deep equality.
-            if ((0, $9geeU.default)(b).length !== length) return false;
+            if ((0, $cZNkK.default)(b).length !== length) return false;
             while(length--){
                 // Deep compare each member
                 key = _keys[length];
-                if (!(0, $eqZxE.default)(b, key)) return false;
+                if (!(0, $9JuPB.default)(b, key)) return false;
                 todo.push({
                     a: a[key],
                     b: b[key]
@@ -18372,112 +18372,112 @@ function $54b44fa75d324ee4$export$2e2bcd8739ae039(a, b) {
 }
 
 });
-parcelRegister("7EDY8", function(module, exports) {
+parcelRegister("jx45o", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $592b45d0dd633900$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $e38444c376cf5404$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
-function $592b45d0dd633900$export$2e2bcd8739ae039(obj) {
-    if (obj instanceof $592b45d0dd633900$export$2e2bcd8739ae039) return obj;
-    if (!(this instanceof $592b45d0dd633900$export$2e2bcd8739ae039)) return new $592b45d0dd633900$export$2e2bcd8739ae039(obj);
+var $ai7Cu = parcelRequire("ai7Cu");
+function $e38444c376cf5404$export$2e2bcd8739ae039(obj) {
+    if (obj instanceof $e38444c376cf5404$export$2e2bcd8739ae039) return obj;
+    if (!(this instanceof $e38444c376cf5404$export$2e2bcd8739ae039)) return new $e38444c376cf5404$export$2e2bcd8739ae039(obj);
     this._wrapped = obj;
 }
-$592b45d0dd633900$export$2e2bcd8739ae039.VERSION = (0, $djUPf.VERSION);
+$e38444c376cf5404$export$2e2bcd8739ae039.VERSION = (0, $ai7Cu.VERSION);
 // Extracts the result from a wrapped and chained object.
-$592b45d0dd633900$export$2e2bcd8739ae039.prototype.value = function() {
+$e38444c376cf5404$export$2e2bcd8739ae039.prototype.value = function() {
     return this._wrapped;
 };
 // Provide unwrapping proxies for some methods used in engine operations
 // such as arithmetic and JSON stringification.
-$592b45d0dd633900$export$2e2bcd8739ae039.prototype.valueOf = $592b45d0dd633900$export$2e2bcd8739ae039.prototype.toJSON = $592b45d0dd633900$export$2e2bcd8739ae039.prototype.value;
-$592b45d0dd633900$export$2e2bcd8739ae039.prototype.toString = function() {
+$e38444c376cf5404$export$2e2bcd8739ae039.prototype.valueOf = $e38444c376cf5404$export$2e2bcd8739ae039.prototype.toJSON = $e38444c376cf5404$export$2e2bcd8739ae039.prototype.value;
+$e38444c376cf5404$export$2e2bcd8739ae039.prototype.toString = function() {
     return String(this._wrapped);
 };
 
 });
 
-parcelRegister("4AIF3", function(module, exports) {
+parcelRegister("4sigR", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $357d2b007a98616a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $33e7f3302dadc78a$export$2e2bcd8739ae039);
 
-var $AWXVX = parcelRequire("AWXVX");
-function $357d2b007a98616a$export$2e2bcd8739ae039(bufferSource) {
-    return new Uint8Array(bufferSource.buffer || bufferSource, bufferSource.byteOffset || 0, (0, $AWXVX.default)(bufferSource));
+var $16K56 = parcelRequire("16K56");
+function $33e7f3302dadc78a$export$2e2bcd8739ae039(bufferSource) {
+    return new Uint8Array(bufferSource.buffer || bufferSource, bufferSource.byteOffset || 0, (0, $16K56.default)(bufferSource));
 }
 
 });
 
 
-parcelRegister("lAEjy", function(module, exports) {
+parcelRegister("5ZU4e", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $fb7c3b58e6b12beb$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $45de24086106cbb5$export$2e2bcd8739ae039);
 
-var $9GVnV = parcelRequire("9GVnV");
+var $bkkX3 = parcelRequire("bkkX3");
 
-var $5ThhI = parcelRequire("5ThhI");
+var $7hpw5 = parcelRequire("7hpw5");
 
-var $lmuMs = parcelRequire("lmuMs");
-var $fb7c3b58e6b12beb$export$2e2bcd8739ae039 = (0, $5ThhI.isIE11) ? (0, $lmuMs.ie11fingerprint)((0, $lmuMs.mapMethods)) : (0, $9GVnV.default)('Map');
+var $6WSFk = parcelRequire("6WSFk");
+var $45de24086106cbb5$export$2e2bcd8739ae039 = (0, $7hpw5.isIE11) ? (0, $6WSFk.ie11fingerprint)((0, $6WSFk.mapMethods)) : (0, $bkkX3.default)('Map');
 
 });
-parcelRegister("lmuMs", function(module, exports) {
+parcelRegister("6WSFk", function(module, exports) {
 
-$parcel$export(module.exports, "ie11fingerprint", () => $f8d38767a4b85e80$export$15230eca1f400e40);
-$parcel$export(module.exports, "weakMapMethods", () => $f8d38767a4b85e80$export$2f74b890a72cf48);
-$parcel$export(module.exports, "mapMethods", () => $f8d38767a4b85e80$export$de9acb94190bb764);
-$parcel$export(module.exports, "setMethods", () => $f8d38767a4b85e80$export$60e14a5e2a057f78);
+$parcel$export(module.exports, "ie11fingerprint", () => $50f2904aa6c48da9$export$15230eca1f400e40);
+$parcel$export(module.exports, "weakMapMethods", () => $50f2904aa6c48da9$export$2f74b890a72cf48);
+$parcel$export(module.exports, "mapMethods", () => $50f2904aa6c48da9$export$de9acb94190bb764);
+$parcel$export(module.exports, "setMethods", () => $50f2904aa6c48da9$export$60e14a5e2a057f78);
 
-var $2wFEM = parcelRequire("2wFEM");
+var $elsid = parcelRequire("elsid");
 
-var $2TtDP = parcelRequire("2TtDP");
+var $cgDwf = parcelRequire("cgDwf");
 
-var $e2hnW = parcelRequire("e2hnW");
-function $f8d38767a4b85e80$export$15230eca1f400e40(methods) {
-    var length = (0, $2wFEM.default)(methods);
+var $9oduk = parcelRequire("9oduk");
+function $50f2904aa6c48da9$export$15230eca1f400e40(methods) {
+    var length = (0, $elsid.default)(methods);
     return function(obj) {
         if (obj == null) return false;
         // `Map`, `WeakMap` and `Set` have no enumerable keys.
-        var keys = (0, $e2hnW.default)(obj);
-        if ((0, $2wFEM.default)(keys)) return false;
+        var keys = (0, $9oduk.default)(obj);
+        if ((0, $elsid.default)(keys)) return false;
         for(var i = 0; i < length; i++){
-            if (!(0, $2TtDP.default)(obj[methods[i]])) return false;
+            if (!(0, $cgDwf.default)(obj[methods[i]])) return false;
         }
         // If we are testing against `WeakMap`, we need to ensure that
         // `obj` doesn't have a `forEach` method in order to distinguish
         // it from a regular `Map`.
-        return methods !== $f8d38767a4b85e80$export$2f74b890a72cf48 || !(0, $2TtDP.default)(obj[$f8d38767a4b85e80$var$forEachName]);
+        return methods !== $50f2904aa6c48da9$export$2f74b890a72cf48 || !(0, $cgDwf.default)(obj[$50f2904aa6c48da9$var$forEachName]);
     };
 }
 // In the interest of compact minification, we write
 // each string in the fingerprints only once.
-var $f8d38767a4b85e80$var$forEachName = 'forEach', $f8d38767a4b85e80$var$hasName = 'has', $f8d38767a4b85e80$var$commonInit = [
+var $50f2904aa6c48da9$var$forEachName = 'forEach', $50f2904aa6c48da9$var$hasName = 'has', $50f2904aa6c48da9$var$commonInit = [
     'clear',
     'delete'
-], $f8d38767a4b85e80$var$mapTail = [
+], $50f2904aa6c48da9$var$mapTail = [
     'get',
-    $f8d38767a4b85e80$var$hasName,
+    $50f2904aa6c48da9$var$hasName,
     'set'
 ];
-var $f8d38767a4b85e80$export$de9acb94190bb764 = $f8d38767a4b85e80$var$commonInit.concat($f8d38767a4b85e80$var$forEachName, $f8d38767a4b85e80$var$mapTail), $f8d38767a4b85e80$export$2f74b890a72cf48 = $f8d38767a4b85e80$var$commonInit.concat($f8d38767a4b85e80$var$mapTail), $f8d38767a4b85e80$export$60e14a5e2a057f78 = [
+var $50f2904aa6c48da9$export$de9acb94190bb764 = $50f2904aa6c48da9$var$commonInit.concat($50f2904aa6c48da9$var$forEachName, $50f2904aa6c48da9$var$mapTail), $50f2904aa6c48da9$export$2f74b890a72cf48 = $50f2904aa6c48da9$var$commonInit.concat($50f2904aa6c48da9$var$mapTail), $50f2904aa6c48da9$export$60e14a5e2a057f78 = [
     'add'
-].concat($f8d38767a4b85e80$var$commonInit, $f8d38767a4b85e80$var$forEachName, $f8d38767a4b85e80$var$hasName);
+].concat($50f2904aa6c48da9$var$commonInit, $50f2904aa6c48da9$var$forEachName, $50f2904aa6c48da9$var$hasName);
 
 });
-parcelRegister("e2hnW", function(module, exports) {
+parcelRegister("9oduk", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $a37ebce8cdf4fef2$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $6d60d170cc2b9fbb$export$2e2bcd8739ae039);
 
-var $2Iljx = parcelRequire("2Iljx");
+var $cAFpn = parcelRequire("cAFpn");
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $cGSrx = parcelRequire("cGSrx");
-function $a37ebce8cdf4fef2$export$2e2bcd8739ae039(obj) {
-    if (!(0, $2Iljx.default)(obj)) return [];
+var $alVxG = parcelRequire("alVxG");
+function $6d60d170cc2b9fbb$export$2e2bcd8739ae039(obj) {
+    if (!(0, $cAFpn.default)(obj)) return [];
     var keys = [];
     for(var key in obj)keys.push(key);
     // Ahem, IE < 9.
-    if (0, $djUPf.hasEnumBug) (0, $cGSrx.default)(obj, keys);
+    if (0, $ai7Cu.hasEnumBug) (0, $alVxG.default)(obj, keys);
     return keys;
 }
 
@@ -18485,48 +18485,48 @@ function $a37ebce8cdf4fef2$export$2e2bcd8739ae039(obj) {
 
 
 
-parcelRegister("37we4", function(module, exports) {
+parcelRegister("cDamw", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $245b05f4bc7b5b88$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $93212a4bceeb9375$export$2e2bcd8739ae039);
 
-var $9GVnV = parcelRequire("9GVnV");
+var $bkkX3 = parcelRequire("bkkX3");
 
-var $5ThhI = parcelRequire("5ThhI");
+var $7hpw5 = parcelRequire("7hpw5");
 
-var $lmuMs = parcelRequire("lmuMs");
-var $245b05f4bc7b5b88$export$2e2bcd8739ae039 = (0, $5ThhI.isIE11) ? (0, $lmuMs.ie11fingerprint)((0, $lmuMs.weakMapMethods)) : (0, $9GVnV.default)('WeakMap');
-
-});
-
-parcelRegister("jGKen", function(module, exports) {
-
-$parcel$export(module.exports, "default", () => $e555cd0cd79ccb25$export$2e2bcd8739ae039);
-
-var $9GVnV = parcelRequire("9GVnV");
-
-var $5ThhI = parcelRequire("5ThhI");
-
-var $lmuMs = parcelRequire("lmuMs");
-var $e555cd0cd79ccb25$export$2e2bcd8739ae039 = (0, $5ThhI.isIE11) ? (0, $lmuMs.ie11fingerprint)((0, $lmuMs.setMethods)) : (0, $9GVnV.default)('Set');
+var $6WSFk = parcelRequire("6WSFk");
+var $93212a4bceeb9375$export$2e2bcd8739ae039 = (0, $7hpw5.isIE11) ? (0, $6WSFk.ie11fingerprint)((0, $6WSFk.weakMapMethods)) : (0, $bkkX3.default)('WeakMap');
 
 });
 
-parcelRegister("2S4sF", function(module, exports) {
+parcelRegister("4OKT4", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $217415dfb6ca9c5d$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $382033bdc9b7d6b0$export$2e2bcd8739ae039);
 
-var $9GVnV = parcelRequire("9GVnV");
-var $217415dfb6ca9c5d$export$2e2bcd8739ae039 = (0, $9GVnV.default)('WeakSet');
+var $bkkX3 = parcelRequire("bkkX3");
+
+var $7hpw5 = parcelRequire("7hpw5");
+
+var $6WSFk = parcelRequire("6WSFk");
+var $382033bdc9b7d6b0$export$2e2bcd8739ae039 = (0, $7hpw5.isIE11) ? (0, $6WSFk.ie11fingerprint)((0, $6WSFk.setMethods)) : (0, $bkkX3.default)('Set');
 
 });
 
-parcelRegister("7qgmo", function(module, exports) {
+parcelRegister("7DhK8", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $5677a6e45dbfdd82$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $58e9f04fc1db0494$export$2e2bcd8739ae039);
 
-var $9geeU = parcelRequire("9geeU");
-function $5677a6e45dbfdd82$export$2e2bcd8739ae039(obj) {
-    var _keys = (0, $9geeU.default)(obj);
+var $bkkX3 = parcelRequire("bkkX3");
+var $58e9f04fc1db0494$export$2e2bcd8739ae039 = (0, $bkkX3.default)('WeakSet');
+
+});
+
+parcelRegister("aAqcJ", function(module, exports) {
+
+$parcel$export(module.exports, "default", () => $7b5197cac576485b$export$2e2bcd8739ae039);
+
+var $cZNkK = parcelRequire("cZNkK");
+function $7b5197cac576485b$export$2e2bcd8739ae039(obj) {
+    var _keys = (0, $cZNkK.default)(obj);
     var length = _keys.length;
     var values = Array(length);
     for(var i = 0; i < length; i++)values[i] = obj[_keys[i]];
@@ -18535,13 +18535,13 @@ function $5677a6e45dbfdd82$export$2e2bcd8739ae039(obj) {
 
 });
 
-parcelRegister("utwpj", function(module, exports) {
+parcelRegister("4rad9", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $05b9b3d9c238fed6$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $33b19ac71a84848d$export$2e2bcd8739ae039);
 
-var $9geeU = parcelRequire("9geeU");
-function $05b9b3d9c238fed6$export$2e2bcd8739ae039(obj) {
-    var _keys = (0, $9geeU.default)(obj);
+var $cZNkK = parcelRequire("cZNkK");
+function $33b19ac71a84848d$export$2e2bcd8739ae039(obj) {
+    var _keys = (0, $cZNkK.default)(obj);
     var length = _keys.length;
     var pairs = Array(length);
     for(var i = 0; i < length; i++)pairs[i] = [
@@ -18553,49 +18553,49 @@ function $05b9b3d9c238fed6$export$2e2bcd8739ae039(obj) {
 
 });
 
-parcelRegister("75KFn", function(module, exports) {
+parcelRegister("TId5j", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $529d32ff09f499c9$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $0a776e5cea49d8cf$export$2e2bcd8739ae039);
 
-var $9geeU = parcelRequire("9geeU");
-function $529d32ff09f499c9$export$2e2bcd8739ae039(obj) {
+var $cZNkK = parcelRequire("cZNkK");
+function $0a776e5cea49d8cf$export$2e2bcd8739ae039(obj) {
     var result = {};
-    var _keys = (0, $9geeU.default)(obj);
+    var _keys = (0, $cZNkK.default)(obj);
     for(var i = 0, length = _keys.length; i < length; i++)result[obj[_keys[i]]] = _keys[i];
     return result;
 }
 
 });
 
-parcelRegister("fWj0W", function(module, exports) {
+parcelRegister("lKVst", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $b9ab0597bb0a3c79$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $fd6a76de3e814b58$export$2e2bcd8739ae039);
 
-var $2TtDP = parcelRequire("2TtDP");
-function $b9ab0597bb0a3c79$export$2e2bcd8739ae039(obj) {
+var $cgDwf = parcelRequire("cgDwf");
+function $fd6a76de3e814b58$export$2e2bcd8739ae039(obj) {
     var names = [];
-    for(var key in obj)if ((0, $2TtDP.default)(obj[key])) names.push(key);
+    for(var key in obj)if ((0, $cgDwf.default)(obj[key])) names.push(key);
     return names.sort();
 }
 
 });
 
-parcelRegister("bVFHu", function(module, exports) {
+parcelRegister("b1I5K", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $8af55d67b9e680bc$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $8071fd6cd68ec611$export$2e2bcd8739ae039);
 
-var $eDtZy = parcelRequire("eDtZy");
+var $47LrO = parcelRequire("47LrO");
 
-var $e2hnW = parcelRequire("e2hnW");
+var $9oduk = parcelRequire("9oduk");
 var // Extend a given object with all the properties in passed-in object(s).
-$8af55d67b9e680bc$export$2e2bcd8739ae039 = (0, $eDtZy.default)((0, $e2hnW.default));
+$8071fd6cd68ec611$export$2e2bcd8739ae039 = (0, $47LrO.default)((0, $9oduk.default));
 
 });
-parcelRegister("eDtZy", function(module, exports) {
+parcelRegister("47LrO", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $aa7bf8fae435a39e$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $300c9efbd740f0b0$export$2e2bcd8739ae039);
 // An internal function for creating assigner functions.
-function $aa7bf8fae435a39e$export$2e2bcd8739ae039(keysFunc, defaults) {
+function $300c9efbd740f0b0$export$2e2bcd8739ae039(keysFunc, defaults) {
     return function(obj) {
         var length = arguments.length;
         if (defaults) obj = Object(obj);
@@ -18614,61 +18614,61 @@ function $aa7bf8fae435a39e$export$2e2bcd8739ae039(keysFunc, defaults) {
 });
 
 
-parcelRegister("hzJfJ", function(module, exports) {
+parcelRegister("cccDy", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $ccb8ced2e09db9e1$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $8e10687b48481174$export$2e2bcd8739ae039);
 
-var $eDtZy = parcelRequire("eDtZy");
+var $47LrO = parcelRequire("47LrO");
 
-var $9geeU = parcelRequire("9geeU");
+var $cZNkK = parcelRequire("cZNkK");
 var // Assigns a given object with all the own properties in the passed-in
 // object(s).
 // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-$ccb8ced2e09db9e1$export$2e2bcd8739ae039 = (0, $eDtZy.default)((0, $9geeU.default));
+$8e10687b48481174$export$2e2bcd8739ae039 = (0, $47LrO.default)((0, $cZNkK.default));
 
 });
 
-parcelRegister("k5M1b", function(module, exports) {
+parcelRegister("3aFb2", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $ea0985a80ea41b8c$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $24f23f30f448a310$export$2e2bcd8739ae039);
 
-var $eDtZy = parcelRequire("eDtZy");
+var $47LrO = parcelRequire("47LrO");
 
-var $e2hnW = parcelRequire("e2hnW");
+var $9oduk = parcelRequire("9oduk");
 var // Fill in a given object with default properties.
-$ea0985a80ea41b8c$export$2e2bcd8739ae039 = (0, $eDtZy.default)((0, $e2hnW.default), true);
+$24f23f30f448a310$export$2e2bcd8739ae039 = (0, $47LrO.default)((0, $9oduk.default), true);
 
 });
 
-parcelRegister("cjRW2", function(module, exports) {
+parcelRegister("dxtXe", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $8f8118c538a95b03$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $9db597be1bcc159e$export$2e2bcd8739ae039);
 
-var $3LkS7 = parcelRequire("3LkS7");
+var $3V2Fa = parcelRequire("3V2Fa");
 
-var $hzJfJ = parcelRequire("hzJfJ");
-function $8f8118c538a95b03$export$2e2bcd8739ae039(prototype, props) {
-    var result = (0, $3LkS7.default)(prototype);
-    if (props) (0, $hzJfJ.default)(result, props);
+var $cccDy = parcelRequire("cccDy");
+function $9db597be1bcc159e$export$2e2bcd8739ae039(prototype, props) {
+    var result = (0, $3V2Fa.default)(prototype);
+    if (props) (0, $cccDy.default)(result, props);
     return result;
 }
 
 });
-parcelRegister("3LkS7", function(module, exports) {
+parcelRegister("3V2Fa", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $2bd5f39dbcfa4c0f$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $2da8c2ce798b2d30$export$2e2bcd8739ae039);
 
-var $2Iljx = parcelRequire("2Iljx");
+var $cAFpn = parcelRequire("cAFpn");
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 // Create a naked function reference for surrogate-prototype-swapping.
-function $2bd5f39dbcfa4c0f$var$ctor() {
+function $2da8c2ce798b2d30$var$ctor() {
     return function() {};
 }
-function $2bd5f39dbcfa4c0f$export$2e2bcd8739ae039(prototype) {
-    if (!(0, $2Iljx.default)(prototype)) return {};
-    if (0, $djUPf.nativeCreate) return (0, $djUPf.nativeCreate)(prototype);
-    var Ctor = $2bd5f39dbcfa4c0f$var$ctor();
+function $2da8c2ce798b2d30$export$2e2bcd8739ae039(prototype) {
+    if (!(0, $cAFpn.default)(prototype)) return {};
+    if (0, $ai7Cu.nativeCreate) return (0, $ai7Cu.nativeCreate)(prototype);
+    var Ctor = $2da8c2ce798b2d30$var$ctor();
     Ctor.prototype = prototype;
     var result = new Ctor;
     Ctor.prototype = null;
@@ -18678,83 +18678,83 @@ function $2bd5f39dbcfa4c0f$export$2e2bcd8739ae039(prototype) {
 });
 
 
-parcelRegister("lkw2m", function(module, exports) {
+parcelRegister("b27JZ", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $f874511e4f2b9258$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $8085e2bf1a46fa63$export$2e2bcd8739ae039);
 
-var $2Iljx = parcelRequire("2Iljx");
+var $cAFpn = parcelRequire("cAFpn");
 
-var $3OYK3 = parcelRequire("3OYK3");
+var $cyywg = parcelRequire("cyywg");
 
-var $bVFHu = parcelRequire("bVFHu");
-function $f874511e4f2b9258$export$2e2bcd8739ae039(obj) {
-    if (!(0, $2Iljx.default)(obj)) return obj;
-    return (0, $3OYK3.default)(obj) ? obj.slice() : (0, $bVFHu.default)({}, obj);
+var $b1I5K = parcelRequire("b1I5K");
+function $8085e2bf1a46fa63$export$2e2bcd8739ae039(obj) {
+    if (!(0, $cAFpn.default)(obj)) return obj;
+    return (0, $cyywg.default)(obj) ? obj.slice() : (0, $b1I5K.default)({}, obj);
 }
 
 });
 
-parcelRegister("hBift", function(module, exports) {
+parcelRegister("76SkH", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $cd040c2a23985517$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $0155fcdc0d596540$export$2e2bcd8739ae039);
 // Invokes `interceptor` with the `obj` and then returns `obj`.
 // The primary purpose of this method is to "tap into" a method chain, in
 // order to perform operations on intermediate results within the chain.
-function $cd040c2a23985517$export$2e2bcd8739ae039(obj, interceptor) {
+function $0155fcdc0d596540$export$2e2bcd8739ae039(obj, interceptor) {
     interceptor(obj);
     return obj;
 }
 
 });
 
-parcelRegister("ktgrb", function(module, exports) {
+parcelRegister("9zOQB", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $ee734432fc8b48c0$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $6f8ed32d31c1bce9$export$2e2bcd8739ae039);
 
-var $cSm4f = parcelRequire("cSm4f");
+var $k2Yo8 = parcelRequire("k2Yo8");
 
-var $bgKHv = parcelRequire("bgKHv");
+var $gJjXY = parcelRequire("gJjXY");
 
-var $8OPBy = parcelRequire("8OPBy");
-function $ee734432fc8b48c0$export$2e2bcd8739ae039(object, path, defaultValue) {
-    var value = (0, $bgKHv.default)(object, (0, $cSm4f.default)(path));
-    return (0, $8OPBy.default)(value) ? defaultValue : value;
+var $48O0R = parcelRequire("48O0R");
+function $6f8ed32d31c1bce9$export$2e2bcd8739ae039(object, path, defaultValue) {
+    var value = (0, $gJjXY.default)(object, (0, $k2Yo8.default)(path));
+    return (0, $48O0R.default)(value) ? defaultValue : value;
 }
 
 });
-parcelRegister("cSm4f", function(module, exports) {
+parcelRegister("k2Yo8", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $95fba5559af11f91$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $e982d661459bd69d$export$2e2bcd8739ae039);
 
-var $7EDY8 = parcelRequire("7EDY8");
-parcelRequire("fjPjA");
-function $95fba5559af11f91$export$2e2bcd8739ae039(path) {
-    return (0, $7EDY8.default).toPath(path);
+var $jx45o = parcelRequire("jx45o");
+parcelRequire("6WrdF");
+function $e982d661459bd69d$export$2e2bcd8739ae039(path) {
+    return (0, $jx45o.default).toPath(path);
 }
 
 });
-parcelRegister("fjPjA", function(module, exports) {
+parcelRegister("6WrdF", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $b2706f6c582bcf7c$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $50dd460d56a8045b$export$2e2bcd8739ae039);
 
-var $7EDY8 = parcelRequire("7EDY8");
+var $jx45o = parcelRequire("jx45o");
 
-var $3OYK3 = parcelRequire("3OYK3");
-function $b2706f6c582bcf7c$export$2e2bcd8739ae039(path) {
-    return (0, $3OYK3.default)(path) ? path : [
+var $cyywg = parcelRequire("cyywg");
+function $50dd460d56a8045b$export$2e2bcd8739ae039(path) {
+    return (0, $cyywg.default)(path) ? path : [
         path
     ];
 }
-(0, $7EDY8.default).toPath = $b2706f6c582bcf7c$export$2e2bcd8739ae039;
+(0, $jx45o.default).toPath = $50dd460d56a8045b$export$2e2bcd8739ae039;
 
 });
 
 
-parcelRegister("bgKHv", function(module, exports) {
+parcelRegister("gJjXY", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $83456a1b904fcd71$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $c2e0563814c714a1$export$2e2bcd8739ae039);
 // Internal function to obtain a nested property in `obj` along `path`.
-function $83456a1b904fcd71$export$2e2bcd8739ae039(obj, path) {
+function $c2e0563814c714a1$export$2e2bcd8739ae039(obj, path) {
     var length = path.length;
     for(var i = 0; i < length; i++){
         if (obj == null) return void 0;
@@ -18766,19 +18766,19 @@ function $83456a1b904fcd71$export$2e2bcd8739ae039(obj, path) {
 });
 
 
-parcelRegister("atFTt", function(module, exports) {
+parcelRegister("jvbAO", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $7a0d1c09da9a536a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $e329e7a31526188e$export$2e2bcd8739ae039);
 
-var $eqZxE = parcelRequire("eqZxE");
+var $9JuPB = parcelRequire("9JuPB");
 
-var $cSm4f = parcelRequire("cSm4f");
-function $7a0d1c09da9a536a$export$2e2bcd8739ae039(obj, path) {
-    path = (0, $cSm4f.default)(path);
+var $k2Yo8 = parcelRequire("k2Yo8");
+function $e329e7a31526188e$export$2e2bcd8739ae039(obj, path) {
+    path = (0, $k2Yo8.default)(path);
     var length = path.length;
     for(var i = 0; i < length; i++){
         var key = path[i];
-        if (!(0, $eqZxE.default)(obj, key)) return false;
+        if (!(0, $9JuPB.default)(obj, key)) return false;
         obj = obj[key];
     }
     return !!length;
@@ -18786,16 +18786,16 @@ function $7a0d1c09da9a536a$export$2e2bcd8739ae039(obj, path) {
 
 });
 
-parcelRegister("5bjbX", function(module, exports) {
+parcelRegister("gWBBZ", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $3c5cddee01d29c84$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $c55f3d02d449bb09$export$2e2bcd8739ae039);
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $9geeU = parcelRequire("9geeU");
-function $3c5cddee01d29c84$export$2e2bcd8739ae039(obj, iteratee, context) {
-    iteratee = (0, $fyI93.default)(iteratee, context);
-    var _keys = (0, $9geeU.default)(obj), length = _keys.length, results = {};
+var $cZNkK = parcelRequire("cZNkK");
+function $c55f3d02d449bb09$export$2e2bcd8739ae039(obj, iteratee, context) {
+    iteratee = (0, $ilkoh.default)(iteratee, context);
+    var _keys = (0, $cZNkK.default)(obj), length = _keys.length, results = {};
     for(var index = 0; index < length; index++){
         var currentKey = _keys[index];
         results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
@@ -18804,95 +18804,95 @@ function $3c5cddee01d29c84$export$2e2bcd8739ae039(obj, iteratee, context) {
 }
 
 });
-parcelRegister("fyI93", function(module, exports) {
+parcelRegister("ilkoh", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $b53c4648b961e549$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $d5aa014cb4493e33$export$2e2bcd8739ae039);
 
-var $7EDY8 = parcelRequire("7EDY8");
+var $jx45o = parcelRequire("jx45o");
 
-var $ki5mK = parcelRequire("ki5mK");
+var $i1YSS = parcelRequire("i1YSS");
 
-var $ehiRl = parcelRequire("ehiRl");
-function $b53c4648b961e549$export$2e2bcd8739ae039(value, context, argCount) {
-    if ((0, $7EDY8.default).iteratee !== (0, $ehiRl.default)) return (0, $7EDY8.default).iteratee(value, context);
-    return (0, $ki5mK.default)(value, context, argCount);
+var $dz7aK = parcelRequire("dz7aK");
+function $d5aa014cb4493e33$export$2e2bcd8739ae039(value, context, argCount) {
+    if ((0, $jx45o.default).iteratee !== (0, $dz7aK.default)) return (0, $jx45o.default).iteratee(value, context);
+    return (0, $i1YSS.default)(value, context, argCount);
 }
 
 });
-parcelRegister("ki5mK", function(module, exports) {
+parcelRegister("i1YSS", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $ec59a6a4836ce5d5$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $d2078c55011c9e79$export$2e2bcd8739ae039);
 
-var $f2F1Z = parcelRequire("f2F1Z");
+var $7uReK = parcelRequire("7uReK");
 
-var $2TtDP = parcelRequire("2TtDP");
+var $cgDwf = parcelRequire("cgDwf");
 
-var $2Iljx = parcelRequire("2Iljx");
+var $cAFpn = parcelRequire("cAFpn");
 
-var $3OYK3 = parcelRequire("3OYK3");
+var $cyywg = parcelRequire("cyywg");
 
-var $glHiv = parcelRequire("glHiv");
+var $euJXL = parcelRequire("euJXL");
 
-var $jvDeG = parcelRequire("jvDeG");
+var $7yVnD = parcelRequire("7yVnD");
 
-var $iWdgq = parcelRequire("iWdgq");
-function $ec59a6a4836ce5d5$export$2e2bcd8739ae039(value, context, argCount) {
-    if (value == null) return 0, $f2F1Z.default;
-    if ((0, $2TtDP.default)(value)) return (0, $iWdgq.default)(value, context, argCount);
-    if ((0, $2Iljx.default)(value) && !(0, $3OYK3.default)(value)) return (0, $glHiv.default)(value);
-    return (0, $jvDeG.default)(value);
+var $2as0M = parcelRequire("2as0M");
+function $d2078c55011c9e79$export$2e2bcd8739ae039(value, context, argCount) {
+    if (value == null) return 0, $7uReK.default;
+    if ((0, $cgDwf.default)(value)) return (0, $2as0M.default)(value, context, argCount);
+    if ((0, $cAFpn.default)(value) && !(0, $cyywg.default)(value)) return (0, $euJXL.default)(value);
+    return (0, $7yVnD.default)(value);
 }
 
 });
-parcelRegister("f2F1Z", function(module, exports) {
+parcelRegister("7uReK", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $af36ded8a902416b$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $5754a177a0e700e9$export$2e2bcd8739ae039);
 // Keep the identity function around for default iteratees.
-function $af36ded8a902416b$export$2e2bcd8739ae039(value) {
+function $5754a177a0e700e9$export$2e2bcd8739ae039(value) {
     return value;
 }
 
 });
 
-parcelRegister("glHiv", function(module, exports) {
+parcelRegister("euJXL", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $be703179116e8657$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $a8d78550158c327a$export$2e2bcd8739ae039);
 
-var $hzJfJ = parcelRequire("hzJfJ");
+var $cccDy = parcelRequire("cccDy");
 
-var $1gNbj = parcelRequire("1gNbj");
-function $be703179116e8657$export$2e2bcd8739ae039(attrs) {
-    attrs = (0, $hzJfJ.default)({}, attrs);
+var $8znUE = parcelRequire("8znUE");
+function $a8d78550158c327a$export$2e2bcd8739ae039(attrs) {
+    attrs = (0, $cccDy.default)({}, attrs);
     return function(obj) {
-        return (0, $1gNbj.default)(obj, attrs);
+        return (0, $8znUE.default)(obj, attrs);
     };
 }
 
 });
 
-parcelRegister("jvDeG", function(module, exports) {
+parcelRegister("7yVnD", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $e33f590188f57431$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $581837e1064b0598$export$2e2bcd8739ae039);
 
-var $bgKHv = parcelRequire("bgKHv");
+var $gJjXY = parcelRequire("gJjXY");
 
-var $cSm4f = parcelRequire("cSm4f");
-function $e33f590188f57431$export$2e2bcd8739ae039(path) {
-    path = (0, $cSm4f.default)(path);
+var $k2Yo8 = parcelRequire("k2Yo8");
+function $581837e1064b0598$export$2e2bcd8739ae039(path) {
+    path = (0, $k2Yo8.default)(path);
     return function(obj) {
-        return (0, $bgKHv.default)(obj, path);
+        return (0, $gJjXY.default)(obj, path);
     };
 }
 
 });
 
-parcelRegister("iWdgq", function(module, exports) {
+parcelRegister("2as0M", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $dc97eebba05e8c9d$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $19423e76fac2c9d5$export$2e2bcd8739ae039);
 // Internal function that returns an efficient (for current engines) version
 // of the passed-in callback, to be repeatedly applied in other Underscore
 // functions.
-function $dc97eebba05e8c9d$export$2e2bcd8739ae039(func, context, argCount) {
+function $19423e76fac2c9d5$export$2e2bcd8739ae039(func, context, argCount) {
     if (context === void 0) return func;
     switch(argCount == null ? 3 : argCount){
         case 1:
@@ -18917,65 +18917,65 @@ function $dc97eebba05e8c9d$export$2e2bcd8739ae039(func, context, argCount) {
 });
 
 
-parcelRegister("ehiRl", function(module, exports) {
+parcelRegister("dz7aK", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $a65148526f684e9c$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $9e041b8a9bdaac56$export$2e2bcd8739ae039);
 
-var $7EDY8 = parcelRequire("7EDY8");
+var $jx45o = parcelRequire("jx45o");
 
-var $ki5mK = parcelRequire("ki5mK");
-function $a65148526f684e9c$export$2e2bcd8739ae039(value, context) {
-    return (0, $ki5mK.default)(value, context, Infinity);
+var $i1YSS = parcelRequire("i1YSS");
+function $9e041b8a9bdaac56$export$2e2bcd8739ae039(value, context) {
+    return (0, $i1YSS.default)(value, context, Infinity);
 }
-(0, $7EDY8.default).iteratee = $a65148526f684e9c$export$2e2bcd8739ae039;
+(0, $jx45o.default).iteratee = $9e041b8a9bdaac56$export$2e2bcd8739ae039;
 
 });
 
 
 
-parcelRegister("ddpDs", function(module, exports) {
+parcelRegister("btpyN", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $99f05feb0eba01fd$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $85a63ae1b3dd1cfb$export$2e2bcd8739ae039);
 // Predicate-generating function. Often useful outside of Underscore.
-function $99f05feb0eba01fd$export$2e2bcd8739ae039() {}
+function $85a63ae1b3dd1cfb$export$2e2bcd8739ae039() {}
 
 });
 
-parcelRegister("8NHLn", function(module, exports) {
+parcelRegister("gHfP3", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $6684d8c6d899f7c3$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $c27cef84196e85cb$export$2e2bcd8739ae039);
 
-var $ddpDs = parcelRequire("ddpDs");
+var $btpyN = parcelRequire("btpyN");
 
-var $ktgrb = parcelRequire("ktgrb");
-function $6684d8c6d899f7c3$export$2e2bcd8739ae039(obj) {
-    if (obj == null) return 0, $ddpDs.default;
+var $9zOQB = parcelRequire("9zOQB");
+function $c27cef84196e85cb$export$2e2bcd8739ae039(obj) {
+    if (obj == null) return 0, $btpyN.default;
     return function(path) {
-        return (0, $ktgrb.default)(obj, path);
+        return (0, $9zOQB.default)(obj, path);
     };
 }
 
 });
 
-parcelRegister("5bfSU", function(module, exports) {
+parcelRegister("jsnEb", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $3c5a4d34c91fe8b9$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $e2a2f9a7e18c9a88$export$2e2bcd8739ae039);
 
-var $iWdgq = parcelRequire("iWdgq");
-function $3c5a4d34c91fe8b9$export$2e2bcd8739ae039(n, iteratee, context) {
+var $2as0M = parcelRequire("2as0M");
+function $e2a2f9a7e18c9a88$export$2e2bcd8739ae039(n, iteratee, context) {
     var accum = Array(Math.max(0, n));
-    iteratee = (0, $iWdgq.default)(iteratee, context, 1);
+    iteratee = (0, $2as0M.default)(iteratee, context, 1);
     for(var i = 0; i < n; i++)accum[i] = iteratee(i);
     return accum;
 }
 
 });
 
-parcelRegister("3NfEk", function(module, exports) {
+parcelRegister("jvVab", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $2c32165f8a80da31$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $e34d4106ea6d5af3$export$2e2bcd8739ae039);
 // Return a random integer between `min` and `max` (inclusive).
-function $2c32165f8a80da31$export$2e2bcd8739ae039(min, max) {
+function $e34d4106ea6d5af3$export$2e2bcd8739ae039(min, max) {
     if (max == null) {
         max = min;
         min = 0;
@@ -18985,38 +18985,38 @@ function $2c32165f8a80da31$export$2e2bcd8739ae039(min, max) {
 
 });
 
-parcelRegister("cbWDV", function(module, exports) {
+parcelRegister("27EqT", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $8e04005e26812873$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $18bb9954eeec3ddc$export$2e2bcd8739ae039);
 // A (possibly faster) way to get the current timestamp as an integer.
-var $8e04005e26812873$export$2e2bcd8739ae039 = Date.now || function() {
+var $18bb9954eeec3ddc$export$2e2bcd8739ae039 = Date.now || function() {
     return new Date().getTime();
 };
 
 });
 
-parcelRegister("1vb9w", function(module, exports) {
+parcelRegister("cDhFn", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $118156573ab9508d$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $9326d4bb8eb77498$export$2e2bcd8739ae039);
 
-var $2SgsP = parcelRequire("2SgsP");
+var $2dsA4 = parcelRequire("2dsA4");
 
-var $c2E5V = parcelRequire("c2E5V");
+var $6U9FS = parcelRequire("6U9FS");
 var // Function for escaping strings to HTML interpolation.
-$118156573ab9508d$export$2e2bcd8739ae039 = (0, $2SgsP.default)((0, $c2E5V.default));
+$9326d4bb8eb77498$export$2e2bcd8739ae039 = (0, $2dsA4.default)((0, $6U9FS.default));
 
 });
-parcelRegister("2SgsP", function(module, exports) {
+parcelRegister("2dsA4", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $217d654e1556fb50$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $19d2f739e346fc59$export$2e2bcd8739ae039);
 
-var $9geeU = parcelRequire("9geeU");
-function $217d654e1556fb50$export$2e2bcd8739ae039(map) {
+var $cZNkK = parcelRequire("cZNkK");
+function $19d2f739e346fc59$export$2e2bcd8739ae039(map) {
     var escaper = function(match) {
         return map[match];
     };
     // Regexes for identifying a key that needs to be escaped.
-    var source = '(?:' + (0, $9geeU.default)(map).join('|') + ')';
+    var source = '(?:' + (0, $cZNkK.default)(map).join('|') + ')';
     var testRegexp = RegExp(source);
     var replaceRegexp = RegExp(source, 'g');
     return function(string) {
@@ -19027,11 +19027,11 @@ function $217d654e1556fb50$export$2e2bcd8739ae039(map) {
 
 });
 
-parcelRegister("c2E5V", function(module, exports) {
+parcelRegister("6U9FS", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $8c44c5e0aec9e75b$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $506f7a31ba883bb5$export$2e2bcd8739ae039);
 // Internal list of HTML entities for escaping.
-var $8c44c5e0aec9e75b$export$2e2bcd8739ae039 = {
+var $506f7a31ba883bb5$export$2e2bcd8739ae039 = {
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
@@ -19043,38 +19043,38 @@ var $8c44c5e0aec9e75b$export$2e2bcd8739ae039 = {
 });
 
 
-parcelRegister("dc6hf", function(module, exports) {
+parcelRegister("glhfI", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $99b143e397413239$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $be5bfd7f6ed0489e$export$2e2bcd8739ae039);
 
-var $2SgsP = parcelRequire("2SgsP");
+var $2dsA4 = parcelRequire("2dsA4");
 
-var $e8FDD = parcelRequire("e8FDD");
+var $f4rj1 = parcelRequire("f4rj1");
 var // Function for unescaping strings from HTML interpolation.
-$99b143e397413239$export$2e2bcd8739ae039 = (0, $2SgsP.default)((0, $e8FDD.default));
+$be5bfd7f6ed0489e$export$2e2bcd8739ae039 = (0, $2dsA4.default)((0, $f4rj1.default));
 
 });
-parcelRegister("e8FDD", function(module, exports) {
+parcelRegister("f4rj1", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $a4b21c8da4c7b792$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $af8c691a0ba92cea$export$2e2bcd8739ae039);
 
-var $75KFn = parcelRequire("75KFn");
+var $TId5j = parcelRequire("TId5j");
 
-var $c2E5V = parcelRequire("c2E5V");
+var $6U9FS = parcelRequire("6U9FS");
 var // Internal list of HTML entities for unescaping.
-$a4b21c8da4c7b792$export$2e2bcd8739ae039 = (0, $75KFn.default)((0, $c2E5V.default));
+$af8c691a0ba92cea$export$2e2bcd8739ae039 = (0, $TId5j.default)((0, $6U9FS.default));
 
 });
 
 
-parcelRegister("esvDn", function(module, exports) {
+parcelRegister("W42bX", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $a86c381c40036d14$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $0ae88c086ce3383a$export$2e2bcd8739ae039);
 
-var $7EDY8 = parcelRequire("7EDY8");
+var $jx45o = parcelRequire("jx45o");
 var // By default, Underscore uses ERB-style template delimiters. Change the
 // following template settings to use alternative delimiters.
-$a86c381c40036d14$export$2e2bcd8739ae039 = (0, $7EDY8.default).templateSettings = {
+$0ae88c086ce3383a$export$2e2bcd8739ae039 = (0, $jx45o.default).templateSettings = {
     evaluate: /<%([\s\S]+?)%>/g,
     interpolate: /<%=([\s\S]+?)%>/g,
     escape: /<%-([\s\S]+?)%>/g
@@ -19082,21 +19082,21 @@ $a86c381c40036d14$export$2e2bcd8739ae039 = (0, $7EDY8.default).templateSettings 
 
 });
 
-parcelRegister("bvwEP", function(module, exports) {
+parcelRegister("2usK5", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $860bec10877b2bfd$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $1d04adc3ef8ca8b4$export$2e2bcd8739ae039);
 
-var $k5M1b = parcelRequire("k5M1b");
+var $3aFb2 = parcelRequire("3aFb2");
 
-var $7EDY8 = parcelRequire("7EDY8");
-parcelRequire("esvDn");
+var $jx45o = parcelRequire("jx45o");
+parcelRequire("W42bX");
 // When customizing `_.templateSettings`, if you don't want to define an
 // interpolation, evaluation or escaping regex, we need one that is
 // guaranteed not to match.
-var $860bec10877b2bfd$var$noMatch = /(.)^/;
+var $1d04adc3ef8ca8b4$var$noMatch = /(.)^/;
 // Certain characters need to be escaped so that they can be put into a
 // string literal.
-var $860bec10877b2bfd$var$escapes = {
+var $1d04adc3ef8ca8b4$var$escapes = {
     "'": "'",
     '\\': '\\',
     '\r': 'r',
@@ -19104,30 +19104,30 @@ var $860bec10877b2bfd$var$escapes = {
     '\u2028': 'u2028',
     '\u2029': 'u2029'
 };
-var $860bec10877b2bfd$var$escapeRegExp = /\\|'|\r|\n|\u2028|\u2029/g;
-function $860bec10877b2bfd$var$escapeChar(match) {
-    return '\\' + $860bec10877b2bfd$var$escapes[match];
+var $1d04adc3ef8ca8b4$var$escapeRegExp = /\\|'|\r|\n|\u2028|\u2029/g;
+function $1d04adc3ef8ca8b4$var$escapeChar(match) {
+    return '\\' + $1d04adc3ef8ca8b4$var$escapes[match];
 }
 // In order to prevent third-party code injection through
 // `_.templateSettings.variable`, we test it against the following regular
 // expression. It is intentionally a bit more liberal than just matching valid
 // identifiers, but still prevents possible loopholes through defaults or
 // destructuring assignment.
-var $860bec10877b2bfd$var$bareIdentifier = /^\s*(\w|\$)+\s*$/;
-function $860bec10877b2bfd$export$2e2bcd8739ae039(text, settings, oldSettings) {
+var $1d04adc3ef8ca8b4$var$bareIdentifier = /^\s*(\w|\$)+\s*$/;
+function $1d04adc3ef8ca8b4$export$2e2bcd8739ae039(text, settings, oldSettings) {
     if (!settings && oldSettings) settings = oldSettings;
-    settings = (0, $k5M1b.default)({}, settings, (0, $7EDY8.default).templateSettings);
+    settings = (0, $3aFb2.default)({}, settings, (0, $jx45o.default).templateSettings);
     // Combine delimiters into one regular expression via alternation.
     var matcher = RegExp([
-        (settings.escape || $860bec10877b2bfd$var$noMatch).source,
-        (settings.interpolate || $860bec10877b2bfd$var$noMatch).source,
-        (settings.evaluate || $860bec10877b2bfd$var$noMatch).source
+        (settings.escape || $1d04adc3ef8ca8b4$var$noMatch).source,
+        (settings.interpolate || $1d04adc3ef8ca8b4$var$noMatch).source,
+        (settings.evaluate || $1d04adc3ef8ca8b4$var$noMatch).source
     ].join('|') + '|$', 'g');
     // Compile the template source, escaping string literals appropriately.
     var index = 0;
     var source = "__p+='";
     text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
-        source += text.slice(index, offset).replace($860bec10877b2bfd$var$escapeRegExp, $860bec10877b2bfd$var$escapeChar);
+        source += text.slice(index, offset).replace($1d04adc3ef8ca8b4$var$escapeRegExp, $1d04adc3ef8ca8b4$var$escapeChar);
         index = offset + match.length;
         if (escape) source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
         else if (interpolate) source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
@@ -19139,7 +19139,7 @@ function $860bec10877b2bfd$export$2e2bcd8739ae039(text, settings, oldSettings) {
     var argument = settings.variable;
     if (argument) {
         // Insure against third-party code injection. (CVE-2021-23358)
-        if (!$860bec10877b2bfd$var$bareIdentifier.test(argument)) throw new Error('variable is not a bare identifier: ' + argument);
+        if (!$1d04adc3ef8ca8b4$var$bareIdentifier.test(argument)) throw new Error('variable is not a bare identifier: ' + argument);
     } else {
         // If a variable is not specified, place data values in local scope.
         source = 'with(obj||{}){\n' + source + '}\n';
@@ -19154,7 +19154,7 @@ function $860bec10877b2bfd$export$2e2bcd8739ae039(text, settings, oldSettings) {
         throw e;
     }
     var template = function(data) {
-        return render.call(this, data, (0, $7EDY8.default));
+        return render.call(this, data, (0, $jx45o.default));
     };
     // Provide the compiled source as a convenience for precompilation.
     template.source = 'function(' + argument + '){\n' + source + '}';
@@ -19163,173 +19163,173 @@ function $860bec10877b2bfd$export$2e2bcd8739ae039(text, settings, oldSettings) {
 
 });
 
-parcelRegister("c4q2h", function(module, exports) {
+parcelRegister("1xPqX", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $8c9a0df1435ecace$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $1200c53035e599bd$export$2e2bcd8739ae039);
 
-var $2TtDP = parcelRequire("2TtDP");
+var $cgDwf = parcelRequire("cgDwf");
 
-var $cSm4f = parcelRequire("cSm4f");
-function $8c9a0df1435ecace$export$2e2bcd8739ae039(obj, path, fallback) {
-    path = (0, $cSm4f.default)(path);
+var $k2Yo8 = parcelRequire("k2Yo8");
+function $1200c53035e599bd$export$2e2bcd8739ae039(obj, path, fallback) {
+    path = (0, $k2Yo8.default)(path);
     var length = path.length;
-    if (!length) return (0, $2TtDP.default)(fallback) ? fallback.call(obj) : fallback;
+    if (!length) return (0, $cgDwf.default)(fallback) ? fallback.call(obj) : fallback;
     for(var i = 0; i < length; i++){
         var prop = obj == null ? void 0 : obj[path[i]];
         if (prop === void 0) {
             prop = fallback;
             i = length; // Ensure we don't continue iterating.
         }
-        obj = (0, $2TtDP.default)(prop) ? prop.call(obj) : prop;
+        obj = (0, $cgDwf.default)(prop) ? prop.call(obj) : prop;
     }
     return obj;
 }
 
 });
 
-parcelRegister("52Yxy", function(module, exports) {
+parcelRegister("bHXYe", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $3acc19adf59cd69a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $88623ac28efa4752$export$2e2bcd8739ae039);
 // Generate a unique integer id (unique within the entire client session).
 // Useful for temporary DOM ids.
-var $3acc19adf59cd69a$var$idCounter = 0;
-function $3acc19adf59cd69a$export$2e2bcd8739ae039(prefix) {
-    var id = ++$3acc19adf59cd69a$var$idCounter + '';
+var $88623ac28efa4752$var$idCounter = 0;
+function $88623ac28efa4752$export$2e2bcd8739ae039(prefix) {
+    var id = ++$88623ac28efa4752$var$idCounter + '';
     return prefix ? prefix + id : id;
 }
 
 });
 
-parcelRegister("6MpBv", function(module, exports) {
+parcelRegister("7q4CV", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $4efb162dde3417dc$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $566e8ce9e543a8b1$export$2e2bcd8739ae039);
 
-var $7EDY8 = parcelRequire("7EDY8");
-function $4efb162dde3417dc$export$2e2bcd8739ae039(obj) {
-    var instance = (0, $7EDY8.default)(obj);
+var $jx45o = parcelRequire("jx45o");
+function $566e8ce9e543a8b1$export$2e2bcd8739ae039(obj) {
+    var instance = (0, $jx45o.default)(obj);
     instance._chain = true;
     return instance;
 }
 
 });
 
-parcelRegister("hjxCz", function(module, exports) {
+parcelRegister("befnt", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $c9ae4a797393b572$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $82ccee32cb65a867$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $hlUWY = parcelRequire("hlUWY");
+var $cRe0N = parcelRequire("cRe0N");
 
-var $7EDY8 = parcelRequire("7EDY8");
+var $jx45o = parcelRequire("jx45o");
 // Partially apply a function by creating a version that has had some of its
 // arguments pre-filled, without changing its dynamic `this` context. `_` acts
 // as a placeholder by default, allowing any combination of arguments to be
 // pre-filled. Set `_.partial.placeholder` for a custom placeholder argument.
-var $c9ae4a797393b572$var$partial = (0, $3oj8B.default)(function(func, boundArgs) {
-    var placeholder = $c9ae4a797393b572$var$partial.placeholder;
+var $82ccee32cb65a867$var$partial = (0, $aR308.default)(function(func, boundArgs) {
+    var placeholder = $82ccee32cb65a867$var$partial.placeholder;
     var bound = function() {
         var position = 0, length = boundArgs.length;
         var args = Array(length);
         for(var i = 0; i < length; i++)args[i] = boundArgs[i] === placeholder ? arguments[position++] : boundArgs[i];
         while(position < arguments.length)args.push(arguments[position++]);
-        return (0, $hlUWY.default)(func, bound, this, this, args);
+        return (0, $cRe0N.default)(func, bound, this, this, args);
     };
     return bound;
 });
-$c9ae4a797393b572$var$partial.placeholder = (0, $7EDY8.default);
-var $c9ae4a797393b572$export$2e2bcd8739ae039 = $c9ae4a797393b572$var$partial;
+$82ccee32cb65a867$var$partial.placeholder = (0, $jx45o.default);
+var $82ccee32cb65a867$export$2e2bcd8739ae039 = $82ccee32cb65a867$var$partial;
 
 });
-parcelRegister("hlUWY", function(module, exports) {
+parcelRegister("cRe0N", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $ca2092f7a13983f8$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $95c54db5bd18da1f$export$2e2bcd8739ae039);
 
-var $3LkS7 = parcelRequire("3LkS7");
+var $3V2Fa = parcelRequire("3V2Fa");
 
-var $2Iljx = parcelRequire("2Iljx");
-function $ca2092f7a13983f8$export$2e2bcd8739ae039(sourceFunc, boundFunc, context, callingContext, args) {
+var $cAFpn = parcelRequire("cAFpn");
+function $95c54db5bd18da1f$export$2e2bcd8739ae039(sourceFunc, boundFunc, context, callingContext, args) {
     if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
-    var self = (0, $3LkS7.default)(sourceFunc.prototype);
+    var self = (0, $3V2Fa.default)(sourceFunc.prototype);
     var result = sourceFunc.apply(self, args);
-    if ((0, $2Iljx.default)(result)) return result;
+    if ((0, $cAFpn.default)(result)) return result;
     return self;
 }
 
 });
 
 
-parcelRegister("3DO6g", function(module, exports) {
+parcelRegister("9FHT5", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $2a6be075f19f391f$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $70a9fc8257485bc5$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $2TtDP = parcelRequire("2TtDP");
+var $cgDwf = parcelRequire("cgDwf");
 
-var $hlUWY = parcelRequire("hlUWY");
+var $cRe0N = parcelRequire("cRe0N");
 var // Create a function bound to a given object (assigning `this`, and arguments,
 // optionally).
-$2a6be075f19f391f$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(func, context, args) {
-    if (!(0, $2TtDP.default)(func)) throw new TypeError('Bind must be called on a function');
-    var bound = (0, $3oj8B.default)(function(callArgs) {
-        return (0, $hlUWY.default)(func, bound, context, this, args.concat(callArgs));
+$70a9fc8257485bc5$export$2e2bcd8739ae039 = (0, $aR308.default)(function(func, context, args) {
+    if (!(0, $cgDwf.default)(func)) throw new TypeError('Bind must be called on a function');
+    var bound = (0, $aR308.default)(function(callArgs) {
+        return (0, $cRe0N.default)(func, bound, context, this, args.concat(callArgs));
     });
     return bound;
 });
 
 });
 
-parcelRegister("5lHPx", function(module, exports) {
+parcelRegister("luE0p", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $3e50e9ae1adafbae$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $fa5b6e95a13c9280$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $84LcQ = parcelRequire("84LcQ");
+var $AjTZq = parcelRequire("AjTZq");
 
-var $3DO6g = parcelRequire("3DO6g");
+var $9FHT5 = parcelRequire("9FHT5");
 var // Bind a number of an object's methods to that object. Remaining arguments
 // are the method names to be bound. Useful for ensuring that all callbacks
 // defined on an object belong to it.
-$3e50e9ae1adafbae$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(obj, keys) {
-    keys = (0, $84LcQ.default)(keys, false, false);
+$fa5b6e95a13c9280$export$2e2bcd8739ae039 = (0, $aR308.default)(function(obj, keys) {
+    keys = (0, $AjTZq.default)(keys, false, false);
     var index = keys.length;
     if (index < 1) throw new Error('bindAll must be passed function names');
     while(index--){
         var key = keys[index];
-        obj[key] = (0, $3DO6g.default)(obj[key], obj);
+        obj[key] = (0, $9FHT5.default)(obj[key], obj);
     }
     return obj;
 });
 
 });
-parcelRegister("84LcQ", function(module, exports) {
+parcelRegister("AjTZq", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $5e1350a38b94008a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $06d2cd0ad7271685$export$2e2bcd8739ae039);
 
-var $2wFEM = parcelRequire("2wFEM");
+var $elsid = parcelRequire("elsid");
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $3OYK3 = parcelRequire("3OYK3");
+var $cyywg = parcelRequire("cyywg");
 
-var $cpHyG = parcelRequire("cpHyG");
-function $5e1350a38b94008a$export$2e2bcd8739ae039(input, depth, strict) {
+var $1zNEm = parcelRequire("1zNEm");
+function $06d2cd0ad7271685$export$2e2bcd8739ae039(input, depth, strict) {
     if (!depth && depth !== 0) depth = Infinity;
-    var output = [], idx = 0, i = 0, length = (0, $2wFEM.default)(input) || 0, stack = [];
+    var output = [], idx = 0, i = 0, length = (0, $elsid.default)(input) || 0, stack = [];
     while(true){
         if (i >= length) {
             if (!stack.length) break;
             var frame = stack.pop();
             i = frame.i;
             input = frame.v;
-            length = (0, $2wFEM.default)(input);
+            length = (0, $elsid.default)(input);
             continue;
         }
         var value = input[i++];
         if (stack.length >= depth) output[idx++] = value;
-        else if ((0, $7zS32.default)(value) && ((0, $3OYK3.default)(value) || (0, $cpHyG.default)(value))) {
+        else if ((0, $2Tfh9.default)(value) && ((0, $cyywg.default)(value) || (0, $1zNEm.default)(value))) {
             // Flatten current level of array or arguments object.
             stack.push({
                 i: i,
@@ -19337,40 +19337,40 @@ function $5e1350a38b94008a$export$2e2bcd8739ae039(input, depth, strict) {
             });
             i = 0;
             input = value;
-            length = (0, $2wFEM.default)(input);
+            length = (0, $elsid.default)(input);
         } else if (!strict) output[idx++] = value;
     }
     return output;
 }
 
 });
-parcelRegister("7zS32", function(module, exports) {
+parcelRegister("2Tfh9", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $5845ba17bbaffe57$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $21ac91410e9a0abe$export$2e2bcd8739ae039);
 
-var $lTloK = parcelRequire("lTloK");
+var $g2dNZ = parcelRequire("g2dNZ");
 
-var $2wFEM = parcelRequire("2wFEM");
+var $elsid = parcelRequire("elsid");
 var // Internal helper for collection methods to determine whether a collection
 // should be iterated as an array or as an object.
 // Related: https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
 // Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
-$5845ba17bbaffe57$export$2e2bcd8739ae039 = (0, $lTloK.default)((0, $2wFEM.default));
+$21ac91410e9a0abe$export$2e2bcd8739ae039 = (0, $g2dNZ.default)((0, $elsid.default));
 
 });
 
 
 
-parcelRegister("ftmph", function(module, exports) {
+parcelRegister("2wRsQ", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $b43af1f63e3a2730$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $1d780acd7c9ae9ac$export$2e2bcd8739ae039);
 
-var $eqZxE = parcelRequire("eqZxE");
-function $b43af1f63e3a2730$export$2e2bcd8739ae039(func, hasher) {
+var $9JuPB = parcelRequire("9JuPB");
+function $1d780acd7c9ae9ac$export$2e2bcd8739ae039(func, hasher) {
     var memoize = function(key) {
         var cache = memoize.cache;
         var address = '' + (hasher ? hasher.apply(this, arguments) : key);
-        if (!(0, $eqZxE.default)(cache, address)) cache[address] = func.apply(this, arguments);
+        if (!(0, $9JuPB.default)(cache, address)) cache[address] = func.apply(this, arguments);
         return cache[address];
     };
     memoize.cache = {};
@@ -19379,14 +19379,14 @@ function $b43af1f63e3a2730$export$2e2bcd8739ae039(func, hasher) {
 
 });
 
-parcelRegister("f3eIC", function(module, exports) {
+parcelRegister("a08Df", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $af528daac9222e2d$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $748099972539e0e5$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 var // Delays a function for the given number of milliseconds, and then calls
 // it with the arguments supplied.
-$af528daac9222e2d$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(func, wait, args) {
+$748099972539e0e5$export$2e2bcd8739ae039 = (0, $aR308.default)(function(func, wait, args) {
     return setTimeout(function() {
         return func.apply(null, args);
     }, wait);
@@ -19394,38 +19394,38 @@ $af528daac9222e2d$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(func, wa
 
 });
 
-parcelRegister("27GPr", function(module, exports) {
+parcelRegister("e7EzS", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $18bd751f5de8bde8$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $a4813207dadeb2fd$export$2e2bcd8739ae039);
 
-var $hjxCz = parcelRequire("hjxCz");
+var $befnt = parcelRequire("befnt");
 
-var $f3eIC = parcelRequire("f3eIC");
+var $a08Df = parcelRequire("a08Df");
 
-var $7EDY8 = parcelRequire("7EDY8");
+var $jx45o = parcelRequire("jx45o");
 var // Defers a function, scheduling it to run after the current call stack has
 // cleared.
-$18bd751f5de8bde8$export$2e2bcd8739ae039 = (0, $hjxCz.default)((0, $f3eIC.default), (0, $7EDY8.default), 1);
+$a4813207dadeb2fd$export$2e2bcd8739ae039 = (0, $befnt.default)((0, $a08Df.default), (0, $jx45o.default), 1);
 
 });
 
-parcelRegister("6E5ZP", function(module, exports) {
+parcelRegister("8WK45", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $4d6b213eafbd4b65$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $68377907ddb5b7ee$export$2e2bcd8739ae039);
 
-var $cbWDV = parcelRequire("cbWDV");
-function $4d6b213eafbd4b65$export$2e2bcd8739ae039(func, wait, options) {
+var $27EqT = parcelRequire("27EqT");
+function $68377907ddb5b7ee$export$2e2bcd8739ae039(func, wait, options) {
     var timeout, context, args, result;
     var previous = 0;
     if (!options) options = {};
     var later = function() {
-        previous = options.leading === false ? 0 : (0, $cbWDV.default)();
+        previous = options.leading === false ? 0 : (0, $27EqT.default)();
         timeout = null;
         result = func.apply(context, args);
         if (!timeout) context = args = null;
     };
     var throttled = function() {
-        var _now = (0, $cbWDV.default)();
+        var _now = (0, $27EqT.default)();
         if (!previous && options.leading === false) previous = _now;
         var remaining = wait - (_now - previous);
         context = this;
@@ -19451,17 +19451,17 @@ function $4d6b213eafbd4b65$export$2e2bcd8739ae039(func, wait, options) {
 
 });
 
-parcelRegister("gHoNn", function(module, exports) {
+parcelRegister("4fnjh", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $c283e556272a0a9a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $317aa500fa7bac3d$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $cbWDV = parcelRequire("cbWDV");
-function $c283e556272a0a9a$export$2e2bcd8739ae039(func, wait, immediate) {
+var $27EqT = parcelRequire("27EqT");
+function $317aa500fa7bac3d$export$2e2bcd8739ae039(func, wait, immediate) {
     var timeout, previous, args, result, context;
     var later = function() {
-        var passed = (0, $cbWDV.default)() - previous;
+        var passed = (0, $27EqT.default)() - previous;
         if (wait > passed) timeout = setTimeout(later, wait - passed);
         else {
             timeout = null;
@@ -19470,10 +19470,10 @@ function $c283e556272a0a9a$export$2e2bcd8739ae039(func, wait, immediate) {
             if (!timeout) args = context = null;
         }
     };
-    var debounced = (0, $3oj8B.default)(function(_args) {
+    var debounced = (0, $aR308.default)(function(_args) {
         context = this;
         args = _args;
-        previous = (0, $cbWDV.default)();
+        previous = (0, $27EqT.default)();
         if (!timeout) {
             timeout = setTimeout(later, wait);
             if (immediate) result = func.apply(context, args);
@@ -19489,22 +19489,22 @@ function $c283e556272a0a9a$export$2e2bcd8739ae039(func, wait, immediate) {
 
 });
 
-parcelRegister("9h2WR", function(module, exports) {
+parcelRegister("ffEMf", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $6c07fd11a5f9f6b9$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $b1a7e338540a694c$export$2e2bcd8739ae039);
 
-var $hjxCz = parcelRequire("hjxCz");
-function $6c07fd11a5f9f6b9$export$2e2bcd8739ae039(func, wrapper) {
-    return (0, $hjxCz.default)(wrapper, func);
+var $befnt = parcelRequire("befnt");
+function $b1a7e338540a694c$export$2e2bcd8739ae039(func, wrapper) {
+    return (0, $befnt.default)(wrapper, func);
 }
 
 });
 
-parcelRegister("ib2Sd", function(module, exports) {
+parcelRegister("9zn7o", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $d3bb7bab97eb6d4a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $6f7950bab42e20f3$export$2e2bcd8739ae039);
 // Returns a negated version of the passed-in predicate.
-function $d3bb7bab97eb6d4a$export$2e2bcd8739ae039(predicate) {
+function $6f7950bab42e20f3$export$2e2bcd8739ae039(predicate) {
     return function() {
         return !predicate.apply(this, arguments);
     };
@@ -19512,12 +19512,12 @@ function $d3bb7bab97eb6d4a$export$2e2bcd8739ae039(predicate) {
 
 });
 
-parcelRegister("bYRC9", function(module, exports) {
+parcelRegister("9qHOS", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $8b8ee30121a217ff$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $6dd88869730beee5$export$2e2bcd8739ae039);
 // Returns a function that is the composition of a list of functions, each
 // consuming the return value of the function that follows.
-function $8b8ee30121a217ff$export$2e2bcd8739ae039() {
+function $6dd88869730beee5$export$2e2bcd8739ae039() {
     var args = arguments;
     var start = args.length - 1;
     return function() {
@@ -19530,11 +19530,11 @@ function $8b8ee30121a217ff$export$2e2bcd8739ae039() {
 
 });
 
-parcelRegister("2dae5", function(module, exports) {
+parcelRegister("8vyMb", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $19c4ba6284706ac2$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $631c31d0a71f29d0$export$2e2bcd8739ae039);
 // Returns a function that will only be executed on and after the Nth call.
-function $19c4ba6284706ac2$export$2e2bcd8739ae039(times, func) {
+function $631c31d0a71f29d0$export$2e2bcd8739ae039(times, func) {
     return function() {
         if (--times < 1) return func.apply(this, arguments);
     };
@@ -19542,12 +19542,12 @@ function $19c4ba6284706ac2$export$2e2bcd8739ae039(times, func) {
 
 });
 
-parcelRegister("5XeeG", function(module, exports) {
+parcelRegister("2pOYn", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $455d815c8f4cbbcd$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $1c2574b00031c342$export$2e2bcd8739ae039);
 // Returns a function that will only be executed up to (but not including) the
 // Nth call.
-function $455d815c8f4cbbcd$export$2e2bcd8739ae039(times, func) {
+function $1c2574b00031c342$export$2e2bcd8739ae039(times, func) {
     var memo;
     return function() {
         if (--times > 0) memo = func.apply(this, arguments);
@@ -19558,29 +19558,29 @@ function $455d815c8f4cbbcd$export$2e2bcd8739ae039(times, func) {
 
 });
 
-parcelRegister("kmHyw", function(module, exports) {
+parcelRegister("4cq9i", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $ed37a605da9cc9c7$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $30ec9108a752f73d$export$2e2bcd8739ae039);
 
-var $hjxCz = parcelRequire("hjxCz");
+var $befnt = parcelRequire("befnt");
 
-var $5XeeG = parcelRequire("5XeeG");
+var $2pOYn = parcelRequire("2pOYn");
 var // Returns a function that will be executed at most one time, no matter how
 // often you call it. Useful for lazy initialization.
-$ed37a605da9cc9c7$export$2e2bcd8739ae039 = (0, $hjxCz.default)((0, $5XeeG.default), 2);
+$30ec9108a752f73d$export$2e2bcd8739ae039 = (0, $befnt.default)((0, $2pOYn.default), 2);
 
 });
 
-parcelRegister("bbRWg", function(module, exports) {
+parcelRegister("7ftHi", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $825a8fe2b92b5079$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $5470f8608dd67f63$export$2e2bcd8739ae039);
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $9geeU = parcelRequire("9geeU");
-function $825a8fe2b92b5079$export$2e2bcd8739ae039(obj, predicate, context) {
-    predicate = (0, $fyI93.default)(predicate, context);
-    var _keys = (0, $9geeU.default)(obj), key;
+var $cZNkK = parcelRequire("cZNkK");
+function $5470f8608dd67f63$export$2e2bcd8739ae039(obj, predicate, context) {
+    predicate = (0, $ilkoh.default)(predicate, context);
+    var _keys = (0, $cZNkK.default)(obj), key;
     for(var i = 0, length = _keys.length; i < length; i++){
         key = _keys[i];
         if (predicate(obj[key], key, obj)) return key;
@@ -19589,26 +19589,26 @@ function $825a8fe2b92b5079$export$2e2bcd8739ae039(obj, predicate, context) {
 
 });
 
-parcelRegister("fEj2g", function(module, exports) {
+parcelRegister("fth89", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $b6495b844d087959$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $b436da35bdc2c979$export$2e2bcd8739ae039);
 
-var $4bjOq = parcelRequire("4bjOq");
+var $7O0Wr = parcelRequire("7O0Wr");
 var // Returns the first index on an array-like that passes a truth test.
-$b6495b844d087959$export$2e2bcd8739ae039 = (0, $4bjOq.default)(1);
+$b436da35bdc2c979$export$2e2bcd8739ae039 = (0, $7O0Wr.default)(1);
 
 });
-parcelRegister("4bjOq", function(module, exports) {
+parcelRegister("7O0Wr", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $30b78ed497dca78b$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $5aedeee48fa616c7$export$2e2bcd8739ae039);
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $2wFEM = parcelRequire("2wFEM");
-function $30b78ed497dca78b$export$2e2bcd8739ae039(dir) {
+var $elsid = parcelRequire("elsid");
+function $5aedeee48fa616c7$export$2e2bcd8739ae039(dir) {
     return function(array, predicate, context) {
-        predicate = (0, $fyI93.default)(predicate, context);
-        var length = (0, $2wFEM.default)(array);
+        predicate = (0, $ilkoh.default)(predicate, context);
+        var length = (0, $elsid.default)(array);
         var index = dir > 0 ? 0 : length - 1;
         for(; index >= 0 && index < length; index += dir){
             if (predicate(array[index], index, array)) return index;
@@ -19620,27 +19620,27 @@ function $30b78ed497dca78b$export$2e2bcd8739ae039(dir) {
 });
 
 
-parcelRegister("av1Zy", function(module, exports) {
+parcelRegister("fVKNI", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $7a4e582944e4fd2a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $b9907b8aa0fb982a$export$2e2bcd8739ae039);
 
-var $4bjOq = parcelRequire("4bjOq");
+var $7O0Wr = parcelRequire("7O0Wr");
 var // Returns the last index on an array-like that passes a truth test.
-$7a4e582944e4fd2a$export$2e2bcd8739ae039 = (0, $4bjOq.default)(-1);
+$b9907b8aa0fb982a$export$2e2bcd8739ae039 = (0, $7O0Wr.default)(-1);
 
 });
 
-parcelRegister("GSsrZ", function(module, exports) {
+parcelRegister("1zMAn", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $080e2a8f09d3be67$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $125ebf75b91f9033$export$2e2bcd8739ae039);
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $2wFEM = parcelRequire("2wFEM");
-function $080e2a8f09d3be67$export$2e2bcd8739ae039(array, obj, iteratee, context) {
-    iteratee = (0, $fyI93.default)(iteratee, context, 1);
+var $elsid = parcelRequire("elsid");
+function $125ebf75b91f9033$export$2e2bcd8739ae039(array, obj, iteratee, context) {
+    iteratee = (0, $ilkoh.default)(iteratee, context, 1);
     var value = iteratee(obj);
-    var low = 0, high = (0, $2wFEM.default)(array);
+    var low = 0, high = (0, $elsid.default)(array);
     while(low < high){
         var mid = Math.floor((low + high) / 2);
         if (iteratee(array[mid]) < value) low = mid + 1;
@@ -19651,34 +19651,34 @@ function $080e2a8f09d3be67$export$2e2bcd8739ae039(array, obj, iteratee, context)
 
 });
 
-parcelRegister("6hyBW", function(module, exports) {
+parcelRegister("2kH4r", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $492f2d9bcee12512$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $1b2edbf40f213d1d$export$2e2bcd8739ae039);
 
-var $GSsrZ = parcelRequire("GSsrZ");
+var $1zMAn = parcelRequire("1zMAn");
 
-var $fEj2g = parcelRequire("fEj2g");
+var $fth89 = parcelRequire("fth89");
 
-var $drY1S = parcelRequire("drY1S");
+var $e3KtC = parcelRequire("e3KtC");
 var // Return the position of the first occurrence of an item in an array,
 // or -1 if the item is not included in the array.
 // If the array is large and already in sort order, pass `true`
 // for **isSorted** to use binary search.
-$492f2d9bcee12512$export$2e2bcd8739ae039 = (0, $drY1S.default)(1, (0, $fEj2g.default), (0, $GSsrZ.default));
+$1b2edbf40f213d1d$export$2e2bcd8739ae039 = (0, $e3KtC.default)(1, (0, $fth89.default), (0, $1zMAn.default));
 
 });
-parcelRegister("drY1S", function(module, exports) {
+parcelRegister("e3KtC", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $9cac5c8620b9b52a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $a3c565cd8ca7053b$export$2e2bcd8739ae039);
 
-var $2wFEM = parcelRequire("2wFEM");
+var $elsid = parcelRequire("elsid");
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $01ayK = parcelRequire("01ayK");
-function $9cac5c8620b9b52a$export$2e2bcd8739ae039(dir, predicateFind, sortedIndex) {
+var $gGAlU = parcelRequire("gGAlU");
+function $a3c565cd8ca7053b$export$2e2bcd8739ae039(dir, predicateFind, sortedIndex) {
     return function(array, item, idx) {
-        var i = 0, length = (0, $2wFEM.default)(array);
+        var i = 0, length = (0, $elsid.default)(array);
         if (typeof idx == 'number') {
             if (dir > 0) i = idx >= 0 ? idx : Math.max(idx + length, i);
             else length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
@@ -19687,7 +19687,7 @@ function $9cac5c8620b9b52a$export$2e2bcd8739ae039(dir, predicateFind, sortedInde
             return array[idx] === item ? idx : -1;
         }
         if (item !== item) {
-            idx = predicateFind((0, $djUPf.slice).call(array, i, length), (0, $01ayK.default));
+            idx = predicateFind((0, $ai7Cu.slice).call(array, i, length), (0, $gGAlU.default));
             return idx >= 0 ? idx + i : -1;
         }
         for(idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir){
@@ -19700,64 +19700,64 @@ function $9cac5c8620b9b52a$export$2e2bcd8739ae039(dir, predicateFind, sortedInde
 });
 
 
-parcelRegister("kMz8I", function(module, exports) {
+parcelRegister("40qbi", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $f2138c560c11500e$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $2eab7892235df2a9$export$2e2bcd8739ae039);
 
-var $av1Zy = parcelRequire("av1Zy");
+var $fVKNI = parcelRequire("fVKNI");
 
-var $drY1S = parcelRequire("drY1S");
+var $e3KtC = parcelRequire("e3KtC");
 var // Return the position of the last occurrence of an item in an array,
 // or -1 if the item is not included in the array.
-$f2138c560c11500e$export$2e2bcd8739ae039 = (0, $drY1S.default)(-1, (0, $av1Zy.default));
+$2eab7892235df2a9$export$2e2bcd8739ae039 = (0, $e3KtC.default)(-1, (0, $fVKNI.default));
 
 });
 
-parcelRegister("4Kxf7", function(module, exports) {
+parcelRegister("1IE0p", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $37553ea69bffb254$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $1408eec6f4d080a9$export$2e2bcd8739ae039);
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $fEj2g = parcelRequire("fEj2g");
+var $fth89 = parcelRequire("fth89");
 
-var $bbRWg = parcelRequire("bbRWg");
-function $37553ea69bffb254$export$2e2bcd8739ae039(obj, predicate, context) {
-    var keyFinder = (0, $7zS32.default)(obj) ? (0, $fEj2g.default) : (0, $bbRWg.default);
+var $7ftHi = parcelRequire("7ftHi");
+function $1408eec6f4d080a9$export$2e2bcd8739ae039(obj, predicate, context) {
+    var keyFinder = (0, $2Tfh9.default)(obj) ? (0, $fth89.default) : (0, $7ftHi.default);
     var key = keyFinder(obj, predicate, context);
     if (key !== void 0 && key !== -1) return obj[key];
 }
 
 });
 
-parcelRegister("gIFaP", function(module, exports) {
+parcelRegister("178RT", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $c2c0b19c203103e5$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $0cfd52ee42f65457$export$2e2bcd8739ae039);
 
-var $4Kxf7 = parcelRequire("4Kxf7");
+var $1IE0p = parcelRequire("1IE0p");
 
-var $glHiv = parcelRequire("glHiv");
-function $c2c0b19c203103e5$export$2e2bcd8739ae039(obj, attrs) {
-    return (0, $4Kxf7.default)(obj, (0, $glHiv.default)(attrs));
+var $euJXL = parcelRequire("euJXL");
+function $0cfd52ee42f65457$export$2e2bcd8739ae039(obj, attrs) {
+    return (0, $1IE0p.default)(obj, (0, $euJXL.default)(attrs));
 }
 
 });
 
-parcelRegister("hkCoB", function(module, exports) {
+parcelRegister("4lteh", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $c9e2168e2044786a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $329fcbea01480a01$export$2e2bcd8739ae039);
 
-var $iWdgq = parcelRequire("iWdgq");
+var $2as0M = parcelRequire("2as0M");
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $9geeU = parcelRequire("9geeU");
-function $c9e2168e2044786a$export$2e2bcd8739ae039(obj, iteratee, context) {
-    iteratee = (0, $iWdgq.default)(iteratee, context);
+var $cZNkK = parcelRequire("cZNkK");
+function $329fcbea01480a01$export$2e2bcd8739ae039(obj, iteratee, context) {
+    iteratee = (0, $2as0M.default)(iteratee, context);
     var i, length;
-    if ((0, $7zS32.default)(obj)) for(i = 0, length = obj.length; i < length; i++)iteratee(obj[i], i, obj);
+    if ((0, $2Tfh9.default)(obj)) for(i = 0, length = obj.length; i < length; i++)iteratee(obj[i], i, obj);
     else {
-        var _keys = (0, $9geeU.default)(obj);
+        var _keys = (0, $cZNkK.default)(obj);
         for(i = 0, length = _keys.length; i < length; i++)iteratee(obj[_keys[i]], _keys[i], obj);
     }
     return obj;
@@ -19765,18 +19765,18 @@ function $c9e2168e2044786a$export$2e2bcd8739ae039(obj, iteratee, context) {
 
 });
 
-parcelRegister("83HM3", function(module, exports) {
+parcelRegister("jeKyO", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $5de08f2ad7fa2229$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $e0137115510ca864$export$2e2bcd8739ae039);
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $9geeU = parcelRequire("9geeU");
-function $5de08f2ad7fa2229$export$2e2bcd8739ae039(obj, iteratee, context) {
-    iteratee = (0, $fyI93.default)(iteratee, context);
-    var _keys = !(0, $7zS32.default)(obj) && (0, $9geeU.default)(obj), length = (_keys || obj).length, results = Array(length);
+var $cZNkK = parcelRequire("cZNkK");
+function $e0137115510ca864$export$2e2bcd8739ae039(obj, iteratee, context) {
+    iteratee = (0, $ilkoh.default)(iteratee, context);
+    var _keys = !(0, $2Tfh9.default)(obj) && (0, $cZNkK.default)(obj), length = (_keys || obj).length, results = Array(length);
     for(var index = 0; index < length; index++){
         var currentKey = _keys ? _keys[index] : index;
         results[index] = iteratee(obj[currentKey], currentKey, obj);
@@ -19786,30 +19786,30 @@ function $5de08f2ad7fa2229$export$2e2bcd8739ae039(obj, iteratee, context) {
 
 });
 
-parcelRegister("3xn7b", function(module, exports) {
+parcelRegister("aRBnt", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $2936624edfc0d27b$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $7e8bd90aa8ded5a4$export$2e2bcd8739ae039);
 
-var $cLjIr = parcelRequire("cLjIr");
+var $lNlP9 = parcelRequire("lNlP9");
 var // **Reduce** builds up a single result from a list of values, aka `inject`,
 // or `foldl`.
-$2936624edfc0d27b$export$2e2bcd8739ae039 = (0, $cLjIr.default)(1);
+$7e8bd90aa8ded5a4$export$2e2bcd8739ae039 = (0, $lNlP9.default)(1);
 
 });
-parcelRegister("cLjIr", function(module, exports) {
+parcelRegister("lNlP9", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $94a92af44a9c1984$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $fddf1a654b0a849a$export$2e2bcd8739ae039);
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $9geeU = parcelRequire("9geeU");
+var $cZNkK = parcelRequire("cZNkK");
 
-var $iWdgq = parcelRequire("iWdgq");
-function $94a92af44a9c1984$export$2e2bcd8739ae039(dir) {
+var $2as0M = parcelRequire("2as0M");
+function $fddf1a654b0a849a$export$2e2bcd8739ae039(dir) {
     // Wrap code that reassigns argument variables in a separate function than
     // the one that accesses `arguments.length` to avoid a perf hit. (#1991)
     var reducer = function(obj, iteratee, memo, initial) {
-        var _keys = !(0, $7zS32.default)(obj) && (0, $9geeU.default)(obj), length = (_keys || obj).length, index = dir > 0 ? 0 : length - 1;
+        var _keys = !(0, $2Tfh9.default)(obj) && (0, $cZNkK.default)(obj), length = (_keys || obj).length, index = dir > 0 ? 0 : length - 1;
         if (!initial) {
             memo = obj[_keys ? _keys[index] : index];
             index += dir;
@@ -19822,34 +19822,34 @@ function $94a92af44a9c1984$export$2e2bcd8739ae039(dir) {
     };
     return function(obj, iteratee, memo, context) {
         var initial = arguments.length >= 3;
-        return reducer(obj, (0, $iWdgq.default)(iteratee, context, 4), memo, initial);
+        return reducer(obj, (0, $2as0M.default)(iteratee, context, 4), memo, initial);
     };
 }
 
 });
 
 
-parcelRegister("k4Z4s", function(module, exports) {
+parcelRegister("h1SMw", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $e9e38dc328499b34$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $c65d06259a21de33$export$2e2bcd8739ae039);
 
-var $cLjIr = parcelRequire("cLjIr");
+var $lNlP9 = parcelRequire("lNlP9");
 var // The right-associative version of reduce, also known as `foldr`.
-$e9e38dc328499b34$export$2e2bcd8739ae039 = (0, $cLjIr.default)(-1);
+$c65d06259a21de33$export$2e2bcd8739ae039 = (0, $lNlP9.default)(-1);
 
 });
 
-parcelRegister("kSDdi", function(module, exports) {
+parcelRegister("cjMI3", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $f33744c93f527eaa$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $8f7d0b18c27c490f$export$2e2bcd8739ae039);
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $hkCoB = parcelRequire("hkCoB");
-function $f33744c93f527eaa$export$2e2bcd8739ae039(obj, predicate, context) {
+var $4lteh = parcelRequire("4lteh");
+function $8f7d0b18c27c490f$export$2e2bcd8739ae039(obj, predicate, context) {
     var results = [];
-    predicate = (0, $fyI93.default)(predicate, context);
-    (0, $hkCoB.default)(obj, function(value, index, list) {
+    predicate = (0, $ilkoh.default)(predicate, context);
+    (0, $4lteh.default)(obj, function(value, index, list) {
         if (predicate(value, index, list)) results.push(value);
     });
     return results;
@@ -19857,33 +19857,33 @@ function $f33744c93f527eaa$export$2e2bcd8739ae039(obj, predicate, context) {
 
 });
 
-parcelRegister("bWUm9", function(module, exports) {
+parcelRegister("fk6tV", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $8b30d3b0acfee996$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $b27dc067f95a8655$export$2e2bcd8739ae039);
 
-var $kSDdi = parcelRequire("kSDdi");
+var $cjMI3 = parcelRequire("cjMI3");
 
-var $ib2Sd = parcelRequire("ib2Sd");
+var $9zn7o = parcelRequire("9zn7o");
 
-var $fyI93 = parcelRequire("fyI93");
-function $8b30d3b0acfee996$export$2e2bcd8739ae039(obj, predicate, context) {
-    return (0, $kSDdi.default)(obj, (0, $ib2Sd.default)((0, $fyI93.default)(predicate)), context);
+var $ilkoh = parcelRequire("ilkoh");
+function $b27dc067f95a8655$export$2e2bcd8739ae039(obj, predicate, context) {
+    return (0, $cjMI3.default)(obj, (0, $9zn7o.default)((0, $ilkoh.default)(predicate)), context);
 }
 
 });
 
-parcelRegister("lT5Ea", function(module, exports) {
+parcelRegister("k2Y61", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $fef31d65cee03282$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $e9829c5df4aa772d$export$2e2bcd8739ae039);
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $9geeU = parcelRequire("9geeU");
-function $fef31d65cee03282$export$2e2bcd8739ae039(obj, predicate, context) {
-    predicate = (0, $fyI93.default)(predicate, context);
-    var _keys = !(0, $7zS32.default)(obj) && (0, $9geeU.default)(obj), length = (_keys || obj).length;
+var $cZNkK = parcelRequire("cZNkK");
+function $e9829c5df4aa772d$export$2e2bcd8739ae039(obj, predicate, context) {
+    predicate = (0, $ilkoh.default)(predicate, context);
+    var _keys = !(0, $2Tfh9.default)(obj) && (0, $cZNkK.default)(obj), length = (_keys || obj).length;
     for(var index = 0; index < length; index++){
         var currentKey = _keys ? _keys[index] : index;
         if (!predicate(obj[currentKey], currentKey, obj)) return false;
@@ -19893,18 +19893,18 @@ function $fef31d65cee03282$export$2e2bcd8739ae039(obj, predicate, context) {
 
 });
 
-parcelRegister("gkhV6", function(module, exports) {
+parcelRegister("1Wj0k", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $be2c6a27b7b4a035$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $1699f3118bb2968d$export$2e2bcd8739ae039);
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $9geeU = parcelRequire("9geeU");
-function $be2c6a27b7b4a035$export$2e2bcd8739ae039(obj, predicate, context) {
-    predicate = (0, $fyI93.default)(predicate, context);
-    var _keys = !(0, $7zS32.default)(obj) && (0, $9geeU.default)(obj), length = (_keys || obj).length;
+var $cZNkK = parcelRequire("cZNkK");
+function $1699f3118bb2968d$export$2e2bcd8739ae039(obj, predicate, context) {
+    predicate = (0, $ilkoh.default)(predicate, context);
+    var _keys = !(0, $2Tfh9.default)(obj) && (0, $cZNkK.default)(obj), length = (_keys || obj).length;
     for(var index = 0; index < length; index++){
         var currentKey = _keys ? _keys[index] : index;
         if (predicate(obj[currentKey], currentKey, obj)) return true;
@@ -19914,49 +19914,49 @@ function $be2c6a27b7b4a035$export$2e2bcd8739ae039(obj, predicate, context) {
 
 });
 
-parcelRegister("hTxcZ", function(module, exports) {
+parcelRegister("eIVEB", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $d071553a0b284864$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $ab81e596febaa989$export$2e2bcd8739ae039);
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $7qgmo = parcelRequire("7qgmo");
+var $aAqcJ = parcelRequire("aAqcJ");
 
-var $6hyBW = parcelRequire("6hyBW");
-function $d071553a0b284864$export$2e2bcd8739ae039(obj, item, fromIndex, guard) {
-    if (!(0, $7zS32.default)(obj)) obj = (0, $7qgmo.default)(obj);
+var $2kH4r = parcelRequire("2kH4r");
+function $ab81e596febaa989$export$2e2bcd8739ae039(obj, item, fromIndex, guard) {
+    if (!(0, $2Tfh9.default)(obj)) obj = (0, $aAqcJ.default)(obj);
     if (typeof fromIndex != 'number' || guard) fromIndex = 0;
-    return (0, $6hyBW.default)(obj, item, fromIndex) >= 0;
+    return (0, $2kH4r.default)(obj, item, fromIndex) >= 0;
 }
 
 });
 
-parcelRegister("h6OqW", function(module, exports) {
+parcelRegister("3ywKp", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $c74a1e402167e2ff$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $296df30ccfa5399a$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $2TtDP = parcelRequire("2TtDP");
+var $cgDwf = parcelRequire("cgDwf");
 
-var $83HM3 = parcelRequire("83HM3");
+var $jeKyO = parcelRequire("jeKyO");
 
-var $bgKHv = parcelRequire("bgKHv");
+var $gJjXY = parcelRequire("gJjXY");
 
-var $cSm4f = parcelRequire("cSm4f");
+var $k2Yo8 = parcelRequire("k2Yo8");
 var // Invoke a method (with arguments) on every item in a collection.
-$c74a1e402167e2ff$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(obj, path, args) {
+$296df30ccfa5399a$export$2e2bcd8739ae039 = (0, $aR308.default)(function(obj, path, args) {
     var contextPath, func;
-    if ((0, $2TtDP.default)(path)) func = path;
+    if ((0, $cgDwf.default)(path)) func = path;
     else {
-        path = (0, $cSm4f.default)(path);
+        path = (0, $k2Yo8.default)(path);
         contextPath = path.slice(0, -1);
         path = path[path.length - 1];
     }
-    return (0, $83HM3.default)(obj, function(context) {
+    return (0, $jeKyO.default)(obj, function(context) {
         var method = func;
         if (!method) {
-            if (contextPath && contextPath.length) context = (0, $bgKHv.default)(context, contextPath);
+            if (contextPath && contextPath.length) context = (0, $gJjXY.default)(context, contextPath);
             if (context == null) return void 0;
             method = context[path];
         }
@@ -19966,54 +19966,54 @@ $c74a1e402167e2ff$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(obj, pat
 
 });
 
-parcelRegister("lKeG9", function(module, exports) {
+parcelRegister("UUsLf", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $0415d3bce9c9cae7$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $0ab1076e5680aa83$export$2e2bcd8739ae039);
 
-var $83HM3 = parcelRequire("83HM3");
+var $jeKyO = parcelRequire("jeKyO");
 
-var $jvDeG = parcelRequire("jvDeG");
-function $0415d3bce9c9cae7$export$2e2bcd8739ae039(obj, key) {
-    return (0, $83HM3.default)(obj, (0, $jvDeG.default)(key));
+var $7yVnD = parcelRequire("7yVnD");
+function $0ab1076e5680aa83$export$2e2bcd8739ae039(obj, key) {
+    return (0, $jeKyO.default)(obj, (0, $7yVnD.default)(key));
 }
 
 });
 
-parcelRegister("8exW3", function(module, exports) {
+parcelRegister("9S3rJ", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $5fe9f45e2dd4492a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $72fbd48d9d049c97$export$2e2bcd8739ae039);
 
-var $kSDdi = parcelRequire("kSDdi");
+var $cjMI3 = parcelRequire("cjMI3");
 
-var $glHiv = parcelRequire("glHiv");
-function $5fe9f45e2dd4492a$export$2e2bcd8739ae039(obj, attrs) {
-    return (0, $kSDdi.default)(obj, (0, $glHiv.default)(attrs));
+var $euJXL = parcelRequire("euJXL");
+function $72fbd48d9d049c97$export$2e2bcd8739ae039(obj, attrs) {
+    return (0, $cjMI3.default)(obj, (0, $euJXL.default)(attrs));
 }
 
 });
 
-parcelRegister("dxShQ", function(module, exports) {
+parcelRegister("dz79G", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $9dc877a67fee4aa2$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $9e04181b7a7db964$export$2e2bcd8739ae039);
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $7qgmo = parcelRequire("7qgmo");
+var $aAqcJ = parcelRequire("aAqcJ");
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $hkCoB = parcelRequire("hkCoB");
-function $9dc877a67fee4aa2$export$2e2bcd8739ae039(obj, iteratee, context) {
+var $4lteh = parcelRequire("4lteh");
+function $9e04181b7a7db964$export$2e2bcd8739ae039(obj, iteratee, context) {
     var result = -Infinity, lastComputed = -Infinity, value, computed;
     if (iteratee == null || typeof iteratee == 'number' && typeof obj[0] != 'object' && obj != null) {
-        obj = (0, $7zS32.default)(obj) ? obj : (0, $7qgmo.default)(obj);
+        obj = (0, $2Tfh9.default)(obj) ? obj : (0, $aAqcJ.default)(obj);
         for(var i = 0, length = obj.length; i < length; i++){
             value = obj[i];
             if (value != null && value > result) result = value;
         }
     } else {
-        iteratee = (0, $fyI93.default)(iteratee, context);
-        (0, $hkCoB.default)(obj, function(v, index, list) {
+        iteratee = (0, $ilkoh.default)(iteratee, context);
+        (0, $4lteh.default)(obj, function(v, index, list) {
             computed = iteratee(v, index, list);
             if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
                 result = v;
@@ -20026,28 +20026,28 @@ function $9dc877a67fee4aa2$export$2e2bcd8739ae039(obj, iteratee, context) {
 
 });
 
-parcelRegister("jQAOl", function(module, exports) {
+parcelRegister("jlBxd", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $e72f6d8da6f97a19$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $e15d181c82acbb6f$export$2e2bcd8739ae039);
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $7qgmo = parcelRequire("7qgmo");
+var $aAqcJ = parcelRequire("aAqcJ");
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $hkCoB = parcelRequire("hkCoB");
-function $e72f6d8da6f97a19$export$2e2bcd8739ae039(obj, iteratee, context) {
+var $4lteh = parcelRequire("4lteh");
+function $e15d181c82acbb6f$export$2e2bcd8739ae039(obj, iteratee, context) {
     var result = Infinity, lastComputed = Infinity, value, computed;
     if (iteratee == null || typeof iteratee == 'number' && typeof obj[0] != 'object' && obj != null) {
-        obj = (0, $7zS32.default)(obj) ? obj : (0, $7qgmo.default)(obj);
+        obj = (0, $2Tfh9.default)(obj) ? obj : (0, $aAqcJ.default)(obj);
         for(var i = 0, length = obj.length; i < length; i++){
             value = obj[i];
             if (value != null && value < result) result = value;
         }
     } else {
-        iteratee = (0, $fyI93.default)(iteratee, context);
-        (0, $hkCoB.default)(obj, function(v, index, list) {
+        iteratee = (0, $ilkoh.default)(iteratee, context);
+        (0, $4lteh.default)(obj, function(v, index, list) {
             computed = iteratee(v, index, list);
             if (computed < lastComputed || computed === Infinity && result === Infinity) {
                 result = v;
@@ -20060,40 +20060,40 @@ function $e72f6d8da6f97a19$export$2e2bcd8739ae039(obj, iteratee, context) {
 
 });
 
-parcelRegister("2m7Fb", function(module, exports) {
+parcelRegister("hMjDg", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $1b73949767621595$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $cf1625ed43d7a24d$export$2e2bcd8739ae039);
 
-var $gLCuI = parcelRequire("gLCuI");
-function $1b73949767621595$export$2e2bcd8739ae039(obj) {
-    return (0, $gLCuI.default)(obj, Infinity);
+var $e7DzG = parcelRequire("e7DzG");
+function $cf1625ed43d7a24d$export$2e2bcd8739ae039(obj) {
+    return (0, $e7DzG.default)(obj, Infinity);
 }
 
 });
-parcelRegister("gLCuI", function(module, exports) {
+parcelRegister("e7DzG", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $c34ee54b20349717$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $a4806acc4ec1dbec$export$2e2bcd8739ae039);
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $7qgmo = parcelRequire("7qgmo");
+var $aAqcJ = parcelRequire("aAqcJ");
 
-var $2wFEM = parcelRequire("2wFEM");
+var $elsid = parcelRequire("elsid");
 
-var $3NfEk = parcelRequire("3NfEk");
+var $jvVab = parcelRequire("jvVab");
 
-var $c376z = parcelRequire("c376z");
-function $c34ee54b20349717$export$2e2bcd8739ae039(obj, n, guard) {
+var $5aXyu = parcelRequire("5aXyu");
+function $a4806acc4ec1dbec$export$2e2bcd8739ae039(obj, n, guard) {
     if (n == null || guard) {
-        if (!(0, $7zS32.default)(obj)) obj = (0, $7qgmo.default)(obj);
-        return obj[(0, $3NfEk.default)(obj.length - 1)];
+        if (!(0, $2Tfh9.default)(obj)) obj = (0, $aAqcJ.default)(obj);
+        return obj[(0, $jvVab.default)(obj.length - 1)];
     }
-    var sample = (0, $c376z.default)(obj);
-    var length = (0, $2wFEM.default)(sample);
+    var sample = (0, $5aXyu.default)(obj);
+    var length = (0, $elsid.default)(sample);
     n = Math.max(Math.min(n, length), 0);
     var last = length - 1;
     for(var index = 0; index < n; index++){
-        var rand = (0, $3NfEk.default)(index, last);
+        var rand = (0, $jvVab.default)(index, last);
         var temp = sample[index];
         sample[index] = sample[rand];
         sample[rand] = temp;
@@ -20102,51 +20102,51 @@ function $c34ee54b20349717$export$2e2bcd8739ae039(obj, n, guard) {
 }
 
 });
-parcelRegister("c376z", function(module, exports) {
+parcelRegister("5aXyu", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $8c5b46bb78d506c0$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $3c4c155effea405d$export$2e2bcd8739ae039);
 
-var $3OYK3 = parcelRequire("3OYK3");
+var $cyywg = parcelRequire("cyywg");
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $ewcqG = parcelRequire("ewcqG");
+var $eDwrC = parcelRequire("eDwrC");
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $83HM3 = parcelRequire("83HM3");
+var $jeKyO = parcelRequire("jeKyO");
 
-var $f2F1Z = parcelRequire("f2F1Z");
+var $7uReK = parcelRequire("7uReK");
 
-var $7qgmo = parcelRequire("7qgmo");
+var $aAqcJ = parcelRequire("aAqcJ");
 // Safely create a real, live array from anything iterable.
-var $8c5b46bb78d506c0$var$reStrSymbol = /[^\ud800-\udfff]|[\ud800-\udbff][\udc00-\udfff]|[\ud800-\udfff]/g;
-function $8c5b46bb78d506c0$export$2e2bcd8739ae039(obj) {
+var $3c4c155effea405d$var$reStrSymbol = /[^\ud800-\udfff]|[\ud800-\udbff][\udc00-\udfff]|[\ud800-\udfff]/g;
+function $3c4c155effea405d$export$2e2bcd8739ae039(obj) {
     if (!obj) return [];
-    if ((0, $3OYK3.default)(obj)) return (0, $djUPf.slice).call(obj);
-    if ((0, $ewcqG.default)(obj)) // Keep surrogate pair characters together.
-    return obj.match($8c5b46bb78d506c0$var$reStrSymbol);
-    if ((0, $7zS32.default)(obj)) return (0, $83HM3.default)(obj, (0, $f2F1Z.default));
-    return (0, $7qgmo.default)(obj);
+    if ((0, $cyywg.default)(obj)) return (0, $ai7Cu.slice).call(obj);
+    if ((0, $eDwrC.default)(obj)) // Keep surrogate pair characters together.
+    return obj.match($3c4c155effea405d$var$reStrSymbol);
+    if ((0, $2Tfh9.default)(obj)) return (0, $jeKyO.default)(obj, (0, $7uReK.default));
+    return (0, $aAqcJ.default)(obj);
 }
 
 });
 
 
 
-parcelRegister("hKoCG", function(module, exports) {
+parcelRegister("i69gC", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $ceb9d5229a136c4a$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $d2cff9c742d4a097$export$2e2bcd8739ae039);
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $lKeG9 = parcelRequire("lKeG9");
+var $UUsLf = parcelRequire("UUsLf");
 
-var $83HM3 = parcelRequire("83HM3");
-function $ceb9d5229a136c4a$export$2e2bcd8739ae039(obj, iteratee, context) {
+var $jeKyO = parcelRequire("jeKyO");
+function $d2cff9c742d4a097$export$2e2bcd8739ae039(obj, iteratee, context) {
     var index = 0;
-    iteratee = (0, $fyI93.default)(iteratee, context);
-    return (0, $lKeG9.default)((0, $83HM3.default)(obj, function(value, key, list) {
+    iteratee = (0, $ilkoh.default)(iteratee, context);
+    return (0, $UUsLf.default)((0, $jeKyO.default)(obj, function(value, key, list) {
         return {
             value: value,
             index: index++,
@@ -20165,38 +20165,38 @@ function $ceb9d5229a136c4a$export$2e2bcd8739ae039(obj, iteratee, context) {
 
 });
 
-parcelRegister("4Au2M", function(module, exports) {
+parcelRegister("ckkKh", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $3571d448ee075238$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $8f9771e623ed8346$export$2e2bcd8739ae039);
 
-var $eV5xY = parcelRequire("eV5xY");
+var $299K0 = parcelRequire("299K0");
 
-var $eqZxE = parcelRequire("eqZxE");
+var $9JuPB = parcelRequire("9JuPB");
 var // Groups the object's values by a criterion. Pass either a string attribute
 // to group by, or a function that returns the criterion.
-$3571d448ee075238$export$2e2bcd8739ae039 = (0, $eV5xY.default)(function(result, value, key) {
-    if ((0, $eqZxE.default)(result, key)) result[key].push(value);
+$8f9771e623ed8346$export$2e2bcd8739ae039 = (0, $299K0.default)(function(result, value, key) {
+    if ((0, $9JuPB.default)(result, key)) result[key].push(value);
     else result[key] = [
         value
     ];
 });
 
 });
-parcelRegister("eV5xY", function(module, exports) {
+parcelRegister("299K0", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $adcab1172b02fcb9$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $1903fa603c35d705$export$2e2bcd8739ae039);
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $hkCoB = parcelRequire("hkCoB");
-function $adcab1172b02fcb9$export$2e2bcd8739ae039(behavior, partition) {
+var $4lteh = parcelRequire("4lteh");
+function $1903fa603c35d705$export$2e2bcd8739ae039(behavior, partition) {
     return function(obj, iteratee, context) {
         var result = partition ? [
             [],
             []
         ] : {};
-        iteratee = (0, $fyI93.default)(iteratee, context);
-        (0, $hkCoB.default)(obj, function(value, index) {
+        iteratee = (0, $ilkoh.default)(iteratee, context);
+        (0, $4lteh.default)(obj, function(value, index) {
             var key = iteratee(value, index, obj);
             behavior(result, value, key);
         });
@@ -20207,88 +20207,88 @@ function $adcab1172b02fcb9$export$2e2bcd8739ae039(behavior, partition) {
 });
 
 
-parcelRegister("8wNBk", function(module, exports) {
+parcelRegister("cb3Xx", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $6357c99be431b19f$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $8dd9955341a825d5$export$2e2bcd8739ae039);
 
-var $eV5xY = parcelRequire("eV5xY");
+var $299K0 = parcelRequire("299K0");
 var // Indexes the object's values by a criterion, similar to `_.groupBy`, but for
 // when you know that your index values will be unique.
-$6357c99be431b19f$export$2e2bcd8739ae039 = (0, $eV5xY.default)(function(result, value, key) {
+$8dd9955341a825d5$export$2e2bcd8739ae039 = (0, $299K0.default)(function(result, value, key) {
     result[key] = value;
 });
 
 });
 
-parcelRegister("7Uxxj", function(module, exports) {
+parcelRegister("jMvVo", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $5c27c6ff07ea38c0$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $e66b4399bf9c6be5$export$2e2bcd8739ae039);
 
-var $eV5xY = parcelRequire("eV5xY");
+var $299K0 = parcelRequire("299K0");
 
-var $eqZxE = parcelRequire("eqZxE");
+var $9JuPB = parcelRequire("9JuPB");
 var // Counts instances of an object that group by a certain criterion. Pass
 // either a string attribute to count by, or a function that returns the
 // criterion.
-$5c27c6ff07ea38c0$export$2e2bcd8739ae039 = (0, $eV5xY.default)(function(result, value, key) {
-    if ((0, $eqZxE.default)(result, key)) result[key]++;
+$e66b4399bf9c6be5$export$2e2bcd8739ae039 = (0, $299K0.default)(function(result, value, key) {
+    if ((0, $9JuPB.default)(result, key)) result[key]++;
     else result[key] = 1;
 });
 
 });
 
-parcelRegister("hE9kn", function(module, exports) {
+parcelRegister("cHcPP", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $cd8d685d4cb4bf80$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $93e374f10db5b5a5$export$2e2bcd8739ae039);
 
-var $eV5xY = parcelRequire("eV5xY");
+var $299K0 = parcelRequire("299K0");
 var // Split a collection into two arrays: one whose elements all pass the given
 // truth test, and one whose elements all do not pass the truth test.
-$cd8d685d4cb4bf80$export$2e2bcd8739ae039 = (0, $eV5xY.default)(function(result, value, pass) {
+$93e374f10db5b5a5$export$2e2bcd8739ae039 = (0, $299K0.default)(function(result, value, pass) {
     result[pass ? 0 : 1].push(value);
 }, true);
 
 });
 
-parcelRegister("kv0lU", function(module, exports) {
+parcelRegister("fX1Nl", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $eec6f9e08f82505e$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $b9cdc21fc47fb482$export$2e2bcd8739ae039);
 
-var $7zS32 = parcelRequire("7zS32");
+var $2Tfh9 = parcelRequire("2Tfh9");
 
-var $9geeU = parcelRequire("9geeU");
-function $eec6f9e08f82505e$export$2e2bcd8739ae039(obj) {
+var $cZNkK = parcelRequire("cZNkK");
+function $b9cdc21fc47fb482$export$2e2bcd8739ae039(obj) {
     if (obj == null) return 0;
-    return (0, $7zS32.default)(obj) ? obj.length : (0, $9geeU.default)(obj).length;
+    return (0, $2Tfh9.default)(obj) ? obj.length : (0, $cZNkK.default)(obj).length;
 }
 
 });
 
-parcelRegister("iNb5f", function(module, exports) {
+parcelRegister("eNcSm", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $dae5669781d3d4f7$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $ac4fa12beafecb72$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $2TtDP = parcelRequire("2TtDP");
+var $cgDwf = parcelRequire("cgDwf");
 
-var $iWdgq = parcelRequire("iWdgq");
+var $2as0M = parcelRequire("2as0M");
 
-var $e2hnW = parcelRequire("e2hnW");
+var $9oduk = parcelRequire("9oduk");
 
-var $6AKGh = parcelRequire("6AKGh");
+var $cDCMS = parcelRequire("cDCMS");
 
-var $84LcQ = parcelRequire("84LcQ");
+var $AjTZq = parcelRequire("AjTZq");
 var // Return a copy of the object only containing the allowed properties.
-$dae5669781d3d4f7$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(obj, keys) {
+$ac4fa12beafecb72$export$2e2bcd8739ae039 = (0, $aR308.default)(function(obj, keys) {
     var result = {}, iteratee = keys[0];
     if (obj == null) return result;
-    if ((0, $2TtDP.default)(iteratee)) {
-        if (keys.length > 1) iteratee = (0, $iWdgq.default)(iteratee, keys[1]);
-        keys = (0, $e2hnW.default)(obj);
+    if ((0, $cgDwf.default)(iteratee)) {
+        if (keys.length > 1) iteratee = (0, $2as0M.default)(iteratee, keys[1]);
+        keys = (0, $9oduk.default)(obj);
     } else {
-        iteratee = (0, $6AKGh.default);
-        keys = (0, $84LcQ.default)(keys, false, false);
+        iteratee = (0, $cDCMS.default);
+        keys = (0, $AjTZq.default)(keys, false, false);
         obj = Object(obj);
     }
     for(var i = 0, length = keys.length; i < length; i++){
@@ -20300,228 +20300,228 @@ $dae5669781d3d4f7$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(obj, key
 });
 
 });
-parcelRegister("6AKGh", function(module, exports) {
+parcelRegister("cDCMS", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $4cca50bcdd411eda$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $933736e9bf6f1a83$export$2e2bcd8739ae039);
 // Internal `_.pick` helper function to determine whether `key` is an enumerable
 // property name of `obj`.
-function $4cca50bcdd411eda$export$2e2bcd8739ae039(value, key, obj) {
+function $933736e9bf6f1a83$export$2e2bcd8739ae039(value, key, obj) {
     return key in obj;
 }
 
 });
 
 
-parcelRegister("dUWth", function(module, exports) {
+parcelRegister("5BeIJ", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $a21ddc852c64438e$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $413bd39c4de16450$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $2TtDP = parcelRequire("2TtDP");
+var $cgDwf = parcelRequire("cgDwf");
 
-var $ib2Sd = parcelRequire("ib2Sd");
+var $9zn7o = parcelRequire("9zn7o");
 
-var $83HM3 = parcelRequire("83HM3");
+var $jeKyO = parcelRequire("jeKyO");
 
-var $84LcQ = parcelRequire("84LcQ");
+var $AjTZq = parcelRequire("AjTZq");
 
-var $hTxcZ = parcelRequire("hTxcZ");
+var $eIVEB = parcelRequire("eIVEB");
 
-var $iNb5f = parcelRequire("iNb5f");
+var $eNcSm = parcelRequire("eNcSm");
 var // Return a copy of the object without the disallowed properties.
-$a21ddc852c64438e$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(obj, keys) {
+$413bd39c4de16450$export$2e2bcd8739ae039 = (0, $aR308.default)(function(obj, keys) {
     var iteratee = keys[0], context;
-    if ((0, $2TtDP.default)(iteratee)) {
-        iteratee = (0, $ib2Sd.default)(iteratee);
+    if ((0, $cgDwf.default)(iteratee)) {
+        iteratee = (0, $9zn7o.default)(iteratee);
         if (keys.length > 1) context = keys[1];
     } else {
-        keys = (0, $83HM3.default)((0, $84LcQ.default)(keys, false, false), String);
+        keys = (0, $jeKyO.default)((0, $AjTZq.default)(keys, false, false), String);
         iteratee = function(value, key) {
-            return !(0, $hTxcZ.default)(keys, key);
+            return !(0, $eIVEB.default)(keys, key);
         };
     }
-    return (0, $iNb5f.default)(obj, iteratee, context);
+    return (0, $eNcSm.default)(obj, iteratee, context);
 });
 
 });
 
-parcelRegister("adLZT", function(module, exports) {
+parcelRegister("3Nmsr", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $7710598f6a7e113b$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $2c375e52c4304506$export$2e2bcd8739ae039);
 
-var $eowQU = parcelRequire("eowQU");
-function $7710598f6a7e113b$export$2e2bcd8739ae039(array, n, guard) {
+var $9T195 = parcelRequire("9T195");
+function $2c375e52c4304506$export$2e2bcd8739ae039(array, n, guard) {
     if (array == null || array.length < 1) return n == null || guard ? void 0 : [];
     if (n == null || guard) return array[0];
-    return (0, $eowQU.default)(array, array.length - n);
+    return (0, $9T195.default)(array, array.length - n);
 }
 
 });
-parcelRegister("eowQU", function(module, exports) {
+parcelRegister("9T195", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $a7acca64ff25e639$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $732a239771cb648c$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
-function $a7acca64ff25e639$export$2e2bcd8739ae039(array, n, guard) {
-    return (0, $djUPf.slice).call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
+var $ai7Cu = parcelRequire("ai7Cu");
+function $732a239771cb648c$export$2e2bcd8739ae039(array, n, guard) {
+    return (0, $ai7Cu.slice).call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
 }
 
 });
 
 
-parcelRegister("4z7v7", function(module, exports) {
+parcelRegister("4b5zX", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $35303fdb60cf89b6$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $30ac84624f4218d2$export$2e2bcd8739ae039);
 
-var $2LHnI = parcelRequire("2LHnI");
-function $35303fdb60cf89b6$export$2e2bcd8739ae039(array, n, guard) {
+var $k9T8T = parcelRequire("k9T8T");
+function $30ac84624f4218d2$export$2e2bcd8739ae039(array, n, guard) {
     if (array == null || array.length < 1) return n == null || guard ? void 0 : [];
     if (n == null || guard) return array[array.length - 1];
-    return (0, $2LHnI.default)(array, Math.max(0, array.length - n));
+    return (0, $k9T8T.default)(array, Math.max(0, array.length - n));
 }
 
 });
-parcelRegister("2LHnI", function(module, exports) {
+parcelRegister("k9T8T", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $20419f3c60cb85f7$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $eacf6c07dae1cf76$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
-function $20419f3c60cb85f7$export$2e2bcd8739ae039(array, n, guard) {
-    return (0, $djUPf.slice).call(array, n == null || guard ? 1 : n);
-}
-
-});
-
-
-parcelRegister("gFD5W", function(module, exports) {
-
-$parcel$export(module.exports, "default", () => $c22ecd1a115aca14$export$2e2bcd8739ae039);
-
-var $kSDdi = parcelRequire("kSDdi");
-function $c22ecd1a115aca14$export$2e2bcd8739ae039(array) {
-    return (0, $kSDdi.default)(array, Boolean);
+var $ai7Cu = parcelRequire("ai7Cu");
+function $eacf6c07dae1cf76$export$2e2bcd8739ae039(array, n, guard) {
+    return (0, $ai7Cu.slice).call(array, n == null || guard ? 1 : n);
 }
 
 });
 
-parcelRegister("3mKlP", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $2737618bd2dabde5$export$2e2bcd8739ae039);
+parcelRegister("h2vkx", function(module, exports) {
 
-var $84LcQ = parcelRequire("84LcQ");
-function $2737618bd2dabde5$export$2e2bcd8739ae039(array, depth) {
-    return (0, $84LcQ.default)(array, depth, false);
+$parcel$export(module.exports, "default", () => $c67aed1f66b9c6a8$export$2e2bcd8739ae039);
+
+var $cjMI3 = parcelRequire("cjMI3");
+function $c67aed1f66b9c6a8$export$2e2bcd8739ae039(array) {
+    return (0, $cjMI3.default)(array, Boolean);
 }
 
 });
 
-parcelRegister("fziLu", function(module, exports) {
+parcelRegister("77MKU", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $b558ae3dd0362a83$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $52ff01b7d15f5555$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $AjTZq = parcelRequire("AjTZq");
+function $52ff01b7d15f5555$export$2e2bcd8739ae039(array, depth) {
+    return (0, $AjTZq.default)(array, depth, false);
+}
 
-var $auCJ1 = parcelRequire("auCJ1");
+});
+
+parcelRegister("gKaxx", function(module, exports) {
+
+$parcel$export(module.exports, "default", () => $c3091e35f5701de6$export$2e2bcd8739ae039);
+
+var $aR308 = parcelRequire("aR308");
+
+var $7so4L = parcelRequire("7so4L");
 var // Return a version of the array that does not contain the specified value(s).
-$b558ae3dd0362a83$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(array, otherArrays) {
-    return (0, $auCJ1.default)(array, otherArrays);
+$c3091e35f5701de6$export$2e2bcd8739ae039 = (0, $aR308.default)(function(array, otherArrays) {
+    return (0, $7so4L.default)(array, otherArrays);
 });
 
 });
-parcelRegister("auCJ1", function(module, exports) {
+parcelRegister("7so4L", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $7a3abeb965ee57c7$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $56ddd2ded82dc0d2$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $84LcQ = parcelRequire("84LcQ");
+var $AjTZq = parcelRequire("AjTZq");
 
-var $kSDdi = parcelRequire("kSDdi");
+var $cjMI3 = parcelRequire("cjMI3");
 
-var $hTxcZ = parcelRequire("hTxcZ");
+var $eIVEB = parcelRequire("eIVEB");
 var // Take the difference between one array and a number of other arrays.
 // Only the elements present in just the first array will remain.
-$7a3abeb965ee57c7$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(array, rest) {
-    rest = (0, $84LcQ.default)(rest, true, true);
-    return (0, $kSDdi.default)(array, function(value) {
-        return !(0, $hTxcZ.default)(rest, value);
+$56ddd2ded82dc0d2$export$2e2bcd8739ae039 = (0, $aR308.default)(function(array, rest) {
+    rest = (0, $AjTZq.default)(rest, true, true);
+    return (0, $cjMI3.default)(array, function(value) {
+        return !(0, $eIVEB.default)(rest, value);
     });
 });
 
 });
 
 
-parcelRegister("hQWc9", function(module, exports) {
+parcelRegister("ds3UZ", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $cff46f4db05330ed$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $9cb0edf9d7a48d83$export$2e2bcd8739ae039);
 
-var $2WZKO = parcelRequire("2WZKO");
+var $6dUgV = parcelRequire("6dUgV");
 
-var $fyI93 = parcelRequire("fyI93");
+var $ilkoh = parcelRequire("ilkoh");
 
-var $2wFEM = parcelRequire("2wFEM");
+var $elsid = parcelRequire("elsid");
 
-var $hTxcZ = parcelRequire("hTxcZ");
-function $cff46f4db05330ed$export$2e2bcd8739ae039(array, isSorted, iteratee, context) {
-    if (!(0, $2WZKO.default)(isSorted)) {
+var $eIVEB = parcelRequire("eIVEB");
+function $9cb0edf9d7a48d83$export$2e2bcd8739ae039(array, isSorted, iteratee, context) {
+    if (!(0, $6dUgV.default)(isSorted)) {
         context = iteratee;
         iteratee = isSorted;
         isSorted = false;
     }
-    if (iteratee != null) iteratee = (0, $fyI93.default)(iteratee, context);
+    if (iteratee != null) iteratee = (0, $ilkoh.default)(iteratee, context);
     var result = [];
     var seen = [];
-    for(var i = 0, length = (0, $2wFEM.default)(array); i < length; i++){
+    for(var i = 0, length = (0, $elsid.default)(array); i < length; i++){
         var value = array[i], computed = iteratee ? iteratee(value, i, array) : value;
         if (isSorted && !iteratee) {
             if (!i || seen !== computed) result.push(value);
             seen = computed;
         } else if (iteratee) {
-            if (!(0, $hTxcZ.default)(seen, computed)) {
+            if (!(0, $eIVEB.default)(seen, computed)) {
                 seen.push(computed);
                 result.push(value);
             }
-        } else if (!(0, $hTxcZ.default)(result, value)) result.push(value);
+        } else if (!(0, $eIVEB.default)(result, value)) result.push(value);
     }
     return result;
 }
 
 });
 
-parcelRegister("cCOql", function(module, exports) {
+parcelRegister("MqXgv", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $931025c92037a448$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $0919647d4e35b737$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $hQWc9 = parcelRequire("hQWc9");
+var $ds3UZ = parcelRequire("ds3UZ");
 
-var $84LcQ = parcelRequire("84LcQ");
+var $AjTZq = parcelRequire("AjTZq");
 var // Produce an array that contains the union: each distinct element from all of
 // the passed-in arrays.
-$931025c92037a448$export$2e2bcd8739ae039 = (0, $3oj8B.default)(function(arrays) {
-    return (0, $hQWc9.default)((0, $84LcQ.default)(arrays, true, true));
+$0919647d4e35b737$export$2e2bcd8739ae039 = (0, $aR308.default)(function(arrays) {
+    return (0, $ds3UZ.default)((0, $AjTZq.default)(arrays, true, true));
 });
 
 });
 
-parcelRegister("ioIBd", function(module, exports) {
+parcelRegister("2s2dI", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $d64d1061af8867b5$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $1c8feb300442a1fb$export$2e2bcd8739ae039);
 
-var $2wFEM = parcelRequire("2wFEM");
+var $elsid = parcelRequire("elsid");
 
-var $hTxcZ = parcelRequire("hTxcZ");
-function $d64d1061af8867b5$export$2e2bcd8739ae039(array) {
+var $eIVEB = parcelRequire("eIVEB");
+function $1c8feb300442a1fb$export$2e2bcd8739ae039(array) {
     var result = [];
     var argsLength = arguments.length;
-    for(var i = 0, length = (0, $2wFEM.default)(array); i < length; i++){
+    for(var i = 0, length = (0, $elsid.default)(array); i < length; i++){
         var item = array[i];
-        if ((0, $hTxcZ.default)(result, item)) continue;
+        if ((0, $eIVEB.default)(result, item)) continue;
         var j;
         for(j = 1; j < argsLength; j++){
-            if (!(0, $hTxcZ.default)(arguments[j], item)) break;
+            if (!(0, $eIVEB.default)(arguments[j], item)) break;
         }
         if (j === argsLength) result.push(item);
     }
@@ -20530,58 +20530,58 @@ function $d64d1061af8867b5$export$2e2bcd8739ae039(array) {
 
 });
 
-parcelRegister("4bnEW", function(module, exports) {
+parcelRegister("3GWab", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $30ba8abe92044275$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $2b02695dd2a56d24$export$2e2bcd8739ae039);
 
-var $dxShQ = parcelRequire("dxShQ");
+var $dz79G = parcelRequire("dz79G");
 
-var $2wFEM = parcelRequire("2wFEM");
+var $elsid = parcelRequire("elsid");
 
-var $lKeG9 = parcelRequire("lKeG9");
-function $30ba8abe92044275$export$2e2bcd8739ae039(array) {
-    var length = array && (0, $dxShQ.default)(array, (0, $2wFEM.default)).length || 0;
+var $UUsLf = parcelRequire("UUsLf");
+function $2b02695dd2a56d24$export$2e2bcd8739ae039(array) {
+    var length = array && (0, $dz79G.default)(array, (0, $elsid.default)).length || 0;
     var result = Array(length);
-    for(var index = 0; index < length; index++)result[index] = (0, $lKeG9.default)(array, index);
+    for(var index = 0; index < length; index++)result[index] = (0, $UUsLf.default)(array, index);
     return result;
 }
 
 });
 
-parcelRegister("kwPG2", function(module, exports) {
+parcelRegister("6IUEB", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $ef1ee1ca23b359ca$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $4e52cc694dcc3984$export$2e2bcd8739ae039);
 
-var $3oj8B = parcelRequire("3oj8B");
+var $aR308 = parcelRequire("aR308");
 
-var $4bnEW = parcelRequire("4bnEW");
+var $3GWab = parcelRequire("3GWab");
 var // Zip together multiple lists into a single array -- elements that share
 // an index go together.
-$ef1ee1ca23b359ca$export$2e2bcd8739ae039 = (0, $3oj8B.default)((0, $4bnEW.default));
+$4e52cc694dcc3984$export$2e2bcd8739ae039 = (0, $aR308.default)((0, $3GWab.default));
 
 });
 
-parcelRegister("72fzm", function(module, exports) {
+parcelRegister("h3iVJ", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $51f4cc08ca93fc39$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $c6a1669dc743c8c2$export$2e2bcd8739ae039);
 
-var $2wFEM = parcelRequire("2wFEM");
-function $51f4cc08ca93fc39$export$2e2bcd8739ae039(list, values) {
+var $elsid = parcelRequire("elsid");
+function $c6a1669dc743c8c2$export$2e2bcd8739ae039(list, values) {
     var result = {};
-    for(var i = 0, length = (0, $2wFEM.default)(list); i < length; i++)if (values) result[list[i]] = values[i];
+    for(var i = 0, length = (0, $elsid.default)(list); i < length; i++)if (values) result[list[i]] = values[i];
     else result[list[i][0]] = list[i][1];
     return result;
 }
 
 });
 
-parcelRegister("bTm29", function(module, exports) {
+parcelRegister("hs3tf", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $8a85ec37ee01b70f$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $cb47be6f0a7b5a9c$export$2e2bcd8739ae039);
 // Generate an integer Array containing an arithmetic progression. A port of
 // the native Python `range()` function. See
 // [the Python documentation](https://docs.python.org/library/functions.html#range).
-function $8a85ec37ee01b70f$export$2e2bcd8739ae039(start, stop, step) {
+function $cb47be6f0a7b5a9c$export$2e2bcd8739ae039(start, stop, step) {
     if (stop == null) {
         stop = start || 0;
         start = 0;
@@ -20595,74 +20595,74 @@ function $8a85ec37ee01b70f$export$2e2bcd8739ae039(start, stop, step) {
 
 });
 
-parcelRegister("cWeCo", function(module, exports) {
+parcelRegister("jnyAT", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $96b63db4bf93b9cb$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $e1bafff00dd130f8$export$2e2bcd8739ae039);
 
-var $djUPf = parcelRequire("djUPf");
-function $96b63db4bf93b9cb$export$2e2bcd8739ae039(array, count) {
+var $ai7Cu = parcelRequire("ai7Cu");
+function $e1bafff00dd130f8$export$2e2bcd8739ae039(array, count) {
     if (count == null || count < 1) return [];
     var result = [];
     var i = 0, length = array.length;
-    while(i < length)result.push((0, $djUPf.slice).call(array, i, i += count));
+    while(i < length)result.push((0, $ai7Cu.slice).call(array, i, i += count));
     return result;
 }
 
 });
 
-parcelRegister("lN98Z", function(module, exports) {
+parcelRegister("lEeYn", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $fdd54467f7758fab$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $fc28f2b119f5f7c0$export$2e2bcd8739ae039);
 
-var $7EDY8 = parcelRequire("7EDY8");
+var $jx45o = parcelRequire("jx45o");
 
-var $hkCoB = parcelRequire("hkCoB");
+var $4lteh = parcelRequire("4lteh");
 
-var $fWj0W = parcelRequire("fWj0W");
+var $lKVst = parcelRequire("lKVst");
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $1cApm = parcelRequire("1cApm");
-function $fdd54467f7758fab$export$2e2bcd8739ae039(obj) {
-    (0, $hkCoB.default)((0, $fWj0W.default)(obj), function(name) {
-        var func = (0, $7EDY8.default)[name] = obj[name];
-        (0, $7EDY8.default).prototype[name] = function() {
+var $bvdMd = parcelRequire("bvdMd");
+function $fc28f2b119f5f7c0$export$2e2bcd8739ae039(obj) {
+    (0, $4lteh.default)((0, $lKVst.default)(obj), function(name) {
+        var func = (0, $jx45o.default)[name] = obj[name];
+        (0, $jx45o.default).prototype[name] = function() {
             var args = [
                 this._wrapped
             ];
-            (0, $djUPf.push).apply(args, arguments);
-            return (0, $1cApm.default)(this, func.apply((0, $7EDY8.default), args));
+            (0, $ai7Cu.push).apply(args, arguments);
+            return (0, $bvdMd.default)(this, func.apply((0, $jx45o.default), args));
         };
     });
-    return 0, $7EDY8.default;
+    return 0, $jx45o.default;
 }
 
 });
-parcelRegister("1cApm", function(module, exports) {
+parcelRegister("bvdMd", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $0e0327516ff1d710$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $85fd46b1dc58548f$export$2e2bcd8739ae039);
 
-var $7EDY8 = parcelRequire("7EDY8");
-function $0e0327516ff1d710$export$2e2bcd8739ae039(instance, obj) {
-    return instance._chain ? (0, $7EDY8.default)(obj).chain() : obj;
+var $jx45o = parcelRequire("jx45o");
+function $85fd46b1dc58548f$export$2e2bcd8739ae039(instance, obj) {
+    return instance._chain ? (0, $jx45o.default)(obj).chain() : obj;
 }
 
 });
 
 
-parcelRegister("itk65", function(module, exports) {
+parcelRegister("fSCey", function(module, exports) {
 
-$parcel$export(module.exports, "default", () => $d72a864bc4d27f07$export$2e2bcd8739ae039);
+$parcel$export(module.exports, "default", () => $b8f98e966603395b$export$2e2bcd8739ae039);
 
-var $7EDY8 = parcelRequire("7EDY8");
+var $jx45o = parcelRequire("jx45o");
 
-var $hkCoB = parcelRequire("hkCoB");
+var $4lteh = parcelRequire("4lteh");
 
-var $djUPf = parcelRequire("djUPf");
+var $ai7Cu = parcelRequire("ai7Cu");
 
-var $1cApm = parcelRequire("1cApm");
+var $bvdMd = parcelRequire("bvdMd");
 // Add all mutator `Array` functions to the wrapper.
-(0, $hkCoB.default)([
+(0, $4lteh.default)([
     'pop',
     'push',
     'reverse',
@@ -20671,30 +20671,30 @@ var $1cApm = parcelRequire("1cApm");
     'splice',
     'unshift'
 ], function(name) {
-    var method = (0, $djUPf.ArrayProto)[name];
-    (0, $7EDY8.default).prototype[name] = function() {
+    var method = (0, $ai7Cu.ArrayProto)[name];
+    (0, $jx45o.default).prototype[name] = function() {
         var obj = this._wrapped;
         if (obj != null) {
             method.apply(obj, arguments);
             if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
         }
-        return (0, $1cApm.default)(this, obj);
+        return (0, $bvdMd.default)(this, obj);
     };
 });
 // Add all accessor `Array` functions to the wrapper.
-(0, $hkCoB.default)([
+(0, $4lteh.default)([
     'concat',
     'join',
     'slice'
 ], function(name) {
-    var method = (0, $djUPf.ArrayProto)[name];
-    (0, $7EDY8.default).prototype[name] = function() {
+    var method = (0, $ai7Cu.ArrayProto)[name];
+    (0, $jx45o.default).prototype[name] = function() {
         var obj = this._wrapped;
         if (obj != null) obj = method.apply(obj, arguments);
-        return (0, $1cApm.default)(this, obj);
+        return (0, $bvdMd.default)(this, obj);
     };
 });
-var $d72a864bc4d27f07$export$2e2bcd8739ae039 = (0, $7EDY8.default);
+var $b8f98e966603395b$export$2e2bcd8739ae039 = (0, $jx45o.default);
 
 });
 
@@ -20702,7 +20702,7 @@ var $d72a864bc4d27f07$export$2e2bcd8739ae039 = (0, $7EDY8.default);
 
 
 
-parcelRegister("8NtbJ", function(module, exports) {
+parcelRegister("giiDu", function(module, exports) {
 /*!
  * async
  * https://github.com/caolan/async
@@ -21659,12 +21659,12 @@ parcelRegister("8NtbJ", function(module, exports) {
 
 });
 
-parcelRegister("i6fWp", function(module, exports) {
+parcelRegister("923Tr", function(module, exports) {
 
 
-var $d2d527140424bfd4$var$_0777 = parseInt('0777', 8);
-module.exports = $d2d527140424bfd4$var$mkdirP.mkdirp = $d2d527140424bfd4$var$mkdirP.mkdirP = $d2d527140424bfd4$var$mkdirP;
-function $d2d527140424bfd4$var$mkdirP(p, opts, f, made) {
+var $6937520ca0104331$var$_0777 = parseInt('0777', 8);
+module.exports = $6937520ca0104331$var$mkdirP.mkdirp = $6937520ca0104331$var$mkdirP.mkdirP = $6937520ca0104331$var$mkdirP;
+function $6937520ca0104331$var$mkdirP(p, opts, f, made) {
     if (typeof opts === 'function') {
         f = opts;
         opts = {};
@@ -21672,11 +21672,11 @@ function $d2d527140424bfd4$var$mkdirP(p, opts, f, made) {
         mode: opts
     };
     var mode = opts.mode;
-    var xfs = opts.fs || $1X1Jj$fs;
-    if (mode === undefined) mode = $d2d527140424bfd4$var$_0777;
+    var xfs = opts.fs || $lcjJR$fs;
+    if (mode === undefined) mode = $6937520ca0104331$var$_0777;
     if (!made) made = null;
     var cb = f || /* istanbul ignore next */ function() {};
-    p = $1X1Jj$path.resolve(p);
+    p = $lcjJR$path.resolve(p);
     xfs.mkdir(p, mode, function(er) {
         if (!er) {
             made = made || p;
@@ -21684,10 +21684,10 @@ function $d2d527140424bfd4$var$mkdirP(p, opts, f, made) {
         }
         switch(er.code){
             case 'ENOENT':
-                /* istanbul ignore if */ if ($1X1Jj$path.dirname(p) === p) return cb(er);
-                $d2d527140424bfd4$var$mkdirP($1X1Jj$path.dirname(p), opts, function(er, made) {
+                /* istanbul ignore if */ if ($lcjJR$path.dirname(p) === p) return cb(er);
+                $6937520ca0104331$var$mkdirP($lcjJR$path.dirname(p), opts, function(er, made) {
                     /* istanbul ignore if */ if (er) cb(er, made);
-                    else $d2d527140424bfd4$var$mkdirP(p, opts, cb, made);
+                    else $6937520ca0104331$var$mkdirP(p, opts, cb, made);
                 });
                 break;
             // In the case of any other error, just see if there's a dir
@@ -21704,22 +21704,22 @@ function $d2d527140424bfd4$var$mkdirP(p, opts, f, made) {
         }
     });
 }
-$d2d527140424bfd4$var$mkdirP.sync = function sync(p, opts, made) {
+$6937520ca0104331$var$mkdirP.sync = function sync(p, opts, made) {
     if (!opts || typeof opts !== 'object') opts = {
         mode: opts
     };
     var mode = opts.mode;
-    var xfs = opts.fs || $1X1Jj$fs;
-    if (mode === undefined) mode = $d2d527140424bfd4$var$_0777;
+    var xfs = opts.fs || $lcjJR$fs;
+    if (mode === undefined) mode = $6937520ca0104331$var$_0777;
     if (!made) made = null;
-    p = $1X1Jj$path.resolve(p);
+    p = $lcjJR$path.resolve(p);
     try {
         xfs.mkdirSync(p, mode);
         made = made || p;
     } catch (err0) {
         switch(err0.code){
             case 'ENOENT':
-                made = sync($1X1Jj$path.dirname(p), opts, made);
+                made = sync($lcjJR$path.dirname(p), opts, made);
                 sync(p, opts, made);
                 break;
             // In the case of any other error, just see if there's a dir
@@ -21741,28 +21741,28 @@ $d2d527140424bfd4$var$mkdirP.sync = function sync(p, opts, made) {
 
 });
 
-parcelRegister("EOHWl", function(module, exports) {
-module.exports = $07ab120968e87ba8$var$rimraf;
-$07ab120968e87ba8$var$rimraf.sync = $07ab120968e87ba8$var$rimrafSync;
+parcelRegister("ei8OV", function(module, exports) {
+module.exports = $a67996b1ea9d417c$var$rimraf;
+$a67996b1ea9d417c$var$rimraf.sync = $a67996b1ea9d417c$var$rimrafSync;
 
 
 
-var $07ab120968e87ba8$var$glob = undefined;
+var $a67996b1ea9d417c$var$glob = undefined;
 
 try {
-    $07ab120968e87ba8$var$glob = (parcelRequire("jhzq2"));
+    $a67996b1ea9d417c$var$glob = (parcelRequire("3h2U3"));
 } catch (_err) {
 // treat glob as optional.
 }
-var $07ab120968e87ba8$var$_0666 = parseInt('666', 8);
-var $07ab120968e87ba8$var$defaultGlobOpts = {
+var $a67996b1ea9d417c$var$_0666 = parseInt('666', 8);
+var $a67996b1ea9d417c$var$defaultGlobOpts = {
     nosort: true,
     silent: true
 };
 // for EMFILE handling
-var $07ab120968e87ba8$var$timeout = 0;
-var $07ab120968e87ba8$var$isWindows = process.platform === "win32";
-function $07ab120968e87ba8$var$defaults(options) {
+var $a67996b1ea9d417c$var$timeout = 0;
+var $a67996b1ea9d417c$var$isWindows = process.platform === "win32";
+function $a67996b1ea9d417c$var$defaults(options) {
     var methods = [
         'unlink',
         'chmod',
@@ -21772,39 +21772,39 @@ function $07ab120968e87ba8$var$defaults(options) {
         'readdir'
     ];
     methods.forEach(function(m) {
-        options[m] = options[m] || $1X1Jj$fs[m];
+        options[m] = options[m] || $lcjJR$fs[m];
         m = m + 'Sync';
-        options[m] = options[m] || $1X1Jj$fs[m];
+        options[m] = options[m] || $lcjJR$fs[m];
     });
     options.maxBusyTries = options.maxBusyTries || 3;
     options.emfileWait = options.emfileWait || 1000;
     if (options.glob === false) options.disableGlob = true;
-    if (options.disableGlob !== true && $07ab120968e87ba8$var$glob === undefined) throw Error('glob dependency not found, set `options.disableGlob = true` if intentional');
+    if (options.disableGlob !== true && $a67996b1ea9d417c$var$glob === undefined) throw Error('glob dependency not found, set `options.disableGlob = true` if intentional');
     options.disableGlob = options.disableGlob || false;
-    options.glob = options.glob || $07ab120968e87ba8$var$defaultGlobOpts;
+    options.glob = options.glob || $a67996b1ea9d417c$var$defaultGlobOpts;
 }
-function $07ab120968e87ba8$var$rimraf(p, options, cb) {
+function $a67996b1ea9d417c$var$rimraf(p, options, cb) {
     if (typeof options === 'function') {
         cb = options;
         options = {};
     }
-    $1X1Jj$assert(p, 'rimraf: missing path');
-    $1X1Jj$assert.equal(typeof p, 'string', 'rimraf: path should be a string');
-    $1X1Jj$assert.equal(typeof cb, 'function', 'rimraf: callback function required');
-    $1X1Jj$assert(options, 'rimraf: invalid options argument provided');
-    $1X1Jj$assert.equal(typeof options, 'object', 'rimraf: options should be object');
-    $07ab120968e87ba8$var$defaults(options);
+    $lcjJR$assert(p, 'rimraf: missing path');
+    $lcjJR$assert.equal(typeof p, 'string', 'rimraf: path should be a string');
+    $lcjJR$assert.equal(typeof cb, 'function', 'rimraf: callback function required');
+    $lcjJR$assert(options, 'rimraf: invalid options argument provided');
+    $lcjJR$assert.equal(typeof options, 'object', 'rimraf: options should be object');
+    $a67996b1ea9d417c$var$defaults(options);
     var busyTries = 0;
     var errState = null;
     var n = 0;
-    if (options.disableGlob || !$07ab120968e87ba8$var$glob.hasMagic(p)) return afterGlob(null, [
+    if (options.disableGlob || !$a67996b1ea9d417c$var$glob.hasMagic(p)) return afterGlob(null, [
         p
     ]);
     options.lstat(p, function(er, stat) {
         if (!er) return afterGlob(null, [
             p
         ]);
-        $07ab120968e87ba8$var$glob(p, options.glob, afterGlob);
+        $a67996b1ea9d417c$var$glob(p, options.glob, afterGlob);
     });
     function next(er) {
         errState = errState || er;
@@ -21815,24 +21815,24 @@ function $07ab120968e87ba8$var$rimraf(p, options, cb) {
         n = results.length;
         if (n === 0) return cb();
         results.forEach(function(p) {
-            $07ab120968e87ba8$var$rimraf_(p, options, function CB(er) {
+            $a67996b1ea9d417c$var$rimraf_(p, options, function CB(er) {
                 if (er) {
                     if ((er.code === "EBUSY" || er.code === "ENOTEMPTY" || er.code === "EPERM") && busyTries < options.maxBusyTries) {
                         busyTries++;
                         var time = busyTries * 100;
                         // try again, with the same exact callback as this one.
                         return setTimeout(function() {
-                            $07ab120968e87ba8$var$rimraf_(p, options, CB);
+                            $a67996b1ea9d417c$var$rimraf_(p, options, CB);
                         }, time);
                     }
                     // this one won't happen if graceful-fs is used.
-                    if (er.code === "EMFILE" && $07ab120968e87ba8$var$timeout < options.emfileWait) return setTimeout(function() {
-                        $07ab120968e87ba8$var$rimraf_(p, options, CB);
-                    }, $07ab120968e87ba8$var$timeout++);
+                    if (er.code === "EMFILE" && $a67996b1ea9d417c$var$timeout < options.emfileWait) return setTimeout(function() {
+                        $a67996b1ea9d417c$var$rimraf_(p, options, CB);
+                    }, $a67996b1ea9d417c$var$timeout++);
                     // already gone
                     if (er.code === "ENOENT") er = null;
                 }
-                $07ab120968e87ba8$var$timeout = 0;
+                $a67996b1ea9d417c$var$timeout = 0;
                 next(er);
             });
         });
@@ -21849,47 +21849,47 @@ function $07ab120968e87ba8$var$rimraf(p, options, cb) {
 //
 // If anyone ever complains about this, then I guess the strategy could
 // be made configurable somehow.  But until then, YAGNI.
-function $07ab120968e87ba8$var$rimraf_(p, options, cb) {
-    $1X1Jj$assert(p);
-    $1X1Jj$assert(options);
-    $1X1Jj$assert(typeof cb === 'function');
+function $a67996b1ea9d417c$var$rimraf_(p, options, cb) {
+    $lcjJR$assert(p);
+    $lcjJR$assert(options);
+    $lcjJR$assert(typeof cb === 'function');
     // sunos lets the root user unlink directories, which is... weird.
     // so we have to lstat here and make sure it's not a dir.
     options.lstat(p, function(er, st) {
         if (er && er.code === "ENOENT") return cb(null);
         // Windows can EPERM on stat.  Life is suffering.
-        if (er && er.code === "EPERM" && $07ab120968e87ba8$var$isWindows) $07ab120968e87ba8$var$fixWinEPERM(p, options, er, cb);
-        if (st && st.isDirectory()) return $07ab120968e87ba8$var$rmdir(p, options, er, cb);
+        if (er && er.code === "EPERM" && $a67996b1ea9d417c$var$isWindows) $a67996b1ea9d417c$var$fixWinEPERM(p, options, er, cb);
+        if (st && st.isDirectory()) return $a67996b1ea9d417c$var$rmdir(p, options, er, cb);
         options.unlink(p, function(er) {
             if (er) {
                 if (er.code === "ENOENT") return cb(null);
-                if (er.code === "EPERM") return $07ab120968e87ba8$var$isWindows ? $07ab120968e87ba8$var$fixWinEPERM(p, options, er, cb) : $07ab120968e87ba8$var$rmdir(p, options, er, cb);
-                if (er.code === "EISDIR") return $07ab120968e87ba8$var$rmdir(p, options, er, cb);
+                if (er.code === "EPERM") return $a67996b1ea9d417c$var$isWindows ? $a67996b1ea9d417c$var$fixWinEPERM(p, options, er, cb) : $a67996b1ea9d417c$var$rmdir(p, options, er, cb);
+                if (er.code === "EISDIR") return $a67996b1ea9d417c$var$rmdir(p, options, er, cb);
             }
             return cb(er);
         });
     });
 }
-function $07ab120968e87ba8$var$fixWinEPERM(p, options, er, cb) {
-    $1X1Jj$assert(p);
-    $1X1Jj$assert(options);
-    $1X1Jj$assert(typeof cb === 'function');
-    if (er) $1X1Jj$assert(er instanceof Error);
-    options.chmod(p, $07ab120968e87ba8$var$_0666, function(er2) {
+function $a67996b1ea9d417c$var$fixWinEPERM(p, options, er, cb) {
+    $lcjJR$assert(p);
+    $lcjJR$assert(options);
+    $lcjJR$assert(typeof cb === 'function');
+    if (er) $lcjJR$assert(er instanceof Error);
+    options.chmod(p, $a67996b1ea9d417c$var$_0666, function(er2) {
         if (er2) cb(er2.code === "ENOENT" ? null : er);
         else options.stat(p, function(er3, stats) {
             if (er3) cb(er3.code === "ENOENT" ? null : er);
-            else if (stats.isDirectory()) $07ab120968e87ba8$var$rmdir(p, options, er, cb);
+            else if (stats.isDirectory()) $a67996b1ea9d417c$var$rmdir(p, options, er, cb);
             else options.unlink(p, cb);
         });
     });
 }
-function $07ab120968e87ba8$var$fixWinEPERMSync(p, options, er) {
-    $1X1Jj$assert(p);
-    $1X1Jj$assert(options);
-    if (er) $1X1Jj$assert(er instanceof Error);
+function $a67996b1ea9d417c$var$fixWinEPERMSync(p, options, er) {
+    $lcjJR$assert(p);
+    $lcjJR$assert(options);
+    if (er) $lcjJR$assert(er instanceof Error);
     try {
-        options.chmodSync(p, $07ab120968e87ba8$var$_0666);
+        options.chmodSync(p, $a67996b1ea9d417c$var$_0666);
     } catch (er2) {
         if (er2.code === "ENOENT") return;
         else throw er;
@@ -21900,34 +21900,34 @@ function $07ab120968e87ba8$var$fixWinEPERMSync(p, options, er) {
         if (er3.code === "ENOENT") return;
         else throw er;
     }
-    if (stats.isDirectory()) $07ab120968e87ba8$var$rmdirSync(p, options, er);
+    if (stats.isDirectory()) $a67996b1ea9d417c$var$rmdirSync(p, options, er);
     else options.unlinkSync(p);
 }
-function $07ab120968e87ba8$var$rmdir(p, options, originalEr, cb) {
-    $1X1Jj$assert(p);
-    $1X1Jj$assert(options);
-    if (originalEr) $1X1Jj$assert(originalEr instanceof Error);
-    $1X1Jj$assert(typeof cb === 'function');
+function $a67996b1ea9d417c$var$rmdir(p, options, originalEr, cb) {
+    $lcjJR$assert(p);
+    $lcjJR$assert(options);
+    if (originalEr) $lcjJR$assert(originalEr instanceof Error);
+    $lcjJR$assert(typeof cb === 'function');
     // try to rmdir first, and only readdir on ENOTEMPTY or EEXIST (SunOS)
     // if we guessed wrong, and it's not a directory, then
     // raise the original error.
     options.rmdir(p, function(er) {
-        if (er && (er.code === "ENOTEMPTY" || er.code === "EEXIST" || er.code === "EPERM")) $07ab120968e87ba8$var$rmkids(p, options, cb);
+        if (er && (er.code === "ENOTEMPTY" || er.code === "EEXIST" || er.code === "EPERM")) $a67996b1ea9d417c$var$rmkids(p, options, cb);
         else if (er && er.code === "ENOTDIR") cb(originalEr);
         else cb(er);
     });
 }
-function $07ab120968e87ba8$var$rmkids(p, options, cb) {
-    $1X1Jj$assert(p);
-    $1X1Jj$assert(options);
-    $1X1Jj$assert(typeof cb === 'function');
+function $a67996b1ea9d417c$var$rmkids(p, options, cb) {
+    $lcjJR$assert(p);
+    $lcjJR$assert(options);
+    $lcjJR$assert(typeof cb === 'function');
     options.readdir(p, function(er, files) {
         if (er) return cb(er);
         var n = files.length;
         if (n === 0) return options.rmdir(p, cb);
         var errState;
         files.forEach(function(f) {
-            $07ab120968e87ba8$var$rimraf($1X1Jj$path.join(p, f), options, function(er) {
+            $a67996b1ea9d417c$var$rimraf($lcjJR$path.join(p, f), options, function(er) {
                 if (errState) return;
                 if (er) return cb(errState = er);
                 if (--n === 0) options.rmdir(p, cb);
@@ -21938,15 +21938,15 @@ function $07ab120968e87ba8$var$rmkids(p, options, cb) {
 // this looks simpler, and is strictly *faster*, but will
 // tie up the JavaScript thread and fail on excessively
 // deep directory trees.
-function $07ab120968e87ba8$var$rimrafSync(p, options) {
+function $a67996b1ea9d417c$var$rimrafSync(p, options) {
     options = options || {};
-    $07ab120968e87ba8$var$defaults(options);
-    $1X1Jj$assert(p, 'rimraf: missing path');
-    $1X1Jj$assert.equal(typeof p, 'string', 'rimraf: path should be a string');
-    $1X1Jj$assert(options, 'rimraf: missing options');
-    $1X1Jj$assert.equal(typeof options, 'object', 'rimraf: options should be object');
+    $a67996b1ea9d417c$var$defaults(options);
+    $lcjJR$assert(p, 'rimraf: missing path');
+    $lcjJR$assert.equal(typeof p, 'string', 'rimraf: path should be a string');
+    $lcjJR$assert(options, 'rimraf: missing options');
+    $lcjJR$assert.equal(typeof options, 'object', 'rimraf: options should be object');
     var results;
-    if (options.disableGlob || !$07ab120968e87ba8$var$glob.hasMagic(p)) results = [
+    if (options.disableGlob || !$a67996b1ea9d417c$var$glob.hasMagic(p)) results = [
         p
     ];
     else try {
@@ -21955,7 +21955,7 @@ function $07ab120968e87ba8$var$rimrafSync(p, options) {
             p
         ];
     } catch (er) {
-        results = $07ab120968e87ba8$var$glob.sync(p, options.glob);
+        results = $a67996b1ea9d417c$var$glob.sync(p, options.glob);
     }
     if (!results.length) return;
     for(var i = 0; i < results.length; i++){
@@ -21965,37 +21965,37 @@ function $07ab120968e87ba8$var$rimrafSync(p, options) {
         } catch (er) {
             if (er.code === "ENOENT") return;
             // Windows can EPERM on stat.  Life is suffering.
-            if (er.code === "EPERM" && $07ab120968e87ba8$var$isWindows) $07ab120968e87ba8$var$fixWinEPERMSync(p, options, er);
+            if (er.code === "EPERM" && $a67996b1ea9d417c$var$isWindows) $a67996b1ea9d417c$var$fixWinEPERMSync(p, options, er);
         }
         try {
             // sunos lets the root user unlink directories, which is... weird.
-            if (st && st.isDirectory()) $07ab120968e87ba8$var$rmdirSync(p, options, null);
+            if (st && st.isDirectory()) $a67996b1ea9d417c$var$rmdirSync(p, options, null);
             else options.unlinkSync(p);
         } catch (er) {
             if (er.code === "ENOENT") return;
-            if (er.code === "EPERM") return $07ab120968e87ba8$var$isWindows ? $07ab120968e87ba8$var$fixWinEPERMSync(p, options, er) : $07ab120968e87ba8$var$rmdirSync(p, options, er);
+            if (er.code === "EPERM") return $a67996b1ea9d417c$var$isWindows ? $a67996b1ea9d417c$var$fixWinEPERMSync(p, options, er) : $a67996b1ea9d417c$var$rmdirSync(p, options, er);
             if (er.code !== "EISDIR") throw er;
-            $07ab120968e87ba8$var$rmdirSync(p, options, er);
+            $a67996b1ea9d417c$var$rmdirSync(p, options, er);
         }
     }
 }
-function $07ab120968e87ba8$var$rmdirSync(p, options, originalEr) {
-    $1X1Jj$assert(p);
-    $1X1Jj$assert(options);
-    if (originalEr) $1X1Jj$assert(originalEr instanceof Error);
+function $a67996b1ea9d417c$var$rmdirSync(p, options, originalEr) {
+    $lcjJR$assert(p);
+    $lcjJR$assert(options);
+    if (originalEr) $lcjJR$assert(originalEr instanceof Error);
     try {
         options.rmdirSync(p);
     } catch (er) {
         if (er.code === "ENOENT") return;
         if (er.code === "ENOTDIR") throw originalEr;
-        if (er.code === "ENOTEMPTY" || er.code === "EEXIST" || er.code === "EPERM") $07ab120968e87ba8$var$rmkidsSync(p, options);
+        if (er.code === "ENOTEMPTY" || er.code === "EEXIST" || er.code === "EPERM") $a67996b1ea9d417c$var$rmkidsSync(p, options);
     }
 }
-function $07ab120968e87ba8$var$rmkidsSync(p, options) {
-    $1X1Jj$assert(p);
-    $1X1Jj$assert(options);
+function $a67996b1ea9d417c$var$rmkidsSync(p, options) {
+    $lcjJR$assert(p);
+    $lcjJR$assert(options);
     options.readdirSync(p).forEach(function(f) {
-        $07ab120968e87ba8$var$rimrafSync($1X1Jj$path.join(p, f), options);
+        $a67996b1ea9d417c$var$rimrafSync($lcjJR$path.join(p, f), options);
     });
     // We only end up here once we got ENOTEMPTY at least once, and
     // at this point, we are guaranteed to have removed all the kids.
@@ -22003,7 +22003,7 @@ function $07ab120968e87ba8$var$rmkidsSync(p, options) {
     // try really hard to delete stuff on windows, because it has a
     // PROFOUNDLY annoying habit of not closing handles promptly when
     // files are deleted, resulting in spurious ENOTEMPTY errors.
-    var retries = $07ab120968e87ba8$var$isWindows ? 100 : 1;
+    var retries = $a67996b1ea9d417c$var$isWindows ? 100 : 1;
     var i = 0;
     do {
         var threw = true;
@@ -22018,7 +22018,7 @@ function $07ab120968e87ba8$var$rmkidsSync(p, options) {
 }
 
 });
-parcelRegister("jhzq2", function(module, exports) {
+parcelRegister("3h2U3", function(module, exports) {
 // Approach:
 //
 // 1. Get the minimatch set
@@ -22058,57 +22058,57 @@ parcelRegister("jhzq2", function(module, exports) {
 //   we ever care about is existence and directory-ness, we can just keep
 //   `true` for files, and [children,...] for directories, or `false` for
 //   things that don't exist.
-module.exports = $e09b144e362bf4ed$var$glob;
+module.exports = $262536242ddd2d51$var$glob;
 
-var $fZ4nx = parcelRequire("fZ4nx");
+var $443u6 = parcelRequire("443u6");
 
-var $MDUQ5 = parcelRequire("MDUQ5");
-var $e09b144e362bf4ed$var$Minimatch = $MDUQ5.Minimatch;
+var $dYtkX = parcelRequire("dYtkX");
+var $262536242ddd2d51$var$Minimatch = $dYtkX.Minimatch;
 
-var $96wnr = parcelRequire("96wnr");
+var $2s80e = parcelRequire("2s80e");
 
-var $e09b144e362bf4ed$require$EE = $1X1Jj$events.EventEmitter;
+var $262536242ddd2d51$require$EE = $lcjJR$events.EventEmitter;
 
 
 
-var $7wZYl = parcelRequire("7wZYl");
+var $kHZnT = parcelRequire("kHZnT");
 
-var $jQhIW = parcelRequire("jQhIW");
+var $e8MKw = parcelRequire("e8MKw");
 
-var $gWx33 = parcelRequire("gWx33");
-var $e09b144e362bf4ed$var$setopts = $gWx33.setopts;
-var $e09b144e362bf4ed$var$ownProp = $gWx33.ownProp;
+var $1fdFS = parcelRequire("1fdFS");
+var $262536242ddd2d51$var$setopts = $1fdFS.setopts;
+var $262536242ddd2d51$var$ownProp = $1fdFS.ownProp;
 
-var $DWK5C = parcelRequire("DWK5C");
+var $7cGLg = parcelRequire("7cGLg");
 
-var $e09b144e362bf4ed$var$childrenIgnored = $gWx33.childrenIgnored;
-var $e09b144e362bf4ed$var$isIgnored = $gWx33.isIgnored;
+var $262536242ddd2d51$var$childrenIgnored = $1fdFS.childrenIgnored;
+var $262536242ddd2d51$var$isIgnored = $1fdFS.isIgnored;
 
-var $cX3nS = parcelRequire("cX3nS");
-function $e09b144e362bf4ed$var$glob(pattern, options, cb) {
+var $ae8zl = parcelRequire("ae8zl");
+function $262536242ddd2d51$var$glob(pattern, options, cb) {
     if (typeof options === 'function') cb = options, options = {};
     if (!options) options = {};
     if (options.sync) {
         if (cb) throw new TypeError('callback provided to sync glob');
-        return $jQhIW(pattern, options);
+        return $e8MKw(pattern, options);
     }
-    return new $e09b144e362bf4ed$var$Glob(pattern, options, cb);
+    return new $262536242ddd2d51$var$Glob(pattern, options, cb);
 }
-$e09b144e362bf4ed$var$glob.sync = $jQhIW;
-var $e09b144e362bf4ed$var$GlobSync = $e09b144e362bf4ed$var$glob.GlobSync = $jQhIW.GlobSync;
+$262536242ddd2d51$var$glob.sync = $e8MKw;
+var $262536242ddd2d51$var$GlobSync = $262536242ddd2d51$var$glob.GlobSync = $e8MKw.GlobSync;
 // old api surface
-$e09b144e362bf4ed$var$glob.glob = $e09b144e362bf4ed$var$glob;
-function $e09b144e362bf4ed$var$extend(origin, add) {
+$262536242ddd2d51$var$glob.glob = $262536242ddd2d51$var$glob;
+function $262536242ddd2d51$var$extend(origin, add) {
     if (add === null || typeof add !== 'object') return origin;
     var keys = Object.keys(add);
     var i = keys.length;
     while(i--)origin[keys[i]] = add[keys[i]];
     return origin;
 }
-$e09b144e362bf4ed$var$glob.hasMagic = function(pattern, options_) {
-    var options = $e09b144e362bf4ed$var$extend({}, options_);
+$262536242ddd2d51$var$glob.hasMagic = function(pattern, options_) {
+    var options = $262536242ddd2d51$var$extend({}, options_);
     options.noprocess = true;
-    var g = new $e09b144e362bf4ed$var$Glob(pattern, options);
+    var g = new $262536242ddd2d51$var$Glob(pattern, options);
     var set = g.minimatch.set;
     if (!pattern) return false;
     if (set.length > 1) return true;
@@ -22117,19 +22117,19 @@ $e09b144e362bf4ed$var$glob.hasMagic = function(pattern, options_) {
     }
     return false;
 };
-$e09b144e362bf4ed$var$glob.Glob = $e09b144e362bf4ed$var$Glob;
-$96wnr($e09b144e362bf4ed$var$Glob, $e09b144e362bf4ed$require$EE);
-function $e09b144e362bf4ed$var$Glob(pattern, options, cb) {
+$262536242ddd2d51$var$glob.Glob = $262536242ddd2d51$var$Glob;
+$2s80e($262536242ddd2d51$var$Glob, $262536242ddd2d51$require$EE);
+function $262536242ddd2d51$var$Glob(pattern, options, cb) {
     if (typeof options === 'function') {
         cb = options;
         options = null;
     }
     if (options && options.sync) {
         if (cb) throw new TypeError('callback provided to sync glob');
-        return new $e09b144e362bf4ed$var$GlobSync(pattern, options);
+        return new $262536242ddd2d51$var$GlobSync(pattern, options);
     }
-    if (!(this instanceof $e09b144e362bf4ed$var$Glob)) return new $e09b144e362bf4ed$var$Glob(pattern, options, cb);
-    $e09b144e362bf4ed$var$setopts(this, pattern, options);
+    if (!(this instanceof $262536242ddd2d51$var$Glob)) return new $262536242ddd2d51$var$Glob(pattern, options, cb);
+    $262536242ddd2d51$var$setopts(this, pattern, options);
     this._didRealPath = false;
     // process each pattern in the minimatch set
     var n = this.minimatch.set.length;
@@ -22139,7 +22139,7 @@ function $e09b144e362bf4ed$var$Glob(pattern, options, cb) {
     // Keep them as a list so we can fill in when nonull is set.
     this.matches = new Array(n);
     if (typeof cb === 'function') {
-        cb = $cX3nS(cb);
+        cb = $ae8zl(cb);
         this.on('error', cb);
         this.on('end', function(matches) {
             cb(null, matches);
@@ -22165,14 +22165,14 @@ function $e09b144e362bf4ed$var$Glob(pattern, options, cb) {
         }
     }
 }
-$e09b144e362bf4ed$var$Glob.prototype._finish = function() {
-    $1X1Jj$assert(this instanceof $e09b144e362bf4ed$var$Glob);
+$262536242ddd2d51$var$Glob.prototype._finish = function() {
+    $lcjJR$assert(this instanceof $262536242ddd2d51$var$Glob);
     if (this.aborted) return;
     if (this.realpath && !this._didRealpath) return this._realpath();
-    $gWx33.finish(this);
+    $1fdFS.finish(this);
     this.emit('end', this.found);
 };
-$e09b144e362bf4ed$var$Glob.prototype._realpath = function() {
+$262536242ddd2d51$var$Glob.prototype._realpath = function() {
     if (this._didRealpath) return;
     this._didRealpath = true;
     var n = this.matches.length;
@@ -22183,7 +22183,7 @@ $e09b144e362bf4ed$var$Glob.prototype._realpath = function() {
         if (--n === 0) self._finish();
     }
 };
-$e09b144e362bf4ed$var$Glob.prototype._realpathSet = function(index, cb) {
+$262536242ddd2d51$var$Glob.prototype._realpathSet = function(index, cb) {
     var matchset = this.matches[index];
     if (!matchset) return cb();
     var found = Object.keys(matchset);
@@ -22196,7 +22196,7 @@ $e09b144e362bf4ed$var$Glob.prototype._realpathSet = function(index, cb) {
         // one or more of the links in the realpath couldn't be
         // resolved.  just return the abs value in that case.
         p = self._makeAbs(p);
-        $fZ4nx.realpath(p, self.realpathCache, function(er, real) {
+        $443u6.realpath(p, self.realpathCache, function(er, real) {
             if (!er) set[real] = true;
             else if (er.syscall === 'stat') set[p] = true;
             else self.emit('error', er) // srsly wtf right here
@@ -22208,23 +22208,23 @@ $e09b144e362bf4ed$var$Glob.prototype._realpathSet = function(index, cb) {
         });
     });
 };
-$e09b144e362bf4ed$var$Glob.prototype._mark = function(p) {
-    return $gWx33.mark(this, p);
+$262536242ddd2d51$var$Glob.prototype._mark = function(p) {
+    return $1fdFS.mark(this, p);
 };
-$e09b144e362bf4ed$var$Glob.prototype._makeAbs = function(f) {
-    return $gWx33.makeAbs(this, f);
+$262536242ddd2d51$var$Glob.prototype._makeAbs = function(f) {
+    return $1fdFS.makeAbs(this, f);
 };
-$e09b144e362bf4ed$var$Glob.prototype.abort = function() {
+$262536242ddd2d51$var$Glob.prototype.abort = function() {
     this.aborted = true;
     this.emit('abort');
 };
-$e09b144e362bf4ed$var$Glob.prototype.pause = function() {
+$262536242ddd2d51$var$Glob.prototype.pause = function() {
     if (!this.paused) {
         this.paused = true;
         this.emit('pause');
     }
 };
-$e09b144e362bf4ed$var$Glob.prototype.resume = function() {
+$262536242ddd2d51$var$Glob.prototype.resume = function() {
     if (this.paused) {
         this.emit('resume');
         this.paused = false;
@@ -22247,9 +22247,9 @@ $e09b144e362bf4ed$var$Glob.prototype.resume = function() {
         }
     }
 };
-$e09b144e362bf4ed$var$Glob.prototype._process = function(pattern, index, inGlobStar, cb) {
-    $1X1Jj$assert(this instanceof $e09b144e362bf4ed$var$Glob);
-    $1X1Jj$assert(typeof cb === 'function');
+$262536242ddd2d51$var$Glob.prototype._process = function(pattern, index, inGlobStar, cb) {
+    $lcjJR$assert(this instanceof $262536242ddd2d51$var$Glob);
+    $lcjJR$assert(typeof cb === 'function');
     if (this.aborted) return;
     this._processing++;
     if (this.paused) {
@@ -22289,26 +22289,26 @@ $e09b144e362bf4ed$var$Glob.prototype._process = function(pattern, index, inGlobS
     // get the list of entries.
     var read;
     if (prefix === null) read = '.';
-    else if ($7wZYl(prefix) || $7wZYl(pattern.map(function(p) {
+    else if ($kHZnT(prefix) || $kHZnT(pattern.map(function(p) {
         return typeof p === 'string' ? p : '[*]';
     }).join('/'))) {
-        if (!prefix || !$7wZYl(prefix)) prefix = '/' + prefix;
+        if (!prefix || !$kHZnT(prefix)) prefix = '/' + prefix;
         read = prefix;
     } else read = prefix;
     var abs = this._makeAbs(read);
     //if ignored, skip _processing
-    if ($e09b144e362bf4ed$var$childrenIgnored(this, read)) return cb();
-    var isGlobStar = remain[0] === $MDUQ5.GLOBSTAR;
+    if ($262536242ddd2d51$var$childrenIgnored(this, read)) return cb();
+    var isGlobStar = remain[0] === $dYtkX.GLOBSTAR;
     if (isGlobStar) this._processGlobStar(prefix, read, abs, remain, index, inGlobStar, cb);
     else this._processReaddir(prefix, read, abs, remain, index, inGlobStar, cb);
 };
-$e09b144e362bf4ed$var$Glob.prototype._processReaddir = function(prefix, read, abs, remain, index, inGlobStar, cb) {
+$262536242ddd2d51$var$Glob.prototype._processReaddir = function(prefix, read, abs, remain, index, inGlobStar, cb) {
     var self = this;
     this._readdir(abs, inGlobStar, function(er, entries) {
         return self._processReaddir2(prefix, read, abs, remain, index, inGlobStar, entries, cb);
     });
 };
-$e09b144e362bf4ed$var$Glob.prototype._processReaddir2 = function(prefix, read, abs, remain, index, inGlobStar, entries, cb) {
+$262536242ddd2d51$var$Glob.prototype._processReaddir2 = function(prefix, read, abs, remain, index, inGlobStar, entries, cb) {
     // if the abs isn't a dir, then nothing can match!
     if (!entries) return cb();
     // It will only match dot entries if it starts with a dot, or if
@@ -22343,7 +22343,7 @@ $e09b144e362bf4ed$var$Glob.prototype._processReaddir2 = function(prefix, read, a
                 if (prefix !== '/') e = prefix + '/' + e;
                 else e = prefix + e;
             }
-            if (e.charAt(0) === '/' && !this.nomount) e = $1X1Jj$path.join(this.root, e);
+            if (e.charAt(0) === '/' && !this.nomount) e = $lcjJR$path.join(this.root, e);
             this._emitMatch(index, e);
         }
         // This was the last one, and no stats were needed
@@ -22365,9 +22365,9 @@ $e09b144e362bf4ed$var$Glob.prototype._processReaddir2 = function(prefix, read, a
     }
     cb();
 };
-$e09b144e362bf4ed$var$Glob.prototype._emitMatch = function(index, e) {
+$262536242ddd2d51$var$Glob.prototype._emitMatch = function(index, e) {
     if (this.aborted) return;
-    if ($e09b144e362bf4ed$var$isIgnored(this, e)) return;
+    if ($262536242ddd2d51$var$isIgnored(this, e)) return;
     if (this.paused) {
         this._emitQueue.push([
             index,
@@ -22375,7 +22375,7 @@ $e09b144e362bf4ed$var$Glob.prototype._emitMatch = function(index, e) {
         ]);
         return;
     }
-    var abs = $7wZYl(e) ? e : this._makeAbs(e);
+    var abs = $kHZnT(e) ? e : this._makeAbs(e);
     if (this.mark) e = this._mark(e);
     if (this.absolute) e = abs;
     if (this.matches[index][e]) return;
@@ -22388,14 +22388,14 @@ $e09b144e362bf4ed$var$Glob.prototype._emitMatch = function(index, e) {
     if (st) this.emit('stat', e, st);
     this.emit('match', e);
 };
-$e09b144e362bf4ed$var$Glob.prototype._readdirInGlobStar = function(abs, cb) {
+$262536242ddd2d51$var$Glob.prototype._readdirInGlobStar = function(abs, cb) {
     if (this.aborted) return;
     // follow all symlinked directories forever
     // just proceed as if this is a non-globstar situation
     if (this.follow) return this._readdir(abs, false, cb);
     var lstatkey = 'lstat\0' + abs;
     var self = this;
-    var lstatcb = $DWK5C(lstatkey, lstatcb_);
+    var lstatcb = $7cGLg(lstatkey, lstatcb_);
     if (lstatcb) self.fs.lstat(abs, lstatcb);
     function lstatcb_(er, lstat) {
         if (er && er.code === 'ENOENT') return cb();
@@ -22409,27 +22409,27 @@ $e09b144e362bf4ed$var$Glob.prototype._readdirInGlobStar = function(abs, cb) {
         } else self._readdir(abs, false, cb);
     }
 };
-$e09b144e362bf4ed$var$Glob.prototype._readdir = function(abs, inGlobStar, cb) {
+$262536242ddd2d51$var$Glob.prototype._readdir = function(abs, inGlobStar, cb) {
     if (this.aborted) return;
-    cb = $DWK5C('readdir\0' + abs + '\0' + inGlobStar, cb);
+    cb = $7cGLg('readdir\0' + abs + '\0' + inGlobStar, cb);
     if (!cb) return;
     //console.error('RD %j %j', +inGlobStar, abs)
-    if (inGlobStar && !$e09b144e362bf4ed$var$ownProp(this.symlinks, abs)) return this._readdirInGlobStar(abs, cb);
-    if ($e09b144e362bf4ed$var$ownProp(this.cache, abs)) {
+    if (inGlobStar && !$262536242ddd2d51$var$ownProp(this.symlinks, abs)) return this._readdirInGlobStar(abs, cb);
+    if ($262536242ddd2d51$var$ownProp(this.cache, abs)) {
         var c = this.cache[abs];
         if (!c || c === 'FILE') return cb();
         if (Array.isArray(c)) return cb(null, c);
     }
     var self = this;
-    self.fs.readdir(abs, $e09b144e362bf4ed$var$readdirCb(this, abs, cb));
+    self.fs.readdir(abs, $262536242ddd2d51$var$readdirCb(this, abs, cb));
 };
-function $e09b144e362bf4ed$var$readdirCb(self, abs, cb) {
+function $262536242ddd2d51$var$readdirCb(self, abs, cb) {
     return function(er, entries) {
         if (er) self._readdirError(abs, er, cb);
         else self._readdirEntries(abs, entries, cb);
     };
 }
-$e09b144e362bf4ed$var$Glob.prototype._readdirEntries = function(abs, entries, cb) {
+$262536242ddd2d51$var$Glob.prototype._readdirEntries = function(abs, entries, cb) {
     if (this.aborted) return;
     // if we haven't asked to stat everything, then just
     // assume that everything in there exists, so we can avoid
@@ -22443,7 +22443,7 @@ $e09b144e362bf4ed$var$Glob.prototype._readdirEntries = function(abs, entries, cb
     this.cache[abs] = entries;
     return cb(null, entries);
 };
-$e09b144e362bf4ed$var$Glob.prototype._readdirError = function(f, er, cb) {
+$262536242ddd2d51$var$Glob.prototype._readdirError = function(f, er, cb) {
     if (this.aborted) return;
     // handle errors, and cache the information
     switch(er.code){
@@ -22478,13 +22478,13 @@ $e09b144e362bf4ed$var$Glob.prototype._readdirError = function(f, er, cb) {
     }
     return cb();
 };
-$e09b144e362bf4ed$var$Glob.prototype._processGlobStar = function(prefix, read, abs, remain, index, inGlobStar, cb) {
+$262536242ddd2d51$var$Glob.prototype._processGlobStar = function(prefix, read, abs, remain, index, inGlobStar, cb) {
     var self = this;
     this._readdir(abs, inGlobStar, function(er, entries) {
         self._processGlobStar2(prefix, read, abs, remain, index, inGlobStar, entries, cb);
     });
 };
-$e09b144e362bf4ed$var$Glob.prototype._processGlobStar2 = function(prefix, read, abs, remain, index, inGlobStar, entries, cb) {
+$262536242ddd2d51$var$Glob.prototype._processGlobStar2 = function(prefix, read, abs, remain, index, inGlobStar, entries, cb) {
     //console.error('pgs2', prefix, remain[0], entries)
     // no entries means not a dir, so it can never have matches
     // foo.txt/** doesn't match foo.txt
@@ -22513,7 +22513,7 @@ $e09b144e362bf4ed$var$Glob.prototype._processGlobStar2 = function(prefix, read, 
     }
     cb();
 };
-$e09b144e362bf4ed$var$Glob.prototype._processSimple = function(prefix, index, cb) {
+$262536242ddd2d51$var$Glob.prototype._processSimple = function(prefix, index, cb) {
     // XXX review this.  Shouldn't it be doing the mounting etc
     // before doing stat?  kinda weird?
     var self = this;
@@ -22521,16 +22521,16 @@ $e09b144e362bf4ed$var$Glob.prototype._processSimple = function(prefix, index, cb
         self._processSimple2(prefix, index, er, exists, cb);
     });
 };
-$e09b144e362bf4ed$var$Glob.prototype._processSimple2 = function(prefix, index, er, exists, cb) {
+$262536242ddd2d51$var$Glob.prototype._processSimple2 = function(prefix, index, er, exists, cb) {
     //console.error('ps2', prefix, exists)
     if (!this.matches[index]) this.matches[index] = Object.create(null);
     // If it doesn't exist, then just mark the lack of results
     if (!exists) return cb();
-    if (prefix && $7wZYl(prefix) && !this.nomount) {
+    if (prefix && $kHZnT(prefix) && !this.nomount) {
         var trail = /[\/\\]$/.test(prefix);
-        if (prefix.charAt(0) === '/') prefix = $1X1Jj$path.join(this.root, prefix);
+        if (prefix.charAt(0) === '/') prefix = $lcjJR$path.join(this.root, prefix);
         else {
-            prefix = $1X1Jj$path.resolve(this.root, prefix);
+            prefix = $lcjJR$path.resolve(this.root, prefix);
             if (trail) prefix += '/';
         }
     }
@@ -22540,11 +22540,11 @@ $e09b144e362bf4ed$var$Glob.prototype._processSimple2 = function(prefix, index, e
     cb();
 };
 // Returns either 'DIR', 'FILE', or false
-$e09b144e362bf4ed$var$Glob.prototype._stat = function(f, cb) {
+$262536242ddd2d51$var$Glob.prototype._stat = function(f, cb) {
     var abs = this._makeAbs(f);
     var needDir = f.slice(-1) === '/';
     if (f.length > this.maxLength) return cb();
-    if (!this.stat && $e09b144e362bf4ed$var$ownProp(this.cache, abs)) {
+    if (!this.stat && $262536242ddd2d51$var$ownProp(this.cache, abs)) {
         var c = this.cache[abs];
         if (Array.isArray(c)) c = 'DIR';
         // It exists, but maybe not how we need it
@@ -22564,7 +22564,7 @@ $e09b144e362bf4ed$var$Glob.prototype._stat = function(f, cb) {
         }
     }
     var self = this;
-    var statcb = $DWK5C('stat\0' + abs, lstatcb_);
+    var statcb = $7cGLg('stat\0' + abs, lstatcb_);
     if (statcb) self.fs.lstat(abs, statcb);
     function lstatcb_(er, lstat) {
         if (lstat && lstat.isSymbolicLink()) // If it's a symlink, then treat it as the target, unless
@@ -22576,7 +22576,7 @@ $e09b144e362bf4ed$var$Glob.prototype._stat = function(f, cb) {
         else self._stat2(f, abs, er, lstat, cb);
     }
 };
-$e09b144e362bf4ed$var$Glob.prototype._stat2 = function(f, abs, er, stat, cb) {
+$262536242ddd2d51$var$Glob.prototype._stat2 = function(f, abs, er, stat, cb) {
     if (er && (er.code === 'ENOENT' || er.code === 'ENOTDIR')) {
         this.statCache[abs] = false;
         return cb();
@@ -22592,57 +22592,57 @@ $e09b144e362bf4ed$var$Glob.prototype._stat2 = function(f, abs, er, stat, cb) {
 };
 
 });
-parcelRegister("fZ4nx", function(module, exports) {
-module.exports = $ba2ff30aa9a638d5$var$realpath;
-$ba2ff30aa9a638d5$var$realpath.realpath = $ba2ff30aa9a638d5$var$realpath;
-$ba2ff30aa9a638d5$var$realpath.sync = $ba2ff30aa9a638d5$var$realpathSync;
-$ba2ff30aa9a638d5$var$realpath.realpathSync = $ba2ff30aa9a638d5$var$realpathSync;
-$ba2ff30aa9a638d5$var$realpath.monkeypatch = $ba2ff30aa9a638d5$var$monkeypatch;
-$ba2ff30aa9a638d5$var$realpath.unmonkeypatch = $ba2ff30aa9a638d5$var$unmonkeypatch;
+parcelRegister("443u6", function(module, exports) {
+module.exports = $2f5a3d1d8a7826a5$var$realpath;
+$2f5a3d1d8a7826a5$var$realpath.realpath = $2f5a3d1d8a7826a5$var$realpath;
+$2f5a3d1d8a7826a5$var$realpath.sync = $2f5a3d1d8a7826a5$var$realpathSync;
+$2f5a3d1d8a7826a5$var$realpath.realpathSync = $2f5a3d1d8a7826a5$var$realpathSync;
+$2f5a3d1d8a7826a5$var$realpath.monkeypatch = $2f5a3d1d8a7826a5$var$monkeypatch;
+$2f5a3d1d8a7826a5$var$realpath.unmonkeypatch = $2f5a3d1d8a7826a5$var$unmonkeypatch;
 
-var $ba2ff30aa9a638d5$var$origRealpath = $1X1Jj$fs.realpath;
-var $ba2ff30aa9a638d5$var$origRealpathSync = $1X1Jj$fs.realpathSync;
-var $ba2ff30aa9a638d5$var$version = process.version;
-var $ba2ff30aa9a638d5$var$ok = /^v[0-5]\./.test($ba2ff30aa9a638d5$var$version);
+var $2f5a3d1d8a7826a5$var$origRealpath = $lcjJR$fs.realpath;
+var $2f5a3d1d8a7826a5$var$origRealpathSync = $lcjJR$fs.realpathSync;
+var $2f5a3d1d8a7826a5$var$version = process.version;
+var $2f5a3d1d8a7826a5$var$ok = /^v[0-5]\./.test($2f5a3d1d8a7826a5$var$version);
 
-var $7E7YX = parcelRequire("7E7YX");
-function $ba2ff30aa9a638d5$var$newError(er) {
+var $5sQjK = parcelRequire("5sQjK");
+function $2f5a3d1d8a7826a5$var$newError(er) {
     return er && er.syscall === 'realpath' && (er.code === 'ELOOP' || er.code === 'ENOMEM' || er.code === 'ENAMETOOLONG');
 }
-function $ba2ff30aa9a638d5$var$realpath(p, cache, cb) {
-    if ($ba2ff30aa9a638d5$var$ok) return $ba2ff30aa9a638d5$var$origRealpath(p, cache, cb);
+function $2f5a3d1d8a7826a5$var$realpath(p, cache, cb) {
+    if ($2f5a3d1d8a7826a5$var$ok) return $2f5a3d1d8a7826a5$var$origRealpath(p, cache, cb);
     if (typeof cache === 'function') {
         cb = cache;
         cache = null;
     }
-    $ba2ff30aa9a638d5$var$origRealpath(p, cache, function(er, result) {
-        if ($ba2ff30aa9a638d5$var$newError(er)) $7E7YX.realpath(p, cache, cb);
+    $2f5a3d1d8a7826a5$var$origRealpath(p, cache, function(er, result) {
+        if ($2f5a3d1d8a7826a5$var$newError(er)) $5sQjK.realpath(p, cache, cb);
         else cb(er, result);
     });
 }
-function $ba2ff30aa9a638d5$var$realpathSync(p, cache) {
-    if ($ba2ff30aa9a638d5$var$ok) return $ba2ff30aa9a638d5$var$origRealpathSync(p, cache);
+function $2f5a3d1d8a7826a5$var$realpathSync(p, cache) {
+    if ($2f5a3d1d8a7826a5$var$ok) return $2f5a3d1d8a7826a5$var$origRealpathSync(p, cache);
     try {
-        return $ba2ff30aa9a638d5$var$origRealpathSync(p, cache);
+        return $2f5a3d1d8a7826a5$var$origRealpathSync(p, cache);
     } catch (er) {
-        if ($ba2ff30aa9a638d5$var$newError(er)) return $7E7YX.realpathSync(p, cache);
+        if ($2f5a3d1d8a7826a5$var$newError(er)) return $5sQjK.realpathSync(p, cache);
         else throw er;
     }
 }
-function $ba2ff30aa9a638d5$var$monkeypatch() {
-    $1X1Jj$fs.realpath = $ba2ff30aa9a638d5$var$realpath;
-    $1X1Jj$fs.realpathSync = $ba2ff30aa9a638d5$var$realpathSync;
+function $2f5a3d1d8a7826a5$var$monkeypatch() {
+    $lcjJR$fs.realpath = $2f5a3d1d8a7826a5$var$realpath;
+    $lcjJR$fs.realpathSync = $2f5a3d1d8a7826a5$var$realpathSync;
 }
-function $ba2ff30aa9a638d5$var$unmonkeypatch() {
-    $1X1Jj$fs.realpath = $ba2ff30aa9a638d5$var$origRealpath;
-    $1X1Jj$fs.realpathSync = $ba2ff30aa9a638d5$var$origRealpathSync;
+function $2f5a3d1d8a7826a5$var$unmonkeypatch() {
+    $lcjJR$fs.realpath = $2f5a3d1d8a7826a5$var$origRealpath;
+    $lcjJR$fs.realpathSync = $2f5a3d1d8a7826a5$var$origRealpathSync;
 }
 
 });
-parcelRegister("7E7YX", function(module, exports) {
+parcelRegister("5sQjK", function(module, exports) {
 
-$parcel$export(module.exports, "realpathSync", () => $591275f2132cc58f$export$e7ee1e13ae6297d9, (v) => $591275f2132cc58f$export$e7ee1e13ae6297d9 = v);
-$parcel$export(module.exports, "realpath", () => $591275f2132cc58f$export$9f2c45015a422c45, (v) => $591275f2132cc58f$export$9f2c45015a422c45 = v);
+$parcel$export(module.exports, "realpathSync", () => $3fa8266f50645c47$export$e7ee1e13ae6297d9, (v) => $3fa8266f50645c47$export$e7ee1e13ae6297d9 = v);
+$parcel$export(module.exports, "realpath", () => $3fa8266f50645c47$export$9f2c45015a422c45, (v) => $3fa8266f50645c47$export$9f2c45015a422c45 = v);
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -22663,18 +22663,18 @@ $parcel$export(module.exports, "realpath", () => $591275f2132cc58f$export$9f2c45
 // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
-var $591275f2132cc58f$export$e7ee1e13ae6297d9;
-var $591275f2132cc58f$export$9f2c45015a422c45;
+var $3fa8266f50645c47$export$e7ee1e13ae6297d9;
+var $3fa8266f50645c47$export$9f2c45015a422c45;
 
-var $591275f2132cc58f$var$isWindows = process.platform === 'win32';
+var $3fa8266f50645c47$var$isWindows = process.platform === 'win32';
 
 // JavaScript implementation of realpath, ported from node pre-v6
-var $591275f2132cc58f$var$DEBUG = process.env.NODE_DEBUG && /fs/.test(process.env.NODE_DEBUG);
-function $591275f2132cc58f$var$rethrow() {
+var $3fa8266f50645c47$var$DEBUG = process.env.NODE_DEBUG && /fs/.test(process.env.NODE_DEBUG);
+function $3fa8266f50645c47$var$rethrow() {
     // Only enable in debug mode. A backtrace uses ~1000 bytes of heap space and
     // is fairly slow to generate.
     var callback;
-    if ($591275f2132cc58f$var$DEBUG) {
+    if ($3fa8266f50645c47$var$DEBUG) {
         var backtrace = new Error;
         callback = debugCallback;
     } else callback = missingCallback;
@@ -22697,20 +22697,20 @@ function $591275f2132cc58f$var$rethrow() {
         }
     }
 }
-function $591275f2132cc58f$var$maybeCallback(cb) {
-    return typeof cb === 'function' ? cb : $591275f2132cc58f$var$rethrow();
+function $3fa8266f50645c47$var$maybeCallback(cb) {
+    return typeof cb === 'function' ? cb : $3fa8266f50645c47$var$rethrow();
 }
-var $591275f2132cc58f$var$normalize = $1X1Jj$path.normalize;
+var $3fa8266f50645c47$var$normalize = $lcjJR$path.normalize;
 // Regexp that finds the next partion of a (partial) path
 // result is [base_with_slash, base], e.g. ['somedir/', 'somedir']
-if ($591275f2132cc58f$var$isWindows) var $591275f2132cc58f$var$nextPartRe = /(.*?)(?:[\/\\]+|$)/g;
-else var $591275f2132cc58f$var$nextPartRe = /(.*?)(?:[\/]+|$)/g;
+if ($3fa8266f50645c47$var$isWindows) var $3fa8266f50645c47$var$nextPartRe = /(.*?)(?:[\/\\]+|$)/g;
+else var $3fa8266f50645c47$var$nextPartRe = /(.*?)(?:[\/]+|$)/g;
 // Regex to find the device root, including trailing slash. E.g. 'c:\\'.
-if ($591275f2132cc58f$var$isWindows) var $591275f2132cc58f$var$splitRootRe = /^(?:[a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/][^\\\/]+)?[\\\/]*/;
-else var $591275f2132cc58f$var$splitRootRe = /^[\/]*/;
-$591275f2132cc58f$export$e7ee1e13ae6297d9 = function realpathSync(p, cache) {
+if ($3fa8266f50645c47$var$isWindows) var $3fa8266f50645c47$var$splitRootRe = /^(?:[a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/][^\\\/]+)?[\\\/]*/;
+else var $3fa8266f50645c47$var$splitRootRe = /^[\/]*/;
+$3fa8266f50645c47$export$e7ee1e13ae6297d9 = function realpathSync(p, cache) {
     // make p is absolute
-    p = $1X1Jj$path.resolve(p);
+    p = $lcjJR$path.resolve(p);
     if (cache && Object.prototype.hasOwnProperty.call(cache, p)) return cache[p];
     var original = p, seenLinks = {}, knownHard = {};
     // current character position in p
@@ -22724,14 +22724,14 @@ $591275f2132cc58f$export$e7ee1e13ae6297d9 = function realpathSync(p, cache) {
     start();
     function start() {
         // Skip over roots
-        var m = $591275f2132cc58f$var$splitRootRe.exec(p);
+        var m = $3fa8266f50645c47$var$splitRootRe.exec(p);
         pos = m[0].length;
         current = m[0];
         base = m[0];
         previous = '';
         // On windows, check that the root exists. On unix there is no need.
-        if ($591275f2132cc58f$var$isWindows && !knownHard[base]) {
-            $1X1Jj$fs.lstatSync(base);
+        if ($3fa8266f50645c47$var$isWindows && !knownHard[base]) {
+            $lcjJR$fs.lstatSync(base);
             knownHard[base] = true;
         }
     }
@@ -22740,19 +22740,19 @@ $591275f2132cc58f$export$e7ee1e13ae6297d9 = function realpathSync(p, cache) {
     // NB: p.length changes.
     while(pos < p.length){
         // find the next part
-        $591275f2132cc58f$var$nextPartRe.lastIndex = pos;
-        var result = $591275f2132cc58f$var$nextPartRe.exec(p);
+        $3fa8266f50645c47$var$nextPartRe.lastIndex = pos;
+        var result = $3fa8266f50645c47$var$nextPartRe.exec(p);
         previous = current;
         current += result[0];
         base = previous + result[1];
-        pos = $591275f2132cc58f$var$nextPartRe.lastIndex;
+        pos = $3fa8266f50645c47$var$nextPartRe.lastIndex;
         // continue if not a symlink
         if (knownHard[base] || cache && cache[base] === base) continue;
         var resolvedLink;
         if (cache && Object.prototype.hasOwnProperty.call(cache, base)) // some known symbolic link.  no need to stat again.
         resolvedLink = cache[base];
         else {
-            var stat = $1X1Jj$fs.lstatSync(base);
+            var stat = $lcjJR$fs.lstatSync(base);
             if (!stat.isSymbolicLink()) {
                 knownHard[base] = true;
                 if (cache) cache[base] = base;
@@ -22761,33 +22761,33 @@ $591275f2132cc58f$export$e7ee1e13ae6297d9 = function realpathSync(p, cache) {
             // read the link if it wasn't read before
             // dev/ino always return 0 on windows, so skip the check.
             var linkTarget = null;
-            if (!$591275f2132cc58f$var$isWindows) {
+            if (!$3fa8266f50645c47$var$isWindows) {
                 var id = stat.dev.toString(32) + ':' + stat.ino.toString(32);
                 if (seenLinks.hasOwnProperty(id)) linkTarget = seenLinks[id];
             }
             if (linkTarget === null) {
-                $1X1Jj$fs.statSync(base);
-                linkTarget = $1X1Jj$fs.readlinkSync(base);
+                $lcjJR$fs.statSync(base);
+                linkTarget = $lcjJR$fs.readlinkSync(base);
             }
-            resolvedLink = $1X1Jj$path.resolve(previous, linkTarget);
+            resolvedLink = $lcjJR$path.resolve(previous, linkTarget);
             // track this, if given a cache.
             if (cache) cache[base] = resolvedLink;
-            if (!$591275f2132cc58f$var$isWindows) seenLinks[id] = linkTarget;
+            if (!$3fa8266f50645c47$var$isWindows) seenLinks[id] = linkTarget;
         }
         // resolve the link, then start over
-        p = $1X1Jj$path.resolve(resolvedLink, p.slice(pos));
+        p = $lcjJR$path.resolve(resolvedLink, p.slice(pos));
         start();
     }
     if (cache) cache[original] = p;
     return p;
 };
-$591275f2132cc58f$export$9f2c45015a422c45 = function realpath(p, cache, cb) {
+$3fa8266f50645c47$export$9f2c45015a422c45 = function realpath(p, cache, cb) {
     if (typeof cb !== 'function') {
-        cb = $591275f2132cc58f$var$maybeCallback(cache);
+        cb = $3fa8266f50645c47$var$maybeCallback(cache);
         cache = null;
     }
     // make p is absolute
-    p = $1X1Jj$path.resolve(p);
+    p = $lcjJR$path.resolve(p);
     if (cache && Object.prototype.hasOwnProperty.call(cache, p)) return process.nextTick(cb.bind(null, null, cache[p]));
     var original = p, seenLinks = {}, knownHard = {};
     // current character position in p
@@ -22801,13 +22801,13 @@ $591275f2132cc58f$export$9f2c45015a422c45 = function realpath(p, cache, cb) {
     start();
     function start() {
         // Skip over roots
-        var m = $591275f2132cc58f$var$splitRootRe.exec(p);
+        var m = $3fa8266f50645c47$var$splitRootRe.exec(p);
         pos = m[0].length;
         current = m[0];
         base = m[0];
         previous = '';
         // On windows, check that the root exists. On unix there is no need.
-        if ($591275f2132cc58f$var$isWindows && !knownHard[base]) $1X1Jj$fs.lstat(base, function(err) {
+        if ($3fa8266f50645c47$var$isWindows && !knownHard[base]) $lcjJR$fs.lstat(base, function(err) {
             if (err) return cb(err);
             knownHard[base] = true;
             LOOP();
@@ -22823,17 +22823,17 @@ $591275f2132cc58f$export$9f2c45015a422c45 = function realpath(p, cache, cb) {
             return cb(null, p);
         }
         // find the next part
-        $591275f2132cc58f$var$nextPartRe.lastIndex = pos;
-        var result = $591275f2132cc58f$var$nextPartRe.exec(p);
+        $3fa8266f50645c47$var$nextPartRe.lastIndex = pos;
+        var result = $3fa8266f50645c47$var$nextPartRe.exec(p);
         previous = current;
         current += result[0];
         base = previous + result[1];
-        pos = $591275f2132cc58f$var$nextPartRe.lastIndex;
+        pos = $3fa8266f50645c47$var$nextPartRe.lastIndex;
         // continue if not a symlink
         if (knownHard[base] || cache && cache[base] === base) return process.nextTick(LOOP);
         if (cache && Object.prototype.hasOwnProperty.call(cache, base)) // known symbolic link.  no need to stat again.
         return gotResolvedLink(cache[base]);
-        return $1X1Jj$fs.lstat(base, gotStat);
+        return $lcjJR$fs.lstat(base, gotStat);
     }
     function gotStat(err, stat) {
         if (err) return cb(err);
@@ -22846,27 +22846,27 @@ $591275f2132cc58f$export$9f2c45015a422c45 = function realpath(p, cache, cb) {
         // stat & read the link if not read before
         // call gotTarget as soon as the link target is known
         // dev/ino always return 0 on windows, so skip the check.
-        if (!$591275f2132cc58f$var$isWindows) {
+        if (!$3fa8266f50645c47$var$isWindows) {
             var id = stat.dev.toString(32) + ':' + stat.ino.toString(32);
             if (seenLinks.hasOwnProperty(id)) return gotTarget(null, seenLinks[id], base);
         }
-        $1X1Jj$fs.stat(base, function(err) {
+        $lcjJR$fs.stat(base, function(err) {
             if (err) return cb(err);
-            $1X1Jj$fs.readlink(base, function(err, target) {
-                if (!$591275f2132cc58f$var$isWindows) seenLinks[id] = target;
+            $lcjJR$fs.readlink(base, function(err, target) {
+                if (!$3fa8266f50645c47$var$isWindows) seenLinks[id] = target;
                 gotTarget(err, target);
             });
         });
     }
     function gotTarget(err, target, base) {
         if (err) return cb(err);
-        var resolvedLink = $1X1Jj$path.resolve(previous, target);
+        var resolvedLink = $lcjJR$path.resolve(previous, target);
         if (cache) cache[base] = resolvedLink;
         gotResolvedLink(resolvedLink);
     }
     function gotResolvedLink(resolvedLink) {
         // resolve the link, then start over
-        p = $1X1Jj$path.resolve(resolvedLink, p.slice(pos));
+        p = $lcjJR$path.resolve(resolvedLink, p.slice(pos));
         start();
     }
 };
@@ -22874,22 +22874,22 @@ $591275f2132cc58f$export$9f2c45015a422c45 = function realpath(p, cache, cb) {
 });
 
 
-parcelRegister("MDUQ5", function(module, exports) {
-module.exports = $0923723f799b871c$var$minimatch;
-$0923723f799b871c$var$minimatch.Minimatch = $0923723f799b871c$var$Minimatch;
+parcelRegister("dYtkX", function(module, exports) {
+module.exports = $a2c7a2af77a3f775$var$minimatch;
+$a2c7a2af77a3f775$var$minimatch.Minimatch = $a2c7a2af77a3f775$var$Minimatch;
 
-var $0923723f799b871c$var$path = function() {
+var $a2c7a2af77a3f775$var$path = function() {
     try {
-        return $0923723f799b871c$import$cc8c2e196ccf5c7a;
+        return $a2c7a2af77a3f775$import$cc8c2e196ccf5c7a;
     } catch (e) {}
 }() || {
     sep: '/'
 };
-$0923723f799b871c$var$minimatch.sep = $0923723f799b871c$var$path.sep;
-var $0923723f799b871c$var$GLOBSTAR = $0923723f799b871c$var$minimatch.GLOBSTAR = $0923723f799b871c$var$Minimatch.GLOBSTAR = {};
+$a2c7a2af77a3f775$var$minimatch.sep = $a2c7a2af77a3f775$var$path.sep;
+var $a2c7a2af77a3f775$var$GLOBSTAR = $a2c7a2af77a3f775$var$minimatch.GLOBSTAR = $a2c7a2af77a3f775$var$Minimatch.GLOBSTAR = {};
 
-var $bRGIR = parcelRequire("bRGIR");
-var $0923723f799b871c$var$plTypes = {
+var $8QeUT = parcelRequire("8QeUT");
+var $a2c7a2af77a3f775$var$plTypes = {
     '!': {
         open: '(?:(?!(?:',
         close: '))[^/]*?)'
@@ -22913,35 +22913,35 @@ var $0923723f799b871c$var$plTypes = {
 };
 // any single thing other than /
 // don't need to escape / when using new RegExp()
-var $0923723f799b871c$var$qmark = '[^/]';
+var $a2c7a2af77a3f775$var$qmark = '[^/]';
 // * => any number of characters
-var $0923723f799b871c$var$star = $0923723f799b871c$var$qmark + '*?';
+var $a2c7a2af77a3f775$var$star = $a2c7a2af77a3f775$var$qmark + '*?';
 // ** when dots are allowed.  Anything goes, except .. and .
 // not (^ or / followed by one or two dots followed by $ or /),
 // followed by anything, any number of times.
-var $0923723f799b871c$var$twoStarDot = '(?:(?!(?:\\\/|^)(?:\\.{1,2})($|\\\/)).)*?';
+var $a2c7a2af77a3f775$var$twoStarDot = '(?:(?!(?:\\\/|^)(?:\\.{1,2})($|\\\/)).)*?';
 // not a ^ or / followed by a dot,
 // followed by anything, any number of times.
-var $0923723f799b871c$var$twoStarNoDot = '(?:(?!(?:\\\/|^)\\.).)*?';
+var $a2c7a2af77a3f775$var$twoStarNoDot = '(?:(?!(?:\\\/|^)\\.).)*?';
 // characters that need to be escaped in RegExp.
-var $0923723f799b871c$var$reSpecials = $0923723f799b871c$var$charSet('().*{}+?[]^$\\!');
+var $a2c7a2af77a3f775$var$reSpecials = $a2c7a2af77a3f775$var$charSet('().*{}+?[]^$\\!');
 // "abc" -> { a:true, b:true, c:true }
-function $0923723f799b871c$var$charSet(s) {
+function $a2c7a2af77a3f775$var$charSet(s) {
     return s.split('').reduce(function(set, c) {
         set[c] = true;
         return set;
     }, {});
 }
 // normalizes slashes.
-var $0923723f799b871c$var$slashSplit = /\/+/;
-$0923723f799b871c$var$minimatch.filter = $0923723f799b871c$var$filter;
-function $0923723f799b871c$var$filter(pattern, options) {
+var $a2c7a2af77a3f775$var$slashSplit = /\/+/;
+$a2c7a2af77a3f775$var$minimatch.filter = $a2c7a2af77a3f775$var$filter;
+function $a2c7a2af77a3f775$var$filter(pattern, options) {
     options = options || {};
     return function(p, i, list) {
-        return $0923723f799b871c$var$minimatch(p, pattern, options);
+        return $a2c7a2af77a3f775$var$minimatch(p, pattern, options);
     };
 }
-function $0923723f799b871c$var$ext(a, b) {
+function $a2c7a2af77a3f775$var$ext(a, b) {
     b = b || {};
     var t = {};
     Object.keys(a).forEach(function(k) {
@@ -22952,52 +22952,52 @@ function $0923723f799b871c$var$ext(a, b) {
     });
     return t;
 }
-$0923723f799b871c$var$minimatch.defaults = function(def) {
-    if (!def || typeof def !== 'object' || !Object.keys(def).length) return $0923723f799b871c$var$minimatch;
-    var orig = $0923723f799b871c$var$minimatch;
+$a2c7a2af77a3f775$var$minimatch.defaults = function(def) {
+    if (!def || typeof def !== 'object' || !Object.keys(def).length) return $a2c7a2af77a3f775$var$minimatch;
+    var orig = $a2c7a2af77a3f775$var$minimatch;
     var m = function minimatch(p, pattern, options) {
-        return orig(p, pattern, $0923723f799b871c$var$ext(def, options));
+        return orig(p, pattern, $a2c7a2af77a3f775$var$ext(def, options));
     };
     m.Minimatch = function Minimatch(pattern, options) {
-        return new orig.Minimatch(pattern, $0923723f799b871c$var$ext(def, options));
+        return new orig.Minimatch(pattern, $a2c7a2af77a3f775$var$ext(def, options));
     };
     m.Minimatch.defaults = function defaults(options) {
-        return orig.defaults($0923723f799b871c$var$ext(def, options)).Minimatch;
+        return orig.defaults($a2c7a2af77a3f775$var$ext(def, options)).Minimatch;
     };
     m.filter = function filter(pattern, options) {
-        return orig.filter(pattern, $0923723f799b871c$var$ext(def, options));
+        return orig.filter(pattern, $a2c7a2af77a3f775$var$ext(def, options));
     };
     m.defaults = function defaults(options) {
-        return orig.defaults($0923723f799b871c$var$ext(def, options));
+        return orig.defaults($a2c7a2af77a3f775$var$ext(def, options));
     };
     m.makeRe = function makeRe(pattern, options) {
-        return orig.makeRe(pattern, $0923723f799b871c$var$ext(def, options));
+        return orig.makeRe(pattern, $a2c7a2af77a3f775$var$ext(def, options));
     };
     m.braceExpand = function braceExpand(pattern, options) {
-        return orig.braceExpand(pattern, $0923723f799b871c$var$ext(def, options));
+        return orig.braceExpand(pattern, $a2c7a2af77a3f775$var$ext(def, options));
     };
     m.match = function(list, pattern, options) {
-        return orig.match(list, pattern, $0923723f799b871c$var$ext(def, options));
+        return orig.match(list, pattern, $a2c7a2af77a3f775$var$ext(def, options));
     };
     return m;
 };
-$0923723f799b871c$var$Minimatch.defaults = function(def) {
-    return $0923723f799b871c$var$minimatch.defaults(def).Minimatch;
+$a2c7a2af77a3f775$var$Minimatch.defaults = function(def) {
+    return $a2c7a2af77a3f775$var$minimatch.defaults(def).Minimatch;
 };
-function $0923723f799b871c$var$minimatch(p, pattern, options) {
-    $0923723f799b871c$var$assertValidPattern(pattern);
+function $a2c7a2af77a3f775$var$minimatch(p, pattern, options) {
+    $a2c7a2af77a3f775$var$assertValidPattern(pattern);
     if (!options) options = {};
     // shortcut: comments match nothing.
     if (!options.nocomment && pattern.charAt(0) === '#') return false;
-    return new $0923723f799b871c$var$Minimatch(pattern, options).match(p);
+    return new $a2c7a2af77a3f775$var$Minimatch(pattern, options).match(p);
 }
-function $0923723f799b871c$var$Minimatch(pattern, options) {
-    if (!(this instanceof $0923723f799b871c$var$Minimatch)) return new $0923723f799b871c$var$Minimatch(pattern, options);
-    $0923723f799b871c$var$assertValidPattern(pattern);
+function $a2c7a2af77a3f775$var$Minimatch(pattern, options) {
+    if (!(this instanceof $a2c7a2af77a3f775$var$Minimatch)) return new $a2c7a2af77a3f775$var$Minimatch(pattern, options);
+    $a2c7a2af77a3f775$var$assertValidPattern(pattern);
     if (!options) options = {};
     pattern = pattern.trim();
     // windows support: need to use /, not \
-    if (!options.allowWindowsEscape && $0923723f799b871c$var$path.sep !== '/') pattern = pattern.split($0923723f799b871c$var$path.sep).join('/');
+    if (!options.allowWindowsEscape && $a2c7a2af77a3f775$var$path.sep !== '/') pattern = pattern.split($a2c7a2af77a3f775$var$path.sep).join('/');
     this.options = options;
     this.maxGlobstarRecursion = options.maxGlobstarRecursion !== undefined ? options.maxGlobstarRecursion : 200;
     this.set = [];
@@ -23010,9 +23010,9 @@ function $0923723f799b871c$var$Minimatch(pattern, options) {
     // make the set of regexps etc.
     this.make();
 }
-$0923723f799b871c$var$Minimatch.prototype.debug = function() {};
-$0923723f799b871c$var$Minimatch.prototype.make = $0923723f799b871c$var$make;
-function $0923723f799b871c$var$make() {
+$a2c7a2af77a3f775$var$Minimatch.prototype.debug = function() {};
+$a2c7a2af77a3f775$var$Minimatch.prototype.make = $a2c7a2af77a3f775$var$make;
+function $a2c7a2af77a3f775$var$make() {
     var pattern = this.pattern;
     var options = this.options;
     // empty patterns and comments match nothing.
@@ -23038,7 +23038,7 @@ function $0923723f799b871c$var$make() {
     // set to the GLOBSTAR object for globstar behavior,
     // and will not contain any / characters
     set = this.globParts = set.map(function(s) {
-        return s.split($0923723f799b871c$var$slashSplit);
+        return s.split($a2c7a2af77a3f775$var$slashSplit);
     });
     this.debug(this.pattern, set);
     // glob --> regexps
@@ -23053,8 +23053,8 @@ function $0923723f799b871c$var$make() {
     this.debug(this.pattern, set);
     this.set = set;
 }
-$0923723f799b871c$var$Minimatch.prototype.parseNegate = $0923723f799b871c$var$parseNegate;
-function $0923723f799b871c$var$parseNegate() {
+$a2c7a2af77a3f775$var$Minimatch.prototype.parseNegate = $a2c7a2af77a3f775$var$parseNegate;
+function $a2c7a2af77a3f775$var$parseNegate() {
     var pattern = this.pattern;
     var negate = false;
     var options = this.options;
@@ -23077,29 +23077,29 @@ function $0923723f799b871c$var$parseNegate() {
 // Invalid sets are not expanded.
 // a{2..}b -> a{2..}b
 // a{b}c -> a{b}c
-$0923723f799b871c$var$minimatch.braceExpand = function(pattern, options) {
-    return $0923723f799b871c$var$braceExpand(pattern, options);
+$a2c7a2af77a3f775$var$minimatch.braceExpand = function(pattern, options) {
+    return $a2c7a2af77a3f775$var$braceExpand(pattern, options);
 };
-$0923723f799b871c$var$Minimatch.prototype.braceExpand = $0923723f799b871c$var$braceExpand;
-function $0923723f799b871c$var$braceExpand(pattern, options) {
+$a2c7a2af77a3f775$var$Minimatch.prototype.braceExpand = $a2c7a2af77a3f775$var$braceExpand;
+function $a2c7a2af77a3f775$var$braceExpand(pattern, options) {
     if (!options) {
-        if (this instanceof $0923723f799b871c$var$Minimatch) options = this.options;
+        if (this instanceof $a2c7a2af77a3f775$var$Minimatch) options = this.options;
         else options = {};
     }
     pattern = typeof pattern === 'undefined' ? this.pattern : pattern;
-    $0923723f799b871c$var$assertValidPattern(pattern);
+    $a2c7a2af77a3f775$var$assertValidPattern(pattern);
     // Thanks to Yeting Li <https://github.com/yetingli> for
     // improving this regexp to avoid a ReDOS vulnerability.
     if (options.nobrace || !/\{(?:(?!\{).)*\}/.test(pattern)) // shortcut. no need to expand.
     return [
         pattern
     ];
-    return $bRGIR(pattern);
+    return $8QeUT(pattern);
 }
-var $0923723f799b871c$var$MAX_PATTERN_LENGTH = 65536;
-var $0923723f799b871c$var$assertValidPattern = function(pattern) {
+var $a2c7a2af77a3f775$var$MAX_PATTERN_LENGTH = 65536;
+var $a2c7a2af77a3f775$var$assertValidPattern = function(pattern) {
     if (typeof pattern !== 'string') throw new TypeError('invalid pattern');
-    if (pattern.length > $0923723f799b871c$var$MAX_PATTERN_LENGTH) throw new TypeError('pattern is too long');
+    if (pattern.length > $a2c7a2af77a3f775$var$MAX_PATTERN_LENGTH) throw new TypeError('pattern is too long');
 };
 // parse a component of the expanded set.
 // At this point, no pattern may contain "/" in it
@@ -23112,14 +23112,14 @@ var $0923723f799b871c$var$assertValidPattern = function(pattern) {
 // when it is the *only* thing in a path portion.  Otherwise, any series
 // of * is equivalent to a single *.  Globstar behavior is enabled by
 // default, and can be disabled by setting options.noglobstar.
-$0923723f799b871c$var$Minimatch.prototype.parse = $0923723f799b871c$var$parse;
-var $0923723f799b871c$var$SUBPARSE = {};
-function $0923723f799b871c$var$parse(pattern, isSub) {
-    $0923723f799b871c$var$assertValidPattern(pattern);
+$a2c7a2af77a3f775$var$Minimatch.prototype.parse = $a2c7a2af77a3f775$var$parse;
+var $a2c7a2af77a3f775$var$SUBPARSE = {};
+function $a2c7a2af77a3f775$var$parse(pattern, isSub) {
+    $a2c7a2af77a3f775$var$assertValidPattern(pattern);
     var options = this.options;
     // shortcuts
     if (pattern === '**') {
-        if (!options.noglobstar) return $0923723f799b871c$var$GLOBSTAR;
+        if (!options.noglobstar) return $a2c7a2af77a3f775$var$GLOBSTAR;
         else pattern = '*';
     }
     if (pattern === '') return '';
@@ -23144,11 +23144,11 @@ function $0923723f799b871c$var$parse(pattern, isSub) {
             // that wasn't consumed by this pass.
             switch(stateChar){
                 case '*':
-                    re += $0923723f799b871c$var$star;
+                    re += $a2c7a2af77a3f775$var$star;
                     hasMagic = true;
                     break;
                 case '?':
-                    re += $0923723f799b871c$var$qmark;
+                    re += $a2c7a2af77a3f775$var$qmark;
                     hasMagic = true;
                     break;
                 default:
@@ -23162,7 +23162,7 @@ function $0923723f799b871c$var$parse(pattern, isSub) {
     for(var i = 0, len = pattern.length, c; i < len && (c = pattern.charAt(i)); i++){
         this.debug('%s\t%s %s %j', pattern, i, re, c);
         // skip over any that are escaped.
-        if (escaping && $0923723f799b871c$var$reSpecials[c]) {
+        if (escaping && $a2c7a2af77a3f775$var$reSpecials[c]) {
             re += '\\' + c;
             escaping = false;
             continue;
@@ -23218,8 +23218,8 @@ function $0923723f799b871c$var$parse(pattern, isSub) {
                     type: stateChar,
                     start: i - 1,
                     reStart: re.length,
-                    open: $0923723f799b871c$var$plTypes[stateChar].open,
-                    close: $0923723f799b871c$var$plTypes[stateChar].close
+                    open: $a2c7a2af77a3f775$var$plTypes[stateChar].open,
+                    close: $a2c7a2af77a3f775$var$plTypes[stateChar].close
                 });
                 // negation is (?:(?!js)[^/]*)
                 re += stateChar === '!' ? '(?:(?!(?:' : '(?:';
@@ -23286,7 +23286,7 @@ function $0923723f799b871c$var$parse(pattern, isSub) {
                     RegExp('[' + cs + ']');
                 } catch (er) {
                     // not a valid class!
-                    var sp = this.parse(cs, $0923723f799b871c$var$SUBPARSE);
+                    var sp = this.parse(cs, $a2c7a2af77a3f775$var$SUBPARSE);
                     re = re.substr(0, reClassStart) + '\\[' + sp[0] + '\\]';
                     hasMagic = hasMagic || sp[1];
                     inClass = false;
@@ -23302,7 +23302,7 @@ function $0923723f799b871c$var$parse(pattern, isSub) {
                 clearStateChar();
                 if (escaping) // no need
                 escaping = false;
-                else if ($0923723f799b871c$var$reSpecials[c] && !(c === '^' && inClass)) re += '\\';
+                else if ($a2c7a2af77a3f775$var$reSpecials[c] && !(c === '^' && inClass)) re += '\\';
                 re += c;
         } // switch
     } // for
@@ -23314,7 +23314,7 @@ function $0923723f799b871c$var$parse(pattern, isSub) {
         // the contents of the would-be class to re-translate
         // any characters that were passed through as-is
         cs = pattern.substr(classStart + 1);
-        sp = this.parse(cs, $0923723f799b871c$var$SUBPARSE);
+        sp = this.parse(cs, $a2c7a2af77a3f775$var$SUBPARSE);
         re = re.substr(0, reClassStart) + '\\[' + sp[0];
         hasMagic = hasMagic || sp[1];
     }
@@ -23340,7 +23340,7 @@ function $0923723f799b871c$var$parse(pattern, isSub) {
             return $1 + $1 + $2 + '|';
         });
         this.debug('tail=%j\n   %s', tail, tail, pl, re);
-        var t = pl.type === '*' ? $0923723f799b871c$var$star : pl.type === '?' ? $0923723f799b871c$var$qmark : '\\' + pl.type;
+        var t = pl.type === '*' ? $a2c7a2af77a3f775$var$star : pl.type === '?' ? $a2c7a2af77a3f775$var$qmark : '\\' + pl.type;
         hasMagic = true;
         re = re.slice(0, pl.reStart) + t + '\\(' + tail;
     }
@@ -23377,7 +23377,7 @@ function $0923723f799b871c$var$parse(pattern, isSub) {
         for(i = 0; i < openParensBefore; i++)cleanAfter = cleanAfter.replace(/\)[+*?]?/, '');
         nlAfter = cleanAfter;
         var dollar = '';
-        if (nlAfter === '' && isSub !== $0923723f799b871c$var$SUBPARSE) dollar = '$';
+        if (nlAfter === '' && isSub !== $a2c7a2af77a3f775$var$SUBPARSE) dollar = '$';
         var newRe = nlBefore + nlFirst + nlAfter + dollar + nlLast;
         re = newRe;
     }
@@ -23387,14 +23387,14 @@ function $0923723f799b871c$var$parse(pattern, isSub) {
     if (re !== '' && hasMagic) re = '(?=.)' + re;
     if (addPatternStart) re = patternStart + re;
     // parsing just a piece of a larger pattern.
-    if (isSub === $0923723f799b871c$var$SUBPARSE) return [
+    if (isSub === $a2c7a2af77a3f775$var$SUBPARSE) return [
         re,
         hasMagic
     ];
     // skip the regexp for non-magical patterns
     // unescape anything in it, though, so that it'll be
     // an exact match against a file etc.
-    if (!hasMagic) return $0923723f799b871c$var$globUnescape(pattern);
+    if (!hasMagic) return $a2c7a2af77a3f775$var$globUnescape(pattern);
     var flags = options.nocase ? 'i' : '';
     try {
         var regExp = new RegExp('^' + re + '$', flags);
@@ -23409,11 +23409,11 @@ function $0923723f799b871c$var$parse(pattern, isSub) {
     regExp._src = re;
     return regExp;
 }
-$0923723f799b871c$var$minimatch.makeRe = function(pattern, options) {
-    return new $0923723f799b871c$var$Minimatch(pattern, options || {}).makeRe();
+$a2c7a2af77a3f775$var$minimatch.makeRe = function(pattern, options) {
+    return new $a2c7a2af77a3f775$var$Minimatch(pattern, options || {}).makeRe();
 };
-$0923723f799b871c$var$Minimatch.prototype.makeRe = $0923723f799b871c$var$makeRe;
-function $0923723f799b871c$var$makeRe() {
+$a2c7a2af77a3f775$var$Minimatch.prototype.makeRe = $a2c7a2af77a3f775$var$makeRe;
+function $a2c7a2af77a3f775$var$makeRe() {
     if (this.regexp || this.regexp === false) return this.regexp;
     // at this point, this.set is a 2d array of partial
     // pattern strings, or "**".
@@ -23427,11 +23427,11 @@ function $0923723f799b871c$var$makeRe() {
         return this.regexp;
     }
     var options = this.options;
-    var twoStar = options.noglobstar ? $0923723f799b871c$var$star : options.dot ? $0923723f799b871c$var$twoStarDot : $0923723f799b871c$var$twoStarNoDot;
+    var twoStar = options.noglobstar ? $a2c7a2af77a3f775$var$star : options.dot ? $a2c7a2af77a3f775$var$twoStarDot : $a2c7a2af77a3f775$var$twoStarNoDot;
     var flags = options.nocase ? 'i' : '';
     var re = set.map(function(pattern) {
         return pattern.map(function(p) {
-            return p === $0923723f799b871c$var$GLOBSTAR ? twoStar : typeof p === 'string' ? $0923723f799b871c$var$regExpEscape(p) : p._src;
+            return p === $a2c7a2af77a3f775$var$GLOBSTAR ? twoStar : typeof p === 'string' ? $a2c7a2af77a3f775$var$regExpEscape(p) : p._src;
         }).join('\\\/');
     }).join('|');
     // must match entire pattern
@@ -23446,16 +23446,16 @@ function $0923723f799b871c$var$makeRe() {
     }
     return this.regexp;
 }
-$0923723f799b871c$var$minimatch.match = function(list, pattern, options) {
+$a2c7a2af77a3f775$var$minimatch.match = function(list, pattern, options) {
     options = options || {};
-    var mm = new $0923723f799b871c$var$Minimatch(pattern, options);
+    var mm = new $a2c7a2af77a3f775$var$Minimatch(pattern, options);
     list = list.filter(function(f) {
         return mm.match(f);
     });
     if (mm.options.nonull && !list.length) list.push(pattern);
     return list;
 };
-$0923723f799b871c$var$Minimatch.prototype.match = function match(f, partial) {
+$a2c7a2af77a3f775$var$Minimatch.prototype.match = function match(f, partial) {
     if (typeof partial === 'undefined') partial = this.partial;
     this.debug('match', f, this.pattern);
     // short-circuit in the case of busted things.
@@ -23465,9 +23465,9 @@ $0923723f799b871c$var$Minimatch.prototype.match = function match(f, partial) {
     if (f === '/' && partial) return true;
     var options = this.options;
     // windows: need to use /, not \
-    if ($0923723f799b871c$var$path.sep !== '/') f = f.split($0923723f799b871c$var$path.sep).join('/');
+    if ($a2c7a2af77a3f775$var$path.sep !== '/') f = f.split($a2c7a2af77a3f775$var$path.sep).join('/');
     // treat the test path as a set of pathparts.
-    f = f.split($0923723f799b871c$var$slashSplit);
+    f = f.split($a2c7a2af77a3f775$var$slashSplit);
     this.debug(this.pattern, 'split', f);
     // just ONE of the pattern sets in this.set needs to match
     // in order for it to be valid.  If negating, then just one
@@ -23504,21 +23504,21 @@ $0923723f799b871c$var$Minimatch.prototype.match = function match(f, partial) {
 // Partial means, if you run out of file before you run
 // out of pattern, then that's fine, as long as all
 // the parts match.
-$0923723f799b871c$var$Minimatch.prototype.matchOne = function(file, pattern, partial) {
-    if (pattern.indexOf($0923723f799b871c$var$GLOBSTAR) !== -1) return this._matchGlobstar(file, pattern, partial, 0, 0);
+$a2c7a2af77a3f775$var$Minimatch.prototype.matchOne = function(file, pattern, partial) {
+    if (pattern.indexOf($a2c7a2af77a3f775$var$GLOBSTAR) !== -1) return this._matchGlobstar(file, pattern, partial, 0, 0);
     return this._matchOne(file, pattern, partial, 0, 0);
 };
-$0923723f799b871c$var$Minimatch.prototype._matchGlobstar = function(file, pattern, partial, fileIndex, patternIndex) {
+$a2c7a2af77a3f775$var$Minimatch.prototype._matchGlobstar = function(file, pattern, partial, fileIndex, patternIndex) {
     var i;
     // find first globstar from patternIndex
     var firstgs = -1;
-    for(i = patternIndex; i < pattern.length; i++)if (pattern[i] === $0923723f799b871c$var$GLOBSTAR) {
+    for(i = patternIndex; i < pattern.length; i++)if (pattern[i] === $a2c7a2af77a3f775$var$GLOBSTAR) {
         firstgs = i;
         break;
     }
     // find last globstar
     var lastgs = -1;
-    for(i = pattern.length - 1; i >= 0; i--)if (pattern[i] === $0923723f799b871c$var$GLOBSTAR) {
+    for(i = pattern.length - 1; i >= 0; i--)if (pattern[i] === $a2c7a2af77a3f775$var$GLOBSTAR) {
         lastgs = i;
         break;
     }
@@ -23569,7 +23569,7 @@ $0923723f799b871c$var$Minimatch.prototype._matchGlobstar = function(file, patter
     ];
     for(var bi = 0; bi < body.length; bi++){
         var b = body[bi];
-        if (b === $0923723f799b871c$var$GLOBSTAR) {
+        if (b === $a2c7a2af77a3f775$var$GLOBSTAR) {
             nonGsPartsSums.push(nonGsParts);
             currentBody = [
                 [],
@@ -23588,7 +23588,7 @@ $0923723f799b871c$var$Minimatch.prototype._matchGlobstar = function(file, patter
 };
 // return false for "nope, not matching"
 // return null for "not matching, cannot keep trying"
-$0923723f799b871c$var$Minimatch.prototype._matchGlobStarBodySections = function(file, bodySegments, fileIndex, bodyIndex, partial, globStarDepth, sawTail) {
+$a2c7a2af77a3f775$var$Minimatch.prototype._matchGlobStarBodySections = function(file, bodySegments, fileIndex, bodyIndex, partial, globStarDepth, sawTail) {
     var bs = bodySegments[bodyIndex];
     if (!bs) {
         // just make sure there are no bad dots
@@ -23615,7 +23615,7 @@ $0923723f799b871c$var$Minimatch.prototype._matchGlobStarBodySections = function(
     }
     return partial || null;
 };
-$0923723f799b871c$var$Minimatch.prototype._matchOne = function(file, pattern, partial, fileIndex, patternIndex) {
+$a2c7a2af77a3f775$var$Minimatch.prototype._matchOne = function(file, pattern, partial, fileIndex, patternIndex) {
     var fi, pi, fl, pl;
     for(fi = fileIndex, pi = patternIndex, fl = file.length, pl = pattern.length; fi < fl && pi < pl; fi++, pi++){
         this.debug('matchOne loop');
@@ -23624,7 +23624,7 @@ $0923723f799b871c$var$Minimatch.prototype._matchOne = function(file, pattern, pa
         this.debug(pattern, p, f);
         // should be impossible.
         // some invalid regexp stuff in the set.
-        /* istanbul ignore if */ if (p === false || p === $0923723f799b871c$var$GLOBSTAR) return false;
+        /* istanbul ignore if */ if (p === false || p === $a2c7a2af77a3f775$var$GLOBSTAR) return false;
         // something other than **
         // non-magic patterns just have to match exactly
         // patterns with magic have been turned into regexps.
@@ -23655,25 +23655,25 @@ $0923723f799b871c$var$Minimatch.prototype._matchOne = function(file, pattern, pa
     /* istanbul ignore next */ throw new Error('wtf?');
 };
 // replace stuff like \* with *
-function $0923723f799b871c$var$globUnescape(s) {
+function $a2c7a2af77a3f775$var$globUnescape(s) {
     return s.replace(/\\(.)/g, '$1');
 }
-function $0923723f799b871c$var$regExpEscape(s) {
+function $a2c7a2af77a3f775$var$regExpEscape(s) {
     return s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
 });
-parcelRegister("bRGIR", function(module, exports) {
-parcelRequire("8DLzi");
+parcelRegister("8QeUT", function(module, exports) {
+parcelRequire("kWync");
 
-var $guga5 = parcelRequire("guga5");
-module.exports = $8a35c8bde4047945$var$expandTop;
-var $8a35c8bde4047945$var$escSlash = '\0SLASH' + Math.random() + '\0';
-var $8a35c8bde4047945$var$escOpen = '\0OPEN' + Math.random() + '\0';
-var $8a35c8bde4047945$var$escClose = '\0CLOSE' + Math.random() + '\0';
-var $8a35c8bde4047945$var$escComma = '\0COMMA' + Math.random() + '\0';
-var $8a35c8bde4047945$var$escPeriod = '\0PERIOD' + Math.random() + '\0';
-var $8a35c8bde4047945$var$EXPANSION_MAX = 100000;
+var $gbdMR = parcelRequire("gbdMR");
+module.exports = $66fec02a5f3e71ee$var$expandTop;
+var $66fec02a5f3e71ee$var$escSlash = '\0SLASH' + Math.random() + '\0';
+var $66fec02a5f3e71ee$var$escOpen = '\0OPEN' + Math.random() + '\0';
+var $66fec02a5f3e71ee$var$escClose = '\0CLOSE' + Math.random() + '\0';
+var $66fec02a5f3e71ee$var$escComma = '\0COMMA' + Math.random() + '\0';
+var $66fec02a5f3e71ee$var$escPeriod = '\0PERIOD' + Math.random() + '\0';
+var $66fec02a5f3e71ee$var$EXPANSION_MAX = 100000;
 // `EXPANSION_MAX` caps the *number* of expansions, but not their length. An
 // input like `'{a,b}'.repeat(1500)` stays under that count - its output is
 // truncated to 100k results - while making every result ~1500 characters
@@ -23684,32 +23684,32 @@ var $8a35c8bde4047945$var$EXPANSION_MAX = 100000;
 // matter how many brace groups are chained. The limit sits well above any
 // realistic expansion (100k results hitting `EXPANSION_MAX` measure ~1M
 // characters) so legitimate input is unaffected.
-var $8a35c8bde4047945$var$EXPANSION_MAX_LENGTH = 4000000;
-function $8a35c8bde4047945$var$numeric(str) {
+var $66fec02a5f3e71ee$var$EXPANSION_MAX_LENGTH = 4000000;
+function $66fec02a5f3e71ee$var$numeric(str) {
     return parseInt(str, 10) == str ? parseInt(str, 10) : str.charCodeAt(0);
 }
-function $8a35c8bde4047945$var$escapeBraces(str) {
-    return str.split('\\\\').join($8a35c8bde4047945$var$escSlash).split('\\{').join($8a35c8bde4047945$var$escOpen).split('\\}').join($8a35c8bde4047945$var$escClose).split('\\,').join($8a35c8bde4047945$var$escComma).split('\\.').join($8a35c8bde4047945$var$escPeriod);
+function $66fec02a5f3e71ee$var$escapeBraces(str) {
+    return str.split('\\\\').join($66fec02a5f3e71ee$var$escSlash).split('\\{').join($66fec02a5f3e71ee$var$escOpen).split('\\}').join($66fec02a5f3e71ee$var$escClose).split('\\,').join($66fec02a5f3e71ee$var$escComma).split('\\.').join($66fec02a5f3e71ee$var$escPeriod);
 }
-function $8a35c8bde4047945$var$unescapeBraces(str) {
-    return str.split($8a35c8bde4047945$var$escSlash).join('\\').split($8a35c8bde4047945$var$escOpen).join('{').split($8a35c8bde4047945$var$escClose).join('}').split($8a35c8bde4047945$var$escComma).join(',').split($8a35c8bde4047945$var$escPeriod).join('.');
+function $66fec02a5f3e71ee$var$unescapeBraces(str) {
+    return str.split($66fec02a5f3e71ee$var$escSlash).join('\\').split($66fec02a5f3e71ee$var$escOpen).join('{').split($66fec02a5f3e71ee$var$escClose).join('}').split($66fec02a5f3e71ee$var$escComma).join(',').split($66fec02a5f3e71ee$var$escPeriod).join('.');
 }
 // Basically just str.split(","), but handling cases
 // where we have nested braced sections, which should be
 // treated as individual members, like {a,{b,c},d}
-function $8a35c8bde4047945$var$parseCommaParts(str) {
+function $66fec02a5f3e71ee$var$parseCommaParts(str) {
     if (!str) return [
         ''
     ];
     var parts = [];
-    var m = $guga5('{', '}', str);
+    var m = $gbdMR('{', '}', str);
     if (!m) return str.split(',');
     var pre = m.pre;
     var body = m.body;
     var post = m.post;
     var p = pre.split(',');
     p[p.length - 1] += '{' + body + '}';
-    var postParts = $8a35c8bde4047945$var$parseCommaParts(post);
+    var postParts = $66fec02a5f3e71ee$var$parseCommaParts(post);
     if (post.length) {
         p[p.length - 1] += postParts.shift();
         p.push.apply(p, postParts);
@@ -23717,11 +23717,11 @@ function $8a35c8bde4047945$var$parseCommaParts(str) {
     parts.push.apply(parts, p);
     return parts;
 }
-function $8a35c8bde4047945$var$expandTop(str, options) {
+function $66fec02a5f3e71ee$var$expandTop(str, options) {
     if (!str) return [];
     options = options || {};
-    var max = options.max == null ? $8a35c8bde4047945$var$EXPANSION_MAX : options.max;
-    var maxLength = options.maxLength == null ? $8a35c8bde4047945$var$EXPANSION_MAX_LENGTH : options.maxLength;
+    var max = options.max == null ? $66fec02a5f3e71ee$var$EXPANSION_MAX : options.max;
+    var maxLength = options.maxLength == null ? $66fec02a5f3e71ee$var$EXPANSION_MAX_LENGTH : options.maxLength;
     // I don't know why Bash 4.3 does this, but it does.
     // Anything starting with {} will have the first two bytes preserved
     // but *only* at the top level, so {},a}b will not expand to anything,
@@ -23729,21 +23729,21 @@ function $8a35c8bde4047945$var$expandTop(str, options) {
     // One could argue that this is a bug in Bash, but since the goal of
     // this module is to match Bash's rules, we escape a leading {}
     if (str.substr(0, 2) === '{}') str = '\\{\\}' + str.substr(2);
-    return $8a35c8bde4047945$var$expand($8a35c8bde4047945$var$escapeBraces(str), max, maxLength, true).map($8a35c8bde4047945$var$unescapeBraces);
+    return $66fec02a5f3e71ee$var$expand($66fec02a5f3e71ee$var$escapeBraces(str), max, maxLength, true).map($66fec02a5f3e71ee$var$unescapeBraces);
 }
-function $8a35c8bde4047945$var$identity(e) {
+function $66fec02a5f3e71ee$var$identity(e) {
     return e;
 }
-function $8a35c8bde4047945$var$embrace(str) {
+function $66fec02a5f3e71ee$var$embrace(str) {
     return '{' + str + '}';
 }
-function $8a35c8bde4047945$var$isPadded(el) {
+function $66fec02a5f3e71ee$var$isPadded(el) {
     return /^-?0\d/.test(el);
 }
-function $8a35c8bde4047945$var$lte(i, y) {
+function $66fec02a5f3e71ee$var$lte(i, y) {
     return i <= y;
 }
-function $8a35c8bde4047945$var$gte(i, y) {
+function $66fec02a5f3e71ee$var$gte(i, y) {
     return i >= y;
 }
 // Build `{ acc[a] + pre + values[v] }` for every combination, capping the
@@ -23755,7 +23755,7 @@ function $8a35c8bde4047945$var$gte(i, y) {
 // `base[a]` is the length of the part of `acc[a]` that predates the current
 // empty-drop baseline (see `expand`). The matching baselines for the results
 // are appended to `outBase`, which the caller carries forward alongside them.
-function $8a35c8bde4047945$var$combine(acc, base, pre, values, max, maxLength, dropEmpties, outBase) {
+function $66fec02a5f3e71ee$var$combine(acc, base, pre, values, max, maxLength, dropEmpties, outBase) {
     var out = [];
     var length = 0;
     for(var a = 0; a < acc.length; a++)for(var v = 0; v < values.length; v++){
@@ -23774,23 +23774,23 @@ function $8a35c8bde4047945$var$combine(acc, base, pre, values, max, maxLength, d
 }
 // The expansion values of a single numeric (`1..5`) or alphabetic (`a..e..2`)
 // sequence body.
-function $8a35c8bde4047945$var$expandSequence(body, isAlphaSequence, max, maxLength) {
+function $66fec02a5f3e71ee$var$expandSequence(body, isAlphaSequence, max, maxLength) {
     var n = body.split(/\.\./);
     var N = [];
     // A sequence body always splits into two or three parts, but the compiler
     // can't know that.
     /* c8 ignore start */ if (n[0] === undefined || n[1] === undefined) return N;
-    /* c8 ignore stop */ var x = $8a35c8bde4047945$var$numeric(n[0]);
-    var y = $8a35c8bde4047945$var$numeric(n[1]);
+    /* c8 ignore stop */ var x = $66fec02a5f3e71ee$var$numeric(n[0]);
+    var y = $66fec02a5f3e71ee$var$numeric(n[1]);
     var width = Math.max(n[0].length, n[1].length);
-    var incr = n.length === 3 && n[2] !== undefined ? Math.max(Math.abs($8a35c8bde4047945$var$numeric(n[2])), 1) : 1;
-    var test = $8a35c8bde4047945$var$lte;
+    var incr = n.length === 3 && n[2] !== undefined ? Math.max(Math.abs($66fec02a5f3e71ee$var$numeric(n[2])), 1) : 1;
+    var test = $66fec02a5f3e71ee$var$lte;
     var reverse = y < x;
     if (reverse) {
         incr *= -1;
-        test = $8a35c8bde4047945$var$gte;
+        test = $66fec02a5f3e71ee$var$gte;
     }
-    var pad = n.some($8a35c8bde4047945$var$isPadded);
+    var pad = n.some($66fec02a5f3e71ee$var$isPadded);
     var length = 0;
     for(var i = x; test(i, y) && N.length < max; i += incr){
         var c;
@@ -23814,7 +23814,7 @@ function $8a35c8bde4047945$var$expandSequence(body, isAlphaSequence, max, maxLen
     }
     return N;
 }
-function $8a35c8bde4047945$var$expand(str, max, maxLength, isTop) {
+function $66fec02a5f3e71ee$var$expand(str, max, maxLength, isTop) {
     // Consume the string's top-level brace groups left to right, threading a
     // running set of combined prefixes (`acc`). Expanding the tail iteratively -
     // rather than recursing on `m.post` once per group - keeps the native stack
@@ -23842,9 +23842,9 @@ function $8a35c8bde4047945$var$expand(str, max, maxLength, isTop) {
     var firstGroup = true;
     var nextBase;
     for(;;){
-        var m = $guga5('{', '}', str);
+        var m = $gbdMR('{', '}', str);
         // No brace set left: the rest of the string is literal.
-        if (!m) return $8a35c8bde4047945$var$combine(acc, accBase, str, [
+        if (!m) return $66fec02a5f3e71ee$var$combine(acc, accBase, str, [
             ''
         ], max, maxLength, dropEmpties, []);
         // no need to expand pre, since it is guaranteed to be free of brace-sets
@@ -23855,7 +23855,7 @@ function $8a35c8bde4047945$var$expand(str, max, maxLength, isTop) {
         // expanding the tail, which is what bash does, but changing that here would
         // be a breaking change for 1.x consumers. Routed through `combine` so the
         // result is still bounded by `max` and `maxLength`.
-        if (/\$$/.test(pre)) return $8a35c8bde4047945$var$combine(acc, accBase, str, [
+        if (/\$$/.test(pre)) return $66fec02a5f3e71ee$var$combine(acc, accBase, str, [
             ''
         ], max, maxLength, dropEmpties, []);
         var isNumericSequence = /^-?\d+\.\.-?\d+(?:\.\.-?\d+)?$/.test(m.body);
@@ -23865,7 +23865,7 @@ function $8a35c8bde4047945$var$expand(str, max, maxLength, isTop) {
         if (!isSequence && !isOptions) {
             // {a},b}
             if (m.post.match(/,(?!,).*\}/)) {
-                str = m.pre + '{' + m.body + $8a35c8bde4047945$var$escClose + m.post;
+                str = m.pre + '{' + m.body + $66fec02a5f3e71ee$var$escClose + m.post;
                 // The rewritten string is expanded as if it were a fresh top-level one,
                 // so start a new empty-drop run: anchor the baseline at what `acc`
                 // holds now, and let the next expanding group decide whether to drop.
@@ -23877,7 +23877,7 @@ function $8a35c8bde4047945$var$expand(str, max, maxLength, isTop) {
                 continue;
             }
             // Nothing here expands, so the whole remaining string is literal.
-            return $8a35c8bde4047945$var$combine(acc, accBase, pre + '{' + m.body + '}' + m.post, [
+            return $66fec02a5f3e71ee$var$combine(acc, accBase, pre + '{' + m.body + '}' + m.post, [
                 ''
             ], max, maxLength, dropEmpties, []);
         }
@@ -23886,16 +23886,16 @@ function $8a35c8bde4047945$var$expand(str, max, maxLength, isTop) {
             firstGroup = false;
         }
         var values;
-        if (isSequence) values = $8a35c8bde4047945$var$expandSequence(m.body, isAlphaSequence, max, maxLength);
+        if (isSequence) values = $66fec02a5f3e71ee$var$expandSequence(m.body, isAlphaSequence, max, maxLength);
         else {
-            var n = $8a35c8bde4047945$var$parseCommaParts(m.body);
+            var n = $66fec02a5f3e71ee$var$parseCommaParts(m.body);
             if (n.length === 1 && n[0] !== undefined) {
                 // x{{a,b}}y ==> x{a}y x{b}y
-                n = $8a35c8bde4047945$var$expand(n[0], max, maxLength, false).map($8a35c8bde4047945$var$embrace);
+                n = $66fec02a5f3e71ee$var$expand(n[0], max, maxLength, false).map($66fec02a5f3e71ee$var$embrace);
                 //XXX is this necessary? Can't seem to hit it in tests.
                 /* c8 ignore start */ if (n.length === 1) {
                     nextBase = [];
-                    acc = $8a35c8bde4047945$var$combine(acc, accBase, pre + n[0], [
+                    acc = $66fec02a5f3e71ee$var$combine(acc, accBase, pre + n[0], [
                         ''
                     ], max, maxLength, dropEmpties && !m.post.length, nextBase);
                     accBase = nextBase;
@@ -23915,7 +23915,7 @@ function $8a35c8bde4047945$var$expand(str, max, maxLength, isTop) {
             values = [];
             var valuesLength = 0;
             outer: for(var j = 0; j < n.length; j++){
-                var expanded = $8a35c8bde4047945$var$expand(n[j], max, maxLength, false);
+                var expanded = $66fec02a5f3e71ee$var$expand(n[j], max, maxLength, false);
                 for(var k = 0; k < expanded.length; k++){
                     var v = expanded[k];
                     if (dropsEmpties && !v) continue;
@@ -23926,7 +23926,7 @@ function $8a35c8bde4047945$var$expand(str, max, maxLength, isTop) {
             }
         }
         nextBase = [];
-        acc = $8a35c8bde4047945$var$combine(acc, accBase, pre, values, max, maxLength, dropEmpties && !m.post.length, nextBase);
+        acc = $66fec02a5f3e71ee$var$combine(acc, accBase, pre, values, max, maxLength, dropEmpties && !m.post.length, nextBase);
         accBase = nextBase;
         if (!m.post.length) break;
         str = m.post;
@@ -23935,29 +23935,29 @@ function $8a35c8bde4047945$var$expand(str, max, maxLength, isTop) {
 }
 
 });
-parcelRegister("8DLzi", function(module, exports) {
+parcelRegister("kWync", function(module, exports) {
 module.exports = function(xs, fn) {
     var res = [];
     for(var i = 0; i < xs.length; i++){
         var x = fn(xs[i], i);
-        if ($64a6dd4c92f9f90f$var$isArray(x)) res.push.apply(res, x);
+        if ($f3f3e33f01e22a16$var$isArray(x)) res.push.apply(res, x);
         else res.push(x);
     }
     return res;
 };
-var $64a6dd4c92f9f90f$var$isArray = Array.isArray || function(xs) {
+var $f3f3e33f01e22a16$var$isArray = Array.isArray || function(xs) {
     return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
 });
 
-parcelRegister("guga5", function(module, exports) {
+parcelRegister("gbdMR", function(module, exports) {
 'use strict';
-module.exports = $c00bfc13e6cbc2cb$var$balanced;
-function $c00bfc13e6cbc2cb$var$balanced(a, b, str) {
-    if (a instanceof RegExp) a = $c00bfc13e6cbc2cb$var$maybeMatch(a, str);
-    if (b instanceof RegExp) b = $c00bfc13e6cbc2cb$var$maybeMatch(b, str);
-    var r = $c00bfc13e6cbc2cb$var$range(a, b, str);
+module.exports = $bc785e43b1beac06$var$balanced;
+function $bc785e43b1beac06$var$balanced(a, b, str) {
+    if (a instanceof RegExp) a = $bc785e43b1beac06$var$maybeMatch(a, str);
+    if (b instanceof RegExp) b = $bc785e43b1beac06$var$maybeMatch(b, str);
+    var r = $bc785e43b1beac06$var$range(a, b, str);
     return r && {
         start: r[0],
         end: r[1],
@@ -23966,12 +23966,12 @@ function $c00bfc13e6cbc2cb$var$balanced(a, b, str) {
         post: str.slice(r[1] + b.length)
     };
 }
-function $c00bfc13e6cbc2cb$var$maybeMatch(reg, str) {
+function $bc785e43b1beac06$var$maybeMatch(reg, str) {
     var m = str.match(reg);
     return m ? m[0] : null;
 }
-$c00bfc13e6cbc2cb$var$balanced.range = $c00bfc13e6cbc2cb$var$range;
-function $c00bfc13e6cbc2cb$var$range(a, b, str) {
+$bc785e43b1beac06$var$balanced.range = $bc785e43b1beac06$var$range;
+function $bc785e43b1beac06$var$range(a, b, str) {
     var begs, beg, left, right, result;
     var ai = str.indexOf(a);
     var bi = str.indexOf(b, ai + 1);
@@ -24013,7 +24013,7 @@ function $c00bfc13e6cbc2cb$var$range(a, b, str) {
 
 
 
-parcelRegister("96wnr", function(module, exports) {
+parcelRegister("2s80e", function(module, exports) {
 if (typeof Object.create === 'function') // implementation from standard node.js 'util' module
 module.exports = function inherits(ctor, superCtor) {
     if (superCtor) {
@@ -24041,12 +24041,12 @@ module.exports = function inherits(ctor, superCtor) {
 
 });
 
-parcelRegister("7wZYl", function(module, exports) {
+parcelRegister("kHZnT", function(module, exports) {
 'use strict';
-function $57bb97f35f456c6a$var$posix(path) {
+function $f137707644cfe691$var$posix(path) {
     return path.charAt(0) === '/';
 }
-function $57bb97f35f456c6a$var$win32(path) {
+function $f137707644cfe691$var$win32(path) {
     // https://github.com/nodejs/node/blob/b3fcc245fb25539909ef1d5eaa01dbf92e168633/lib/path.js#L56
     var splitDeviceRe = /^([a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/]+[^\\\/]+)?([\\\/])?([\s\S]*?)$/;
     var result = splitDeviceRe.exec(path);
@@ -24055,58 +24055,58 @@ function $57bb97f35f456c6a$var$win32(path) {
     // UNC paths are always absolute
     return Boolean(result[2] || isUnc);
 }
-module.exports = process.platform === 'win32' ? $57bb97f35f456c6a$var$win32 : $57bb97f35f456c6a$var$posix;
-module.exports.posix = $57bb97f35f456c6a$var$posix;
-module.exports.win32 = $57bb97f35f456c6a$var$win32;
+module.exports = process.platform === 'win32' ? $f137707644cfe691$var$win32 : $f137707644cfe691$var$posix;
+module.exports.posix = $f137707644cfe691$var$posix;
+module.exports.win32 = $f137707644cfe691$var$win32;
 
 });
 
-parcelRegister("jQhIW", function(module, exports) {
-module.exports = $e7209f3828008c45$var$globSync;
-$e7209f3828008c45$var$globSync.GlobSync = $e7209f3828008c45$var$GlobSync;
+parcelRegister("e8MKw", function(module, exports) {
+module.exports = $a4b7a0a98bd8056f$var$globSync;
+$a4b7a0a98bd8056f$var$globSync.GlobSync = $a4b7a0a98bd8056f$var$GlobSync;
 
-var $fZ4nx = parcelRequire("fZ4nx");
+var $443u6 = parcelRequire("443u6");
 
-var $MDUQ5 = parcelRequire("MDUQ5");
-var $e7209f3828008c45$var$Minimatch = $MDUQ5.Minimatch;
+var $dYtkX = parcelRequire("dYtkX");
+var $a4b7a0a98bd8056f$var$Minimatch = $dYtkX.Minimatch;
 
-var $jhzq2 = parcelRequire("jhzq2");
-var $e7209f3828008c45$require$Glob = $jhzq2.Glob;
-
-
+var $3h2U3 = parcelRequire("3h2U3");
+var $a4b7a0a98bd8056f$require$Glob = $3h2U3.Glob;
 
 
-var $7wZYl = parcelRequire("7wZYl");
 
-var $gWx33 = parcelRequire("gWx33");
-var $e7209f3828008c45$var$setopts = $gWx33.setopts;
-var $e7209f3828008c45$var$ownProp = $gWx33.ownProp;
-var $e7209f3828008c45$var$childrenIgnored = $gWx33.childrenIgnored;
-var $e7209f3828008c45$var$isIgnored = $gWx33.isIgnored;
-function $e7209f3828008c45$var$globSync(pattern, options) {
+
+var $kHZnT = parcelRequire("kHZnT");
+
+var $1fdFS = parcelRequire("1fdFS");
+var $a4b7a0a98bd8056f$var$setopts = $1fdFS.setopts;
+var $a4b7a0a98bd8056f$var$ownProp = $1fdFS.ownProp;
+var $a4b7a0a98bd8056f$var$childrenIgnored = $1fdFS.childrenIgnored;
+var $a4b7a0a98bd8056f$var$isIgnored = $1fdFS.isIgnored;
+function $a4b7a0a98bd8056f$var$globSync(pattern, options) {
     if (typeof options === 'function' || arguments.length === 3) throw new TypeError("callback provided to sync glob\nSee: https://github.com/isaacs/node-glob/issues/167");
-    return new $e7209f3828008c45$var$GlobSync(pattern, options).found;
+    return new $a4b7a0a98bd8056f$var$GlobSync(pattern, options).found;
 }
-function $e7209f3828008c45$var$GlobSync(pattern, options) {
+function $a4b7a0a98bd8056f$var$GlobSync(pattern, options) {
     if (!pattern) throw new Error('must provide pattern');
     if (typeof options === 'function' || arguments.length === 3) throw new TypeError("callback provided to sync glob\nSee: https://github.com/isaacs/node-glob/issues/167");
-    if (!(this instanceof $e7209f3828008c45$var$GlobSync)) return new $e7209f3828008c45$var$GlobSync(pattern, options);
-    $e7209f3828008c45$var$setopts(this, pattern, options);
+    if (!(this instanceof $a4b7a0a98bd8056f$var$GlobSync)) return new $a4b7a0a98bd8056f$var$GlobSync(pattern, options);
+    $a4b7a0a98bd8056f$var$setopts(this, pattern, options);
     if (this.noprocess) return this;
     var n = this.minimatch.set.length;
     this.matches = new Array(n);
     for(var i = 0; i < n; i++)this._process(this.minimatch.set[i], i, false);
     this._finish();
 }
-$e7209f3828008c45$var$GlobSync.prototype._finish = function() {
-    $1X1Jj$assert.ok(this instanceof $e7209f3828008c45$var$GlobSync);
+$a4b7a0a98bd8056f$var$GlobSync.prototype._finish = function() {
+    $lcjJR$assert.ok(this instanceof $a4b7a0a98bd8056f$var$GlobSync);
     if (this.realpath) {
         var self = this;
         this.matches.forEach(function(matchset, index) {
             var set = self.matches[index] = Object.create(null);
             for(var p in matchset)try {
                 p = self._makeAbs(p);
-                var real = $fZ4nx.realpathSync(p, self.realpathCache);
+                var real = $443u6.realpathSync(p, self.realpathCache);
                 set[real] = true;
             } catch (er) {
                 if (er.syscall === 'stat') set[self._makeAbs(p)] = true;
@@ -24114,10 +24114,10 @@ $e7209f3828008c45$var$GlobSync.prototype._finish = function() {
             }
         });
     }
-    $gWx33.finish(this);
+    $1fdFS.finish(this);
 };
-$e7209f3828008c45$var$GlobSync.prototype._process = function(pattern, index, inGlobStar) {
-    $1X1Jj$assert.ok(this instanceof $e7209f3828008c45$var$GlobSync);
+$a4b7a0a98bd8056f$var$GlobSync.prototype._process = function(pattern, index, inGlobStar) {
+    $lcjJR$assert.ok(this instanceof $a4b7a0a98bd8056f$var$GlobSync);
     // Get the first [n] parts of pattern that are all strings.
     var n = 0;
     while(typeof pattern[n] === 'string')n++;
@@ -24145,20 +24145,20 @@ $e7209f3828008c45$var$GlobSync.prototype._process = function(pattern, index, inG
     // get the list of entries.
     var read;
     if (prefix === null) read = '.';
-    else if ($7wZYl(prefix) || $7wZYl(pattern.map(function(p) {
+    else if ($kHZnT(prefix) || $kHZnT(pattern.map(function(p) {
         return typeof p === 'string' ? p : '[*]';
     }).join('/'))) {
-        if (!prefix || !$7wZYl(prefix)) prefix = '/' + prefix;
+        if (!prefix || !$kHZnT(prefix)) prefix = '/' + prefix;
         read = prefix;
     } else read = prefix;
     var abs = this._makeAbs(read);
     //if ignored, skip processing
-    if ($e7209f3828008c45$var$childrenIgnored(this, read)) return;
-    var isGlobStar = remain[0] === $MDUQ5.GLOBSTAR;
+    if ($a4b7a0a98bd8056f$var$childrenIgnored(this, read)) return;
+    var isGlobStar = remain[0] === $dYtkX.GLOBSTAR;
     if (isGlobStar) this._processGlobStar(prefix, read, abs, remain, index, inGlobStar);
     else this._processReaddir(prefix, read, abs, remain, index, inGlobStar);
 };
-$e7209f3828008c45$var$GlobSync.prototype._processReaddir = function(prefix, read, abs, remain, index, inGlobStar) {
+$a4b7a0a98bd8056f$var$GlobSync.prototype._processReaddir = function(prefix, read, abs, remain, index, inGlobStar) {
     var entries = this._readdir(abs, inGlobStar);
     // if the abs isn't a dir, then nothing can match!
     if (!entries) return;
@@ -24193,7 +24193,7 @@ $e7209f3828008c45$var$GlobSync.prototype._processReaddir = function(prefix, read
                 if (prefix.slice(-1) !== '/') e = prefix + '/' + e;
                 else e = prefix + e;
             }
-            if (e.charAt(0) === '/' && !this.nomount) e = $1X1Jj$path.join(this.root, e);
+            if (e.charAt(0) === '/' && !this.nomount) e = $lcjJR$path.join(this.root, e);
             this._emitMatch(index, e);
         }
         // This was the last one, and no stats were needed
@@ -24215,8 +24215,8 @@ $e7209f3828008c45$var$GlobSync.prototype._processReaddir = function(prefix, read
         this._process(newPattern.concat(remain), index, inGlobStar);
     }
 };
-$e7209f3828008c45$var$GlobSync.prototype._emitMatch = function(index, e) {
-    if ($e7209f3828008c45$var$isIgnored(this, e)) return;
+$a4b7a0a98bd8056f$var$GlobSync.prototype._emitMatch = function(index, e) {
+    if ($a4b7a0a98bd8056f$var$isIgnored(this, e)) return;
     var abs = this._makeAbs(e);
     if (this.mark) e = this._mark(e);
     if (this.absolute) e = abs;
@@ -24228,7 +24228,7 @@ $e7209f3828008c45$var$GlobSync.prototype._emitMatch = function(index, e) {
     this.matches[index][e] = true;
     if (this.stat) this._stat(e);
 };
-$e7209f3828008c45$var$GlobSync.prototype._readdirInGlobStar = function(abs) {
+$a4b7a0a98bd8056f$var$GlobSync.prototype._readdirInGlobStar = function(abs) {
     // follow all symlinked directories forever
     // just proceed as if this is a non-globstar situation
     if (this.follow) return this._readdir(abs, false);
@@ -24249,10 +24249,10 @@ $e7209f3828008c45$var$GlobSync.prototype._readdirInGlobStar = function(abs) {
     else entries = this._readdir(abs, false);
     return entries;
 };
-$e7209f3828008c45$var$GlobSync.prototype._readdir = function(abs, inGlobStar) {
+$a4b7a0a98bd8056f$var$GlobSync.prototype._readdir = function(abs, inGlobStar) {
     var entries;
-    if (inGlobStar && !$e7209f3828008c45$var$ownProp(this.symlinks, abs)) return this._readdirInGlobStar(abs);
-    if ($e7209f3828008c45$var$ownProp(this.cache, abs)) {
+    if (inGlobStar && !$a4b7a0a98bd8056f$var$ownProp(this.symlinks, abs)) return this._readdirInGlobStar(abs);
+    if ($a4b7a0a98bd8056f$var$ownProp(this.cache, abs)) {
         var c = this.cache[abs];
         if (!c || c === 'FILE') return null;
         if (Array.isArray(c)) return c;
@@ -24264,7 +24264,7 @@ $e7209f3828008c45$var$GlobSync.prototype._readdir = function(abs, inGlobStar) {
         return null;
     }
 };
-$e7209f3828008c45$var$GlobSync.prototype._readdirEntries = function(abs, entries) {
+$a4b7a0a98bd8056f$var$GlobSync.prototype._readdirEntries = function(abs, entries) {
     // if we haven't asked to stat everything, then just
     // assume that everything in there exists, so we can avoid
     // having to stat it a second time.
@@ -24278,7 +24278,7 @@ $e7209f3828008c45$var$GlobSync.prototype._readdirEntries = function(abs, entries
     // mark and cache dir-ness
     return entries;
 };
-$e7209f3828008c45$var$GlobSync.prototype._readdirError = function(f, er) {
+$a4b7a0a98bd8056f$var$GlobSync.prototype._readdirError = function(f, er) {
     // handle errors, and cache the information
     switch(er.code){
         case 'ENOTSUP':
@@ -24305,7 +24305,7 @@ $e7209f3828008c45$var$GlobSync.prototype._readdirError = function(f, er) {
             break;
     }
 };
-$e7209f3828008c45$var$GlobSync.prototype._processGlobStar = function(prefix, read, abs, remain, index, inGlobStar) {
+$a4b7a0a98bd8056f$var$GlobSync.prototype._processGlobStar = function(prefix, read, abs, remain, index, inGlobStar) {
     var entries = this._readdir(abs, inGlobStar);
     // no entries means not a dir, so it can never have matches
     // foo.txt/** doesn't match foo.txt
@@ -24333,18 +24333,18 @@ $e7209f3828008c45$var$GlobSync.prototype._processGlobStar = function(prefix, rea
         this._process(below, index, true);
     }
 };
-$e7209f3828008c45$var$GlobSync.prototype._processSimple = function(prefix, index) {
+$a4b7a0a98bd8056f$var$GlobSync.prototype._processSimple = function(prefix, index) {
     // XXX review this.  Shouldn't it be doing the mounting etc
     // before doing stat?  kinda weird?
     var exists = this._stat(prefix);
     if (!this.matches[index]) this.matches[index] = Object.create(null);
     // If it doesn't exist, then just mark the lack of results
     if (!exists) return;
-    if (prefix && $7wZYl(prefix) && !this.nomount) {
+    if (prefix && $kHZnT(prefix) && !this.nomount) {
         var trail = /[\/\\]$/.test(prefix);
-        if (prefix.charAt(0) === '/') prefix = $1X1Jj$path.join(this.root, prefix);
+        if (prefix.charAt(0) === '/') prefix = $lcjJR$path.join(this.root, prefix);
         else {
-            prefix = $1X1Jj$path.resolve(this.root, prefix);
+            prefix = $lcjJR$path.resolve(this.root, prefix);
             if (trail) prefix += '/';
         }
     }
@@ -24353,11 +24353,11 @@ $e7209f3828008c45$var$GlobSync.prototype._processSimple = function(prefix, index
     this._emitMatch(index, prefix);
 };
 // Returns either 'DIR', 'FILE', or false
-$e7209f3828008c45$var$GlobSync.prototype._stat = function(f) {
+$a4b7a0a98bd8056f$var$GlobSync.prototype._stat = function(f) {
     var abs = this._makeAbs(f);
     var needDir = f.slice(-1) === '/';
     if (f.length > this.maxLength) return false;
-    if (!this.stat && $e7209f3828008c45$var$ownProp(this.cache, abs)) {
+    if (!this.stat && $a4b7a0a98bd8056f$var$ownProp(this.cache, abs)) {
         var c = this.cache[abs];
         if (Array.isArray(c)) c = 'DIR';
         // It exists, but maybe not how we need it
@@ -24392,74 +24392,74 @@ $e7209f3828008c45$var$GlobSync.prototype._stat = function(f) {
     if (needDir && c === 'FILE') return false;
     return c;
 };
-$e7209f3828008c45$var$GlobSync.prototype._mark = function(p) {
-    return $gWx33.mark(this, p);
+$a4b7a0a98bd8056f$var$GlobSync.prototype._mark = function(p) {
+    return $1fdFS.mark(this, p);
 };
-$e7209f3828008c45$var$GlobSync.prototype._makeAbs = function(f) {
-    return $gWx33.makeAbs(this, f);
+$a4b7a0a98bd8056f$var$GlobSync.prototype._makeAbs = function(f) {
+    return $1fdFS.makeAbs(this, f);
 };
 
 });
-parcelRegister("gWx33", function(module, exports) {
+parcelRegister("1fdFS", function(module, exports) {
 
-$parcel$export(module.exports, "setopts", () => $c55bb2d3dd6e2ebd$export$57548c9294754a22, (v) => $c55bb2d3dd6e2ebd$export$57548c9294754a22 = v);
-$parcel$export(module.exports, "ownProp", () => $c55bb2d3dd6e2ebd$export$ead79bc4d566623e, (v) => $c55bb2d3dd6e2ebd$export$ead79bc4d566623e = v);
-$parcel$export(module.exports, "makeAbs", () => $c55bb2d3dd6e2ebd$export$2ed29b0f2da1bbfd, (v) => $c55bb2d3dd6e2ebd$export$2ed29b0f2da1bbfd = v);
-$parcel$export(module.exports, "finish", () => $c55bb2d3dd6e2ebd$export$5953b28951b32649, (v) => $c55bb2d3dd6e2ebd$export$5953b28951b32649 = v);
-$parcel$export(module.exports, "mark", () => $c55bb2d3dd6e2ebd$export$bf7f2fce5c1cf636, (v) => $c55bb2d3dd6e2ebd$export$bf7f2fce5c1cf636 = v);
-$parcel$export(module.exports, "isIgnored", () => $c55bb2d3dd6e2ebd$export$ac3f691269cd6d9b, (v) => $c55bb2d3dd6e2ebd$export$ac3f691269cd6d9b = v);
-$parcel$export(module.exports, "childrenIgnored", () => $c55bb2d3dd6e2ebd$export$d4f5015e846cd095, (v) => $c55bb2d3dd6e2ebd$export$d4f5015e846cd095 = v);
-var $c55bb2d3dd6e2ebd$export$57548c9294754a22;
-var $c55bb2d3dd6e2ebd$export$ead79bc4d566623e;
-var $c55bb2d3dd6e2ebd$export$2ed29b0f2da1bbfd;
-var $c55bb2d3dd6e2ebd$export$5953b28951b32649;
-var $c55bb2d3dd6e2ebd$export$bf7f2fce5c1cf636;
-var $c55bb2d3dd6e2ebd$export$ac3f691269cd6d9b;
-var $c55bb2d3dd6e2ebd$export$d4f5015e846cd095;
-$c55bb2d3dd6e2ebd$export$57548c9294754a22 = $c55bb2d3dd6e2ebd$var$setopts;
-$c55bb2d3dd6e2ebd$export$ead79bc4d566623e = $c55bb2d3dd6e2ebd$var$ownProp;
-$c55bb2d3dd6e2ebd$export$2ed29b0f2da1bbfd = $c55bb2d3dd6e2ebd$var$makeAbs;
-$c55bb2d3dd6e2ebd$export$5953b28951b32649 = $c55bb2d3dd6e2ebd$var$finish;
-$c55bb2d3dd6e2ebd$export$bf7f2fce5c1cf636 = $c55bb2d3dd6e2ebd$var$mark;
-$c55bb2d3dd6e2ebd$export$ac3f691269cd6d9b = $c55bb2d3dd6e2ebd$var$isIgnored;
-$c55bb2d3dd6e2ebd$export$d4f5015e846cd095 = $c55bb2d3dd6e2ebd$var$childrenIgnored;
-function $c55bb2d3dd6e2ebd$var$ownProp(obj, field) {
+$parcel$export(module.exports, "setopts", () => $0e81cc9f3a8292b7$export$57548c9294754a22, (v) => $0e81cc9f3a8292b7$export$57548c9294754a22 = v);
+$parcel$export(module.exports, "ownProp", () => $0e81cc9f3a8292b7$export$ead79bc4d566623e, (v) => $0e81cc9f3a8292b7$export$ead79bc4d566623e = v);
+$parcel$export(module.exports, "makeAbs", () => $0e81cc9f3a8292b7$export$2ed29b0f2da1bbfd, (v) => $0e81cc9f3a8292b7$export$2ed29b0f2da1bbfd = v);
+$parcel$export(module.exports, "finish", () => $0e81cc9f3a8292b7$export$5953b28951b32649, (v) => $0e81cc9f3a8292b7$export$5953b28951b32649 = v);
+$parcel$export(module.exports, "mark", () => $0e81cc9f3a8292b7$export$bf7f2fce5c1cf636, (v) => $0e81cc9f3a8292b7$export$bf7f2fce5c1cf636 = v);
+$parcel$export(module.exports, "isIgnored", () => $0e81cc9f3a8292b7$export$ac3f691269cd6d9b, (v) => $0e81cc9f3a8292b7$export$ac3f691269cd6d9b = v);
+$parcel$export(module.exports, "childrenIgnored", () => $0e81cc9f3a8292b7$export$d4f5015e846cd095, (v) => $0e81cc9f3a8292b7$export$d4f5015e846cd095 = v);
+var $0e81cc9f3a8292b7$export$57548c9294754a22;
+var $0e81cc9f3a8292b7$export$ead79bc4d566623e;
+var $0e81cc9f3a8292b7$export$2ed29b0f2da1bbfd;
+var $0e81cc9f3a8292b7$export$5953b28951b32649;
+var $0e81cc9f3a8292b7$export$bf7f2fce5c1cf636;
+var $0e81cc9f3a8292b7$export$ac3f691269cd6d9b;
+var $0e81cc9f3a8292b7$export$d4f5015e846cd095;
+$0e81cc9f3a8292b7$export$57548c9294754a22 = $0e81cc9f3a8292b7$var$setopts;
+$0e81cc9f3a8292b7$export$ead79bc4d566623e = $0e81cc9f3a8292b7$var$ownProp;
+$0e81cc9f3a8292b7$export$2ed29b0f2da1bbfd = $0e81cc9f3a8292b7$var$makeAbs;
+$0e81cc9f3a8292b7$export$5953b28951b32649 = $0e81cc9f3a8292b7$var$finish;
+$0e81cc9f3a8292b7$export$bf7f2fce5c1cf636 = $0e81cc9f3a8292b7$var$mark;
+$0e81cc9f3a8292b7$export$ac3f691269cd6d9b = $0e81cc9f3a8292b7$var$isIgnored;
+$0e81cc9f3a8292b7$export$d4f5015e846cd095 = $0e81cc9f3a8292b7$var$childrenIgnored;
+function $0e81cc9f3a8292b7$var$ownProp(obj, field) {
     return Object.prototype.hasOwnProperty.call(obj, field);
 }
 
 
 
-var $MDUQ5 = parcelRequire("MDUQ5");
+var $dYtkX = parcelRequire("dYtkX");
 
-var $7wZYl = parcelRequire("7wZYl");
-var $c55bb2d3dd6e2ebd$var$Minimatch = $MDUQ5.Minimatch;
-function $c55bb2d3dd6e2ebd$var$alphasort(a, b) {
+var $kHZnT = parcelRequire("kHZnT");
+var $0e81cc9f3a8292b7$var$Minimatch = $dYtkX.Minimatch;
+function $0e81cc9f3a8292b7$var$alphasort(a, b) {
     return a.localeCompare(b, 'en');
 }
-function $c55bb2d3dd6e2ebd$var$setupIgnores(self, options) {
+function $0e81cc9f3a8292b7$var$setupIgnores(self, options) {
     self.ignore = options.ignore || [];
     if (!Array.isArray(self.ignore)) self.ignore = [
         self.ignore
     ];
-    if (self.ignore.length) self.ignore = self.ignore.map($c55bb2d3dd6e2ebd$var$ignoreMap);
+    if (self.ignore.length) self.ignore = self.ignore.map($0e81cc9f3a8292b7$var$ignoreMap);
 }
 // ignore patterns are always in dot:true mode.
-function $c55bb2d3dd6e2ebd$var$ignoreMap(pattern) {
+function $0e81cc9f3a8292b7$var$ignoreMap(pattern) {
     var gmatcher = null;
     if (pattern.slice(-3) === '/**') {
         var gpattern = pattern.replace(/(\/\*\*)+$/, '');
-        gmatcher = new $c55bb2d3dd6e2ebd$var$Minimatch(gpattern, {
+        gmatcher = new $0e81cc9f3a8292b7$var$Minimatch(gpattern, {
             dot: true
         });
     }
     return {
-        matcher: new $c55bb2d3dd6e2ebd$var$Minimatch(pattern, {
+        matcher: new $0e81cc9f3a8292b7$var$Minimatch(pattern, {
             dot: true
         }),
         gmatcher: gmatcher
     };
 }
-function $c55bb2d3dd6e2ebd$var$setopts(self, pattern, options) {
+function $0e81cc9f3a8292b7$var$setopts(self, pattern, options) {
     if (!options) options = {};
     // base-matching: just use globstar for that.
     if (options.matchBase && -1 === pattern.indexOf("/")) {
@@ -24484,25 +24484,25 @@ function $c55bb2d3dd6e2ebd$var$setopts(self, pattern, options) {
     self.stat = !!options.stat;
     self.noprocess = !!options.noprocess;
     self.absolute = !!options.absolute;
-    self.fs = options.fs || $1X1Jj$fs;
+    self.fs = options.fs || $lcjJR$fs;
     self.maxLength = options.maxLength || Infinity;
     self.cache = options.cache || Object.create(null);
     self.statCache = options.statCache || Object.create(null);
     self.symlinks = options.symlinks || Object.create(null);
-    $c55bb2d3dd6e2ebd$var$setupIgnores(self, options);
+    $0e81cc9f3a8292b7$var$setupIgnores(self, options);
     self.changedCwd = false;
     var cwd = process.cwd();
-    if (!$c55bb2d3dd6e2ebd$var$ownProp(options, "cwd")) self.cwd = cwd;
+    if (!$0e81cc9f3a8292b7$var$ownProp(options, "cwd")) self.cwd = cwd;
     else {
-        self.cwd = $1X1Jj$path.resolve(options.cwd);
+        self.cwd = $lcjJR$path.resolve(options.cwd);
         self.changedCwd = self.cwd !== cwd;
     }
-    self.root = options.root || $1X1Jj$path.resolve(self.cwd, "/");
-    self.root = $1X1Jj$path.resolve(self.root);
+    self.root = options.root || $lcjJR$path.resolve(self.cwd, "/");
+    self.root = $lcjJR$path.resolve(self.root);
     if (process.platform === "win32") self.root = self.root.replace(/\\/g, "/");
     // TODO: is an absolute `cwd` supposed to be resolved against `root`?
     // e.g. { cwd: '/test', root: __dirname } === path.join(__dirname, '/test')
-    self.cwdAbs = $7wZYl(self.cwd) ? self.cwd : $c55bb2d3dd6e2ebd$var$makeAbs(self, self.cwd);
+    self.cwdAbs = $kHZnT(self.cwd) ? self.cwd : $0e81cc9f3a8292b7$var$makeAbs(self, self.cwd);
     if (process.platform === "win32") self.cwdAbs = self.cwdAbs.replace(/\\/g, "/");
     self.nomount = !!options.nomount;
     // disable comments and negation in Minimatch.
@@ -24511,10 +24511,10 @@ function $c55bb2d3dd6e2ebd$var$setopts(self, pattern, options) {
     options.nocomment = true;
     // always treat \ in patterns as escapes, not path separators
     options.allowWindowsEscape = false;
-    self.minimatch = new $c55bb2d3dd6e2ebd$var$Minimatch(pattern, options);
+    self.minimatch = new $0e81cc9f3a8292b7$var$Minimatch(pattern, options);
     self.options = self.minimatch.options;
 }
-function $c55bb2d3dd6e2ebd$var$finish(self) {
+function $0e81cc9f3a8292b7$var$finish(self) {
     var nou = self.nounique;
     var all = nou ? [] : Object.create(null);
     for(var i = 0, l = self.matches.length; i < l; i++){
@@ -24536,24 +24536,24 @@ function $c55bb2d3dd6e2ebd$var$finish(self) {
         }
     }
     if (!nou) all = Object.keys(all);
-    if (!self.nosort) all = all.sort($c55bb2d3dd6e2ebd$var$alphasort);
+    if (!self.nosort) all = all.sort($0e81cc9f3a8292b7$var$alphasort);
     // at *some* point we statted all of these
     if (self.mark) {
         for(var i = 0; i < all.length; i++)all[i] = self._mark(all[i]);
         if (self.nodir) all = all.filter(function(e) {
             var notDir = !/\/$/.test(e);
-            var c = self.cache[e] || self.cache[$c55bb2d3dd6e2ebd$var$makeAbs(self, e)];
+            var c = self.cache[e] || self.cache[$0e81cc9f3a8292b7$var$makeAbs(self, e)];
             if (notDir && c) notDir = c !== 'DIR' && !Array.isArray(c);
             return notDir;
         });
     }
     if (self.ignore.length) all = all.filter(function(m) {
-        return !$c55bb2d3dd6e2ebd$var$isIgnored(self, m);
+        return !$0e81cc9f3a8292b7$var$isIgnored(self, m);
     });
     self.found = all;
 }
-function $c55bb2d3dd6e2ebd$var$mark(self, p) {
-    var abs = $c55bb2d3dd6e2ebd$var$makeAbs(self, p);
+function $0e81cc9f3a8292b7$var$mark(self, p) {
+    var abs = $0e81cc9f3a8292b7$var$makeAbs(self, p);
     var c = self.cache[abs];
     var m = p;
     if (c) {
@@ -24562,7 +24562,7 @@ function $c55bb2d3dd6e2ebd$var$mark(self, p) {
         if (isDir && !slash) m += '/';
         else if (!isDir && slash) m = m.slice(0, -1);
         if (m !== p) {
-            var mabs = $c55bb2d3dd6e2ebd$var$makeAbs(self, m);
+            var mabs = $0e81cc9f3a8292b7$var$makeAbs(self, m);
             self.statCache[mabs] = self.statCache[abs];
             self.cache[mabs] = self.cache[abs];
         }
@@ -24570,24 +24570,24 @@ function $c55bb2d3dd6e2ebd$var$mark(self, p) {
     return m;
 }
 // lotta situps...
-function $c55bb2d3dd6e2ebd$var$makeAbs(self, f) {
+function $0e81cc9f3a8292b7$var$makeAbs(self, f) {
     var abs = f;
-    if (f.charAt(0) === '/') abs = $1X1Jj$path.join(self.root, f);
-    else if ($7wZYl(f) || f === '') abs = f;
-    else if (self.changedCwd) abs = $1X1Jj$path.resolve(self.cwd, f);
-    else abs = $1X1Jj$path.resolve(f);
+    if (f.charAt(0) === '/') abs = $lcjJR$path.join(self.root, f);
+    else if ($kHZnT(f) || f === '') abs = f;
+    else if (self.changedCwd) abs = $lcjJR$path.resolve(self.cwd, f);
+    else abs = $lcjJR$path.resolve(f);
     if (process.platform === 'win32') abs = abs.replace(/\\/g, '/');
     return abs;
 }
 // Return true, if pattern ends with globstar '**', for the accompanying parent directory.
 // Ex:- If node_modules/** is the pattern, add 'node_modules' to ignore list along with it's contents
-function $c55bb2d3dd6e2ebd$var$isIgnored(self, path) {
+function $0e81cc9f3a8292b7$var$isIgnored(self, path) {
     if (!self.ignore.length) return false;
     return self.ignore.some(function(item) {
         return item.matcher.match(path) || !!(item.gmatcher && item.gmatcher.match(path));
     });
 }
-function $c55bb2d3dd6e2ebd$var$childrenIgnored(self, path) {
+function $0e81cc9f3a8292b7$var$childrenIgnored(self, path) {
     if (!self.ignore.length) return false;
     return self.ignore.some(function(item) {
         return !!(item.gmatcher && item.gmatcher.match(path));
@@ -24597,29 +24597,29 @@ function $c55bb2d3dd6e2ebd$var$childrenIgnored(self, path) {
 });
 
 
-parcelRegister("DWK5C", function(module, exports) {
+parcelRegister("7cGLg", function(module, exports) {
 
-var $bmQ0C = parcelRequire("bmQ0C");
-var $078135a58c0fbde3$var$reqs = Object.create(null);
+var $jzgRf = parcelRequire("jzgRf");
+var $53ead2eb84561017$var$reqs = Object.create(null);
 
-var $cX3nS = parcelRequire("cX3nS");
-module.exports = $bmQ0C($078135a58c0fbde3$var$inflight);
-function $078135a58c0fbde3$var$inflight(key, cb) {
-    if ($078135a58c0fbde3$var$reqs[key]) {
-        $078135a58c0fbde3$var$reqs[key].push(cb);
+var $ae8zl = parcelRequire("ae8zl");
+module.exports = $jzgRf($53ead2eb84561017$var$inflight);
+function $53ead2eb84561017$var$inflight(key, cb) {
+    if ($53ead2eb84561017$var$reqs[key]) {
+        $53ead2eb84561017$var$reqs[key].push(cb);
         return null;
     } else {
-        $078135a58c0fbde3$var$reqs[key] = [
+        $53ead2eb84561017$var$reqs[key] = [
             cb
         ];
-        return $078135a58c0fbde3$var$makeres(key);
+        return $53ead2eb84561017$var$makeres(key);
     }
 }
-function $078135a58c0fbde3$var$makeres(key) {
-    return $cX3nS(function RES() {
-        var cbs = $078135a58c0fbde3$var$reqs[key];
+function $53ead2eb84561017$var$makeres(key) {
+    return $ae8zl(function RES() {
+        var cbs = $53ead2eb84561017$var$reqs[key];
         var len = cbs.length;
-        var args = $078135a58c0fbde3$var$slice(arguments);
+        var args = $53ead2eb84561017$var$slice(arguments);
         // XXX It's somewhat ambiguous whether a new callback added in this
         // pass should be queued for later execution if something in the
         // list of callbacks throws, or if it should just be discarded.
@@ -24636,11 +24636,11 @@ function $078135a58c0fbde3$var$makeres(key) {
                 process.nextTick(function() {
                     RES.apply(null, args);
                 });
-            } else delete $078135a58c0fbde3$var$reqs[key];
+            } else delete $53ead2eb84561017$var$reqs[key];
         }
     });
 }
-function $078135a58c0fbde3$var$slice(args) {
+function $53ead2eb84561017$var$slice(args) {
     var length = args.length;
     var array = [];
     for(var i = 0; i < length; i++)array[i] = args[i];
@@ -24648,15 +24648,15 @@ function $078135a58c0fbde3$var$slice(args) {
 }
 
 });
-parcelRegister("bmQ0C", function(module, exports) {
+parcelRegister("jzgRf", function(module, exports) {
 // Returns a wrapper function that returns a wrapped callback
 // The wrapper function should do some stuff, and return a
 // presumably different callback function.
 // This makes sure that own properties are retained, so that
 // decorations and such are not lost along the way.
-module.exports = $846a17b139c3ce56$var$wrappy;
-function $846a17b139c3ce56$var$wrappy(fn, cb) {
-    if (fn && cb) return $846a17b139c3ce56$var$wrappy(fn)(cb);
+module.exports = $e3ee5cd839ac3509$var$wrappy;
+function $e3ee5cd839ac3509$var$wrappy(fn, cb) {
+    if (fn && cb) return $e3ee5cd839ac3509$var$wrappy(fn)(cb);
     if (typeof fn !== 'function') throw new TypeError('need wrapper function');
     Object.keys(fn).forEach(function(k) {
         wrapper[k] = fn[k];
@@ -24676,26 +24676,26 @@ function $846a17b139c3ce56$var$wrappy(fn, cb) {
 
 });
 
-parcelRegister("cX3nS", function(module, exports) {
+parcelRegister("ae8zl", function(module, exports) {
 
-var $bmQ0C = parcelRequire("bmQ0C");
-module.exports = $bmQ0C($96dd9ebd5db2dcba$var$once);
-module.exports.strict = $bmQ0C($96dd9ebd5db2dcba$var$onceStrict);
-$96dd9ebd5db2dcba$var$once.proto = $96dd9ebd5db2dcba$var$once(function() {
+var $jzgRf = parcelRequire("jzgRf");
+module.exports = $jzgRf($7721dbd5607b1c16$var$once);
+module.exports.strict = $jzgRf($7721dbd5607b1c16$var$onceStrict);
+$7721dbd5607b1c16$var$once.proto = $7721dbd5607b1c16$var$once(function() {
     Object.defineProperty(Function.prototype, 'once', {
         value: function() {
-            return $96dd9ebd5db2dcba$var$once(this);
+            return $7721dbd5607b1c16$var$once(this);
         },
         configurable: true
     });
     Object.defineProperty(Function.prototype, 'onceStrict', {
         value: function() {
-            return $96dd9ebd5db2dcba$var$onceStrict(this);
+            return $7721dbd5607b1c16$var$onceStrict(this);
         },
         configurable: true
     });
 });
-function $96dd9ebd5db2dcba$var$once(fn) {
+function $7721dbd5607b1c16$var$once(fn) {
     var f = function() {
         if (f.called) return f.value;
         f.called = true;
@@ -24704,7 +24704,7 @@ function $96dd9ebd5db2dcba$var$once(fn) {
     f.called = false;
     return f;
 }
-function $96dd9ebd5db2dcba$var$onceStrict(fn) {
+function $7721dbd5607b1c16$var$onceStrict(fn) {
     var f = function() {
         if (f.called) throw new Error(f.onceError);
         f.called = true;
@@ -24723,42 +24723,42 @@ function $96dd9ebd5db2dcba$var$onceStrict(fn) {
 
 
 
-$parcel$export(module.exports, "activate", () => $63822e5677968886$export$234c45b355edd85b);
-$parcel$export(module.exports, "deactivate", () => $63822e5677968886$export$e96c1edfdaf2d1db);
-$parcel$export(module.exports, "serialize", () => $63822e5677968886$export$dfdc1655ccc5b9cb);
-$parcel$export(module.exports, "deserializeSemanticView", () => $63822e5677968886$export$a44ae7a0ffe32de);
-$parcel$export(module.exports, "consumeLinter", () => $63822e5677968886$export$7513da91a6067379);
-$parcel$export(module.exports, "consumeStatusBar", () => $63822e5677968886$export$a51a2902ac3affa7);
-$parcel$export(module.exports, "consumeDatatipService", () => $63822e5677968886$export$ca7950270ff61d66);
-$parcel$export(module.exports, "consumeSignatureHelp", () => $63822e5677968886$export$3ceee8b9bf304299);
-$parcel$export(module.exports, "consumeBusySignal", () => $63822e5677968886$export$29fa66c1419daddc);
-$parcel$export(module.exports, "provideAutocomplete", () => $63822e5677968886$export$71db97b929e8341b);
-$parcel$export(module.exports, "provideIntentions", () => $63822e5677968886$export$3781320452d1dce8);
-$parcel$export(module.exports, "provideIntentionsHighlight", () => $63822e5677968886$export$6f2bf0ac3e405d7b);
-$parcel$export(module.exports, "provideCodeActions", () => $63822e5677968886$export$7990dc4c350e7387);
-$parcel$export(module.exports, "provideHyperclick", () => $63822e5677968886$export$1c7ef754fc81a243);
-$parcel$export(module.exports, "provideReferences", () => $63822e5677968886$export$e32ae1c830f39f16);
-$parcel$export(module.exports, "provideOutlines", () => $63822e5677968886$export$cec97b3152a9a2a4);
-$parcel$export(module.exports, "provideDefinitions", () => $63822e5677968886$export$60b479b2c6dcce92);
-$parcel$export(module.exports, "provideCodeHighlight", () => $63822e5677968886$export$67b00a253126c08e);
-var $2f3c4293603b298a$exports = {};
+$parcel$export(module.exports, "activate", () => $498ee93e08d1148c$export$234c45b355edd85b);
+$parcel$export(module.exports, "deactivate", () => $498ee93e08d1148c$export$e96c1edfdaf2d1db);
+$parcel$export(module.exports, "serialize", () => $498ee93e08d1148c$export$dfdc1655ccc5b9cb);
+$parcel$export(module.exports, "deserializeSemanticView", () => $498ee93e08d1148c$export$a44ae7a0ffe32de);
+$parcel$export(module.exports, "consumeLinter", () => $498ee93e08d1148c$export$7513da91a6067379);
+$parcel$export(module.exports, "consumeStatusBar", () => $498ee93e08d1148c$export$a51a2902ac3affa7);
+$parcel$export(module.exports, "consumeDatatipService", () => $498ee93e08d1148c$export$ca7950270ff61d66);
+$parcel$export(module.exports, "consumeSignatureHelp", () => $498ee93e08d1148c$export$3ceee8b9bf304299);
+$parcel$export(module.exports, "consumeBusySignal", () => $498ee93e08d1148c$export$29fa66c1419daddc);
+$parcel$export(module.exports, "provideAutocomplete", () => $498ee93e08d1148c$export$71db97b929e8341b);
+$parcel$export(module.exports, "provideIntentions", () => $498ee93e08d1148c$export$3781320452d1dce8);
+$parcel$export(module.exports, "provideIntentionsHighlight", () => $498ee93e08d1148c$export$6f2bf0ac3e405d7b);
+$parcel$export(module.exports, "provideCodeActions", () => $498ee93e08d1148c$export$7990dc4c350e7387);
+$parcel$export(module.exports, "provideHyperclick", () => $498ee93e08d1148c$export$1c7ef754fc81a243);
+$parcel$export(module.exports, "provideReferences", () => $498ee93e08d1148c$export$e32ae1c830f39f16);
+$parcel$export(module.exports, "provideOutlines", () => $498ee93e08d1148c$export$cec97b3152a9a2a4);
+$parcel$export(module.exports, "provideDefinitions", () => $498ee93e08d1148c$export$60b479b2c6dcce92);
+$parcel$export(module.exports, "provideCodeHighlight", () => $498ee93e08d1148c$export$67b00a253126c08e);
+var $502c484fba974c5e$exports = {};
 'use strict';
-Object.defineProperty($2f3c4293603b298a$exports, '__esModule', {
+Object.defineProperty($502c484fba974c5e$exports, '__esModule', {
     value: true
 });
 
 
 
 
-function $2f3c4293603b298a$var$_interopDefaultLegacy(e) {
+function $502c484fba974c5e$var$_interopDefaultLegacy(e) {
     return e && typeof e === 'object' && 'default' in e ? e : {
         'default': e
     };
 }
-var $2f3c4293603b298a$var$os__default = /*#__PURE__*/ $2f3c4293603b298a$var$_interopDefaultLegacy($1X1Jj$os);
-var $2f3c4293603b298a$var$fs__default = /*#__PURE__*/ $2f3c4293603b298a$var$_interopDefaultLegacy($1X1Jj$fs);
-var $2f3c4293603b298a$var$path__default = /*#__PURE__*/ $2f3c4293603b298a$var$_interopDefaultLegacy($1X1Jj$path);
-var $2f3c4293603b298a$var$indentString = (string, count = 1, options)=>{
+var $502c484fba974c5e$var$os__default = /*#__PURE__*/ $502c484fba974c5e$var$_interopDefaultLegacy($lcjJR$os);
+var $502c484fba974c5e$var$fs__default = /*#__PURE__*/ $502c484fba974c5e$var$_interopDefaultLegacy($lcjJR$fs);
+var $502c484fba974c5e$var$path__default = /*#__PURE__*/ $502c484fba974c5e$var$_interopDefaultLegacy($lcjJR$path);
+var $502c484fba974c5e$var$indentString = (string, count = 1, options)=>{
     options = {
         indent: ' ',
         includeEmptyLines: false,
@@ -24771,27 +24771,27 @@ var $2f3c4293603b298a$var$indentString = (string, count = 1, options)=>{
     const regex = options.includeEmptyLines ? /^/gm : /^(?!\s*$)/gm;
     return string.replace(regex, options.indent.repeat(count));
 };
-const $2f3c4293603b298a$var$extractPathRegex = /\s+at.*(?:\(|\s)(.*)\)?/;
-const $2f3c4293603b298a$var$pathRegex = /^(?:(?:(?:node|(?:internal\/[\w/]*|.*node_modules\/(?:babel-polyfill|pirates)\/.*)?\w+)\.js:\d+:\d+)|native)/;
-const $2f3c4293603b298a$var$homeDir = typeof $2f3c4293603b298a$var$os__default['default'].homedir === 'undefined' ? '' : $2f3c4293603b298a$var$os__default['default'].homedir();
-var $2f3c4293603b298a$var$cleanStack = (stack, options)=>{
+const $502c484fba974c5e$var$extractPathRegex = /\s+at.*(?:\(|\s)(.*)\)?/;
+const $502c484fba974c5e$var$pathRegex = /^(?:(?:(?:node|(?:internal\/[\w/]*|.*node_modules\/(?:babel-polyfill|pirates)\/.*)?\w+)\.js:\d+:\d+)|native)/;
+const $502c484fba974c5e$var$homeDir = typeof $502c484fba974c5e$var$os__default['default'].homedir === 'undefined' ? '' : $502c484fba974c5e$var$os__default['default'].homedir();
+var $502c484fba974c5e$var$cleanStack = (stack, options)=>{
     options = Object.assign({
         pretty: false
     }, options);
     return stack.replace(/\\/g, '/').split('\n').filter((line)=>{
-        const pathMatches = line.match($2f3c4293603b298a$var$extractPathRegex);
+        const pathMatches = line.match($502c484fba974c5e$var$extractPathRegex);
         if (pathMatches === null || !pathMatches[1]) return true;
         const match = pathMatches[1];
         // Electron
         if (match.includes('.app/Contents/Resources/electron.asar') || match.includes('.app/Contents/Resources/default_app.asar')) return false;
-        return !$2f3c4293603b298a$var$pathRegex.test(match);
+        return !$502c484fba974c5e$var$pathRegex.test(match);
     }).filter((line)=>line.trim() !== '').map((line)=>{
-        if (options.pretty) return line.replace($2f3c4293603b298a$var$extractPathRegex, (m, p1)=>m.replace(p1, p1.replace($2f3c4293603b298a$var$homeDir, '~')));
+        if (options.pretty) return line.replace($502c484fba974c5e$var$extractPathRegex, (m, p1)=>m.replace(p1, p1.replace($502c484fba974c5e$var$homeDir, '~')));
         return line;
     }).join('\n');
 };
-const $2f3c4293603b298a$var$cleanInternalStack = (stack)=>stack.replace(/\s+at .*aggregate-error\/index.js:\d+:\d+\)?/g, '');
-class $2f3c4293603b298a$var$AggregateError extends Error {
+const $502c484fba974c5e$var$cleanInternalStack = (stack)=>stack.replace(/\s+at .*aggregate-error\/index.js:\d+:\d+\)?/g, '');
+class $502c484fba974c5e$var$AggregateError extends Error {
     *[Symbol.iterator]() {
         for (const error of this._errors)yield error;
     }
@@ -24807,9 +24807,9 @@ class $2f3c4293603b298a$var$AggregateError extends Error {
         });
         let message = errors.map((error)=>{
             // The `stack` property is not standardized, so we can't assume it exists
-            return typeof error.stack === 'string' ? $2f3c4293603b298a$var$cleanInternalStack($2f3c4293603b298a$var$cleanStack(error.stack)) : String(error);
+            return typeof error.stack === 'string' ? $502c484fba974c5e$var$cleanInternalStack($502c484fba974c5e$var$cleanStack(error.stack)) : String(error);
         }).join('\n');
-        message = '\n' + $2f3c4293603b298a$var$indentString(message, 4);
+        message = '\n' + $502c484fba974c5e$var$indentString(message, 4);
         super(message);
         this.name = 'AggregateError';
         Object.defineProperty(this, '_errors', {
@@ -24817,8 +24817,8 @@ class $2f3c4293603b298a$var$AggregateError extends Error {
         });
     }
 }
-var $2f3c4293603b298a$var$aggregateError = $2f3c4293603b298a$var$AggregateError;
-var $2f3c4293603b298a$var$pMap = async (iterable, mapper, { concurrency: concurrency = Infinity, stopOnError: stopOnError = true } = {})=>{
+var $502c484fba974c5e$var$aggregateError = $502c484fba974c5e$var$AggregateError;
+var $502c484fba974c5e$var$pMap = async (iterable, mapper, { concurrency: concurrency = Infinity, stopOnError: stopOnError = true } = {})=>{
     return new Promise((resolve, reject)=>{
         if (typeof mapper !== 'function') throw new TypeError('Mapper function is required');
         if (!((Number.isSafeInteger(concurrency) || concurrency === Infinity) && concurrency >= 1)) throw new TypeError(`Expected \`concurrency\` to be an integer from 1 and up or \`Infinity\`, got \`${concurrency}\` (${typeof concurrency})`);
@@ -24837,7 +24837,7 @@ var $2f3c4293603b298a$var$pMap = async (iterable, mapper, { concurrency: concurr
             if (nextItem.done) {
                 isIterableDone = true;
                 if (resolvingCount === 0) {
-                    if (!stopOnError && errors.length !== 0) reject(new $2f3c4293603b298a$var$aggregateError(errors));
+                    if (!stopOnError && errors.length !== 0) reject(new $502c484fba974c5e$var$aggregateError(errors));
                     else resolve(result);
                 }
                 return;
@@ -24867,7 +24867,7 @@ var $2f3c4293603b298a$var$pMap = async (iterable, mapper, { concurrency: concurr
         }
     });
 };
-const $2f3c4293603b298a$var$pMap$1 = (iterable, mapper, options)=>new Promise((resolve, reject)=>{
+const $502c484fba974c5e$var$pMap$1 = (iterable, mapper, options)=>new Promise((resolve, reject)=>{
         options = Object.assign({
             concurrency: Infinity
         }, options);
@@ -24905,24 +24905,24 @@ const $2f3c4293603b298a$var$pMap$1 = (iterable, mapper, options)=>new Promise((r
             if (isIterableDone) break;
         }
     });
-var $2f3c4293603b298a$var$pMap_1 = $2f3c4293603b298a$var$pMap$1;
+var $502c484fba974c5e$var$pMap_1 = $502c484fba974c5e$var$pMap$1;
 // TODO: Remove this for the next major release
-var $2f3c4293603b298a$var$_default = $2f3c4293603b298a$var$pMap$1;
-$2f3c4293603b298a$var$pMap_1.default = $2f3c4293603b298a$var$_default;
-const $2f3c4293603b298a$var$pFilter = async (iterable, filterer, options)=>{
-    const values = await $2f3c4293603b298a$var$pMap_1(iterable, (element, index)=>Promise.all([
+var $502c484fba974c5e$var$_default = $502c484fba974c5e$var$pMap$1;
+$502c484fba974c5e$var$pMap_1.default = $502c484fba974c5e$var$_default;
+const $502c484fba974c5e$var$pFilter = async (iterable, filterer, options)=>{
+    const values = await $502c484fba974c5e$var$pMap_1(iterable, (element, index)=>Promise.all([
             filterer(element, index),
             element
         ]), options);
     return values.filter((value)=>Boolean(value[0])).map((value)=>value[1]);
 };
-var $2f3c4293603b298a$var$pFilter_1 = $2f3c4293603b298a$var$pFilter;
+var $502c484fba974c5e$var$pFilter_1 = $502c484fba974c5e$var$pFilter;
 // TODO: Remove this for the next major release
-var $2f3c4293603b298a$var$_default$1 = $2f3c4293603b298a$var$pFilter;
-$2f3c4293603b298a$var$pFilter_1.default = $2f3c4293603b298a$var$_default$1;
-const $2f3c4293603b298a$var$IS_ATOM = typeof atom !== 'undefined';
-const $2f3c4293603b298a$var$IS_DEV = typeof atom !== 'undefined' && (atom.inDevMode() || atom.inSpecMode());
-const $2f3c4293603b298a$var$IGNORED_CONFIG_NAME = 'atom-package-deps.ignored';
+var $502c484fba974c5e$var$_default$1 = $502c484fba974c5e$var$pFilter;
+$502c484fba974c5e$var$pFilter_1.default = $502c484fba974c5e$var$_default$1;
+const $502c484fba974c5e$var$IS_ATOM = typeof atom !== 'undefined';
+const $502c484fba974c5e$var$IS_DEV = typeof atom !== 'undefined' && (atom.inDevMode() || atom.inSpecMode());
+const $502c484fba974c5e$var$IGNORED_CONFIG_NAME = 'atom-package-deps.ignored';
 /*!
  * escape-html
  * Copyright(c) 2012-2013 TJ Holowaychuk
@@ -24932,20 +24932,20 @@ const $2f3c4293603b298a$var$IGNORED_CONFIG_NAME = 'atom-package-deps.ignored';
  */ /**
  * Module variables.
  * @private
- */ var $2f3c4293603b298a$var$matchHtmlRegExp = /["'&<>]/;
+ */ var $502c484fba974c5e$var$matchHtmlRegExp = /["'&<>]/;
 /**
  * Module exports.
  * @public
- */ var $2f3c4293603b298a$var$escapeHtml_1 = $2f3c4293603b298a$var$escapeHtml;
+ */ var $502c484fba974c5e$var$escapeHtml_1 = $502c484fba974c5e$var$escapeHtml;
 /**
  * Escape special characters in the given string of html.
  *
  * @param  {string} string The string to escape for inserting into HTML
  * @return {string}
  * @public
- */ function $2f3c4293603b298a$var$escapeHtml(string) {
+ */ function $502c484fba974c5e$var$escapeHtml(string) {
     var str = '' + string;
-    var match = $2f3c4293603b298a$var$matchHtmlRegExp.exec(str);
+    var match = $502c484fba974c5e$var$matchHtmlRegExp.exec(str);
     if (!match) return str;
     var escape;
     var html = '';
@@ -24977,8 +24977,8 @@ const $2f3c4293603b298a$var$IGNORED_CONFIG_NAME = 'atom-package-deps.ignored';
     }
     return lastIndex !== index ? html + str.substring(lastIndex, index) : html;
 }
-async function $2f3c4293603b298a$var$spawnInternal(command, args, options) {
-    const spawnedProcess = $1X1Jj$child_process.spawn(command, args, options);
+async function $502c484fba974c5e$var$spawnInternal(command, args, options) {
+    const spawnedProcess = $lcjJR$child_process.spawn(command, args, options);
     const promise = new Promise((resolve, reject)=>{
         const output = {
             stdout: spawnedProcess.stdout ? [] : null,
@@ -25008,9 +25008,9 @@ async function $2f3c4293603b298a$var$spawnInternal(command, args, options) {
     options.handleChildProcess(spawnedProcess);
     return promise;
 }
-function $2f3c4293603b298a$var$spawn(command, args, options) {
+function $502c484fba974c5e$var$spawn(command, args, options) {
     let spawnedProcess;
-    const promise = $2f3c4293603b298a$var$spawnInternal(command, args, {
+    const promise = $502c484fba974c5e$var$spawnInternal(command, args, {
         ...options,
         handleChildProcess (_spawnedProcess) {
             spawnedProcess = _spawnedProcess;
@@ -25022,7 +25022,7 @@ function $2f3c4293603b298a$var$spawn(command, args, options) {
     };
     return promise;
 }
-var $2f3c4293603b298a$var$semverCompare = function cmp(a, b) {
+var $502c484fba974c5e$var$semverCompare = function cmp(a, b) {
     var pa = a.split('.');
     var pb = b.split('.');
     for(var i = 0; i < 3; i++){
@@ -25035,51 +25035,51 @@ var $2f3c4293603b298a$var$semverCompare = function cmp(a, b) {
     }
     return 0;
 };
-async function $2f3c4293603b298a$var$getDependencies(packageName) {
+async function $502c484fba974c5e$var$getDependencies(packageName) {
     const packageModule = atom.packages.getLoadedPackage(packageName);
     const packageDependencies = packageModule && packageModule.metadata['package-deps'];
     return Array.isArray(packageDependencies) ? packageDependencies : [];
 }
-async function $2f3c4293603b298a$var$resolveDependencyPath(packageName) {
+async function $502c484fba974c5e$var$resolveDependencyPath(packageName) {
     return atom.packages.resolvePackagePath(packageName);
 }
-async function $2f3c4293603b298a$var$getInstalledDependencyVersion(dependency) {
+async function $502c484fba974c5e$var$getInstalledDependencyVersion(dependency) {
     var _packageModule$metada;
     const packageModule = atom.packages.getLoadedPackage(dependency.name);
     return packageModule == null ? null : (_packageModule$metada = packageModule.metadata.version) !== null && _packageModule$metada !== void 0 ? _packageModule$metada : null;
 }
-async function $2f3c4293603b298a$var$getDependencies$1(packageName) {
+async function $502c484fba974c5e$var$getDependencies$1(packageName) {
     let packageStats = null;
     try {
-        packageStats = await $2f3c4293603b298a$var$fs__default['default'].promises.stat(packageName);
+        packageStats = await $502c484fba974c5e$var$fs__default['default'].promises.stat(packageName);
     } catch (_) {}
     if (packageStats == null || !packageStats.isDirectory()) throw new Error(`[Package-Deps] Expected packageName to be a readable directory in Node.js invocation`);
     let parsed = null;
     try {
-        const contents = await $2f3c4293603b298a$var$fs__default['default'].promises.readFile($2f3c4293603b298a$var$path__default['default'].join(packageName, 'package.json'), 'utf8');
+        const contents = await $502c484fba974c5e$var$fs__default['default'].promises.readFile($502c484fba974c5e$var$path__default['default'].join(packageName, 'package.json'), 'utf8');
         parsed = JSON.parse(contents);
     } catch (_) {}
     const packageDependencies = parsed == null || typeof parsed !== 'object' ? [] : parsed['package-deps'];
     return Array.isArray(packageDependencies) ? packageDependencies : [];
 }
-async function $2f3c4293603b298a$var$resolveDependencyPath$1(packageName) {
+async function $502c484fba974c5e$var$resolveDependencyPath$1(packageName) {
     var _process$env$ATOM_HOM;
-    const packageDirectory = $2f3c4293603b298a$var$path__default['default'].join((_process$env$ATOM_HOM = process.env.ATOM_HOME) !== null && _process$env$ATOM_HOM !== void 0 ? _process$env$ATOM_HOM : $2f3c4293603b298a$var$path__default['default'].join($2f3c4293603b298a$var$os__default['default'].homedir(), '.atom'), 'packages', packageName);
+    const packageDirectory = $502c484fba974c5e$var$path__default['default'].join((_process$env$ATOM_HOM = process.env.ATOM_HOME) !== null && _process$env$ATOM_HOM !== void 0 ? _process$env$ATOM_HOM : $502c484fba974c5e$var$path__default['default'].join($502c484fba974c5e$var$os__default['default'].homedir(), '.atom'), 'packages', packageName);
     try {
-        await $2f3c4293603b298a$var$fs__default['default'].promises.access(packageDirectory, $2f3c4293603b298a$var$fs__default['default'].constants.R_OK);
+        await $502c484fba974c5e$var$fs__default['default'].promises.access(packageDirectory, $502c484fba974c5e$var$fs__default['default'].constants.R_OK);
         return packageDirectory;
     } catch (_) {
         return null;
     }
 }
-async function $2f3c4293603b298a$var$getInstalledDependencyVersion$1(dependency) {
+async function $502c484fba974c5e$var$getInstalledDependencyVersion$1(dependency) {
     var _manifest$version, _manifest;
     const { directory: directory } = dependency;
     if (directory == null) // Not possible to get version without resolved directory in Node.js version
     return null;
     let manifest = null;
     try {
-        manifest = JSON.parse(await $2f3c4293603b298a$var$fs__default['default'].promises.readFile($2f3c4293603b298a$var$path__default['default'].join(directory, 'package.json'), 'utf8'));
+        manifest = JSON.parse(await $502c484fba974c5e$var$fs__default['default'].promises.readFile($502c484fba974c5e$var$path__default['default'].join(directory, 'package.json'), 'utf8'));
     } catch (_) {
         return null;
     }
@@ -25087,75 +25087,75 @@ async function $2f3c4293603b298a$var$getInstalledDependencyVersion$1(dependency)
 }
 /**
  * Internal helpers
- */ async function $2f3c4293603b298a$var$getInstalledDependencyVersion$2(dependency) {
-    if ($2f3c4293603b298a$var$IS_ATOM) {
-        const atomPackageVersion = await $2f3c4293603b298a$var$getInstalledDependencyVersion(dependency);
+ */ async function $502c484fba974c5e$var$getInstalledDependencyVersion$2(dependency) {
+    if ($502c484fba974c5e$var$IS_ATOM) {
+        const atomPackageVersion = await $502c484fba974c5e$var$getInstalledDependencyVersion(dependency);
         if (atomPackageVersion) return atomPackageVersion;
          // If the package isn't activated, it won't be loaded, so fallback to reading manifest file instead
     }
-    return $2f3c4293603b298a$var$getInstalledDependencyVersion$1(dependency);
+    return $502c484fba974c5e$var$getInstalledDependencyVersion$1(dependency);
 }
 /**
  * Exported helpers
- */ const $2f3c4293603b298a$var$resolveDependencyPath$2 = $2f3c4293603b298a$var$IS_ATOM ? $2f3c4293603b298a$var$resolveDependencyPath : $2f3c4293603b298a$var$resolveDependencyPath$1;
-function $2f3c4293603b298a$var$invariant(condition, message) {
+ */ const $502c484fba974c5e$var$resolveDependencyPath$2 = $502c484fba974c5e$var$IS_ATOM ? $502c484fba974c5e$var$resolveDependencyPath : $502c484fba974c5e$var$resolveDependencyPath$1;
+function $502c484fba974c5e$var$invariant(condition, message) {
     if (!condition) throw new Error(message !== null && message !== void 0 ? message : 'Invariant violation');
 }
-async function $2f3c4293603b298a$var$getDependencies$2(name) {
-    const dependencies = await ($2f3c4293603b298a$var$IS_ATOM ? $2f3c4293603b298a$var$getDependencies(name) : $2f3c4293603b298a$var$getDependencies$1(name));
-    if ($2f3c4293603b298a$var$IS_DEV) {
-        $2f3c4293603b298a$var$invariant(Array.isArray(dependencies), `Dependencies for ${name} are not a valid array`);
+async function $502c484fba974c5e$var$getDependencies$2(name) {
+    const dependencies = await ($502c484fba974c5e$var$IS_ATOM ? $502c484fba974c5e$var$getDependencies(name) : $502c484fba974c5e$var$getDependencies$1(name));
+    if ($502c484fba974c5e$var$IS_DEV) {
+        $502c484fba974c5e$var$invariant(Array.isArray(dependencies), `Dependencies for ${name} are not a valid array`);
         dependencies.forEach((item, index)=>{
             if (Array.isArray(item)) {
                 item.forEach((subitem, subindex)=>{
                     const invalidMessage = `Dependency#${index}#${subindex} for ${name} is invalid`;
-                    $2f3c4293603b298a$var$invariant(typeof subitem.name === 'string' && subitem.name.length > 0, invalidMessage);
-                    $2f3c4293603b298a$var$invariant(subitem.minimumVersion == null || typeof subitem.minimumVersion === 'string' && subitem.minimumVersion.length > 0, invalidMessage);
+                    $502c484fba974c5e$var$invariant(typeof subitem.name === 'string' && subitem.name.length > 0, invalidMessage);
+                    $502c484fba974c5e$var$invariant(subitem.minimumVersion == null || typeof subitem.minimumVersion === 'string' && subitem.minimumVersion.length > 0, invalidMessage);
                 });
-                $2f3c4293603b298a$var$invariant(item.length > 0, `Dependency#${index} for ${name} has no group items`);
+                $502c484fba974c5e$var$invariant(item.length > 0, `Dependency#${index} for ${name} has no group items`);
             } else {
                 const invalidMessage = `Dependency#${index} for ${name} is invalid`;
-                $2f3c4293603b298a$var$invariant(typeof item.name === 'string' && item.name.length > 0, invalidMessage);
-                $2f3c4293603b298a$var$invariant(item.minimumVersion == null || typeof item.minimumVersion === 'string' && item.minimumVersion.length > 0, invalidMessage);
+                $502c484fba974c5e$var$invariant(typeof item.name === 'string' && item.name.length > 0, invalidMessage);
+                $502c484fba974c5e$var$invariant(item.minimumVersion == null || typeof item.minimumVersion === 'string' && item.minimumVersion.length > 0, invalidMessage);
             }
         });
     }
     return dependencies;
 }
-async function $2f3c4293603b298a$var$shouldInstallDependency(dependency) {
+async function $502c484fba974c5e$var$shouldInstallDependency(dependency) {
     if (dependency.directory == null) // Not installed, so install
     return true;
     if (dependency.minimumVersion == null) // Already installed and no version defined, so skip
     return false;
-    const version = await $2f3c4293603b298a$var$getInstalledDependencyVersion$2(dependency);
+    const version = await $502c484fba974c5e$var$getInstalledDependencyVersion$2(dependency);
     if (version == null) // Unable to get current version, so install
     return true;
-    return $2f3c4293603b298a$var$semverCompare(dependency.minimumVersion, version) === 1;
+    return $502c484fba974c5e$var$semverCompare(dependency.minimumVersion, version) === 1;
 }
-function $2f3c4293603b298a$var$isPackageIgnored(name) {
+function $502c484fba974c5e$var$isPackageIgnored(name) {
     var _atom$config$get;
-    if (!$2f3c4293603b298a$var$IS_ATOM) // Never ignored in CLI
+    if (!$502c484fba974c5e$var$IS_ATOM) // Never ignored in CLI
     return false;
-    const ignoredPackages = (_atom$config$get = atom.config.get($2f3c4293603b298a$var$IGNORED_CONFIG_NAME)) !== null && _atom$config$get !== void 0 ? _atom$config$get : [];
+    const ignoredPackages = (_atom$config$get = atom.config.get($502c484fba974c5e$var$IGNORED_CONFIG_NAME)) !== null && _atom$config$get !== void 0 ? _atom$config$get : [];
     if (ignoredPackages.includes(name)) return true;
     return false;
 }
-function $2f3c4293603b298a$var$markPackageAsIgnored(name) {
+function $502c484fba974c5e$var$markPackageAsIgnored(name) {
     var _atom$config$get2;
-    if (!$2f3c4293603b298a$var$IS_ATOM) // No op in CLI
+    if (!$502c484fba974c5e$var$IS_ATOM) // No op in CLI
     return;
-    const ignoredPackages = new Set((_atom$config$get2 = atom.config.get($2f3c4293603b298a$var$IGNORED_CONFIG_NAME)) !== null && _atom$config$get2 !== void 0 ? _atom$config$get2 : []);
+    const ignoredPackages = new Set((_atom$config$get2 = atom.config.get($502c484fba974c5e$var$IGNORED_CONFIG_NAME)) !== null && _atom$config$get2 !== void 0 ? _atom$config$get2 : []);
     ignoredPackages.add(name);
-    atom.config.set($2f3c4293603b298a$var$IGNORED_CONFIG_NAME, Array.from(ignoredPackages));
+    atom.config.set($502c484fba974c5e$var$IGNORED_CONFIG_NAME, Array.from(ignoredPackages));
 }
-const $2f3c4293603b298a$var$INSTALL_VALID_TICKS = new Set([
+const $502c484fba974c5e$var$INSTALL_VALID_TICKS = new Set([
     "\u2713",
     'done'
 ]);
-const $2f3c4293603b298a$var$INSTALL_VALIDATION_REGEXP = /(?:Installing|Moving) (.*?) to .* (.*)/; // Example success output: Uninstalling linter-ui-default ✓
-async function $2f3c4293603b298a$var$installPackage(dependency) {
-    const apmPath = $2f3c4293603b298a$var$IS_ATOM ? `"${atom.packages.getApmPath()}"` : 'apm';
-    const { stdout: stdout, stderr: stderr } = await $2f3c4293603b298a$var$spawn(apmPath, [
+const $502c484fba974c5e$var$INSTALL_VALIDATION_REGEXP = /(?:Installing|Moving) (.*?) to .* (.*)/; // Example success output: Uninstalling linter-ui-default ✓
+async function $502c484fba974c5e$var$installPackage(dependency) {
+    const apmPath = $502c484fba974c5e$var$IS_ATOM ? `"${atom.packages.getApmPath()}"` : 'apm';
+    const { stdout: stdout, stderr: stderr } = await $502c484fba974c5e$var$spawn(apmPath, [
         'install',
         dependency.name,
         '--production',
@@ -25164,30 +25164,30 @@ async function $2f3c4293603b298a$var$installPackage(dependency) {
     ], {
         shell: true
     });
-    const match = $2f3c4293603b298a$var$INSTALL_VALIDATION_REGEXP.exec(stdout.trim());
-    if (match != null && $2f3c4293603b298a$var$INSTALL_VALID_TICKS.has(match[2])) // Installation complete and verified
+    const match = $502c484fba974c5e$var$INSTALL_VALIDATION_REGEXP.exec(stdout.trim());
+    if (match != null && $502c484fba974c5e$var$INSTALL_VALID_TICKS.has(match[2])) // Installation complete and verified
     return;
     const error = new Error(`Error installing dependency: ${dependency.name}`);
     error.stack = stderr.trim();
     throw error;
 }
-async function $2f3c4293603b298a$var$getResolvedDependency(item) {
+async function $502c484fba974c5e$var$getResolvedDependency(item) {
     // string entry
     if (typeof item === 'string') return {
         name: item,
-        directory: await $2f3c4293603b298a$var$resolveDependencyPath$2(item)
+        directory: await $502c484fba974c5e$var$resolveDependencyPath$2(item)
     };
     if ('name' in item) return {
         ...item,
-        directory: await $2f3c4293603b298a$var$resolveDependencyPath$2(item.name)
+        directory: await $502c484fba974c5e$var$resolveDependencyPath$2(item.name)
     };
     console.error(`This package-deps entry is not valid. Please see https://github.com/steelbrain/package-deps#how-it-works`, {
         entry: item
     });
     throw Error(`The package-deps entry is not valid. Please see https://github.com/steelbrain/package-deps#how-it-works`);
 }
-let $2f3c4293603b298a$var$showResetInstruction = true;
-function $2f3c4293603b298a$var$confirmPackagesToInstall({ packageName: packageName, dependencies: dependencies }) {
+let $502c484fba974c5e$var$showResetInstruction = true;
+function $502c484fba974c5e$var$confirmPackagesToInstall({ packageName: packageName, dependencies: dependencies }) {
     return new Promise((resolve)=>{
         const ungroupedDependencies = dependencies.filter((item)=>!Array.isArray(item));
         const groupedDependencies = dependencies.filter((item)=>Array.isArray(item));
@@ -25218,9 +25218,9 @@ function $2f3c4293603b298a$var$confirmPackagesToInstall({ packageName: packageNa
                 {
                     text: 'Never',
                     onDidClick: ()=>{
-                        $2f3c4293603b298a$var$markPackageAsIgnored(packageName);
-                        if ($2f3c4293603b298a$var$showResetInstruction) {
-                            $2f3c4293603b298a$var$showResetInstruction = false;
+                        $502c484fba974c5e$var$markPackageAsIgnored(packageName);
+                        if ($502c484fba974c5e$var$showResetInstruction) {
+                            $502c484fba974c5e$var$showResetInstruction = false;
                             atom.notifications.addInfo('How to reset package-deps memory', {
                                 dismissable: true,
                                 description: "To modify the list of ignored files invoke 'Application: Open Your Config' and change the 'atom-package-deps' section"
@@ -25245,7 +25245,7 @@ function $2f3c4293603b298a$var$confirmPackagesToInstall({ packageName: packageNa
             notificationContent.innerHTML = ''; // Add list of ungroup dependencies to the top of the notification
             if (ungroupedDependencies.length > 0) {
                 const ungroupedLine = document.createElement('div');
-                ungroupedLine.innerHTML = `Packages without choices: <br /><ul><li>${ungroupedDependencies.map((item)=>$2f3c4293603b298a$var$escapeHtml_1(item.name)).join('</li><li>')}</li></ul>`;
+                ungroupedLine.innerHTML = `Packages without choices: <br /><ul><li>${ungroupedDependencies.map((item)=>$502c484fba974c5e$var$escapeHtml_1(item.name)).join('</li><li>')}</li></ul>`;
                 notificationContent.appendChild(ungroupedLine);
             } // Create a label line for groups
             const groupLabelLine = document.createElement('div');
@@ -25255,7 +25255,7 @@ function $2f3c4293603b298a$var$confirmPackagesToInstall({ packageName: packageNa
             groupedDependencies.forEach((item, index)=>{
                 const listItem = document.createElement('li');
                 const select = document.createElement('select');
-                select.innerHTML = item.map((subitem)=>`<option>${$2f3c4293603b298a$var$escapeHtml_1(subitem.name)}</option>`).join('\n');
+                select.innerHTML = item.map((subitem)=>`<option>${$502c484fba974c5e$var$escapeHtml_1(subitem.name)}</option>`).join('\n');
                 select.addEventListener('change', ()=>{
                     // Change the selected value for this index for resolve to use
                     const subitem = item.find((entry)=>entry.name === select.value);
@@ -25271,7 +25271,7 @@ function $2f3c4293603b298a$var$confirmPackagesToInstall({ packageName: packageNa
         }
     });
 }
-function $2f3c4293603b298a$var$getView({ packageName: packageName, dependencies: dependencies }) {
+function $502c484fba974c5e$var$getView({ packageName: packageName, dependencies: dependencies }) {
     const failed = [];
     const notification = atom.notifications.addInfo(`Installing ${packageName} dependencies`, {
         detail: `Installing ${dependencies.map((item)=>item.name).join(', ')}`,
@@ -25319,11 +25319,11 @@ function $2f3c4293603b298a$var$getView({ packageName: packageName, dependencies:
         }
     };
 }
-async function $2f3c4293603b298a$var$confirmPackagesToInstall$1({ dependencies: dependencies }) {
+async function $502c484fba974c5e$var$confirmPackagesToInstall$1({ dependencies: dependencies }) {
     // No user interaction on the CLI. Install the first (aka "default" choice) package
     return dependencies.map((item)=>Array.isArray(item) ? item[0] : item);
 }
-function $2f3c4293603b298a$var$getView$1({ dependencies: dependencies }) {
+function $502c484fba974c5e$var$getView$1({ dependencies: dependencies }) {
     let failed = false;
     console.log(`Installing dependencies:\n${dependencies.map((item)=>`  - ${item.name}`).join('\n')}`);
     return {
@@ -25342,30 +25342,30 @@ function $2f3c4293603b298a$var$getView$1({ dependencies: dependencies }) {
         }
     };
 }
-const $2f3c4293603b298a$var$getView$2 = $2f3c4293603b298a$var$IS_ATOM ? $2f3c4293603b298a$var$getView : $2f3c4293603b298a$var$getView$1;
-const $2f3c4293603b298a$var$confirmPackagesToInstall$2 = $2f3c4293603b298a$var$IS_ATOM ? $2f3c4293603b298a$var$confirmPackagesToInstall : $2f3c4293603b298a$var$confirmPackagesToInstall$1;
-async function $2f3c4293603b298a$var$install(packageName, hideUserPrompt = false) {
-    $2f3c4293603b298a$var$invariant(typeof packageName === 'string' && packageName.length > 0, '[Package-Deps] Package name is required');
-    if ($2f3c4293603b298a$var$isPackageIgnored(packageName)) // User ignored this package
+const $502c484fba974c5e$var$getView$2 = $502c484fba974c5e$var$IS_ATOM ? $502c484fba974c5e$var$getView : $502c484fba974c5e$var$getView$1;
+const $502c484fba974c5e$var$confirmPackagesToInstall$2 = $502c484fba974c5e$var$IS_ATOM ? $502c484fba974c5e$var$confirmPackagesToInstall : $502c484fba974c5e$var$confirmPackagesToInstall$1;
+async function $502c484fba974c5e$var$install(packageName, hideUserPrompt = false) {
+    $502c484fba974c5e$var$invariant(typeof packageName === 'string' && packageName.length > 0, '[Package-Deps] Package name is required');
+    if ($502c484fba974c5e$var$isPackageIgnored(packageName)) // User ignored this package
     return;
      // Get list of relevant dependencies
-    const dependencies = await $2f3c4293603b298a$var$getDependencies$2(packageName);
+    const dependencies = await $502c484fba974c5e$var$getDependencies$2(packageName);
     if (dependencies.length === 0) // Short-circuit
     return;
      // Resolve directories of relevant dependencies
     const resolvedDependencies = await Promise.all(dependencies.map(async (item)=>{
-        if (Array.isArray(item)) return Promise.all(item.map($2f3c4293603b298a$var$getResolvedDependency));
-        return $2f3c4293603b298a$var$getResolvedDependency(item);
+        if (Array.isArray(item)) return Promise.all(item.map($502c484fba974c5e$var$getResolvedDependency));
+        return $502c484fba974c5e$var$getResolvedDependency(item);
     })); // Filter out already installed, in range dependencies
     // If one dependency from a group is already installed, whole group is ignored
-    const dependenciesToInstall = await $2f3c4293603b298a$var$pFilter_1(resolvedDependencies, async function(item) {
-        if (Array.isArray(item)) return (await Promise.all(item.map((subitem)=>$2f3c4293603b298a$var$shouldInstallDependency(subitem)))).every(Boolean);
-        return $2f3c4293603b298a$var$shouldInstallDependency(item);
+    const dependenciesToInstall = await $502c484fba974c5e$var$pFilter_1(resolvedDependencies, async function(item) {
+        if (Array.isArray(item)) return (await Promise.all(item.map((subitem)=>$502c484fba974c5e$var$shouldInstallDependency(subitem)))).every(Boolean);
+        return $502c484fba974c5e$var$shouldInstallDependency(item);
     });
     if (dependenciesToInstall.length === 0) // Short-circuit if all have been skipped
     return;
     let chosenDependencies;
-    if (!hideUserPrompt) chosenDependencies = await $2f3c4293603b298a$var$confirmPackagesToInstall$2({
+    if (!hideUserPrompt) chosenDependencies = await $502c484fba974c5e$var$confirmPackagesToInstall$2({
         packageName: packageName,
         dependencies: dependenciesToInstall
     });
@@ -25376,13 +25376,13 @@ async function $2f3c4293603b298a$var$install(packageName, hideUserPrompt = false
     });
     if (chosenDependencies.length === 0) // Short-circuit if user interaction cancelled all
     return;
-    const view = $2f3c4293603b298a$var$getView$2({
+    const view = $502c484fba974c5e$var$getView$2({
         packageName: packageName,
         dependencies: chosenDependencies
     });
-    await $2f3c4293603b298a$var$pMap(chosenDependencies, async function(dependency) {
+    await $502c484fba974c5e$var$pMap(chosenDependencies, async function(dependency) {
         try {
-            await $2f3c4293603b298a$var$installPackage(dependency);
+            await $502c484fba974c5e$var$installPackage(dependency);
             view.handleDependencyInstalled(dependency);
         } catch (err) {
             view.handleFailure({
@@ -25395,12 +25395,12 @@ async function $2f3c4293603b298a$var$install(packageName, hideUserPrompt = false
     });
     view.handleComplete();
 }
-$2f3c4293603b298a$exports.install = $2f3c4293603b298a$var$install;
+$502c484fba974c5e$exports.install = $502c484fba974c5e$var$install;
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
-function $db9d114e2c9cbac0$export$8080b7556d9d6445(promise) {
+var $eusZd = parcelRequire("eusZd");
+function $8012570b1032009f$export$8080b7556d9d6445(promise) {
     if (promise === undefined) return;
     // tslint:disable-next-line:strict-type-predicates no-unbound-method
     if (typeof promise.catch !== "function") {
@@ -25422,11 +25422,11 @@ function $db9d114e2c9cbac0$export$8080b7556d9d6445(promise) {
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
-var $4uNLx = parcelRequire("4uNLx");
-var $e831e7a5a6d65205$exports = {};
-var $f5db35dd32057124$exports = {};
+var $6DBYc = parcelRequire("6DBYc");
+var $df14f2f83bfe2ed7$exports = {};
+var $921bd58c9e736b43$exports = {};
 /**
  * Checks if `value` is the
  * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
@@ -25451,23 +25451,23 @@ var $f5db35dd32057124$exports = {};
  *
  * _.isObject(null);
  * // => false
- */ function $f5db35dd32057124$var$isObject(value) {
+ */ function $921bd58c9e736b43$var$isObject(value) {
     var type = typeof value;
     return value != null && (type == 'object' || type == 'function');
 }
-$f5db35dd32057124$exports = $f5db35dd32057124$var$isObject;
+$921bd58c9e736b43$exports = $921bd58c9e736b43$var$isObject;
 
 
-var $7128ef45081a40fe$exports = {};
-var $b43044441ba38693$exports = {};
-var $58df61677942703c$exports = {};
-/** Detect free variable `global` from Node.js. */ var $58df61677942703c$var$freeGlobal = typeof $parcel$global == 'object' && $parcel$global && $parcel$global.Object === Object && $parcel$global;
-$58df61677942703c$exports = $58df61677942703c$var$freeGlobal;
+var $8108caa7c984d6f3$exports = {};
+var $70e982adfbe30786$exports = {};
+var $e9b4e930d6434c4e$exports = {};
+/** Detect free variable `global` from Node.js. */ var $e9b4e930d6434c4e$var$freeGlobal = typeof $parcel$global == 'object' && $parcel$global && $parcel$global.Object === Object && $parcel$global;
+$e9b4e930d6434c4e$exports = $e9b4e930d6434c4e$var$freeGlobal;
 
 
-/** Detect free variable `self`. */ var $b43044441ba38693$var$freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-/** Used as a reference to the global object. */ var $b43044441ba38693$var$root = $58df61677942703c$exports || $b43044441ba38693$var$freeSelf || Function('return this')();
-$b43044441ba38693$exports = $b43044441ba38693$var$root;
+/** Detect free variable `self`. */ var $70e982adfbe30786$var$freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+/** Used as a reference to the global object. */ var $70e982adfbe30786$var$root = $e9b4e930d6434c4e$exports || $70e982adfbe30786$var$freeSelf || Function('return this')();
+$70e982adfbe30786$exports = $70e982adfbe30786$var$root;
 
 
 /**
@@ -25485,16 +25485,16 @@ $b43044441ba38693$exports = $b43044441ba38693$var$root;
  *   console.log(_.now() - stamp);
  * }, _.now());
  * // => Logs the number of milliseconds it took for the deferred invocation.
- */ var $7128ef45081a40fe$var$now = function() {
-    return $b43044441ba38693$exports.Date.now();
+ */ var $8108caa7c984d6f3$var$now = function() {
+    return $70e982adfbe30786$exports.Date.now();
 };
-$7128ef45081a40fe$exports = $7128ef45081a40fe$var$now;
+$8108caa7c984d6f3$exports = $8108caa7c984d6f3$var$now;
 
 
-var $ff4eb52834fd595b$exports = {};
-var $bcf9db1da28cabdb$exports = {};
-var $dd1ee6587e5c8616$exports = {};
-/** Used to match a single whitespace character. */ var $dd1ee6587e5c8616$var$reWhitespace = /\s/;
+var $98fdad460d491e13$exports = {};
+var $881926116832c6ac$exports = {};
+var $9867fa424432f15f$exports = {};
+/** Used to match a single whitespace character. */ var $9867fa424432f15f$var$reWhitespace = /\s/;
 /**
  * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
  * character of `string`.
@@ -25502,103 +25502,103 @@ var $dd1ee6587e5c8616$exports = {};
  * @private
  * @param {string} string The string to inspect.
  * @returns {number} Returns the index of the last non-whitespace character.
- */ function $dd1ee6587e5c8616$var$trimmedEndIndex(string) {
+ */ function $9867fa424432f15f$var$trimmedEndIndex(string) {
     var index = string.length;
-    while(index-- && $dd1ee6587e5c8616$var$reWhitespace.test(string.charAt(index)));
+    while(index-- && $9867fa424432f15f$var$reWhitespace.test(string.charAt(index)));
     return index;
 }
-$dd1ee6587e5c8616$exports = $dd1ee6587e5c8616$var$trimmedEndIndex;
+$9867fa424432f15f$exports = $9867fa424432f15f$var$trimmedEndIndex;
 
 
-/** Used to match leading whitespace. */ var $bcf9db1da28cabdb$var$reTrimStart = /^\s+/;
+/** Used to match leading whitespace. */ var $881926116832c6ac$var$reTrimStart = /^\s+/;
 /**
  * The base implementation of `_.trim`.
  *
  * @private
  * @param {string} string The string to trim.
  * @returns {string} Returns the trimmed string.
- */ function $bcf9db1da28cabdb$var$baseTrim(string) {
-    return string ? string.slice(0, $dd1ee6587e5c8616$exports(string) + 1).replace($bcf9db1da28cabdb$var$reTrimStart, '') : string;
+ */ function $881926116832c6ac$var$baseTrim(string) {
+    return string ? string.slice(0, $9867fa424432f15f$exports(string) + 1).replace($881926116832c6ac$var$reTrimStart, '') : string;
 }
-$bcf9db1da28cabdb$exports = $bcf9db1da28cabdb$var$baseTrim;
+$881926116832c6ac$exports = $881926116832c6ac$var$baseTrim;
 
 
 
-var $aae5426ee58ce15c$exports = {};
-var $4e6f241bc3d8f215$exports = {};
-var $538f548386e1b906$exports = {};
+var $624d638c964ee0ee$exports = {};
+var $c764687a74b27b6b$exports = {};
+var $5868475e1edc8f7c$exports = {};
 
-/** Built-in value references. */ var $538f548386e1b906$var$Symbol = $b43044441ba38693$exports.Symbol;
-$538f548386e1b906$exports = $538f548386e1b906$var$Symbol;
+/** Built-in value references. */ var $5868475e1edc8f7c$var$Symbol = $70e982adfbe30786$exports.Symbol;
+$5868475e1edc8f7c$exports = $5868475e1edc8f7c$var$Symbol;
 
 
-var $d015d46823948a10$exports = {};
+var $fa14d6eb27cd0a96$exports = {};
 
-/** Used for built-in method references. */ var $d015d46823948a10$var$objectProto = Object.prototype;
-/** Used to check objects for own properties. */ var $d015d46823948a10$var$hasOwnProperty = $d015d46823948a10$var$objectProto.hasOwnProperty;
+/** Used for built-in method references. */ var $fa14d6eb27cd0a96$var$objectProto = Object.prototype;
+/** Used to check objects for own properties. */ var $fa14d6eb27cd0a96$var$hasOwnProperty = $fa14d6eb27cd0a96$var$objectProto.hasOwnProperty;
 /**
  * Used to resolve the
  * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
  * of values.
- */ var $d015d46823948a10$var$nativeObjectToString = $d015d46823948a10$var$objectProto.toString;
-/** Built-in value references. */ var $d015d46823948a10$var$symToStringTag = $538f548386e1b906$exports ? $538f548386e1b906$exports.toStringTag : undefined;
+ */ var $fa14d6eb27cd0a96$var$nativeObjectToString = $fa14d6eb27cd0a96$var$objectProto.toString;
+/** Built-in value references. */ var $fa14d6eb27cd0a96$var$symToStringTag = $5868475e1edc8f7c$exports ? $5868475e1edc8f7c$exports.toStringTag : undefined;
 /**
  * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
  *
  * @private
  * @param {*} value The value to query.
  * @returns {string} Returns the raw `toStringTag`.
- */ function $d015d46823948a10$var$getRawTag(value) {
-    var isOwn = $d015d46823948a10$var$hasOwnProperty.call(value, $d015d46823948a10$var$symToStringTag), tag = value[$d015d46823948a10$var$symToStringTag];
+ */ function $fa14d6eb27cd0a96$var$getRawTag(value) {
+    var isOwn = $fa14d6eb27cd0a96$var$hasOwnProperty.call(value, $fa14d6eb27cd0a96$var$symToStringTag), tag = value[$fa14d6eb27cd0a96$var$symToStringTag];
     try {
-        value[$d015d46823948a10$var$symToStringTag] = undefined;
+        value[$fa14d6eb27cd0a96$var$symToStringTag] = undefined;
         var unmasked = true;
     } catch (e) {}
-    var result = $d015d46823948a10$var$nativeObjectToString.call(value);
+    var result = $fa14d6eb27cd0a96$var$nativeObjectToString.call(value);
     if (unmasked) {
-        if (isOwn) value[$d015d46823948a10$var$symToStringTag] = tag;
-        else delete value[$d015d46823948a10$var$symToStringTag];
+        if (isOwn) value[$fa14d6eb27cd0a96$var$symToStringTag] = tag;
+        else delete value[$fa14d6eb27cd0a96$var$symToStringTag];
     }
     return result;
 }
-$d015d46823948a10$exports = $d015d46823948a10$var$getRawTag;
+$fa14d6eb27cd0a96$exports = $fa14d6eb27cd0a96$var$getRawTag;
 
 
-var $8ee27ed8383d4b67$exports = {};
-/** Used for built-in method references. */ var $8ee27ed8383d4b67$var$objectProto = Object.prototype;
+var $57e7190c7501c805$exports = {};
+/** Used for built-in method references. */ var $57e7190c7501c805$var$objectProto = Object.prototype;
 /**
  * Used to resolve the
  * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
  * of values.
- */ var $8ee27ed8383d4b67$var$nativeObjectToString = $8ee27ed8383d4b67$var$objectProto.toString;
+ */ var $57e7190c7501c805$var$nativeObjectToString = $57e7190c7501c805$var$objectProto.toString;
 /**
  * Converts `value` to a string using `Object.prototype.toString`.
  *
  * @private
  * @param {*} value The value to convert.
  * @returns {string} Returns the converted string.
- */ function $8ee27ed8383d4b67$var$objectToString(value) {
-    return $8ee27ed8383d4b67$var$nativeObjectToString.call(value);
+ */ function $57e7190c7501c805$var$objectToString(value) {
+    return $57e7190c7501c805$var$nativeObjectToString.call(value);
 }
-$8ee27ed8383d4b67$exports = $8ee27ed8383d4b67$var$objectToString;
+$57e7190c7501c805$exports = $57e7190c7501c805$var$objectToString;
 
 
-/** `Object#toString` result references. */ var $4e6f241bc3d8f215$var$nullTag = '[object Null]', $4e6f241bc3d8f215$var$undefinedTag = '[object Undefined]';
-/** Built-in value references. */ var $4e6f241bc3d8f215$var$symToStringTag = $538f548386e1b906$exports ? $538f548386e1b906$exports.toStringTag : undefined;
+/** `Object#toString` result references. */ var $c764687a74b27b6b$var$nullTag = '[object Null]', $c764687a74b27b6b$var$undefinedTag = '[object Undefined]';
+/** Built-in value references. */ var $c764687a74b27b6b$var$symToStringTag = $5868475e1edc8f7c$exports ? $5868475e1edc8f7c$exports.toStringTag : undefined;
 /**
  * The base implementation of `getTag` without fallbacks for buggy environments.
  *
  * @private
  * @param {*} value The value to query.
  * @returns {string} Returns the `toStringTag`.
- */ function $4e6f241bc3d8f215$var$baseGetTag(value) {
-    if (value == null) return value === undefined ? $4e6f241bc3d8f215$var$undefinedTag : $4e6f241bc3d8f215$var$nullTag;
-    return $4e6f241bc3d8f215$var$symToStringTag && $4e6f241bc3d8f215$var$symToStringTag in Object(value) ? $d015d46823948a10$exports(value) : $8ee27ed8383d4b67$exports(value);
+ */ function $c764687a74b27b6b$var$baseGetTag(value) {
+    if (value == null) return value === undefined ? $c764687a74b27b6b$var$undefinedTag : $c764687a74b27b6b$var$nullTag;
+    return $c764687a74b27b6b$var$symToStringTag && $c764687a74b27b6b$var$symToStringTag in Object(value) ? $fa14d6eb27cd0a96$exports(value) : $57e7190c7501c805$exports(value);
 }
-$4e6f241bc3d8f215$exports = $4e6f241bc3d8f215$var$baseGetTag;
+$c764687a74b27b6b$exports = $c764687a74b27b6b$var$baseGetTag;
 
 
-var $35594e909a4f4282$exports = {};
+var $aebe60aa24b3c6d0$exports = {};
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
  * and has a `typeof` result of "object".
@@ -25622,13 +25622,13 @@ var $35594e909a4f4282$exports = {};
  *
  * _.isObjectLike(null);
  * // => false
- */ function $35594e909a4f4282$var$isObjectLike(value) {
+ */ function $aebe60aa24b3c6d0$var$isObjectLike(value) {
     return value != null && typeof value == 'object';
 }
-$35594e909a4f4282$exports = $35594e909a4f4282$var$isObjectLike;
+$aebe60aa24b3c6d0$exports = $aebe60aa24b3c6d0$var$isObjectLike;
 
 
-/** `Object#toString` result references. */ var $aae5426ee58ce15c$var$symbolTag = '[object Symbol]';
+/** `Object#toString` result references. */ var $624d638c964ee0ee$var$symbolTag = '[object Symbol]';
 /**
  * Checks if `value` is classified as a `Symbol` primitive or object.
  *
@@ -25645,17 +25645,17 @@ $35594e909a4f4282$exports = $35594e909a4f4282$var$isObjectLike;
  *
  * _.isSymbol('abc');
  * // => false
- */ function $aae5426ee58ce15c$var$isSymbol(value) {
-    return typeof value == 'symbol' || $35594e909a4f4282$exports(value) && $4e6f241bc3d8f215$exports(value) == $aae5426ee58ce15c$var$symbolTag;
+ */ function $624d638c964ee0ee$var$isSymbol(value) {
+    return typeof value == 'symbol' || $aebe60aa24b3c6d0$exports(value) && $c764687a74b27b6b$exports(value) == $624d638c964ee0ee$var$symbolTag;
 }
-$aae5426ee58ce15c$exports = $aae5426ee58ce15c$var$isSymbol;
+$624d638c964ee0ee$exports = $624d638c964ee0ee$var$isSymbol;
 
 
-/** Used as references for various `Number` constants. */ var $ff4eb52834fd595b$var$NAN = 0 / 0;
-/** Used to detect bad signed hexadecimal string values. */ var $ff4eb52834fd595b$var$reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
-/** Used to detect binary string values. */ var $ff4eb52834fd595b$var$reIsBinary = /^0b[01]+$/i;
-/** Used to detect octal string values. */ var $ff4eb52834fd595b$var$reIsOctal = /^0o[0-7]+$/i;
-/** Built-in method references without a dependency on `root`. */ var $ff4eb52834fd595b$var$freeParseInt = parseInt;
+/** Used as references for various `Number` constants. */ var $98fdad460d491e13$var$NAN = 0 / 0;
+/** Used to detect bad signed hexadecimal string values. */ var $98fdad460d491e13$var$reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+/** Used to detect binary string values. */ var $98fdad460d491e13$var$reIsBinary = /^0b[01]+$/i;
+/** Used to detect octal string values. */ var $98fdad460d491e13$var$reIsOctal = /^0o[0-7]+$/i;
+/** Built-in method references without a dependency on `root`. */ var $98fdad460d491e13$var$freeParseInt = parseInt;
 /**
  * Converts `value` to a number.
  *
@@ -25678,23 +25678,23 @@ $aae5426ee58ce15c$exports = $aae5426ee58ce15c$var$isSymbol;
  *
  * _.toNumber('3.2');
  * // => 3.2
- */ function $ff4eb52834fd595b$var$toNumber(value) {
+ */ function $98fdad460d491e13$var$toNumber(value) {
     if (typeof value == 'number') return value;
-    if ($aae5426ee58ce15c$exports(value)) return $ff4eb52834fd595b$var$NAN;
-    if ($f5db35dd32057124$exports(value)) {
+    if ($624d638c964ee0ee$exports(value)) return $98fdad460d491e13$var$NAN;
+    if ($921bd58c9e736b43$exports(value)) {
         var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
-        value = $f5db35dd32057124$exports(other) ? other + '' : other;
+        value = $921bd58c9e736b43$exports(other) ? other + '' : other;
     }
     if (typeof value != 'string') return value === 0 ? value : +value;
-    value = $bcf9db1da28cabdb$exports(value);
-    var isBinary = $ff4eb52834fd595b$var$reIsBinary.test(value);
-    return isBinary || $ff4eb52834fd595b$var$reIsOctal.test(value) ? $ff4eb52834fd595b$var$freeParseInt(value.slice(2), isBinary ? 2 : 8) : $ff4eb52834fd595b$var$reIsBadHex.test(value) ? $ff4eb52834fd595b$var$NAN : +value;
+    value = $881926116832c6ac$exports(value);
+    var isBinary = $98fdad460d491e13$var$reIsBinary.test(value);
+    return isBinary || $98fdad460d491e13$var$reIsOctal.test(value) ? $98fdad460d491e13$var$freeParseInt(value.slice(2), isBinary ? 2 : 8) : $98fdad460d491e13$var$reIsBadHex.test(value) ? $98fdad460d491e13$var$NAN : +value;
 }
-$ff4eb52834fd595b$exports = $ff4eb52834fd595b$var$toNumber;
+$98fdad460d491e13$exports = $98fdad460d491e13$var$toNumber;
 
 
-/** Error message constants. */ var $e831e7a5a6d65205$var$FUNC_ERROR_TEXT = 'Expected a function';
-/* Built-in method references for those with the same name as other `lodash` methods. */ var $e831e7a5a6d65205$var$nativeMax = Math.max, $e831e7a5a6d65205$var$nativeMin = Math.min;
+/** Error message constants. */ var $df14f2f83bfe2ed7$var$FUNC_ERROR_TEXT = 'Expected a function';
+/* Built-in method references for those with the same name as other `lodash` methods. */ var $df14f2f83bfe2ed7$var$nativeMax = Math.max, $df14f2f83bfe2ed7$var$nativeMin = Math.min;
 /**
  * Creates a debounced function that delays invoking `func` until after `wait`
  * milliseconds have elapsed since the last time the debounced function was
@@ -25748,14 +25748,14 @@ $ff4eb52834fd595b$exports = $ff4eb52834fd595b$var$toNumber;
  *
  * // Cancel the trailing debounced invocation.
  * jQuery(window).on('popstate', debounced.cancel);
- */ function $e831e7a5a6d65205$var$debounce(func, wait, options) {
+ */ function $df14f2f83bfe2ed7$var$debounce(func, wait, options) {
     var lastArgs, lastThis, maxWait, result, timerId, lastCallTime, lastInvokeTime = 0, leading = false, maxing = false, trailing = true;
-    if (typeof func != 'function') throw new TypeError($e831e7a5a6d65205$var$FUNC_ERROR_TEXT);
-    wait = $ff4eb52834fd595b$exports(wait) || 0;
-    if ($f5db35dd32057124$exports(options)) {
+    if (typeof func != 'function') throw new TypeError($df14f2f83bfe2ed7$var$FUNC_ERROR_TEXT);
+    wait = $98fdad460d491e13$exports(wait) || 0;
+    if ($921bd58c9e736b43$exports(options)) {
         leading = !!options.leading;
         maxing = 'maxWait' in options;
-        maxWait = maxing ? $e831e7a5a6d65205$var$nativeMax($ff4eb52834fd595b$exports(options.maxWait) || 0, wait) : maxWait;
+        maxWait = maxing ? $df14f2f83bfe2ed7$var$nativeMax($98fdad460d491e13$exports(options.maxWait) || 0, wait) : maxWait;
         trailing = 'trailing' in options ? !!options.trailing : trailing;
     }
     function invokeFunc(time) {
@@ -25775,7 +25775,7 @@ $ff4eb52834fd595b$exports = $ff4eb52834fd595b$var$toNumber;
     }
     function remainingWait(time) {
         var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime, timeWaiting = wait - timeSinceLastCall;
-        return maxing ? $e831e7a5a6d65205$var$nativeMin(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
+        return maxing ? $df14f2f83bfe2ed7$var$nativeMin(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
     }
     function shouldInvoke(time) {
         var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime;
@@ -25785,7 +25785,7 @@ $ff4eb52834fd595b$exports = $ff4eb52834fd595b$var$toNumber;
         return lastCallTime === undefined || timeSinceLastCall >= wait || timeSinceLastCall < 0 || maxing && timeSinceLastInvoke >= maxWait;
     }
     function timerExpired() {
-        var time = $7128ef45081a40fe$exports();
+        var time = $8108caa7c984d6f3$exports();
         if (shouldInvoke(time)) return trailingEdge(time);
         // Restart the timer.
         timerId = setTimeout(timerExpired, remainingWait(time));
@@ -25804,10 +25804,10 @@ $ff4eb52834fd595b$exports = $ff4eb52834fd595b$var$toNumber;
         lastArgs = lastCallTime = lastThis = timerId = undefined;
     }
     function flush() {
-        return timerId === undefined ? result : trailingEdge($7128ef45081a40fe$exports());
+        return timerId === undefined ? result : trailingEdge($8108caa7c984d6f3$exports());
     }
     function debounced() {
-        var time = $7128ef45081a40fe$exports(), isInvoking = shouldInvoke(time);
+        var time = $8108caa7c984d6f3$exports(), isInvoking = shouldInvoke(time);
         lastArgs = arguments;
         lastThis = this;
         lastCallTime = time;
@@ -25827,11 +25827,11 @@ $ff4eb52834fd595b$exports = $ff4eb52834fd595b$var$toNumber;
     debounced.flush = flush;
     return debounced;
 }
-$e831e7a5a6d65205$exports = $e831e7a5a6d65205$var$debounce;
+$df14f2f83bfe2ed7$exports = $df14f2f83bfe2ed7$var$debounce;
 
 
 
-var $4uNLx = parcelRequire("4uNLx");
+var $6DBYc = parcelRequire("6DBYc");
 
 
 /*---------------------------------------------------------------------------------------------
@@ -25844,7 +25844,7 @@ var $4uNLx = parcelRequire("4uNLx");
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/ 'use strict';
-function $a4eab76a8a6e0ec3$export$ece33fa920c267f0(text, ignoreTrivia = false) {
+function $9bfd0da754ed8f5d$export$ece33fa920c267f0(text, ignoreTrivia = false) {
     const len = text.length;
     let pos = 0, value = '', tokenOffset = 0, token = 16 /* SyntaxKind.Unknown */ , lineNumber = 0, lineStartOffset = 0, tokenLineStartOffset = 0, prevTokenLineStartOffset = 0, scanError = 0 /* ScanError.None */ ;
     function scanHexDigits(count, exact) {
@@ -25874,13 +25874,13 @@ function $a4eab76a8a6e0ec3$export$ece33fa920c267f0(text, ignoreTrivia = false) {
         if (text.charCodeAt(pos) === 48 /* CharacterCodes._0 */ ) pos++;
         else {
             pos++;
-            while(pos < text.length && $a4eab76a8a6e0ec3$var$isDigit(text.charCodeAt(pos)))pos++;
+            while(pos < text.length && $9bfd0da754ed8f5d$var$isDigit(text.charCodeAt(pos)))pos++;
         }
         if (pos < text.length && text.charCodeAt(pos) === 46 /* CharacterCodes.dot */ ) {
             pos++;
-            if (pos < text.length && $a4eab76a8a6e0ec3$var$isDigit(text.charCodeAt(pos))) {
+            if (pos < text.length && $9bfd0da754ed8f5d$var$isDigit(text.charCodeAt(pos))) {
                 pos++;
-                while(pos < text.length && $a4eab76a8a6e0ec3$var$isDigit(text.charCodeAt(pos)))pos++;
+                while(pos < text.length && $9bfd0da754ed8f5d$var$isDigit(text.charCodeAt(pos)))pos++;
             } else {
                 scanError = 3 /* ScanError.UnexpectedEndOfNumber */ ;
                 return text.substring(start, pos);
@@ -25890,9 +25890,9 @@ function $a4eab76a8a6e0ec3$export$ece33fa920c267f0(text, ignoreTrivia = false) {
         if (pos < text.length && (text.charCodeAt(pos) === 69 /* CharacterCodes.E */  || text.charCodeAt(pos) === 101 /* CharacterCodes.e */ )) {
             pos++;
             if (pos < text.length && text.charCodeAt(pos) === 43 /* CharacterCodes.plus */  || text.charCodeAt(pos) === 45 /* CharacterCodes.minus */ ) pos++;
-            if (pos < text.length && $a4eab76a8a6e0ec3$var$isDigit(text.charCodeAt(pos))) {
+            if (pos < text.length && $9bfd0da754ed8f5d$var$isDigit(text.charCodeAt(pos))) {
                 pos++;
-                while(pos < text.length && $a4eab76a8a6e0ec3$var$isDigit(text.charCodeAt(pos)))pos++;
+                while(pos < text.length && $9bfd0da754ed8f5d$var$isDigit(text.charCodeAt(pos)))pos++;
                 end = pos;
             } else scanError = 3 /* ScanError.UnexpectedEndOfNumber */ ;
         }
@@ -25957,7 +25957,7 @@ function $a4eab76a8a6e0ec3$export$ece33fa920c267f0(text, ignoreTrivia = false) {
                 continue;
             }
             if (ch >= 0 && ch <= 0x1f) {
-                if ($a4eab76a8a6e0ec3$var$isLineBreak(ch)) {
+                if ($9bfd0da754ed8f5d$var$isLineBreak(ch)) {
                     result += text.substring(start, pos);
                     scanError = 2 /* ScanError.UnexpectedEndOfString */ ;
                     break;
@@ -25980,16 +25980,16 @@ function $a4eab76a8a6e0ec3$export$ece33fa920c267f0(text, ignoreTrivia = false) {
         }
         let code = text.charCodeAt(pos);
         // trivia: whitespace
-        if ($a4eab76a8a6e0ec3$var$isWhiteSpace(code)) {
+        if ($9bfd0da754ed8f5d$var$isWhiteSpace(code)) {
             do {
                 pos++;
                 value += String.fromCharCode(code);
                 code = text.charCodeAt(pos);
-            }while ($a4eab76a8a6e0ec3$var$isWhiteSpace(code));
+            }while ($9bfd0da754ed8f5d$var$isWhiteSpace(code));
             return token = 15 /* SyntaxKind.Trivia */ ;
         }
         // trivia: newlines
-        if ($a4eab76a8a6e0ec3$var$isLineBreak(code)) {
+        if ($9bfd0da754ed8f5d$var$isLineBreak(code)) {
             pos++;
             value += String.fromCharCode(code);
             if (code === 13 /* CharacterCodes.carriageReturn */  && text.charCodeAt(pos) === 10 /* CharacterCodes.lineFeed */ ) {
@@ -26032,7 +26032,7 @@ function $a4eab76a8a6e0ec3$export$ece33fa920c267f0(text, ignoreTrivia = false) {
                 if (text.charCodeAt(pos + 1) === 47 /* CharacterCodes.slash */ ) {
                     pos += 2;
                     while(pos < len){
-                        if ($a4eab76a8a6e0ec3$var$isLineBreak(text.charCodeAt(pos))) break;
+                        if ($9bfd0da754ed8f5d$var$isLineBreak(text.charCodeAt(pos))) break;
                         pos++;
                     }
                     value = text.substring(start, pos);
@@ -26051,7 +26051,7 @@ function $a4eab76a8a6e0ec3$export$ece33fa920c267f0(text, ignoreTrivia = false) {
                             break;
                         }
                         pos++;
-                        if ($a4eab76a8a6e0ec3$var$isLineBreak(ch)) {
+                        if ($9bfd0da754ed8f5d$var$isLineBreak(ch)) {
                             if (ch === 13 /* CharacterCodes.carriageReturn */  && text.charCodeAt(pos) === 10 /* CharacterCodes.lineFeed */ ) pos++;
                             lineNumber++;
                             tokenLineStartOffset = pos;
@@ -26072,7 +26072,7 @@ function $a4eab76a8a6e0ec3$export$ece33fa920c267f0(text, ignoreTrivia = false) {
             case 45 /* CharacterCodes.minus */ :
                 value += String.fromCharCode(code);
                 pos++;
-                if (pos === len || !$a4eab76a8a6e0ec3$var$isDigit(text.charCodeAt(pos))) return token = 16 /* SyntaxKind.Unknown */ ;
+                if (pos === len || !$9bfd0da754ed8f5d$var$isDigit(text.charCodeAt(pos))) return token = 16 /* SyntaxKind.Unknown */ ;
             // found a minus, followed by a number so
             // we fall through to proceed with scanning
             // numbers
@@ -26115,7 +26115,7 @@ function $a4eab76a8a6e0ec3$export$ece33fa920c267f0(text, ignoreTrivia = false) {
         }
     }
     function isUnknownContentCharacter(code) {
-        if ($a4eab76a8a6e0ec3$var$isWhiteSpace(code) || $a4eab76a8a6e0ec3$var$isLineBreak(code)) return false;
+        if ($9bfd0da754ed8f5d$var$isWhiteSpace(code) || $9bfd0da754ed8f5d$var$isLineBreak(code)) return false;
         switch(code){
             case 125 /* CharacterCodes.closeBrace */ :
             case 93 /* CharacterCodes.closeBracket */ :
@@ -26148,16 +26148,16 @@ function $a4eab76a8a6e0ec3$export$ece33fa920c267f0(text, ignoreTrivia = false) {
         getTokenError: ()=>scanError
     };
 }
-function $a4eab76a8a6e0ec3$var$isWhiteSpace(ch) {
+function $9bfd0da754ed8f5d$var$isWhiteSpace(ch) {
     return ch === 32 /* CharacterCodes.space */  || ch === 9 /* CharacterCodes.tab */ ;
 }
-function $a4eab76a8a6e0ec3$var$isLineBreak(ch) {
+function $9bfd0da754ed8f5d$var$isLineBreak(ch) {
     return ch === 10 /* CharacterCodes.lineFeed */  || ch === 13 /* CharacterCodes.carriageReturn */ ;
 }
-function $a4eab76a8a6e0ec3$var$isDigit(ch) {
+function $9bfd0da754ed8f5d$var$isDigit(ch) {
     return ch >= 48 /* CharacterCodes._0 */  && ch <= 57 /* CharacterCodes._9 */ ;
 }
-var $a4eab76a8a6e0ec3$var$CharacterCodes;
+var $9bfd0da754ed8f5d$var$CharacterCodes;
 (function(CharacterCodes) {
     CharacterCodes[CharacterCodes["lineFeed"] = 10] = "lineFeed";
     CharacterCodes[CharacterCodes["carriageReturn"] = 13] = "carriageReturn";
@@ -26239,38 +26239,38 @@ var $a4eab76a8a6e0ec3$var$CharacterCodes;
     CharacterCodes[CharacterCodes["slash"] = 47] = "slash";
     CharacterCodes[CharacterCodes["formFeed"] = 12] = "formFeed";
     CharacterCodes[CharacterCodes["tab"] = 9] = "tab";
-})($a4eab76a8a6e0ec3$var$CharacterCodes || ($a4eab76a8a6e0ec3$var$CharacterCodes = {}));
+})($9bfd0da754ed8f5d$var$CharacterCodes || ($9bfd0da754ed8f5d$var$CharacterCodes = {}));
 
 
-const $6e9a59b7d88cd043$export$7cf010b576250637 = new Array(20).fill(0).map((_, index)=>{
+const $6f259d2a8f151252$export$7cf010b576250637 = new Array(20).fill(0).map((_, index)=>{
     return ' '.repeat(index);
 });
-const $6e9a59b7d88cd043$var$maxCachedValues = 200;
-const $6e9a59b7d88cd043$export$d72edbfc3d3d5f70 = {
+const $6f259d2a8f151252$var$maxCachedValues = 200;
+const $6f259d2a8f151252$export$d72edbfc3d3d5f70 = {
     ' ': {
-        '\n': new Array($6e9a59b7d88cd043$var$maxCachedValues).fill(0).map((_, index)=>{
+        '\n': new Array($6f259d2a8f151252$var$maxCachedValues).fill(0).map((_, index)=>{
             return '\n' + ' '.repeat(index);
         }),
-        '\r': new Array($6e9a59b7d88cd043$var$maxCachedValues).fill(0).map((_, index)=>{
+        '\r': new Array($6f259d2a8f151252$var$maxCachedValues).fill(0).map((_, index)=>{
             return '\r' + ' '.repeat(index);
         }),
-        '\r\n': new Array($6e9a59b7d88cd043$var$maxCachedValues).fill(0).map((_, index)=>{
+        '\r\n': new Array($6f259d2a8f151252$var$maxCachedValues).fill(0).map((_, index)=>{
             return '\r\n' + ' '.repeat(index);
         })
     },
     '\t': {
-        '\n': new Array($6e9a59b7d88cd043$var$maxCachedValues).fill(0).map((_, index)=>{
+        '\n': new Array($6f259d2a8f151252$var$maxCachedValues).fill(0).map((_, index)=>{
             return '\n' + '\t'.repeat(index);
         }),
-        '\r': new Array($6e9a59b7d88cd043$var$maxCachedValues).fill(0).map((_, index)=>{
+        '\r': new Array($6f259d2a8f151252$var$maxCachedValues).fill(0).map((_, index)=>{
             return '\r' + '\t'.repeat(index);
         }),
-        '\r\n': new Array($6e9a59b7d88cd043$var$maxCachedValues).fill(0).map((_, index)=>{
+        '\r\n': new Array($6f259d2a8f151252$var$maxCachedValues).fill(0).map((_, index)=>{
             return '\r\n' + '\t'.repeat(index);
         })
     }
 };
-const $6e9a59b7d88cd043$export$ed2e3218dc85c827 = [
+const $6f259d2a8f151252$export$ed2e3218dc85c827 = [
     '\n',
     '\r',
     '\r\n'
@@ -26278,7 +26278,7 @@ const $6e9a59b7d88cd043$export$ed2e3218dc85c827 = [
 
 
 'use strict';
-function $eb4d4e762f21efb5$export$d9468344d3651243(documentText, range, options) {
+function $5812371babc303c0$export$d9468344d3651243(documentText, range, options) {
     let initialIndentLevel;
     let formatText;
     let formatTextStart;
@@ -26288,11 +26288,11 @@ function $eb4d4e762f21efb5$export$d9468344d3651243(documentText, range, options)
         rangeStart = range.offset;
         rangeEnd = rangeStart + range.length;
         formatTextStart = rangeStart;
-        while(formatTextStart > 0 && !$eb4d4e762f21efb5$export$d12fbd4c03fafcb9(documentText, formatTextStart - 1))formatTextStart--;
+        while(formatTextStart > 0 && !$5812371babc303c0$export$d12fbd4c03fafcb9(documentText, formatTextStart - 1))formatTextStart--;
         let endOffset = rangeEnd;
-        while(endOffset < documentText.length && !$eb4d4e762f21efb5$export$d12fbd4c03fafcb9(documentText, endOffset))endOffset++;
+        while(endOffset < documentText.length && !$5812371babc303c0$export$d12fbd4c03fafcb9(documentText, endOffset))endOffset++;
         formatText = documentText.substring(formatTextStart, endOffset);
-        initialIndentLevel = $eb4d4e762f21efb5$var$computeIndentLevel(formatText, options);
+        initialIndentLevel = $5812371babc303c0$var$computeIndentLevel(formatText, options);
     } else {
         formatText = documentText;
         initialIndentLevel = 0;
@@ -26300,23 +26300,23 @@ function $eb4d4e762f21efb5$export$d9468344d3651243(documentText, range, options)
         rangeStart = 0;
         rangeEnd = documentText.length;
     }
-    const eol = $eb4d4e762f21efb5$var$getEOL(options, documentText);
-    const eolFastPathSupported = (0, $6e9a59b7d88cd043$export$ed2e3218dc85c827).includes(eol);
+    const eol = $5812371babc303c0$var$getEOL(options, documentText);
+    const eolFastPathSupported = (0, $6f259d2a8f151252$export$ed2e3218dc85c827).includes(eol);
     let numberLineBreaks = 0;
     let indentLevel = 0;
     let indentValue;
     var _cachedSpaces_;
-    if (options.insertSpaces) indentValue = (_cachedSpaces_ = (0, $6e9a59b7d88cd043$export$7cf010b576250637)[options.tabSize || 4]) !== null && _cachedSpaces_ !== void 0 ? _cachedSpaces_ : $eb4d4e762f21efb5$var$repeat((0, $6e9a59b7d88cd043$export$7cf010b576250637)[1], options.tabSize || 4);
+    if (options.insertSpaces) indentValue = (_cachedSpaces_ = (0, $6f259d2a8f151252$export$7cf010b576250637)[options.tabSize || 4]) !== null && _cachedSpaces_ !== void 0 ? _cachedSpaces_ : $5812371babc303c0$var$repeat((0, $6f259d2a8f151252$export$7cf010b576250637)[1], options.tabSize || 4);
     else indentValue = '\t';
     const indentType = indentValue === '\t' ? '\t' : ' ';
-    let scanner = (0, $a4eab76a8a6e0ec3$export$ece33fa920c267f0)(formatText, false);
+    let scanner = (0, $9bfd0da754ed8f5d$export$ece33fa920c267f0)(formatText, false);
     let hasError = false;
     function newLinesAndIndent() {
-        if (numberLineBreaks > 1) return $eb4d4e762f21efb5$var$repeat(eol, numberLineBreaks) + $eb4d4e762f21efb5$var$repeat(indentValue, initialIndentLevel + indentLevel);
+        if (numberLineBreaks > 1) return $5812371babc303c0$var$repeat(eol, numberLineBreaks) + $5812371babc303c0$var$repeat(indentValue, initialIndentLevel + indentLevel);
         const amountOfSpaces = indentValue.length * (initialIndentLevel + indentLevel);
-        if (!eolFastPathSupported || amountOfSpaces > (0, $6e9a59b7d88cd043$export$d72edbfc3d3d5f70)[indentType][eol].length) return eol + $eb4d4e762f21efb5$var$repeat(indentValue, initialIndentLevel + indentLevel);
+        if (!eolFastPathSupported || amountOfSpaces > (0, $6f259d2a8f151252$export$d72edbfc3d3d5f70)[indentType][eol].length) return eol + $5812371babc303c0$var$repeat(indentValue, initialIndentLevel + indentLevel);
         if (amountOfSpaces <= 0) return eol;
-        return (0, $6e9a59b7d88cd043$export$d72edbfc3d3d5f70)[indentType][eol][amountOfSpaces];
+        return (0, $6f259d2a8f151252$export$d72edbfc3d3d5f70)[indentType][eol][amountOfSpaces];
     }
     function scanNext() {
         let token = scanner.scan();
@@ -26338,10 +26338,10 @@ function $eb4d4e762f21efb5$export$d9468344d3651243(documentText, range, options)
         });
     }
     let firstToken = scanNext();
-    if (options.keepLines && numberLineBreaks > 0) addEdit($eb4d4e762f21efb5$var$repeat(eol, numberLineBreaks), 0, 0);
+    if (options.keepLines && numberLineBreaks > 0) addEdit($5812371babc303c0$var$repeat(eol, numberLineBreaks), 0, 0);
     if (firstToken !== 17 /* SyntaxKind.EOF */ ) {
         let firstTokenStart = scanner.getTokenOffset() + formatTextStart;
-        let initialIndent = indentValue.length * initialIndentLevel < 20 && options.insertSpaces ? (0, $6e9a59b7d88cd043$export$7cf010b576250637)[indentValue.length * initialIndentLevel] : $eb4d4e762f21efb5$var$repeat(indentValue, initialIndentLevel);
+        let initialIndent = indentValue.length * initialIndentLevel < 20 && options.insertSpaces ? (0, $6f259d2a8f151252$export$7cf010b576250637)[indentValue.length * initialIndentLevel] : $5812371babc303c0$var$repeat(indentValue, initialIndentLevel);
         addEdit(initialIndent, formatTextStart, firstTokenStart);
     }
     while(firstToken !== 17 /* SyntaxKind.EOF */ ){
@@ -26351,7 +26351,7 @@ function $eb4d4e762f21efb5$export$d9468344d3651243(documentText, range, options)
         let needsLineBreak = false;
         while(numberLineBreaks === 0 && (secondToken === 12 /* SyntaxKind.LineCommentTrivia */  || secondToken === 13 /* SyntaxKind.BlockCommentTrivia */ )){
             let commentTokenStart = scanner.getTokenOffset() + formatTextStart;
-            addEdit((0, $6e9a59b7d88cd043$export$7cf010b576250637)[1], firstTokenEnd, commentTokenStart);
+            addEdit((0, $6f259d2a8f151252$export$7cf010b576250637)[1], firstTokenEnd, commentTokenStart);
             firstTokenEnd = scanner.getTokenOffset() + scanner.getTokenLength() + formatTextStart;
             needsLineBreak = secondToken === 12 /* SyntaxKind.LineCommentTrivia */ ;
             replaceContent = needsLineBreak ? newLinesAndIndent() : '';
@@ -26360,33 +26360,33 @@ function $eb4d4e762f21efb5$export$d9468344d3651243(documentText, range, options)
         if (secondToken === 2 /* SyntaxKind.CloseBraceToken */ ) {
             if (firstToken !== 1 /* SyntaxKind.OpenBraceToken */ ) indentLevel--;
             if (options.keepLines && numberLineBreaks > 0 || !options.keepLines && firstToken !== 1 /* SyntaxKind.OpenBraceToken */ ) replaceContent = newLinesAndIndent();
-            else if (options.keepLines) replaceContent = (0, $6e9a59b7d88cd043$export$7cf010b576250637)[1];
+            else if (options.keepLines) replaceContent = (0, $6f259d2a8f151252$export$7cf010b576250637)[1];
         } else if (secondToken === 4 /* SyntaxKind.CloseBracketToken */ ) {
             if (firstToken !== 3 /* SyntaxKind.OpenBracketToken */ ) indentLevel--;
             if (options.keepLines && numberLineBreaks > 0 || !options.keepLines && firstToken !== 3 /* SyntaxKind.OpenBracketToken */ ) replaceContent = newLinesAndIndent();
-            else if (options.keepLines) replaceContent = (0, $6e9a59b7d88cd043$export$7cf010b576250637)[1];
+            else if (options.keepLines) replaceContent = (0, $6f259d2a8f151252$export$7cf010b576250637)[1];
         } else {
             switch(firstToken){
                 case 3 /* SyntaxKind.OpenBracketToken */ :
                 case 1 /* SyntaxKind.OpenBraceToken */ :
                     indentLevel++;
                     if (options.keepLines && numberLineBreaks > 0 || !options.keepLines) replaceContent = newLinesAndIndent();
-                    else replaceContent = (0, $6e9a59b7d88cd043$export$7cf010b576250637)[1];
+                    else replaceContent = (0, $6f259d2a8f151252$export$7cf010b576250637)[1];
                     break;
                 case 5 /* SyntaxKind.CommaToken */ :
                     if (options.keepLines && numberLineBreaks > 0 || !options.keepLines) replaceContent = newLinesAndIndent();
-                    else replaceContent = (0, $6e9a59b7d88cd043$export$7cf010b576250637)[1];
+                    else replaceContent = (0, $6f259d2a8f151252$export$7cf010b576250637)[1];
                     break;
                 case 12 /* SyntaxKind.LineCommentTrivia */ :
                     replaceContent = newLinesAndIndent();
                     break;
                 case 13 /* SyntaxKind.BlockCommentTrivia */ :
                     if (numberLineBreaks > 0) replaceContent = newLinesAndIndent();
-                    else if (!needsLineBreak) replaceContent = (0, $6e9a59b7d88cd043$export$7cf010b576250637)[1];
+                    else if (!needsLineBreak) replaceContent = (0, $6f259d2a8f151252$export$7cf010b576250637)[1];
                     break;
                 case 6 /* SyntaxKind.ColonToken */ :
                     if (options.keepLines && numberLineBreaks > 0) replaceContent = newLinesAndIndent();
-                    else if (!needsLineBreak) replaceContent = (0, $6e9a59b7d88cd043$export$7cf010b576250637)[1];
+                    else if (!needsLineBreak) replaceContent = (0, $6f259d2a8f151252$export$7cf010b576250637)[1];
                     break;
                 case 10 /* SyntaxKind.StringLiteral */ :
                     if (options.keepLines && numberLineBreaks > 0) replaceContent = newLinesAndIndent();
@@ -26400,7 +26400,7 @@ function $eb4d4e762f21efb5$export$d9468344d3651243(documentText, range, options)
                 case 4 /* SyntaxKind.CloseBracketToken */ :
                     if (options.keepLines && numberLineBreaks > 0) replaceContent = newLinesAndIndent();
                     else {
-                        if ((secondToken === 12 /* SyntaxKind.LineCommentTrivia */  || secondToken === 13 /* SyntaxKind.BlockCommentTrivia */ ) && !needsLineBreak) replaceContent = (0, $6e9a59b7d88cd043$export$7cf010b576250637)[1];
+                        if ((secondToken === 12 /* SyntaxKind.LineCommentTrivia */  || secondToken === 13 /* SyntaxKind.BlockCommentTrivia */ ) && !needsLineBreak) replaceContent = (0, $6f259d2a8f151252$export$7cf010b576250637)[1];
                         else if (secondToken !== 5 /* SyntaxKind.CommaToken */  && secondToken !== 17 /* SyntaxKind.EOF */ ) hasError = true;
                     }
                     break;
@@ -26420,25 +26420,25 @@ function $eb4d4e762f21efb5$export$d9468344d3651243(documentText, range, options)
     }
     return editOperations;
 }
-function $eb4d4e762f21efb5$var$repeat(s, count) {
+function $5812371babc303c0$var$repeat(s, count) {
     let result = '';
     for(let i = 0; i < count; i++)result += s;
     return result;
 }
-function $eb4d4e762f21efb5$var$computeIndentLevel(content, options) {
+function $5812371babc303c0$var$computeIndentLevel(content, options) {
     let i = 0;
     let nChars = 0;
     const tabSize = options.tabSize || 4;
     while(i < content.length){
         let ch = content.charAt(i);
-        if (ch === (0, $6e9a59b7d88cd043$export$7cf010b576250637)[1]) nChars++;
+        if (ch === (0, $6f259d2a8f151252$export$7cf010b576250637)[1]) nChars++;
         else if (ch === '\t') nChars += tabSize;
         else break;
         i++;
     }
     return Math.floor(nChars / tabSize);
 }
-function $eb4d4e762f21efb5$var$getEOL(options, text) {
+function $5812371babc303c0$var$getEOL(options, text) {
     for(let i = 0; i < text.length; i++){
         const ch = text.charAt(i);
         if (ch === '\r') {
@@ -26448,7 +26448,7 @@ function $eb4d4e762f21efb5$var$getEOL(options, text) {
     }
     return options && options.eol || '\n';
 }
-function $eb4d4e762f21efb5$export$d12fbd4c03fafcb9(text, offset) {
+function $5812371babc303c0$export$d12fbd4c03fafcb9(text, offset) {
     return '\r\n'.indexOf(text.charAt(offset)) !== -1;
 }
 
@@ -26462,13 +26462,13 @@ function $eb4d4e762f21efb5$export$d12fbd4c03fafcb9(text, offset) {
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/ 
 'use strict';
-var $5678bc2b5938c0fb$var$ParseOptions;
+var $f4c557cc495a95b9$var$ParseOptions;
 (function(ParseOptions) {
     ParseOptions.DEFAULT = {
         allowTrailingComma: false
     };
-})($5678bc2b5938c0fb$var$ParseOptions || ($5678bc2b5938c0fb$var$ParseOptions = {}));
-function $5678bc2b5938c0fb$export$e7fd20fad3cf4b5f(text, position) {
+})($f4c557cc495a95b9$var$ParseOptions || ($f4c557cc495a95b9$var$ParseOptions = {}));
+function $f4c557cc495a95b9$export$e7fd20fad3cf4b5f(text, position) {
     const segments = []; // strings or numbers
     const earlyReturnException = new Object();
     let previousNode = undefined;
@@ -26489,7 +26489,7 @@ function $5678bc2b5938c0fb$export$e7fd20fad3cf4b5f(text, position) {
         previousNode = previousNodeInst;
     }
     try {
-        $5678bc2b5938c0fb$export$bf638b60ea8b89b7(text, {
+        $f4c557cc495a95b9$export$bf638b60ea8b89b7(text, {
             onObjectBegin: (offset, length)=>{
                 if (position <= offset) throw earlyReturnException;
                 previousNode = undefined;
@@ -26519,7 +26519,7 @@ function $5678bc2b5938c0fb$export$e7fd20fad3cf4b5f(text, position) {
             },
             onLiteralValue: (value, offset, length)=>{
                 if (position < offset) throw earlyReturnException;
-                setPreviousNode(value, offset, length, $5678bc2b5938c0fb$export$d168cba70360dd3d(value));
+                setPreviousNode(value, offset, length, $f4c557cc495a95b9$export$d168cba70360dd3d(value));
                 if (position <= offset + length) throw earlyReturnException;
             },
             onSeparator: (sep, offset, length)=>{
@@ -26556,7 +26556,7 @@ function $5678bc2b5938c0fb$export$e7fd20fad3cf4b5f(text, position) {
         }
     };
 }
-function $5678bc2b5938c0fb$export$98e6a39c04603d36(text, errors = [], options = $5678bc2b5938c0fb$var$ParseOptions.DEFAULT) {
+function $f4c557cc495a95b9$export$98e6a39c04603d36(text, errors = [], options = $f4c557cc495a95b9$var$ParseOptions.DEFAULT) {
     let currentProperty = null;
     let currentParent = [];
     const previousParents = [];
@@ -26597,10 +26597,10 @@ function $5678bc2b5938c0fb$export$98e6a39c04603d36(text, errors = [], options = 
             });
         }
     };
-    $5678bc2b5938c0fb$export$bf638b60ea8b89b7(text, visitor, options);
+    $f4c557cc495a95b9$export$bf638b60ea8b89b7(text, visitor, options);
     return currentParent[0];
 }
-function $5678bc2b5938c0fb$export$bc7552767d817f48(text, errors = [], options = $5678bc2b5938c0fb$var$ParseOptions.DEFAULT) {
+function $f4c557cc495a95b9$export$bc7552767d817f48(text, errors = [], options = $f4c557cc495a95b9$var$ParseOptions.DEFAULT) {
     let currentParent = {
         type: 'array',
         offset: -1,
@@ -26666,7 +26666,7 @@ function $5678bc2b5938c0fb$export$bc7552767d817f48(text, errors = [], options = 
         },
         onLiteralValue: (value, offset, length)=>{
             onValue({
-                type: $5678bc2b5938c0fb$export$d168cba70360dd3d(value),
+                type: $f4c557cc495a95b9$export$d168cba70360dd3d(value),
                 offset: offset,
                 length: length,
                 parent: currentParent,
@@ -26688,12 +26688,12 @@ function $5678bc2b5938c0fb$export$bc7552767d817f48(text, errors = [], options = 
             });
         }
     };
-    $5678bc2b5938c0fb$export$bf638b60ea8b89b7(text, visitor, options);
+    $f4c557cc495a95b9$export$bf638b60ea8b89b7(text, visitor, options);
     const result = currentParent.children[0];
     if (result) delete result.parent;
     return result;
 }
-function $5678bc2b5938c0fb$export$c3848e1698389116(root, path) {
+function $f4c557cc495a95b9$export$c3848e1698389116(root, path) {
     if (!root) return undefined;
     let node = root;
     for (let segment of path)if (typeof segment === 'string') {
@@ -26712,9 +26712,9 @@ function $5678bc2b5938c0fb$export$c3848e1698389116(root, path) {
     }
     return node;
 }
-function $5678bc2b5938c0fb$export$7371e5dfbc4269ff(node) {
+function $f4c557cc495a95b9$export$7371e5dfbc4269ff(node) {
     if (!node.parent || !node.parent.children) return [];
-    const path = $5678bc2b5938c0fb$export$7371e5dfbc4269ff(node.parent);
+    const path = $f4c557cc495a95b9$export$7371e5dfbc4269ff(node.parent);
     if (node.parent.type === 'property') {
         const key = node.parent.children[0].value;
         path.push(key);
@@ -26724,15 +26724,15 @@ function $5678bc2b5938c0fb$export$7371e5dfbc4269ff(node) {
     }
     return path;
 }
-function $5678bc2b5938c0fb$export$13cb40e9b656ab9e(node) {
+function $f4c557cc495a95b9$export$13cb40e9b656ab9e(node) {
     switch(node.type){
         case 'array':
-            return node.children.map($5678bc2b5938c0fb$export$13cb40e9b656ab9e);
+            return node.children.map($f4c557cc495a95b9$export$13cb40e9b656ab9e);
         case 'object':
             const obj = Object.create(null);
             for (let prop of node.children){
                 const valueNode = prop.children[1];
-                if (valueNode) obj[prop.children[0].value] = $5678bc2b5938c0fb$export$13cb40e9b656ab9e(valueNode);
+                if (valueNode) obj[prop.children[0].value] = $f4c557cc495a95b9$export$13cb40e9b656ab9e(valueNode);
             }
             return obj;
         case 'null':
@@ -26744,22 +26744,22 @@ function $5678bc2b5938c0fb$export$13cb40e9b656ab9e(node) {
             return undefined;
     }
 }
-function $5678bc2b5938c0fb$export$2344b14b097df817(node, offset, includeRightBound = false) {
+function $f4c557cc495a95b9$export$2344b14b097df817(node, offset, includeRightBound = false) {
     return offset >= node.offset && offset < node.offset + node.length || includeRightBound && offset === node.offset + node.length;
 }
-function $5678bc2b5938c0fb$export$f1a52a8ed4de91bf(node, offset, includeRightBound = false) {
-    if ($5678bc2b5938c0fb$export$2344b14b097df817(node, offset, includeRightBound)) {
+function $f4c557cc495a95b9$export$f1a52a8ed4de91bf(node, offset, includeRightBound = false) {
+    if ($f4c557cc495a95b9$export$2344b14b097df817(node, offset, includeRightBound)) {
         const children = node.children;
         if (Array.isArray(children)) for(let i = 0; i < children.length && children[i].offset <= offset; i++){
-            const item = $5678bc2b5938c0fb$export$f1a52a8ed4de91bf(children[i], offset, includeRightBound);
+            const item = $f4c557cc495a95b9$export$f1a52a8ed4de91bf(children[i], offset, includeRightBound);
             if (item) return item;
         }
         return node;
     }
     return undefined;
 }
-function $5678bc2b5938c0fb$export$bf638b60ea8b89b7(text, visitor, options = $5678bc2b5938c0fb$var$ParseOptions.DEFAULT) {
-    const _scanner = (0, $a4eab76a8a6e0ec3$export$ece33fa920c267f0)(text, false);
+function $f4c557cc495a95b9$export$bf638b60ea8b89b7(text, visitor, options = $f4c557cc495a95b9$var$ParseOptions.DEFAULT) {
+    const _scanner = (0, $9bfd0da754ed8f5d$export$ece33fa920c267f0)(text, false);
     // Important: Only pass copies of this to visitor functions to prevent accidental modification, and
     // to not affect visitor functions which stored a reference to a previous JSONPath
     const _jsonPath = [];
@@ -26985,8 +26985,8 @@ function $5678bc2b5938c0fb$export$bf638b60ea8b89b7(text, visitor, options = $567
     if (_scanner.getToken() !== 17 /* SyntaxKind.EOF */ ) handleError(9 /* ParseErrorCode.EndOfFileExpected */ , [], []);
     return true;
 }
-function $5678bc2b5938c0fb$export$f46565c3d339d23a(text, replaceCh) {
-    let _scanner = (0, $a4eab76a8a6e0ec3$export$ece33fa920c267f0)(text), parts = [], kind, offset = 0, pos;
+function $f4c557cc495a95b9$export$f46565c3d339d23a(text, replaceCh) {
+    let _scanner = (0, $9bfd0da754ed8f5d$export$ece33fa920c267f0)(text), parts = [], kind, offset = 0, pos;
     do {
         pos = _scanner.getPosition();
         kind = _scanner.scan();
@@ -27002,7 +27002,7 @@ function $5678bc2b5938c0fb$export$f46565c3d339d23a(text, replaceCh) {
     }while (kind !== 17 /* SyntaxKind.EOF */ );
     return parts.join('');
 }
-function $5678bc2b5938c0fb$export$d168cba70360dd3d(value) {
+function $f4c557cc495a95b9$export$d168cba70360dd3d(value) {
     switch(typeof value){
         case 'boolean':
             return 'boolean';
@@ -27021,18 +27021,18 @@ function $5678bc2b5938c0fb$export$d168cba70360dd3d(value) {
 
 
 'use strict';
-function $ae229f2f780ffc44$export$ae9fa9b718f2179d(text, path, options) {
-    return $ae229f2f780ffc44$export$a41c68a4eb5ff164(text, path, void 0, options);
+function $d1da0056d1e66ef1$export$ae9fa9b718f2179d(text, path, options) {
+    return $d1da0056d1e66ef1$export$a41c68a4eb5ff164(text, path, void 0, options);
 }
-function $ae229f2f780ffc44$export$a41c68a4eb5ff164(text, originalPath, value, options) {
+function $d1da0056d1e66ef1$export$a41c68a4eb5ff164(text, originalPath, value, options) {
     const path = originalPath.slice();
     const errors = [];
-    const root = (0, $5678bc2b5938c0fb$export$bc7552767d817f48)(text, errors);
+    const root = (0, $f4c557cc495a95b9$export$bc7552767d817f48)(text, errors);
     let parent = void 0;
     let lastSegment = void 0;
     while(path.length > 0){
         lastSegment = path.pop();
-        parent = (0, $5678bc2b5938c0fb$export$c3848e1698389116)(root, path);
+        parent = (0, $f4c557cc495a95b9$export$c3848e1698389116)(root, path);
         if (parent === void 0 && value !== void 0) {
             if (typeof lastSegment === 'string') value = {
                 [lastSegment]: value
@@ -27045,13 +27045,13 @@ function $ae229f2f780ffc44$export$a41c68a4eb5ff164(text, originalPath, value, op
     if (!parent) {
         // empty document
         if (value === void 0) throw new Error('Can not delete in empty document');
-        return $ae229f2f780ffc44$var$withFormatting(text, {
+        return $d1da0056d1e66ef1$var$withFormatting(text, {
             offset: root ? root.offset : 0,
             length: root ? root.length : 0,
             content: JSON.stringify(value)
         }, options);
     } else if (parent.type === 'object' && typeof lastSegment === 'string' && Array.isArray(parent.children)) {
-        const existing = (0, $5678bc2b5938c0fb$export$c3848e1698389116)(parent, [
+        const existing = (0, $f4c557cc495a95b9$export$c3848e1698389116)(parent, [
             lastSegment
         ]);
         if (existing !== void 0) {
@@ -27072,13 +27072,13 @@ function $ae229f2f780ffc44$export$a41c68a4eb5ff164(text, originalPath, value, op
                         removeEnd = next.offset;
                     }
                 }
-                return $ae229f2f780ffc44$var$withFormatting(text, {
+                return $d1da0056d1e66ef1$var$withFormatting(text, {
                     offset: removeBegin,
                     length: removeEnd - removeBegin,
                     content: ''
                 }, options);
             } else // set value of existing property
-            return $ae229f2f780ffc44$var$withFormatting(text, {
+            return $d1da0056d1e66ef1$var$withFormatting(text, {
                 offset: existing.offset,
                 length: existing.length,
                 content: JSON.stringify(value)
@@ -27105,7 +27105,7 @@ function $ae229f2f780ffc44$export$a41c68a4eb5ff164(text, originalPath, value, op
                 length: 0,
                 content: newProperty + ','
             };
-            return $ae229f2f780ffc44$var$withFormatting(text, edit, options);
+            return $d1da0056d1e66ef1$var$withFormatting(text, edit, options);
         }
     } else if (parent.type === 'array' && typeof lastSegment === 'number' && Array.isArray(parent.children)) {
         const insertIndex = lastSegment;
@@ -27126,7 +27126,7 @@ function $ae229f2f780ffc44$export$a41c68a4eb5ff164(text, originalPath, value, op
                     content: ',' + newProperty
                 };
             }
-            return $ae229f2f780ffc44$var$withFormatting(text, edit, options);
+            return $d1da0056d1e66ef1$var$withFormatting(text, edit, options);
         } else if (value === void 0 && parent.children.length >= 0) {
             // Removal
             const removalIndex = lastSegment;
@@ -27153,7 +27153,7 @@ function $ae229f2f780ffc44$export$a41c68a4eb5ff164(text, originalPath, value, op
                 length: parent.children[removalIndex + 1].offset - toRemove.offset,
                 content: ''
             };
-            return $ae229f2f780ffc44$var$withFormatting(text, edit, options);
+            return $d1da0056d1e66ef1$var$withFormatting(text, edit, options);
         } else if (value !== void 0) {
             let edit;
             const newProperty = `${JSON.stringify(value)}`;
@@ -27178,24 +27178,24 @@ function $ae229f2f780ffc44$export$a41c68a4eb5ff164(text, originalPath, value, op
                     content: ',' + newProperty
                 };
             }
-            return $ae229f2f780ffc44$var$withFormatting(text, edit, options);
+            return $d1da0056d1e66ef1$var$withFormatting(text, edit, options);
         } else throw new Error(`Can not ${value === void 0 ? 'remove' : options.isArrayInsertion ? 'insert' : 'modify'} Array index ${insertIndex} as length is not sufficient`);
     } else throw new Error(`Can not add ${typeof lastSegment !== 'number' ? 'index' : 'property'} to parent of type ${parent.type}`);
 }
-function $ae229f2f780ffc44$var$withFormatting(text, edit, options) {
+function $d1da0056d1e66ef1$var$withFormatting(text, edit, options) {
     if (!options.formattingOptions) return [
         edit
     ];
     // apply the edit
-    let newText = $ae229f2f780ffc44$export$dc51556a055f3c36(text, edit);
+    let newText = $d1da0056d1e66ef1$export$dc51556a055f3c36(text, edit);
     // format the new text
     let begin = edit.offset;
     let end = edit.offset + edit.content.length;
     if (edit.length === 0 || edit.content.length === 0) {
-        while(begin > 0 && !(0, $eb4d4e762f21efb5$export$d12fbd4c03fafcb9)(newText, begin - 1))begin--;
-        while(end < newText.length && !(0, $eb4d4e762f21efb5$export$d12fbd4c03fafcb9)(newText, end))end++;
+        while(begin > 0 && !(0, $5812371babc303c0$export$d12fbd4c03fafcb9)(newText, begin - 1))begin--;
+        while(end < newText.length && !(0, $5812371babc303c0$export$d12fbd4c03fafcb9)(newText, end))end++;
     }
-    const edits = (0, $eb4d4e762f21efb5$export$d9468344d3651243)(newText, {
+    const edits = (0, $5812371babc303c0$export$d9468344d3651243)(newText, {
         offset: begin,
         length: end - begin
     }, {
@@ -27205,7 +27205,7 @@ function $ae229f2f780ffc44$var$withFormatting(text, edit, options) {
     // apply the formatting edits and track the begin and end offsets of the changes
     for(let i = edits.length - 1; i >= 0; i--){
         const edit = edits[i];
-        newText = $ae229f2f780ffc44$export$dc51556a055f3c36(newText, edit);
+        newText = $d1da0056d1e66ef1$export$dc51556a055f3c36(newText, edit);
         begin = Math.min(begin, edit.offset);
         end = Math.max(end, edit.offset + edit.length);
         end += edit.content.length - edit.length;
@@ -27220,10 +27220,10 @@ function $ae229f2f780ffc44$var$withFormatting(text, edit, options) {
         }
     ];
 }
-function $ae229f2f780ffc44$export$dc51556a055f3c36(text, edit) {
+function $d1da0056d1e66ef1$export$dc51556a055f3c36(text, edit) {
     return text.substring(0, edit.offset) + edit.content + text.substring(edit.offset + edit.length);
 }
-function $ae229f2f780ffc44$export$fada5ef602d0fc36(text, offset) {
+function $d1da0056d1e66ef1$export$fada5ef602d0fc36(text, offset) {
     return '\r\n \t'.indexOf(text.charAt(offset)) !== -1;
 }
 
@@ -27231,8 +27231,8 @@ function $ae229f2f780ffc44$export$fada5ef602d0fc36(text, offset) {
 
 
 'use strict';
-const $fe8a0235349f0bef$export$ece33fa920c267f0 = $a4eab76a8a6e0ec3$export$ece33fa920c267f0;
-var $fe8a0235349f0bef$export$f4062b739cdc7b2f;
+const $23249d36e3d1b346$export$ece33fa920c267f0 = $9bfd0da754ed8f5d$export$ece33fa920c267f0;
+var $23249d36e3d1b346$export$f4062b739cdc7b2f;
 (function(ScanError) {
     ScanError[ScanError["None"] = 0] = "None";
     ScanError[ScanError["UnexpectedEndOfComment"] = 1] = "UnexpectedEndOfComment";
@@ -27241,8 +27241,8 @@ var $fe8a0235349f0bef$export$f4062b739cdc7b2f;
     ScanError[ScanError["InvalidUnicode"] = 4] = "InvalidUnicode";
     ScanError[ScanError["InvalidEscapeCharacter"] = 5] = "InvalidEscapeCharacter";
     ScanError[ScanError["InvalidCharacter"] = 6] = "InvalidCharacter";
-})($fe8a0235349f0bef$export$f4062b739cdc7b2f || ($fe8a0235349f0bef$export$f4062b739cdc7b2f = {}));
-var $fe8a0235349f0bef$export$aa4774761d4db050;
+})($23249d36e3d1b346$export$f4062b739cdc7b2f || ($23249d36e3d1b346$export$f4062b739cdc7b2f = {}));
+var $23249d36e3d1b346$export$aa4774761d4db050;
 (function(SyntaxKind) {
     SyntaxKind[SyntaxKind["OpenBraceToken"] = 1] = "OpenBraceToken";
     SyntaxKind[SyntaxKind["CloseBraceToken"] = 2] = "CloseBraceToken";
@@ -27261,17 +27261,17 @@ var $fe8a0235349f0bef$export$aa4774761d4db050;
     SyntaxKind[SyntaxKind["Trivia"] = 15] = "Trivia";
     SyntaxKind[SyntaxKind["Unknown"] = 16] = "Unknown";
     SyntaxKind[SyntaxKind["EOF"] = 17] = "EOF";
-})($fe8a0235349f0bef$export$aa4774761d4db050 || ($fe8a0235349f0bef$export$aa4774761d4db050 = {}));
-const $fe8a0235349f0bef$export$e7fd20fad3cf4b5f = $5678bc2b5938c0fb$export$e7fd20fad3cf4b5f;
-const $fe8a0235349f0bef$export$98e6a39c04603d36 = $5678bc2b5938c0fb$export$98e6a39c04603d36;
-const $fe8a0235349f0bef$export$bc7552767d817f48 = $5678bc2b5938c0fb$export$bc7552767d817f48;
-const $fe8a0235349f0bef$export$c3848e1698389116 = $5678bc2b5938c0fb$export$c3848e1698389116;
-const $fe8a0235349f0bef$export$f1a52a8ed4de91bf = $5678bc2b5938c0fb$export$f1a52a8ed4de91bf;
-const $fe8a0235349f0bef$export$7371e5dfbc4269ff = $5678bc2b5938c0fb$export$7371e5dfbc4269ff;
-const $fe8a0235349f0bef$export$13cb40e9b656ab9e = $5678bc2b5938c0fb$export$13cb40e9b656ab9e;
-const $fe8a0235349f0bef$export$bf638b60ea8b89b7 = $5678bc2b5938c0fb$export$bf638b60ea8b89b7;
-const $fe8a0235349f0bef$export$f46565c3d339d23a = $5678bc2b5938c0fb$export$f46565c3d339d23a;
-var $fe8a0235349f0bef$export$cd88c4670218c4af;
+})($23249d36e3d1b346$export$aa4774761d4db050 || ($23249d36e3d1b346$export$aa4774761d4db050 = {}));
+const $23249d36e3d1b346$export$e7fd20fad3cf4b5f = $f4c557cc495a95b9$export$e7fd20fad3cf4b5f;
+const $23249d36e3d1b346$export$98e6a39c04603d36 = $f4c557cc495a95b9$export$98e6a39c04603d36;
+const $23249d36e3d1b346$export$bc7552767d817f48 = $f4c557cc495a95b9$export$bc7552767d817f48;
+const $23249d36e3d1b346$export$c3848e1698389116 = $f4c557cc495a95b9$export$c3848e1698389116;
+const $23249d36e3d1b346$export$f1a52a8ed4de91bf = $f4c557cc495a95b9$export$f1a52a8ed4de91bf;
+const $23249d36e3d1b346$export$7371e5dfbc4269ff = $f4c557cc495a95b9$export$7371e5dfbc4269ff;
+const $23249d36e3d1b346$export$13cb40e9b656ab9e = $f4c557cc495a95b9$export$13cb40e9b656ab9e;
+const $23249d36e3d1b346$export$bf638b60ea8b89b7 = $f4c557cc495a95b9$export$bf638b60ea8b89b7;
+const $23249d36e3d1b346$export$f46565c3d339d23a = $f4c557cc495a95b9$export$f46565c3d339d23a;
+var $23249d36e3d1b346$export$cd88c4670218c4af;
 (function(ParseErrorCode) {
     ParseErrorCode[ParseErrorCode["InvalidSymbol"] = 1] = "InvalidSymbol";
     ParseErrorCode[ParseErrorCode["InvalidNumberFormat"] = 2] = "InvalidNumberFormat";
@@ -27289,8 +27289,8 @@ var $fe8a0235349f0bef$export$cd88c4670218c4af;
     ParseErrorCode[ParseErrorCode["InvalidUnicode"] = 14] = "InvalidUnicode";
     ParseErrorCode[ParseErrorCode["InvalidEscapeCharacter"] = 15] = "InvalidEscapeCharacter";
     ParseErrorCode[ParseErrorCode["InvalidCharacter"] = 16] = "InvalidCharacter";
-})($fe8a0235349f0bef$export$cd88c4670218c4af || ($fe8a0235349f0bef$export$cd88c4670218c4af = {}));
-function $fe8a0235349f0bef$export$c26cecc075d6212d(code) {
+})($23249d36e3d1b346$export$cd88c4670218c4af || ($23249d36e3d1b346$export$cd88c4670218c4af = {}));
+function $23249d36e3d1b346$export$c26cecc075d6212d(code) {
     switch(code){
         case 1 /* ParseErrorCode.InvalidSymbol */ :
             return 'InvalidSymbol';
@@ -27327,13 +27327,13 @@ function $fe8a0235349f0bef$export$c26cecc075d6212d(code) {
     }
     return '<unknown ParseErrorCode>';
 }
-function $fe8a0235349f0bef$export$d9468344d3651243(documentText, range, options) {
-    return $eb4d4e762f21efb5$export$d9468344d3651243(documentText, range, options);
+function $23249d36e3d1b346$export$d9468344d3651243(documentText, range, options) {
+    return $5812371babc303c0$export$d9468344d3651243(documentText, range, options);
 }
-function $fe8a0235349f0bef$export$3ff57735a52b8713(text, path, value, options) {
-    return $ae229f2f780ffc44$export$a41c68a4eb5ff164(text, path, value, options);
+function $23249d36e3d1b346$export$3ff57735a52b8713(text, path, value, options) {
+    return $d1da0056d1e66ef1$export$a41c68a4eb5ff164(text, path, value, options);
 }
-function $fe8a0235349f0bef$export$e4d6f33e09e1fc33(text, edits) {
+function $23249d36e3d1b346$export$e4d6f33e09e1fc33(text, edits) {
     let sortedEdits = edits.slice(0).sort((a, b)=>{
         const diff = a.offset - b.offset;
         if (diff === 0) return a.length - b.length;
@@ -27342,7 +27342,7 @@ function $fe8a0235349f0bef$export$e4d6f33e09e1fc33(text, edits) {
     let lastModifiedOffset = text.length;
     for(let i = sortedEdits.length - 1; i >= 0; i--){
         let e = sortedEdits[i];
-        if (e.offset + e.length <= lastModifiedOffset) text = $ae229f2f780ffc44$export$dc51556a055f3c36(text, e);
+        if (e.offset + e.length <= lastModifiedOffset) text = $d1da0056d1e66ef1$export$dc51556a055f3c36(text, e);
         else throw new Error('Overlapping edit');
         lastModifiedOffset = e.offset;
     }
@@ -27352,22 +27352,22 @@ function $fe8a0235349f0bef$export$e4d6f33e09e1fc33(text, edits) {
 
 
 
-function $a27d0d73386d53b8$export$9978d8c48293dc72(point) {
+function $2196ddae34004bed$export$9978d8c48293dc72(point) {
     return {
         line: point.row + 1,
         offset: point.column + 1
     };
 }
-function $a27d0d73386d53b8$export$2b9d56ac2fba440c(loc) {
-    return new $1X1Jj$atom.Point(loc.line - 1, loc.offset - 1);
+function $2196ddae34004bed$export$2b9d56ac2fba440c(loc) {
+    return new $lcjJR$atom.Point(loc.line - 1, loc.offset - 1);
 }
-function $a27d0d73386d53b8$export$477d491a08b070ec(span) {
-    return $a27d0d73386d53b8$export$19d00dfc4e734f8b(span.start, span.end);
+function $2196ddae34004bed$export$477d491a08b070ec(span) {
+    return $2196ddae34004bed$export$19d00dfc4e734f8b(span.start, span.end);
 }
-function $a27d0d73386d53b8$export$19d00dfc4e734f8b(start, end) {
-    return new $1X1Jj$atom.Range($a27d0d73386d53b8$export$2b9d56ac2fba440c(start), $a27d0d73386d53b8$export$2b9d56ac2fba440c(end));
+function $2196ddae34004bed$export$19d00dfc4e734f8b(start, end) {
+    return new $lcjJR$atom.Range($2196ddae34004bed$export$2b9d56ac2fba440c(start), $2196ddae34004bed$export$2b9d56ac2fba440c(end));
 }
-function $a27d0d73386d53b8$export$430a7b9c6c8900f6(range) {
+function $2196ddae34004bed$export$430a7b9c6c8900f6(range) {
     return {
         line: range.start.row + 1,
         offset: range.start.column + 1,
@@ -27375,69 +27375,69 @@ function $a27d0d73386d53b8$export$430a7b9c6c8900f6(range) {
         endOffset: range.end.column + 1
     };
 }
-function $a27d0d73386d53b8$export$de108c257e29a9fa(pos) {
+function $2196ddae34004bed$export$de108c257e29a9fa(pos) {
     return {
         line: pos.line + 1,
         offset: pos.character + 1
     };
 }
-function $a27d0d73386d53b8$export$5dffc3c47a4f4bd0(loc) {
+function $2196ddae34004bed$export$5dffc3c47a4f4bd0(loc) {
     return {
         line: loc.line - 1,
         character: loc.offset - 1
     };
 }
-function $a27d0d73386d53b8$export$bd61f471a59bbf5(range) {
+function $2196ddae34004bed$export$bd61f471a59bbf5(range) {
     return {
-        start: $a27d0d73386d53b8$export$de108c257e29a9fa(range.start),
-        end: $a27d0d73386d53b8$export$de108c257e29a9fa(range.end)
+        start: $2196ddae34004bed$export$de108c257e29a9fa(range.start),
+        end: $2196ddae34004bed$export$de108c257e29a9fa(range.end)
     };
 }
-function $a27d0d73386d53b8$export$35d3c4904690f337(edit) {
+function $2196ddae34004bed$export$35d3c4904690f337(edit) {
     return {
-        ...$a27d0d73386d53b8$export$bd61f471a59bbf5(edit.range),
+        ...$2196ddae34004bed$export$bd61f471a59bbf5(edit.range),
         newText: edit.newText
     };
 }
-function $a27d0d73386d53b8$export$e0e187c5a2ae83e3(pos) {
-    return new $1X1Jj$atom.Point(pos.line, pos.character);
+function $2196ddae34004bed$export$e0e187c5a2ae83e3(pos) {
+    return new $lcjJR$atom.Point(pos.line, pos.character);
 }
-function $a27d0d73386d53b8$export$9ad169abcb1fbc48(range) {
-    return new $1X1Jj$atom.Range($a27d0d73386d53b8$export$e0e187c5a2ae83e3(range.start), $a27d0d73386d53b8$export$e0e187c5a2ae83e3(range.end));
+function $2196ddae34004bed$export$9ad169abcb1fbc48(range) {
+    return new $lcjJR$atom.Range($2196ddae34004bed$export$e0e187c5a2ae83e3(range.start), $2196ddae34004bed$export$e0e187c5a2ae83e3(range.end));
 }
-function $a27d0d73386d53b8$export$3dcbeeac4b9f8c3(uri) {
+function $2196ddae34004bed$export$3dcbeeac4b9f8c3(uri) {
     return new URL(uri).pathname;
 }
-function $a27d0d73386d53b8$export$801880e0bcc7dfc1(edit) {
+function $2196ddae34004bed$export$801880e0bcc7dfc1(edit) {
     if (!edit) return [];
     const out = [];
     if (edit.changes) for (const [uri, edits] of Object.entries(edit.changes))out.push({
-        fileName: $a27d0d73386d53b8$export$3dcbeeac4b9f8c3(uri),
-        textChanges: edits.map($a27d0d73386d53b8$export$35d3c4904690f337)
+        fileName: $2196ddae34004bed$export$3dcbeeac4b9f8c3(uri),
+        textChanges: edits.map($2196ddae34004bed$export$35d3c4904690f337)
     });
     if (edit.documentChanges) {
         for (const dc of edit.documentChanges)if ("textDocument" in dc) out.push({
-            fileName: $a27d0d73386d53b8$export$3dcbeeac4b9f8c3(dc.textDocument.uri),
-            textChanges: dc.edits.map($a27d0d73386d53b8$export$35d3c4904690f337)
+            fileName: $2196ddae34004bed$export$3dcbeeac4b9f8c3(dc.textDocument.uri),
+            textChanges: dc.edits.map($2196ddae34004bed$export$35d3c4904690f337)
         });
     }
     return out;
 }
-function $a27d0d73386d53b8$export$210060adb63ee720(result) {
+function $2196ddae34004bed$export$210060adb63ee720(result) {
     if (!result) return [];
     const arr = Array.isArray(result) ? result : [
         result
     ];
     return arr.map((loc)=>"targetUri" in loc ? {
-            file: $a27d0d73386d53b8$export$3dcbeeac4b9f8c3(loc.targetUri),
-            range: $a27d0d73386d53b8$export$9ad169abcb1fbc48(loc.targetRange)
+            file: $2196ddae34004bed$export$3dcbeeac4b9f8c3(loc.targetUri),
+            range: $2196ddae34004bed$export$9ad169abcb1fbc48(loc.targetRange)
         } : {
-            file: $a27d0d73386d53b8$export$3dcbeeac4b9f8c3(loc.uri),
-            range: $a27d0d73386d53b8$export$9ad169abcb1fbc48(loc.range)
+            file: $2196ddae34004bed$export$3dcbeeac4b9f8c3(loc.uri),
+            range: $2196ddae34004bed$export$9ad169abcb1fbc48(loc.range)
         });
 }
-function $a27d0d73386d53b8$export$bad43d745a81bbd5(configFile) {
-    const config = $a27d0d73386d53b8$var$loadConfig(configFile);
+function $2196ddae34004bed$export$bad43d745a81bbd5(configFile) {
+    const config = $2196ddae34004bed$var$loadConfig(configFile);
     const options = config.formatCodeOptions;
     return {
         formatCodeOptions: {
@@ -27451,45 +27451,45 @@ function $a27d0d73386d53b8$export$bad43d745a81bbd5(configFile) {
 }
 /** Reads a tsconfig.json (tolerating comments/trailing commas) and follows its `extends` chain.
  * Replaces the old `ts.readConfigFile`, which relied on the classic `typescript` JS API that
- * TypeScript 7 no longer exports. */ function $a27d0d73386d53b8$var$loadConfig(configFile) {
-    if ($1X1Jj$path.extname(configFile) !== ".json") configFile = `${configFile}.json`;
+ * TypeScript 7 no longer exports. */ function $2196ddae34004bed$var$loadConfig(configFile) {
+    if ($lcjJR$path.extname(configFile) !== ".json") configFile = `${configFile}.json`;
     let config;
     try {
         var _jsonc_parse;
-        config = (_jsonc_parse = $fe8a0235349f0bef$export$98e6a39c04603d36($1X1Jj$fs.readFileSync(configFile, "utf8"))) !== null && _jsonc_parse !== void 0 ? _jsonc_parse : {};
+        config = (_jsonc_parse = $23249d36e3d1b346$export$98e6a39c04603d36($lcjJR$fs.readFileSync(configFile, "utf8"))) !== null && _jsonc_parse !== void 0 ? _jsonc_parse : {};
     } catch  {
         return {};
     }
     if (typeof config.extends === "string") {
-        const extendsPath = $1X1Jj$path.join($1X1Jj$path.dirname(configFile), config.extends);
-        const extendsConfig = $a27d0d73386d53b8$var$loadConfig(extendsPath);
+        const extendsPath = $lcjJR$path.join($lcjJR$path.dirname(configFile), config.extends);
+        const extendsConfig = $2196ddae34004bed$var$loadConfig(extendsPath);
         config = Object.assign({}, extendsConfig, config);
     }
     return config;
 }
-function $a27d0d73386d53b8$export$53b04b1e9f632e2c(sig) {
+function $2196ddae34004bed$export$53b04b1e9f632e2c(sig) {
     var _sig_parameters;
     return {
         label: sig.label,
-        documentation: $a27d0d73386d53b8$var$markupToStr(sig.documentation),
-        parameters: ((_sig_parameters = sig.parameters) !== null && _sig_parameters !== void 0 ? _sig_parameters : []).map((p)=>$a27d0d73386d53b8$var$lspParameterToSignatureParameter(sig, p))
+        documentation: $2196ddae34004bed$var$markupToStr(sig.documentation),
+        parameters: ((_sig_parameters = sig.parameters) !== null && _sig_parameters !== void 0 ? _sig_parameters : []).map((p)=>$2196ddae34004bed$var$lspParameterToSignatureParameter(sig, p))
     };
 }
-function $a27d0d73386d53b8$var$lspParameterToSignatureParameter(sig, p) {
+function $2196ddae34004bed$var$lspParameterToSignatureParameter(sig, p) {
     const label = Array.isArray(p.label) ? sig.label.slice(p.label[0], p.label[1]) : p.label;
     return {
         label: label,
-        documentation: $a27d0d73386d53b8$var$markupToStr(p.documentation)
+        documentation: $2196ddae34004bed$var$markupToStr(p.documentation)
     };
 }
-function $a27d0d73386d53b8$var$markupToStr(doc) {
+function $2196ddae34004bed$var$markupToStr(doc) {
     if (doc === undefined) return "";
     return typeof doc === "string" ? doc : doc.value;
 }
 
 
 
-function $2390352c05631840$var$eventLoopYielder(delayMs, maxTimeMs) {
+function $54310bcaa9a7e4ec$var$eventLoopYielder(delayMs, maxTimeMs) {
     const started = performance.now();
     let lastYield = started;
     // tslint:disable-next-line: only-arrow-functions
@@ -27502,7 +27502,7 @@ function $2390352c05631840$var$eventLoopYielder(delayMs, maxTimeMs) {
         return now - started <= maxTimeMs;
     };
 }
-/** Throws maximum time reached error */ function $2390352c05631840$var$maxTimeError(name, timeS) {
+/** Throws maximum time reached error */ function $54310bcaa9a7e4ec$var$maxTimeError(name, timeS) {
     const err = new Error("Max time reached");
     atom.notifications.addError(`${name} took more than ${timeS} seconds to complete`, {
         dismissable: true,
@@ -27511,9 +27511,9 @@ function $2390352c05631840$var$eventLoopYielder(delayMs, maxTimeMs) {
     });
     return err;
 }
-async function $2390352c05631840$export$e4043f67d36cbb26(sourceCode, scopeName) {
-    const yielder = $2390352c05631840$var$eventLoopYielder(100, 5000);
-    const buf = new (0, $1X1Jj$atom.TextBuffer)();
+async function $54310bcaa9a7e4ec$export$e4043f67d36cbb26(sourceCode, scopeName) {
+    const yielder = $54310bcaa9a7e4ec$var$eventLoopYielder(100, 5000);
+    const buf = new (0, $lcjJR$atom.TextBuffer)();
     try {
         const grammar = atom.grammars.grammarForId(scopeName);
         const lm = atom.grammars.languageModeForGrammarAndBuffer(grammar, buf);
@@ -27521,7 +27521,7 @@ async function $2390352c05631840$export$e4043f67d36cbb26(sourceCode, scopeName) 
         buf.setText(sourceCode);
         const end = buf.getEndPosition();
         if (lm.startTokenizing) lm.startTokenizing();
-        await $2390352c05631840$var$tokenized(lm);
+        await $54310bcaa9a7e4ec$var$tokenized(lm);
         const iter = lm.buildHighlightIterator();
         if (iter.getOpenScopeIds && iter.getCloseScopeIds) {
             let pos = {
@@ -27534,12 +27534,12 @@ async function $2390352c05631840$export$e4043f67d36cbb26(sourceCode, scopeName) 
                 res.push(...iter.getCloseScopeIds().map(()=>"</span>"), ...iter.getOpenScopeIds().map((x)=>`<span class="${lm.classNameForScopeId(x)}">`));
                 iter.moveToSuccessor();
                 const nextPos = iter.getPosition();
-                res.push($2390352c05631840$var$escapeHTML(buf.getTextInRange([
+                res.push($54310bcaa9a7e4ec$var$escapeHTML(buf.getTextInRange([
                     pos,
                     nextPos
                 ])));
                 if (!await yielder()) {
-                    console.error($2390352c05631840$var$maxTimeError("Atom-TypeScript: Highlighter", 5));
+                    console.error($54310bcaa9a7e4ec$var$maxTimeError("Atom-TypeScript: Highlighter", 5));
                     break;
                 }
                 pos = nextPos;
@@ -27550,7 +27550,7 @@ async function $2390352c05631840$export$e4043f67d36cbb26(sourceCode, scopeName) 
         buf.destroy();
     }
 }
-async function $2390352c05631840$var$tokenized(lm) {
+async function $54310bcaa9a7e4ec$var$tokenized(lm) {
     return new Promise((resolve)=>{
         if (lm.fullyTokenized || lm.tree) resolve(undefined);
         else if (lm.onDidTokenize) {
@@ -27562,73 +27562,74 @@ async function $2390352c05631840$var$tokenized(lm) {
         ;
     });
 }
-function $2390352c05631840$var$escapeHTML(str) {
+function $54310bcaa9a7e4ec$var$escapeHTML(str) {
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
 
 
 // Return line/offset position in the editor using 1-indexed coordinates
-function $28d5dfd6d6bf53fa$var$getEditorPosition(editor) {
+function $6f0bc47c7fee627c$var$getEditorPosition(editor) {
     const pos = editor.getCursorBufferPosition();
     return {
         line: pos.row + 1,
         offset: pos.column + 1
     };
 }
-function $28d5dfd6d6bf53fa$export$225e59ca209a506(filePath) {
+function $6f0bc47c7fee627c$export$225e59ca209a506(filePath) {
     if (filePath === undefined) return false;
-    return $28d5dfd6d6bf53fa$var$isAllowedExtension($1X1Jj$path.extname(filePath));
+    return $6f0bc47c7fee627c$var$isAllowedExtension($lcjJR$path.extname(filePath));
 }
-function $28d5dfd6d6bf53fa$export$d9994fe0923974a5() {
+function $6f0bc47c7fee627c$export$d9994fe0923974a5() {
     const config = atom.config.get("pulsar-typescript");
     const tsScopes = config.tsSyntaxScopes;
     if (config.allowJS) tsScopes.push(...config.jsSyntaxScopes);
     return tsScopes;
 }
-function $28d5dfd6d6bf53fa$export$3aecee58e23ede2c(editor) {
-    return $28d5dfd6d6bf53fa$export$225e59ca209a506(editor.getPath()) && $28d5dfd6d6bf53fa$export$bde40b56025b92b9(editor);
+function $6f0bc47c7fee627c$export$3aecee58e23ede2c(editor) {
+    return $6f0bc47c7fee627c$export$225e59ca209a506(editor.getPath()) && $6f0bc47c7fee627c$export$bde40b56025b92b9(editor);
 }
-function $28d5dfd6d6bf53fa$export$bde40b56025b92b9(editor) {
+function $6f0bc47c7fee627c$export$bde40b56025b92b9(editor) {
     const [scopeName] = editor.getRootScopeDescriptor().getScopesArray();
-    return $28d5dfd6d6bf53fa$export$d9994fe0923974a5().includes(scopeName);
+    return $6f0bc47c7fee627c$export$d9994fe0923974a5().includes(scopeName);
 }
-function $28d5dfd6d6bf53fa$var$notNullary(x) {
+function $6f0bc47c7fee627c$var$notNullary(x) {
     return x != null;
 }
-function $28d5dfd6d6bf53fa$var$memoizeThrottle(func, wait) {
-    const mem = (0, $4uNLx.memoize)((_param)=>(0, $4uNLx.throttle)(func, wait, {
+function $6f0bc47c7fee627c$var$memoizeThrottle(func, wait) {
+    const mem = (0, $6DBYc.memoize)((_param)=>(0, $6DBYc.throttle)(func, wait, {
             leading: true
         }));
-    return (param)=>mem(param)(param) // NOTE: leading MUST be true for this ! to hold
-    ;
+    // NOTE: leading MUST be true, otherwise the throttled call below can return undefined
+    // on the first invocation for a given param instead of calling func synchronously.
+    return (param)=>mem(param)(param);
 }
-const $28d5dfd6d6bf53fa$var$isAllowedExtension = $28d5dfd6d6bf53fa$var$memoizeThrottle((ext)=>{
+const $6f0bc47c7fee627c$var$isAllowedExtension = $6f0bc47c7fee627c$var$memoizeThrottle((ext)=>{
     const config = atom.config.get("pulsar-typescript");
     const tsExts = config.tsFileExtensions;
     if (config.allowJS) tsExts.push(...config.jsFileExtensions);
     if (config.extensionsFromGrammars) {
         var _atom_config_get;
         const custom = (_atom_config_get = atom.config.get("core.customFileTypes")) !== null && _atom_config_get !== void 0 ? _atom_config_get : {};
-        const scopes = $28d5dfd6d6bf53fa$export$d9994fe0923974a5();
+        const scopes = $6f0bc47c7fee627c$export$d9994fe0923974a5();
         tsExts.push(...[].concat(...scopes.map((scope)=>{
             var _atom_grammars_grammarForScopeName;
             return (_atom_grammars_grammarForScopeName = atom.grammars.grammarForScopeName(scope)) === null || _atom_grammars_grammarForScopeName === void 0 ? void 0 : _atom_grammars_grammarForScopeName.fileTypes;
-        }), ...scopes.map((scope)=>custom[scope])).filter($28d5dfd6d6bf53fa$var$notNullary).map((s)=>`.${s}`));
+        }), ...scopes.map((scope)=>custom[scope])).filter($6f0bc47c7fee627c$var$notNullary).map((s)=>`.${s}`));
     }
     return tsExts.includes(ext);
 }, 5000);
-function $28d5dfd6d6bf53fa$export$f25e34a2b31a939c(editor, position) {
+function $6f0bc47c7fee627c$export$f25e34a2b31a939c(editor, position) {
     const file = editor.getPath();
     if (file !== undefined) {
-        const location = position ? (0, $a27d0d73386d53b8$export$9978d8c48293dc72)(position) : $28d5dfd6d6bf53fa$var$getEditorPosition(editor);
+        const location = position ? (0, $2196ddae34004bed$export$9978d8c48293dc72)(position) : $6f0bc47c7fee627c$var$getEditorPosition(editor);
         return {
             file: file,
             ...location
         };
     }
 }
-function* $28d5dfd6d6bf53fa$export$d121654372a91687() {
-    for (const ed of atom.workspace.getTextEditors())if ($28d5dfd6d6bf53fa$export$3aecee58e23ede2c(ed)) yield ed.getPath();
+function* $6f0bc47c7fee627c$export$d121654372a91687() {
+    for (const ed of atom.workspace.getTextEditors())if ($6f0bc47c7fee627c$export$3aecee58e23ede2c(ed)) yield ed.getPath();
 }
 
 
@@ -27636,26 +27637,26 @@ function* $28d5dfd6d6bf53fa$export$d121654372a91687() {
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
 
-var $4uNLx = parcelRequire("4uNLx");
+var $6DBYc = parcelRequire("6DBYc");
 /**
  * `vscode-languageserver-protocol` is used only for TYPES throughout this codebase (that import
  * is fully erased at build time). These are its handful of numeric/string constants that we need
  * at runtime, copied out so the plugin bundle never has to actually resolve/bundle that package.
  * Values are part of the stable, versioned LSP spec and don't change.
- */ const $183b3c4c81c7602a$export$17cc9a96eb54616f = {
+ */ const $2d87a0b8811f044c$export$17cc9a96eb54616f = {
     Error: 1,
     Warning: 2,
     Information: 3,
     Hint: 4
 };
-const $183b3c4c81c7602a$export$fc0ebc405f150601 = {
+const $2d87a0b8811f044c$export$fc0ebc405f150601 = {
     Unnecessary: 1,
     Deprecated: 2
 };
-const $183b3c4c81c7602a$export$c72b5966cfff6b4d = {
+const $2d87a0b8811f044c$export$c72b5966cfff6b4d = {
     Empty: "",
     QuickFix: "quickfix",
     Refactor: "refactor",
@@ -27668,16 +27669,16 @@ const $183b3c4c81c7602a$export$c72b5966cfff6b4d = {
     SourceFixAll: "source.fixAll",
     Notebook: "notebook"
 };
-const $183b3c4c81c7602a$export$46425dbbb1a729c6 = {
+const $2d87a0b8811f044c$export$46425dbbb1a729c6 = {
     Invoked: 1,
     Automatic: 2
 };
-const $183b3c4c81c7602a$export$cca0c1cb3f1cfa30 = {
+const $2d87a0b8811f044c$export$cca0c1cb3f1cfa30 = {
     Invoked: 1,
     TriggerCharacter: 2,
     TriggerForIncompleteCompletions: 3
 };
-const $183b3c4c81c7602a$export$99d00115014a86a8 = {
+const $2d87a0b8811f044c$export$99d00115014a86a8 = {
     Text: 1,
     Method: 2,
     Function: 3,
@@ -27704,7 +27705,7 @@ const $183b3c4c81c7602a$export$99d00115014a86a8 = {
     Operator: 24,
     TypeParameter: 25
 };
-const $183b3c4c81c7602a$export$dd78311fae125aca = {
+const $2d87a0b8811f044c$export$dd78311fae125aca = {
     File: 1,
     Module: 2,
     Namespace: 3,
@@ -27732,109 +27733,109 @@ const $183b3c4c81c7602a$export$dd78311fae125aca = {
     Operator: 25,
     TypeParameter: 26
 };
-function $183b3c4c81c7602a$export$6417026a741ff332(message) {
+function $2d87a0b8811f044c$export$6417026a741ff332(message) {
     return typeof message === "string" ? message : message.value;
 }
 
 
 
-const $96e505bb0ec76374$export$276b7be91de572a0 = {
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).File]: "file",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Module]: "module",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Namespace]: "module",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Package]: "module",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Class]: "class",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Method]: "method",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Property]: "property",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Field]: "property",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Constructor]: "constructor",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Enum]: "enum",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Interface]: "interface",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Function]: "function",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Variable]: "variable",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Constant]: "constant",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).String]: "string",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Number]: "primitive-type",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Boolean]: "primitive-type",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Array]: "type",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Object]: "type",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Key]: "property",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Null]: "primitive-type",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).EnumMember]: "enum-member",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Struct]: "class",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Event]: "function",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Operator]: "function",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).TypeParameter]: "type-parameter"
+const $cfd723393c3c1165$export$276b7be91de572a0 = {
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).File]: "file",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Module]: "module",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Namespace]: "module",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Package]: "module",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Class]: "class",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Method]: "method",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Property]: "property",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Field]: "property",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Constructor]: "constructor",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Enum]: "enum",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Interface]: "interface",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Function]: "function",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Variable]: "variable",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Constant]: "constant",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).String]: "string",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Number]: "primitive-type",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Boolean]: "primitive-type",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Array]: "type",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Object]: "type",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Key]: "property",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Null]: "primitive-type",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).EnumMember]: "enum-member",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Struct]: "class",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Event]: "function",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Operator]: "function",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).TypeParameter]: "type-parameter"
 };
-function $96e505bb0ec76374$export$3dc00160c8fd9578(sym) {
+function $cfd723393c3c1165$export$3dc00160c8fd9578(sym) {
     var _sym_children;
     return {
         text: sym.name,
-        kind: $96e505bb0ec76374$export$276b7be91de572a0[sym.kind],
+        kind: $cfd723393c3c1165$export$276b7be91de572a0[sym.kind],
         spans: [
-            (0, $a27d0d73386d53b8$export$bd61f471a59bbf5)(sym.range)
+            (0, $2196ddae34004bed$export$bd61f471a59bbf5)(sym.range)
         ],
-        nameSpan: (0, $a27d0d73386d53b8$export$bd61f471a59bbf5)(sym.selectionRange),
-        childItems: (_sym_children = sym.children) === null || _sym_children === void 0 ? void 0 : _sym_children.map($96e505bb0ec76374$export$3dc00160c8fd9578),
+        nameSpan: (0, $2196ddae34004bed$export$bd61f471a59bbf5)(sym.selectionRange),
+        childItems: (_sym_children = sym.children) === null || _sym_children === void 0 ? void 0 : _sym_children.map($cfd723393c3c1165$export$3dc00160c8fd9578),
         collapsed: undefined
     };
 }
-function $96e505bb0ec76374$export$7123bc915841569d(sym) {
+function $cfd723393c3c1165$export$7123bc915841569d(sym) {
     return {
         text: sym.name,
-        kind: $96e505bb0ec76374$export$276b7be91de572a0[sym.kind],
+        kind: $cfd723393c3c1165$export$276b7be91de572a0[sym.kind],
         spans: [
-            (0, $a27d0d73386d53b8$export$bd61f471a59bbf5)(sym.location.range)
+            (0, $2196ddae34004bed$export$bd61f471a59bbf5)(sym.location.range)
         ],
         collapsed: undefined
     };
 }
-function $96e505bb0ec76374$export$44fc07bcd63323ce(symbols) {
+function $cfd723393c3c1165$export$44fc07bcd63323ce(symbols) {
     if (symbols.length === 0) return [];
-    return "location" in symbols[0] ? symbols.map($96e505bb0ec76374$export$7123bc915841569d) : symbols.map($96e505bb0ec76374$export$3dc00160c8fd9578);
+    return "location" in symbols[0] ? symbols.map($cfd723393c3c1165$export$7123bc915841569d) : symbols.map($cfd723393c3c1165$export$3dc00160c8fd9578);
 }
-function $96e505bb0ec76374$var$getElStartLine(elem) {
+function $cfd723393c3c1165$var$getElStartLine(elem) {
     // tslint:disable-next-line: no-string-literal
     const v = elem.dataset["startLine"];
     return v !== undefined ? parseInt(v, 10) - 1 : 0;
 }
-function $96e505bb0ec76374$var$getElEndLine(elem) {
+function $cfd723393c3c1165$var$getElEndLine(elem) {
     // tslint:disable-next-line: no-string-literal
     const v = elem.dataset["endLine"];
     return v !== undefined ? parseInt(v, 10) - 1 : 0;
 }
-function $96e505bb0ec76374$export$a4ea95adf60c92fc(startLine, endLine, node) {
+function $cfd723393c3c1165$export$a4ea95adf60c92fc(startLine, endLine, node) {
     const children = node.querySelectorAll(":scope > ol > li.node");
     if (children.length === 0) return undefined;
     for (const elem of Array.from(children)){
-        const start = $96e505bb0ec76374$var$getElStartLine(elem);
-        const end = $96e505bb0ec76374$var$getElEndLine(elem);
+        const start = $cfd723393c3c1165$var$getElStartLine(elem);
+        const end = $cfd723393c3c1165$var$getElEndLine(elem);
         if (isFinite(start) && isFinite(end)) {
             if (startLine >= start && endLine <= end) {
-                const selected = $96e505bb0ec76374$export$a4ea95adf60c92fc(startLine, endLine, elem);
+                const selected = $cfd723393c3c1165$export$a4ea95adf60c92fc(startLine, endLine, elem);
                 if (selected) return selected;
                 else return elem;
             } else if (isFinite(end) && endLine < end) break;
         }
-        const selectedChild = $96e505bb0ec76374$export$a4ea95adf60c92fc(startLine, endLine, elem);
+        const selectedChild = $cfd723393c3c1165$export$a4ea95adf60c92fc(startLine, endLine, elem);
         if (selectedChild) return selectedChild;
     }
-    const nstart = $96e505bb0ec76374$var$getElStartLine(node);
-    const nend = $96e505bb0ec76374$var$getElEndLine(node);
+    const nstart = $cfd723393c3c1165$var$getElStartLine(node);
+    const nend = $cfd723393c3c1165$var$getElEndLine(node);
     if (isFinite(nstart) && isFinite(nend) && startLine >= nstart && endLine <= nend) return node;
     return undefined;
 }
-function $96e505bb0ec76374$export$1d9ba002f33dc82b(node) {
+function $cfd723393c3c1165$export$1d9ba002f33dc82b(node) {
     return node.spans.length > 0 ? node.spans[0].start.line - 1 : 0;
 }
-function $96e505bb0ec76374$export$53f1c18187345410(node) {
+function $cfd723393c3c1165$export$53f1c18187345410(node) {
     return node.spans.length > 0 ? node.spans[0].start.offset - 1 : 0;
 }
-function $96e505bb0ec76374$export$f2907b76aa85709(node) {
+function $cfd723393c3c1165$export$f2907b76aa85709(node) {
     const s = node.spans;
     return s.length > 0 ? s[s.length - 1].end.line - 1 : 0;
 }
-function $96e505bb0ec76374$export$8d37f6070173ccdc(newTree, oldTree) {
+function $cfd723393c3c1165$export$8d37f6070173ccdc(newTree, oldTree) {
     if (!newTree || !oldTree) return newTree === oldTree;
     // a bit of guess work here:
     // there may have been additions/deletions in the children
@@ -27860,13 +27861,13 @@ function $96e505bb0ec76374$export$8d37f6070173ccdc(newTree, oldTree) {
                 oldChild = oldTree.childItems[i];
                 // allow for one addition / deletion in the children
                 // (i.e. check if there's a match in the previous/next position)
-                if (!$96e505bb0ec76374$export$8d37f6070173ccdc(newChild, oldChild)) {
+                if (!$cfd723393c3c1165$export$8d37f6070173ccdc(newChild, oldChild)) {
                     // try, if a child was removed
                     oldChild = oldTree.childItems[i + 1];
-                    if (!$96e505bb0ec76374$export$8d37f6070173ccdc(newChild, oldChild)) {
+                    if (!$cfd723393c3c1165$export$8d37f6070173ccdc(newChild, oldChild)) {
                         // try, if a child was added
                         oldChild = oldTree.childItems[i - 1];
-                        $96e505bb0ec76374$export$8d37f6070173ccdc(newChild, oldChild);
+                        $cfd723393c3c1165$export$8d37f6070173ccdc(newChild, oldChild);
                     }
                 }
             }
@@ -27875,7 +27876,7 @@ function $96e505bb0ec76374$export$8d37f6070173ccdc(newTree, oldTree) {
     }
     return false;
 }
-function $96e505bb0ec76374$export$c2b0a16388cba90f(navTree) {
+function $cfd723393c3c1165$export$c2b0a16388cba90f(navTree) {
     if (navTree === null) return;
     if (navTree.childItems) {
         if (navTree.childItems.length < 1) {
@@ -27885,38 +27886,38 @@ function $96e505bb0ec76374$export$c2b0a16388cba90f(navTree) {
         }
         // TODO should there be a different sort-order?
         //     for now: sort ascending by line-number
-        navTree.childItems.sort((a, b)=>$96e505bb0ec76374$export$1d9ba002f33dc82b(a) - $96e505bb0ec76374$export$1d9ba002f33dc82b(b));
-        for (const child of navTree.childItems)$96e505bb0ec76374$export$c2b0a16388cba90f(child);
+        navTree.childItems.sort((a, b)=>$cfd723393c3c1165$export$1d9ba002f33dc82b(a) - $cfd723393c3c1165$export$1d9ba002f33dc82b(b));
+        for (const child of navTree.childItems)$cfd723393c3c1165$export$c2b0a16388cba90f(child);
     }
 }
-function $96e505bb0ec76374$export$e4d153b3e021fb47(node, pos) {
-    const start = $96e505bb0ec76374$var$getElStartLine(node);
-    const end = $96e505bb0ec76374$var$getElEndLine(node);
+function $cfd723393c3c1165$export$e4d153b3e021fb47(node, pos) {
+    const start = $cfd723393c3c1165$var$getElStartLine(node);
+    const end = $cfd723393c3c1165$var$getElEndLine(node);
     if (start <= pos && end >= pos) {
-        if ($96e505bb0ec76374$export$a4ea95adf60c92fc(start, end, node)) // -> there is a node "further down" that should get selected
+        if ($cfd723393c3c1165$export$a4ea95adf60c92fc(start, end, node)) // -> there is a node "further down" that should get selected
         return false;
         return true;
     }
     return false;
 }
-function $96e505bb0ec76374$export$8cdf83cd3204bbcd(n1, n2) {
-    return n1.text === n2.text && (0, $4uNLx.isEqual)(n1.spans, n2.spans);
+function $cfd723393c3c1165$export$8cdf83cd3204bbcd(n1, n2) {
+    return n1.text === n2.text && (0, $6DBYc.isEqual)(n1.spans, n2.spans);
 }
-function $96e505bb0ec76374$export$47553c2643784b50(node, event) {
+function $cfd723393c3c1165$export$47553c2643784b50(node, event) {
     return !!node.childItems && event.target === event.currentTarget;
 }
 
 
-class $29ff13ea23efb1a9$export$814b29caa594376c {
+class $c29248d7d1e69bf6$export$814b29caa594376c {
     async update(props) {
         this.props = {
             ...this.props,
             ...props
         };
-        await $f0CHF.update(this);
+        await $eusZd.update(this);
     }
     async destroy() {
-        await $f0CHF.destroy(this);
+        await $eusZd.destroy(this);
     }
     render() {
         var _this_props_navTree_spans__start, _this_props_navTree_spans_, _this_props_navTree_spans__end, _this_props_navTree_spans_1;
@@ -27924,22 +27925,22 @@ class $29ff13ea23efb1a9$export$814b29caa594376c {
         const { ctrl: ctrl } = this.props;
         const classes = (node.childItems ? "nested-" : "") + "item" + (node.collapsed ? " collapsed" : " expanded");
         const styleClasses = this.getStyles();
-        return /*#__PURE__*/ $f0CHF.dom("li", {
+        return /*#__PURE__*/ $eusZd.dom("li", {
             className: "node entry exanded list-" + classes,
             dataset: {
                 startLine: (_this_props_navTree_spans_ = this.props.navTree.spans[0]) === null || _this_props_navTree_spans_ === void 0 ? void 0 : (_this_props_navTree_spans__start = _this_props_navTree_spans_.start) === null || _this_props_navTree_spans__start === void 0 ? void 0 : _this_props_navTree_spans__start.line,
                 endLine: (_this_props_navTree_spans_1 = this.props.navTree.spans[0]) === null || _this_props_navTree_spans_1 === void 0 ? void 0 : (_this_props_navTree_spans__end = _this_props_navTree_spans_1.end) === null || _this_props_navTree_spans__end === void 0 ? void 0 : _this_props_navTree_spans__end.line
             }
-        }, /*#__PURE__*/ $f0CHF.dom("div", {
+        }, /*#__PURE__*/ $eusZd.dom("div", {
             className: `header list-item`,
             on: {
                 click: (event)=>this.entryClicked(event, node)
             }
-        }, /*#__PURE__*/ $f0CHF.dom("span", {
+        }, /*#__PURE__*/ $eusZd.dom("span", {
             className: styleClasses
-        }, node.text)), /*#__PURE__*/ $f0CHF.dom("ol", {
+        }, node.text)), /*#__PURE__*/ $eusZd.dom("ol", {
             className: "entries list-tree"
-        }, node.childItems ? node.childItems.map((sn)=>/*#__PURE__*/ $f0CHF.dom($29ff13ea23efb1a9$export$814b29caa594376c, {
+        }, node.childItems ? node.childItems.map((sn)=>/*#__PURE__*/ $eusZd.dom($c29248d7d1e69bf6$export$814b29caa594376c, {
                 navTree: sn,
                 ctrl: ctrl
             })) : null));
@@ -27953,29 +27954,29 @@ class $29ff13ea23efb1a9$export$814b29caa594376c {
     }
     entryClicked(event, node) {
         event.stopPropagation();
-        const isToggle = (0, $96e505bb0ec76374$export$47553c2643784b50)(node, event);
+        const isToggle = (0, $cfd723393c3c1165$export$47553c2643784b50)(node, event);
         if (!isToggle) this.props.ctrl.gotoNode(node);
         else {
             node.collapsed = !node.collapsed;
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)($f0CHF.update(this));
+            (0, $8012570b1032009f$export$8080b7556d9d6445)($eusZd.update(this));
         }
     }
     constructor(props){
         this.props = props;
-        $f0CHF.initialize(this);
+        $eusZd.initialize(this);
     }
 }
 
 
 
-class $88e38339dff24472$export$1beacdeb2d370927 {
+class $bc25d7fe2a60a2c0$export$1beacdeb2d370927 {
     async update(props) {
         if (props.navTree !== undefined) this.setNavTree(props.navTree);
         this.props = {
             ...this.props,
             ...props
         };
-        await $f0CHF.update(this);
+        await $eusZd.update(this);
     }
     async destroy() {
         if (this.editorScrolling) this.editorScrolling.dispose();
@@ -27983,7 +27984,7 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
         this.editorScrolling = undefined;
         this.editorChanging = undefined;
         this.subscriptions.dispose();
-        await $f0CHF.destroy(this);
+        await $eusZd.destroy(this);
     }
     async setGetClient(getClient) {
         this.getClient = getClient;
@@ -28008,13 +28009,13 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
         return (_this_element_querySelector = this.element.querySelector("li.node")) !== null && _this_element_querySelector !== void 0 ? _this_element_querySelector : undefined;
     }
     render() {
-        const maybeNavNodeComp = this.props.navTree ? /*#__PURE__*/ $f0CHF.dom((0, $29ff13ea23efb1a9$export$814b29caa594376c), {
+        const maybeNavNodeComp = this.props.navTree ? /*#__PURE__*/ $eusZd.dom((0, $c29248d7d1e69bf6$export$814b29caa594376c), {
             navTree: this.props.navTree,
             ctrl: this
         }) : null;
-        return /*#__PURE__*/ $f0CHF.dom("div", {
+        return /*#__PURE__*/ $eusZd.dom("div", {
             className: "atomts atomts-semantic-view native-key-bindings"
-        }, /*#__PURE__*/ $f0CHF.dom("ol", {
+        }, /*#__PURE__*/ $eusZd.dom("ol", {
             className: "list-tree has-collapsable-children focusable-panel"
         }, maybeNavNodeComp));
     }
@@ -28031,8 +28032,8 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
    *              the node which's element should be made visible in the editor
    */ gotoNode(node) {
         if (!this.editor) return;
-        const gotoLine = (0, $96e505bb0ec76374$export$1d9ba002f33dc82b)(node);
-        const gotoOffset = (0, $96e505bb0ec76374$export$53f1c18187345410)(node);
+        const gotoLine = (0, $cfd723393c3c1165$export$1d9ba002f33dc82b)(node);
+        const gotoOffset = (0, $cfd723393c3c1165$export$53f1c18187345410)(node);
         this.editor.setCursorBufferPosition([
             gotoLine,
             gotoOffset
@@ -28043,14 +28044,14 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
         else return undefined;
     }
     setNavTree(navTree) {
-        (0, $96e505bb0ec76374$export$c2b0a16388cba90f)(navTree);
-        if ((0, $4uNLx.isEqual)(navTree, this.props.navTree)) return;
-        (0, $96e505bb0ec76374$export$8d37f6070173ccdc)(navTree, this.props.navTree);
+        (0, $cfd723393c3c1165$export$c2b0a16388cba90f)(navTree);
+        if ((0, $6DBYc.isEqual)(navTree, this.props.navTree)) return;
+        (0, $cfd723393c3c1165$export$8d37f6070173ccdc)(navTree, this.props.navTree);
         this.props.navTree = navTree;
         const node = this.firstNode();
         if (node) {
             const cursorLine = this.getCursorLine();
-            if (cursorLine !== undefined) this.markSelection((0, $96e505bb0ec76374$export$a4ea95adf60c92fc)(cursorLine, cursorLine, node));
+            if (cursorLine !== undefined) this.markSelection((0, $cfd723393c3c1165$export$a4ea95adf60c92fc)(cursorLine, cursorLine, node));
         }
     }
     /**
@@ -28078,7 +28079,7 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
     }
     constructor(props){
         this.props = props;
-        this.subscriptions = new (0, $1X1Jj$atom.CompositeDisposable)();
+        this.subscriptions = new (0, $lcjJR$atom.CompositeDisposable)();
         this.longLineLength = 4000;
         this.largeFileLineCount = 500;
         this.loadNavTree = async ()=>{
@@ -28096,11 +28097,11 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
                         text: filePath,
                         kind: "file",
                         spans: [],
-                        childItems: (0, $96e505bb0ec76374$export$44fc07bcd63323ce)(symbols),
+                        childItems: (0, $cfd723393c3c1165$export$44fc07bcd63323ce)(symbols),
                         collapsed: undefined
                     };
                     this.setNavTree(navTree);
-                    await $f0CHF.update(this);
+                    await $eusZd.update(this);
                 }
             } catch (err) {
                 console.error(err, filePath);
@@ -28112,7 +28113,7 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
             if (!firstNodeElem) return;
             const cursorLine = newBufferPosition.row;
             var _findNodeAt_querySelector;
-            const selectedChild = (_findNodeAt_querySelector = (_findNodeAt = (0, $96e505bb0ec76374$export$a4ea95adf60c92fc)(cursorLine, cursorLine, firstNodeElem)) === null || _findNodeAt === void 0 ? void 0 : _findNodeAt.querySelector(".header")) !== null && _findNodeAt_querySelector !== void 0 ? _findNodeAt_querySelector : undefined;
+            const selectedChild = (_findNodeAt_querySelector = (_findNodeAt = (0, $cfd723393c3c1165$export$a4ea95adf60c92fc)(cursorLine, cursorLine, firstNodeElem)) === null || _findNodeAt === void 0 ? void 0 : _findNodeAt.querySelector(".header")) !== null && _findNodeAt_querySelector !== void 0 ? _findNodeAt_querySelector : undefined;
             const currentSelection = this.getSelectedNode();
             if (selectedChild !== currentSelection) {
                 if (currentSelection) currentSelection.classList.remove("selected");
@@ -28122,7 +28123,7 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
         this.subscribeToEditor = async (editor)=>{
             if (this.editorScrolling) this.editorScrolling.dispose();
             if (this.editorChanging) this.editorChanging.dispose();
-            if (!editor || !$28d5dfd6d6bf53fa$export$3aecee58e23ede2c(editor)) return this.update({
+            if (!editor || !$6f0bc47c7fee627c$export$3aecee58e23ede2c(editor)) return this.update({
                 navTree: null
             });
             // else
@@ -28131,10 +28132,10 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
             await this.loadNavTree();
             const lineCount = this.lineCountIfLarge(editor);
             if (!atom.config.get("pulsar-typescript.largeFileNoFollowCursor") || lineCount === 0) this.editorScrolling = editor.onDidChangeCursorPosition(this.selectAtCursorLine);
-            this.editorChanging = editor.onDidStopChanging(lineCount === 0 ? this.loadNavTree : (0, (/*@__PURE__*/$parcel$interopDefault($e831e7a5a6d65205$exports)))(this.loadNavTree, Math.max(lineCount / 5, 300)));
+            this.editorChanging = editor.onDidStopChanging(lineCount === 0 ? this.loadNavTree : (0, (/*@__PURE__*/$parcel$interopDefault($df14f2f83bfe2ed7$exports)))(this.loadNavTree, Math.max(lineCount / 5, 300)));
         };
-        (0, $96e505bb0ec76374$export$c2b0a16388cba90f)(props.navTree);
-        $f0CHF.initialize(this);
+        (0, $cfd723393c3c1165$export$c2b0a16388cba90f)(props.navTree);
+        $eusZd.initialize(this);
         this.subscriptions.add(atom.workspace.observeActiveTextEditor(this.subscribeToEditor), atom.commands.add("atom-text-editor.typescript-editor", {
             "typescript:reveal-in-semantic-view": {
                 description: "Reveal the symbol under the text cursor in semantic view",
@@ -28160,11 +28161,11 @@ class $88e38339dff24472$export$1beacdeb2d370927 {
 }
 
 
-const $76e0aa7104ca4ad9$export$c5c441a5719d665b = "atom-typescript://semantic-view";
-class $76e0aa7104ca4ad9$export$a3a95952d8506109 {
+const $a297cf51b0219adb$export$c5c441a5719d665b = "atom-typescript://semantic-view";
+class $a297cf51b0219adb$export$a3a95952d8506109 {
     static create(config) {
-        if (!$76e0aa7104ca4ad9$export$a3a95952d8506109.instance) $76e0aa7104ca4ad9$export$a3a95952d8506109.instance = new $76e0aa7104ca4ad9$export$a3a95952d8506109(config);
-        return $76e0aa7104ca4ad9$export$a3a95952d8506109.instance;
+        if (!$a297cf51b0219adb$export$a3a95952d8506109.instance) $a297cf51b0219adb$export$a3a95952d8506109.instance = new $a297cf51b0219adb$export$a3a95952d8506109(config);
+        return $a297cf51b0219adb$export$a3a95952d8506109.instance;
     }
     get element() {
         return this.comp.element;
@@ -28177,10 +28178,10 @@ class $76e0aa7104ca4ad9$export$a3a95952d8506109 {
         return "TypeScript";
     }
     getURI() {
-        return $76e0aa7104ca4ad9$export$c5c441a5719d665b;
+        return $a297cf51b0219adb$export$c5c441a5719d665b;
     }
     async destroy() {
-        $76e0aa7104ca4ad9$export$a3a95952d8506109.instance = null;
+        $a297cf51b0219adb$export$a3a95952d8506109.instance = null;
         await this.comp.destroy();
     }
     getDefaultLocation() {
@@ -28202,17 +28203,17 @@ class $76e0aa7104ca4ad9$export$a3a95952d8506109 {
         };
     }
     constructor(config){
-        this.comp = new (0, $88e38339dff24472$export$1beacdeb2d370927)({
+        this.comp = new (0, $bc25d7fe2a60a2c0$export$1beacdeb2d370927)({
             navTree: config.navTree
         });
     }
 }
-$76e0aa7104ca4ad9$export$a3a95952d8506109.instance = null;
+$a297cf51b0219adb$export$a3a95952d8506109.instance = null;
 
 
 
 
-var $4uNLx = parcelRequire("4uNLx");
+var $6DBYc = parcelRequire("6DBYc");
 
 
 
@@ -28223,26 +28224,26 @@ var $4uNLx = parcelRequire("4uNLx");
 
 
 // Set this to true to start the LSP server with node --inspect
-const $4a7c92c14df36848$var$INSPECT_TSSERVER = false;
-/** 1-based tsserver-style line/offset -> 0-based LSP position. */ function $4a7c92c14df36848$var$toLspPosition(line, offset) {
+const $9c69cf0119f8d160$var$INSPECT_TSSERVER = false;
+/** 1-based tsserver-style line/offset -> 0-based LSP position. */ function $9c69cf0119f8d160$var$toLspPosition(line, offset) {
     return {
         line: line - 1,
         character: offset - 1
     };
 }
-function $4a7c92c14df36848$var$toLspRange(x) {
+function $9c69cf0119f8d160$var$toLspRange(x) {
     return {
-        start: $4a7c92c14df36848$var$toLspPosition(x.line, x.offset),
-        end: $4a7c92c14df36848$var$toLspPosition(x.endLine, x.endOffset)
+        start: $9c69cf0119f8d160$var$toLspPosition(x.line, x.offset),
+        end: $9c69cf0119f8d160$var$toLspPosition(x.endLine, x.endOffset)
     };
 }
-function $4a7c92c14df36848$var$fileToUri(file) {
-    return (0, $1X1Jj$url.pathToFileURL)(file).toString();
+function $9c69cf0119f8d160$var$fileToUri(file) {
+    return (0, $lcjJR$url.pathToFileURL)(file).toString();
 }
-function $4a7c92c14df36848$var$uriToFile(uri) {
+function $9c69cf0119f8d160$var$uriToFile(uri) {
     return new URL(uri).pathname;
 }
-class $4a7c92c14df36848$export$21f68d6aa461e875 {
+class $9c69cf0119f8d160$export$21f68d6aa461e875 {
     async execute(command, ...args) {
         if (!this.connection) {
             this.server = this.startServer();
@@ -28286,7 +28287,7 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     this.openFileVersions.set(x.file, 1);
                     c.sendNotification("textDocument/didOpen", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file),
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file),
                             languageId: "typescript",
                             version: 1,
                             text: x.fileContent
@@ -28300,7 +28301,7 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     this.openFileVersions.delete(x.file);
                     c.sendNotification("textDocument/didClose", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         }
                     });
                     return;
@@ -28313,12 +28314,12 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     this.openFileVersions.set(x.file, version);
                     c.sendNotification("textDocument/didChange", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file),
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file),
                             version: version
                         },
                         contentChanges: [
                             {
-                                range: $4a7c92c14df36848$var$toLspRange(x),
+                                range: $9c69cf0119f8d160$var$toLspRange(x),
                                 text: x.insertString
                             }
                         ]
@@ -28342,9 +28343,13 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                 {
                     const x = arg;
                     for (const file of x.files){
+                        // eslint's classic-TS6-backed type inference disagrees with the real native
+                        // TS7 compiler here; without the assertion `npm run typecheck` fails with
+                        // "'report' is of type 'unknown'".
+                        // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
                         const report = await c.sendRequest("textDocument/diagnostic", {
                             textDocument: {
-                                uri: $4a7c92c14df36848$var$fileToUri(file)
+                                uri: $9c69cf0119f8d160$var$fileToUri(file)
                             }
                         });
                         const diagnostics = report.kind === "full" ? report.items : [];
@@ -28360,9 +28365,9 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/hover", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        position: $4a7c92c14df36848$var$toLspPosition(x.line, x.offset)
+                        position: $9c69cf0119f8d160$var$toLspPosition(x.line, x.offset)
                     });
                 }
             case "signatureHelp":
@@ -28370,9 +28375,9 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/signatureHelp", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        position: $4a7c92c14df36848$var$toLspPosition(x.line, x.offset)
+                        position: $9c69cf0119f8d160$var$toLspPosition(x.line, x.offset)
                     });
                 }
             case "definition":
@@ -28380,9 +28385,9 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/definition", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        position: $4a7c92c14df36848$var$toLspPosition(x.line, x.offset)
+                        position: $9c69cf0119f8d160$var$toLspPosition(x.line, x.offset)
                     });
                 }
             case "references":
@@ -28390,9 +28395,9 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/references", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        position: $4a7c92c14df36848$var$toLspPosition(x.line, x.offset),
+                        position: $9c69cf0119f8d160$var$toLspPosition(x.line, x.offset),
                         context: {
                             includeDeclaration: true
                         }
@@ -28403,9 +28408,9 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/documentHighlight", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        position: $4a7c92c14df36848$var$toLspPosition(x.line, x.offset)
+                        position: $9c69cf0119f8d160$var$toLspPosition(x.line, x.offset)
                     });
                 }
             case "navtree":
@@ -28413,7 +28418,7 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/documentSymbol", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         }
                     });
                 }
@@ -28429,9 +28434,9 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/rangeFormatting", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        range: $4a7c92c14df36848$var$toLspRange(x),
+                        range: $9c69cf0119f8d160$var$toLspRange(x),
                         options: {
                             tabSize: 4,
                             insertSpaces: true
@@ -28444,14 +28449,14 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/completion", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        position: $4a7c92c14df36848$var$toLspPosition(x.line, x.offset),
+                        position: $9c69cf0119f8d160$var$toLspPosition(x.line, x.offset),
                         context: x.triggerCharacter ? {
-                            triggerKind: (0, $183b3c4c81c7602a$export$cca0c1cb3f1cfa30).TriggerCharacter,
+                            triggerKind: (0, $2d87a0b8811f044c$export$cca0c1cb3f1cfa30).TriggerCharacter,
                             triggerCharacter: x.triggerCharacter
                         } : {
-                            triggerKind: (0, $183b3c4c81c7602a$export$cca0c1cb3f1cfa30).Invoked
+                            triggerKind: (0, $2d87a0b8811f044c$export$cca0c1cb3f1cfa30).Invoked
                         }
                     });
                 }
@@ -28473,15 +28478,15 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/codeAction", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        range: $4a7c92c14df36848$var$toLspRange(x),
+                        range: $9c69cf0119f8d160$var$toLspRange(x),
                         context: {
                             diagnostics: [],
                             only: [
                                 "quickfix"
                             ],
-                            triggerKind: (0, $183b3c4c81c7602a$export$46425dbbb1a729c6).Automatic
+                            triggerKind: (0, $2d87a0b8811f044c$export$46425dbbb1a729c6).Automatic
                         }
                     });
                 }
@@ -28490,15 +28495,15 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/codeAction", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        range: $4a7c92c14df36848$var$toLspRange(x),
+                        range: $9c69cf0119f8d160$var$toLspRange(x),
                         context: {
                             diagnostics: [],
                             only: [
                                 "refactor"
                             ],
-                            triggerKind: (0, $183b3c4c81c7602a$export$46425dbbb1a729c6).Invoked
+                            triggerKind: (0, $2d87a0b8811f044c$export$46425dbbb1a729c6).Invoked
                         }
                     });
                 }
@@ -28512,9 +28517,11 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                 {
                     var _a_edit;
                     const x = arg;
+                    // same TS6-vs-TS7 inference mismatch as the geterr case above.
+                    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
                     const actions = await c.sendRequest("textDocument/codeAction", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.scope.args.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.scope.args.file)
                         },
                         range: {
                             start: {
@@ -28531,7 +28538,7 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                             only: [
                                 "source.organizeImports"
                             ],
-                            triggerKind: (0, $183b3c4c81c7602a$export$46425dbbb1a729c6).Invoked
+                            triggerKind: (0, $2d87a0b8811f044c$export$46425dbbb1a729c6).Invoked
                         }
                     });
                     const edits = [];
@@ -28544,9 +28551,9 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/prepareRename", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        position: $4a7c92c14df36848$var$toLspPosition(x.line, x.offset)
+                        position: $9c69cf0119f8d160$var$toLspPosition(x.line, x.offset)
                     });
                 }
             case "rename":
@@ -28554,9 +28561,9 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     const x = arg;
                     return c.sendRequest("textDocument/rename", {
                         textDocument: {
-                            uri: $4a7c92c14df36848$var$fileToUri(x.file)
+                            uri: $9c69cf0119f8d160$var$fileToUri(x.file)
                         },
-                        position: $4a7c92c14df36848$var$toLspPosition(x.line, x.offset),
+                        position: $9c69cf0119f8d160$var$toLspPosition(x.line, x.offset),
                         newName: x.newName
                     });
                 }
@@ -28566,8 +28573,8 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                     return c.sendRequest("workspace/willRenameFiles", {
                         files: [
                             {
-                                oldUri: $4a7c92c14df36848$var$fileToUri(x.oldFilePath),
-                                newUri: $4a7c92c14df36848$var$fileToUri(x.newFilePath)
+                                oldUri: $9c69cf0119f8d160$var$fileToUri(x.oldFilePath),
+                                newUri: $9c69cf0119f8d160$var$fileToUri(x.newFilePath)
                             }
                         ]
                     });
@@ -28604,7 +28611,7 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
     }
     startServer() {
         if (window.atom_typescript_debug) console.log("starting", this.tsServerPath);
-        const cp = $4a7c92c14df36848$var$startServer(this.tsServerPath);
+        const cp = $9c69cf0119f8d160$var$startServer(this.tsServerPath);
         if (!cp) throw new Error("ChildProcess failed to start");
         const h = this.exitHandler;
         cp.once("error", h);
@@ -28619,9 +28626,9 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
         cp.stderr.on("data", (data)=>{
             console.warn("tsc --lsp stderr:", this.lastStderrOutput = data.toString());
         });
-        const connection = $1X1Jj$vscodejsonrpcnode.createMessageConnection(new $1X1Jj$vscodejsonrpcnode.StreamMessageReader(cp.stdout), new $1X1Jj$vscodejsonrpcnode.StreamMessageWriter(cp.stdin));
+        const connection = $lcjJR$vscodejsonrpcnode.createMessageConnection(new $lcjJR$vscodejsonrpcnode.StreamMessageReader(cp.stdout), new $lcjJR$vscodejsonrpcnode.StreamMessageWriter(cp.stdin));
         connection.onNotification("textDocument/publishDiagnostics", (params)=>{
-            const file = $4a7c92c14df36848$var$uriToFile(params.uri);
+            const file = $9c69cf0119f8d160$var$uriToFile(params.uri);
             const type = /tsconfig(\..+)?\.json$/.test(file) ? "configFileDiag" : "semanticDiag";
             this.emitter.emit(type, {
                 file: file,
@@ -28638,7 +28645,7 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                 codeAction: {
                     codeActionLiteralSupport: {
                         codeActionKind: {
-                            valueSet: Object.values((0, $183b3c4c81c7602a$export$c72b5966cfff6b4d))
+                            valueSet: Object.values((0, $2d87a0b8811f044c$export$c72b5966cfff6b4d))
                         }
                     },
                     resolveSupport: {
@@ -28677,21 +28684,21 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
                 }
             }
         };
-        const rootUri = $4a7c92c14df36848$var$fileToUri(this.projectRootPath);
+        const rootUri = $9c69cf0119f8d160$var$fileToUri(this.projectRootPath);
         this.initializePromise = connection.sendRequest("initialize", {
             processId: process.pid,
             rootUri: rootUri,
             workspaceFolders: [
                 {
                     uri: rootUri,
-                    name: $1X1Jj$path.basename(this.projectRootPath)
+                    name: $lcjJR$path.basename(this.projectRootPath)
                 }
             ],
             capabilities: capabilities
         }).then(()=>{
             connection.sendNotification("initialized", {});
         });
-        $4a7c92c14df36848$var$handlePromise(this.initializePromise);
+        $9c69cf0119f8d160$var$handlePromise(this.initializePromise);
         return cp;
     }
     constructor(tsServerPath, version, projectRootPath, reportBusyWhile){
@@ -28699,7 +28706,7 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
         this.version = version;
         this.projectRootPath = projectRootPath;
         this.reportBusyWhile = reportBusyWhile;
-        this.emitter = new (0, $1X1Jj$atom.Emitter)();
+        this.emitter = new (0, $lcjJR$atom.Emitter)();
         this.lastStderrOutput = "";
         this.openFileVersions = new Map();
         this.on = this.emitter.on.bind(this.emitter);
@@ -28721,24 +28728,24 @@ class $4a7c92c14df36848$export$21f68d6aa461e875 {
         this.server = this.startServer();
     }
 }
-function $4a7c92c14df36848$var$startServer(tsServerPath) {
+function $9c69cf0119f8d160$var$startServer(tsServerPath) {
     const tsServerArgs = [
         "--lsp",
         "--stdio"
     ];
-    if ($4a7c92c14df36848$var$INSPECT_TSSERVER) return new (0, $1X1Jj$atom.BufferedProcess)({
+    if ($9c69cf0119f8d160$var$INSPECT_TSSERVER) return new (0, $lcjJR$atom.BufferedProcess)({
         command: "node",
         args: [
             "--inspect",
             tsServerPath
         ].concat(tsServerArgs)
     }).process;
-    else return new (0, $1X1Jj$atom.BufferedNodeProcess)({
+    else return new (0, $lcjJR$atom.BufferedNodeProcess)({
         command: tsServerPath,
         args: tsServerArgs
     }).process;
 }
-function $4a7c92c14df36848$var$handlePromise(p) {
+function $9c69cf0119f8d160$var$handlePromise(p) {
     p.catch((e)=>console.error(e));
 }
 
@@ -28747,61 +28754,61 @@ function $4a7c92c14df36848$var$handlePromise(p) {
 
 
 
-var $0387e6bc2318deea$exports = {};
-var $6d25aed5ec4f8aa0$exports = {};
+var $84476365564edf82$exports = {};
+var $3c036fd97dc8e37c$exports = {};
 
 
-var $kVwso = parcelRequire("kVwso");
+var $fGb7i = parcelRequire("fGb7i");
 
 
-var $jni7p = parcelRequire("jni7p");
+var $e8sbp = parcelRequire("e8sbp");
 
-var $cneqJ = parcelRequire("cneqJ");
+var $4FLE4 = parcelRequire("4FLE4");
 
-var $kAfXv = parcelRequire("kAfXv");
+var $6ogy5 = parcelRequire("6ogy5");
 
-var $a8Rlb = parcelRequire("a8Rlb");
+var $5ZL5o = parcelRequire("5ZL5o");
 
-var $jksN6 = parcelRequire("jksN6");
+var $6e3Ld = parcelRequire("6e3Ld");
 
-var $crKCf = parcelRequire("crKCf");
-var $6d25aed5ec4f8aa0$var$realpathFS = process.platform !== 'win32' && $1X1Jj$fs.realpath && typeof $1X1Jj$fs.realpath.native === 'function' ? $1X1Jj$fs.realpath.native : $1X1Jj$fs.realpath;
-var $6d25aed5ec4f8aa0$var$relativePathRegex = /^(?:\.\.?(?:\/|$)|\/|([A-Za-z]:)?[/\\])/;
-var $6d25aed5ec4f8aa0$var$windowsDriveRegex = /^\w:[/\\]*$/;
-var $6d25aed5ec4f8aa0$var$nodeModulesRegex = /[/\\]node_modules[/\\]*$/;
-var $6d25aed5ec4f8aa0$var$homedir = $kVwso();
-function $6d25aed5ec4f8aa0$var$defaultPaths() {
-    if (!$6d25aed5ec4f8aa0$var$homedir) return [];
+var $fxFNb = parcelRequire("fxFNb");
+var $3c036fd97dc8e37c$var$realpathFS = process.platform !== 'win32' && $lcjJR$fs.realpath && typeof $lcjJR$fs.realpath.native === 'function' ? $lcjJR$fs.realpath.native : $lcjJR$fs.realpath;
+var $3c036fd97dc8e37c$var$relativePathRegex = /^(?:\.\.?(?:\/|$)|\/|([A-Za-z]:)?[/\\])/;
+var $3c036fd97dc8e37c$var$windowsDriveRegex = /^\w:[/\\]*$/;
+var $3c036fd97dc8e37c$var$nodeModulesRegex = /[/\\]node_modules[/\\]*$/;
+var $3c036fd97dc8e37c$var$homedir = $fGb7i();
+function $3c036fd97dc8e37c$var$defaultPaths() {
+    if (!$3c036fd97dc8e37c$var$homedir) return [];
     return [
-        $1X1Jj$path.join($6d25aed5ec4f8aa0$var$homedir, '.node_modules'),
-        $1X1Jj$path.join($6d25aed5ec4f8aa0$var$homedir, '.node_libraries')
+        $lcjJR$path.join($3c036fd97dc8e37c$var$homedir, '.node_modules'),
+        $lcjJR$path.join($3c036fd97dc8e37c$var$homedir, '.node_libraries')
     ];
 }
-var $6d25aed5ec4f8aa0$var$defaultIsFile = function isFile(file, cb) {
-    $1X1Jj$fs.stat(file, function(err, stat) {
+var $3c036fd97dc8e37c$var$defaultIsFile = function isFile(file, cb) {
+    $lcjJR$fs.stat(file, function(err, stat) {
         if (!err) return cb(null, stat.isFile() || stat.isFIFO());
         if (err.code === 'ENOENT' || err.code === 'ENOTDIR') return cb(null, false);
         return cb(err);
     });
 };
-var $6d25aed5ec4f8aa0$var$defaultIsDir = function isDirectory(dir, cb) {
-    $1X1Jj$fs.stat(dir, function(err, stat) {
+var $3c036fd97dc8e37c$var$defaultIsDir = function isDirectory(dir, cb) {
+    $lcjJR$fs.stat(dir, function(err, stat) {
         if (!err) return cb(null, stat.isDirectory());
         if (err.code === 'ENOENT' || err.code === 'ENOTDIR') return cb(null, false);
         return cb(err);
     });
 };
-var $6d25aed5ec4f8aa0$var$defaultRealpath = function realpath(x, cb) {
-    $6d25aed5ec4f8aa0$var$realpathFS(x, function(realpathErr, realPath) {
+var $3c036fd97dc8e37c$var$defaultRealpath = function realpath(x, cb) {
+    $3c036fd97dc8e37c$var$realpathFS(x, function(realpathErr, realPath) {
         if (realpathErr && realpathErr.code !== 'ENOENT') cb(realpathErr);
         else cb(null, realpathErr ? x : realPath);
     });
 };
-function $6d25aed5ec4f8aa0$var$maybeRealpath(realpath, x, opts, cb) {
+function $3c036fd97dc8e37c$var$maybeRealpath(realpath, x, opts, cb) {
     if (opts && opts.preserveSymlinks === false) realpath(x, cb);
     else cb(null, x);
 }
-function $6d25aed5ec4f8aa0$var$defaultReadPackage(readFile, pkgfile, cb) {
+function $3c036fd97dc8e37c$var$defaultReadPackage(readFile, pkgfile, cb) {
     readFile(pkgfile, function(readFileErr, body) {
         if (readFileErr) cb(readFileErr);
         else try {
@@ -28812,12 +28819,12 @@ function $6d25aed5ec4f8aa0$var$defaultReadPackage(readFile, pkgfile, cb) {
         }
     });
 }
-function $6d25aed5ec4f8aa0$var$getPackageCandidates(x, start, opts) {
-    var dirs = $cneqJ(start, opts, x);
-    for(var i = 0; i < dirs.length; i++)dirs[i] = $1X1Jj$path.join(dirs[i], x);
+function $3c036fd97dc8e37c$var$getPackageCandidates(x, start, opts) {
+    var dirs = $4FLE4(start, opts, x);
+    for(var i = 0; i < dirs.length; i++)dirs[i] = $lcjJR$path.join(dirs[i], x);
     return dirs;
 }
-$6d25aed5ec4f8aa0$exports = function resolve(x, options, callback) {
+$3c036fd97dc8e37c$exports = function resolve(x, options, callback) {
     var cb = callback;
     var opts = options;
     if (typeof options === 'function') {
@@ -28825,19 +28832,19 @@ $6d25aed5ec4f8aa0$exports = function resolve(x, options, callback) {
         opts = {};
     }
     if (typeof x !== 'string') {
-        var err = new $crKCf('Path must be a string.');
+        var err = new $fxFNb('Path must be a string.');
         return process.nextTick(function() {
             cb(err);
         });
     }
-    opts = $kAfXv(x, opts);
-    var isFile = opts.isFile || $6d25aed5ec4f8aa0$var$defaultIsFile;
-    var isDirectory = opts.isDirectory || $6d25aed5ec4f8aa0$var$defaultIsDir;
-    var readFile = opts.readFile || $1X1Jj$fs.readFile;
-    var realpath = opts.realpath || $6d25aed5ec4f8aa0$var$defaultRealpath;
-    var readPackage = opts.readPackage || $6d25aed5ec4f8aa0$var$defaultReadPackage;
+    opts = $6ogy5(x, opts);
+    var isFile = opts.isFile || $3c036fd97dc8e37c$var$defaultIsFile;
+    var isDirectory = opts.isDirectory || $3c036fd97dc8e37c$var$defaultIsDir;
+    var readFile = opts.readFile || $lcjJR$fs.readFile;
+    var realpath = opts.realpath || $3c036fd97dc8e37c$var$defaultRealpath;
+    var readPackage = opts.readPackage || $3c036fd97dc8e37c$var$defaultReadPackage;
     if (opts.readFile && opts.readPackage) {
-        var conflictErr = new $crKCf('`readFile` and `readPackage` are mutually exclusive.');
+        var conflictErr = new $fxFNb('`readFile` and `readPackage` are mutually exclusive.');
         return process.nextTick(function() {
             cb(conflictErr);
         });
@@ -28847,31 +28854,31 @@ $6d25aed5ec4f8aa0$exports = function resolve(x, options, callback) {
         '.js'
     ];
     var includeCoreModules = opts.includeCoreModules !== false;
-    var basedir = opts.basedir || $1X1Jj$path.dirname($jni7p());
+    var basedir = opts.basedir || $lcjJR$path.dirname($e8sbp());
     var parent = opts.filename || basedir;
-    opts.paths = opts.paths || $6d25aed5ec4f8aa0$var$defaultPaths();
+    opts.paths = opts.paths || $3c036fd97dc8e37c$var$defaultPaths();
     // ensure that `basedir` is an absolute path at this point, resolving against the process' current working directory
-    var absoluteStart = $1X1Jj$path.resolve(basedir);
-    $6d25aed5ec4f8aa0$var$maybeRealpath(realpath, absoluteStart, opts, function(err, realStart) {
+    var absoluteStart = $lcjJR$path.resolve(basedir);
+    $3c036fd97dc8e37c$var$maybeRealpath(realpath, absoluteStart, opts, function(err, realStart) {
         if (err) cb(err);
         else init(realStart);
     });
     var res;
     function init(basedir) {
-        if ($6d25aed5ec4f8aa0$var$relativePathRegex.test(x)) {
-            res = $1X1Jj$path.resolve(basedir, x);
+        if ($3c036fd97dc8e37c$var$relativePathRegex.test(x)) {
+            res = $lcjJR$path.resolve(basedir, x);
             if (x === '.' || x === '..' || x.slice(-1) === '/') res += '/';
             if (x.slice(-1) === '/' && res === basedir) loadAsDirectory(res, opts.package, onfile);
             else loadAsFile(res, opts.package, onfile);
-        } else if (includeCoreModules && $a8Rlb(x)) return cb(null, x);
+        } else if (includeCoreModules && $5ZL5o(x)) return cb(null, x);
         else loadNodeModules(x, basedir, function(err, n, pkg) {
             if (err) cb(err);
-            else if (n) return $6d25aed5ec4f8aa0$var$maybeRealpath(realpath, n, opts, function(err, realN) {
+            else if (n) return $3c036fd97dc8e37c$var$maybeRealpath(realpath, n, opts, function(err, realN) {
                 if (err) cb(err);
                 else cb(null, realN, pkg);
             });
             else {
-                var moduleError = new $jksN6("Cannot find module '" + x + "' from '" + parent + "'");
+                var moduleError = new $6e3Ld("Cannot find module '" + x + "' from '" + parent + "'");
                 moduleError.code = 'MODULE_NOT_FOUND';
                 cb(moduleError);
             }
@@ -28882,12 +28889,12 @@ $6d25aed5ec4f8aa0$exports = function resolve(x, options, callback) {
         else if (m) cb(null, m, pkg);
         else loadAsDirectory(res, function(err, d, pkg) {
             if (err) cb(err);
-            else if (d) $6d25aed5ec4f8aa0$var$maybeRealpath(realpath, d, opts, function(err, realD) {
+            else if (d) $3c036fd97dc8e37c$var$maybeRealpath(realpath, d, opts, function(err, realD) {
                 if (err) cb(err);
                 else cb(null, realD, pkg);
             });
             else {
-                var moduleError = new $jksN6("Cannot find module '" + x + "' from '" + parent + "'");
+                var moduleError = new $6e3Ld("Cannot find module '" + x + "' from '" + parent + "'");
                 moduleError.code = 'MODULE_NOT_FOUND';
                 cb(moduleError);
             }
@@ -28909,17 +28916,17 @@ $6d25aed5ec4f8aa0$exports = function resolve(x, options, callback) {
             var file = x + exts[0];
             var pkg = loadPackage;
             if (pkg) onpkg(null, pkg);
-            else loadpkg($1X1Jj$path.dirname(file), onpkg);
+            else loadpkg($lcjJR$path.dirname(file), onpkg);
             function onpkg(err, pkg_, dir) {
                 pkg = pkg_;
                 if (err) return cb(err);
                 if (dir && pkg && opts.pathFilter) {
-                    var rfile = $1X1Jj$path.relative(dir, file);
+                    var rfile = $lcjJR$path.relative(dir, file);
                     var rel = rfile.slice(0, rfile.length - exts[0].length);
                     var r = opts.pathFilter(pkg, x, rel);
                     if (r) return load([
                         ''
-                    ].concat(extensions), $1X1Jj$path.resolve(dir, r), pkg);
+                    ].concat(extensions), $lcjJR$path.resolve(dir, r), pkg);
                 }
                 isFile(file, onex);
             }
@@ -28932,14 +28939,14 @@ $6d25aed5ec4f8aa0$exports = function resolve(x, options, callback) {
     }
     function loadpkg(dir, cb) {
         if (dir === '' || dir === '/') return cb(null);
-        if (process.platform === 'win32' && $6d25aed5ec4f8aa0$var$windowsDriveRegex.test(dir)) return cb(null);
-        if ($6d25aed5ec4f8aa0$var$nodeModulesRegex.test(dir)) return cb(null);
-        $6d25aed5ec4f8aa0$var$maybeRealpath(realpath, dir, opts, function(unwrapErr, pkgdir) {
-            if (unwrapErr) return loadpkg($1X1Jj$path.dirname(dir), cb);
-            var pkgfile = $1X1Jj$path.join(pkgdir, 'package.json');
+        if (process.platform === 'win32' && $3c036fd97dc8e37c$var$windowsDriveRegex.test(dir)) return cb(null);
+        if ($3c036fd97dc8e37c$var$nodeModulesRegex.test(dir)) return cb(null);
+        $3c036fd97dc8e37c$var$maybeRealpath(realpath, dir, opts, function(unwrapErr, pkgdir) {
+            if (unwrapErr) return loadpkg($lcjJR$path.dirname(dir), cb);
+            var pkgfile = $lcjJR$path.join(pkgdir, 'package.json');
             isFile(pkgfile, function(err, ex) {
                 // on err, ex is false
-                if (!ex) return loadpkg($1X1Jj$path.dirname(dir), cb);
+                if (!ex) return loadpkg($lcjJR$path.dirname(dir), cb);
                 readPackage(readFile, pkgfile, function(err, pkgParam) {
                     if (err) return cb(err);
                     var pkg = pkgParam;
@@ -28956,37 +28963,37 @@ $6d25aed5ec4f8aa0$exports = function resolve(x, options, callback) {
             cb = fpkg;
             fpkg = opts.package;
         }
-        $6d25aed5ec4f8aa0$var$maybeRealpath(realpath, x, opts, function(unwrapErr, pkgdir) {
+        $3c036fd97dc8e37c$var$maybeRealpath(realpath, x, opts, function(unwrapErr, pkgdir) {
             if (unwrapErr) return cb(unwrapErr);
-            var pkgfile = $1X1Jj$path.join(pkgdir, 'package.json');
+            var pkgfile = $lcjJR$path.join(pkgdir, 'package.json');
             isFile(pkgfile, function(err, ex) {
                 if (err) return cb(err);
-                if (!ex) return loadAsFile($1X1Jj$path.join(x, 'index'), fpkg, cb);
+                if (!ex) return loadAsFile($lcjJR$path.join(x, 'index'), fpkg, cb);
                 readPackage(readFile, pkgfile, function(err, pkgParam) {
                     if (err) return cb(err);
                     var pkg = pkgParam;
                     if (pkg && opts.packageFilter) pkg = opts.packageFilter(pkg, pkgfile);
                     if (pkg && pkg.main) {
                         if (typeof pkg.main !== 'string') {
-                            var mainError = new $crKCf("package \u201C" + pkg.name + "\u201D `main` must be a string");
+                            var mainError = new $fxFNb("package \u201C" + pkg.name + "\u201D `main` must be a string");
                             mainError.code = 'INVALID_PACKAGE_MAIN';
                             return cb(mainError);
                         }
                         if (pkg.main === '.' || pkg.main === './') pkg.main = 'index';
-                        loadAsFile($1X1Jj$path.resolve(x, pkg.main), pkg, function(err, m, pkg) {
+                        loadAsFile($lcjJR$path.resolve(x, pkg.main), pkg, function(err, m, pkg) {
                             if (err) return cb(err);
                             if (m) return cb(null, m, pkg);
-                            if (!pkg) return loadAsFile($1X1Jj$path.join(x, 'index'), pkg, cb);
-                            var dir = $1X1Jj$path.resolve(x, pkg.main);
+                            if (!pkg) return loadAsFile($lcjJR$path.join(x, 'index'), pkg, cb);
+                            var dir = $lcjJR$path.resolve(x, pkg.main);
                             loadAsDirectory(dir, pkg, function(err, n, pkg) {
                                 if (err) return cb(err);
                                 if (n) return cb(null, n, pkg);
-                                loadAsFile($1X1Jj$path.join(x, 'index'), pkg, cb);
+                                loadAsFile($lcjJR$path.join(x, 'index'), pkg, cb);
                             });
                         });
                         return;
                     }
-                    loadAsFile($1X1Jj$path.join(x, '/index'), pkg, cb);
+                    loadAsFile($lcjJR$path.join(x, '/index'), pkg, cb);
                 });
             });
         });
@@ -28994,7 +29001,7 @@ $6d25aed5ec4f8aa0$exports = function resolve(x, options, callback) {
     function processDirs(cb, dirs) {
         if (dirs.length === 0) return cb(null, undefined);
         var dir = dirs[0];
-        isDirectory($1X1Jj$path.dirname(dir), isdir);
+        isDirectory($lcjJR$path.dirname(dir), isdir);
         function isdir(err, isdir) {
             if (err) return cb(err);
             if (!isdir) return processDirs(cb, dirs.slice(1));
@@ -29013,7 +29020,7 @@ $6d25aed5ec4f8aa0$exports = function resolve(x, options, callback) {
     }
     function loadNodeModules(x, start, cb) {
         var thunk = function() {
-            return $6d25aed5ec4f8aa0$var$getPackageCandidates(x, start, opts);
+            return $3c036fd97dc8e37c$var$getPackageCandidates(x, start, opts);
         };
         processDirs(cb, packageIterator ? packageIterator(x, start, thunk, opts) : thunk());
     }
@@ -29021,82 +29028,86 @@ $6d25aed5ec4f8aa0$exports = function resolve(x, options, callback) {
 
 
 
-$6d25aed5ec4f8aa0$exports.core = (parcelRequire("aPK9d"));
+$3c036fd97dc8e37c$exports.core = (parcelRequire("39hpt"));
 
-$6d25aed5ec4f8aa0$exports.isCore = (parcelRequire("2R3Wg"));
+$3c036fd97dc8e37c$exports.isCore = (parcelRequire("bYC0d"));
 
-$6d25aed5ec4f8aa0$exports.sync = (parcelRequire("fwJbw"));
-$0387e6bc2318deea$exports = $6d25aed5ec4f8aa0$exports;
+$3c036fd97dc8e37c$exports.sync = (parcelRequire("1WnoS"));
+$84476365564edf82$exports = $3c036fd97dc8e37c$exports;
 
 
 
-var $5687b95b3c956613$var$$parcel$__dirname = $1X1Jj$path.resolve(__dirname, "../lib/client");
-async function $5687b95b3c956613$export$369fb36245591db0(sourcePath) {
+var $b9d01e6e14801847$var$$parcel$__dirname = $lcjJR$path.resolve(__dirname, "../lib/client");
+async function $b9d01e6e14801847$export$369fb36245591db0(sourcePath) {
     var _pkg_bin;
     const { NODE_PATH: NODE_PATH } = process.env;
-    const resolvedPath = await $5687b95b3c956613$var$resolveModule("typescript/package.json", {
-        basedir: $1X1Jj$path.dirname(sourcePath),
-        paths: NODE_PATH !== undefined ? NODE_PATH.split($1X1Jj$path.delimiter) : undefined
+    const resolvedPath = await $b9d01e6e14801847$var$resolveModule("typescript/package.json", {
+        basedir: $lcjJR$path.dirname(sourcePath),
+        paths: NODE_PATH !== undefined ? NODE_PATH.split($lcjJR$path.delimiter) : undefined
     }).catch(async ()=>{
         // try to get typescript from auxiliary config file
-        const auxTsdkPath = await $5687b95b3c956613$var$getSDKPath($1X1Jj$path.dirname(sourcePath));
+        const auxTsdkPath = await $b9d01e6e14801847$var$getSDKPath($lcjJR$path.dirname(sourcePath));
         if (auxTsdkPath !== undefined) {
-            const pkgPath = $1X1Jj$path.join(auxTsdkPath, "package.json");
-            const exists = await $5687b95b3c956613$var$fsExists(pkgPath);
+            const pkgPath = $lcjJR$path.join(auxTsdkPath, "package.json");
+            const exists = await $b9d01e6e14801847$var$fsExists(pkgPath);
             if (exists) return pkgPath;
         }
         // try to get typescript from configured tsdkPath
         const tsdkPath = atom.config.get("pulsar-typescript.tsdkPath");
         if (tsdkPath) {
-            const pkgPath = $1X1Jj$path.join(tsdkPath, "package.json");
-            const exists = await $5687b95b3c956613$var$fsExists(pkgPath);
+            const pkgPath = $lcjJR$path.join(tsdkPath, "package.json");
+            const exists = await $b9d01e6e14801847$var$fsExists(pkgPath);
             if (exists) return pkgPath;
         }
-        // use bundled version
-        return $5687b95b3c956613$var$resolveModule("typescript/package.json", {
-            basedir: $5687b95b3c956613$var$$parcel$__dirname
+        // use bundled version. Our own dependency is aliased to "@typescript/native" (not the
+        // plain "typescript" name) so that our devDependencies can use the plain name for a
+        // classic-API TypeScript 6 build instead, which tooling that still needs
+        // ts.createProgram/ts.transpileModule (ESLint's typescript-eslint, ts-node) requires --
+        // TypeScript 7's own package no longer exports that API at all. See AGENTS.md.
+        return $b9d01e6e14801847$var$resolveModule("@typescript/native/package.json", {
+            basedir: $b9d01e6e14801847$var$$parcel$__dirname
         });
     });
-    const pkg = JSON.parse(await $5687b95b3c956613$var$fsReadFile(resolvedPath));
-    const packageDir = $1X1Jj$path.dirname(resolvedPath);
+    const pkg = JSON.parse(await $b9d01e6e14801847$var$fsReadFile(resolvedPath));
+    const packageDir = $lcjJR$path.dirname(resolvedPath);
     var _pkg_bin_tsc;
     const binRelPath = (_pkg_bin_tsc = (_pkg_bin = pkg.bin) === null || _pkg_bin === void 0 ? void 0 : _pkg_bin.tsc) !== null && _pkg_bin_tsc !== void 0 ? _pkg_bin_tsc : "bin/tsc";
     return {
         version: pkg.version,
-        pathToBin: $1X1Jj$path.join(packageDir, binRelPath)
+        pathToBin: $lcjJR$path.join(packageDir, binRelPath)
     };
 }
 // Promisify the async resolve function
-async function $5687b95b3c956613$var$resolveModule(id, opts) {
-    return new Promise((resolve, reject)=>(0, (/*@__PURE__*/$parcel$interopDefault($0387e6bc2318deea$exports)))(id, opts, (err, result)=>{
+async function $b9d01e6e14801847$var$resolveModule(id, opts) {
+    return new Promise((resolve, reject)=>(0, (/*@__PURE__*/$parcel$interopDefault($84476365564edf82$exports)))(id, opts, (err, result)=>{
             if (err) reject(err);
             else if (result === undefined) reject(new Error("Module path is undefined"));
             else resolve(result);
         }));
 }
-async function $5687b95b3c956613$var$fsExists(p) {
-    return new Promise((resolve)=>$1X1Jj$fs.access(p, $1X1Jj$fs.constants.F_OK, (err)=>{
+async function $b9d01e6e14801847$var$fsExists(p) {
+    return new Promise((resolve)=>$lcjJR$fs.access(p, $lcjJR$fs.constants.F_OK, (err)=>{
             if (err) resolve(false);
             else resolve(true);
         }));
 }
-async function $5687b95b3c956613$var$fsReadFile(p) {
-    return new Promise((resolve, reject)=>$1X1Jj$fs.readFile(p, (error, data)=>{
+async function $b9d01e6e14801847$var$fsReadFile(p) {
+    return new Promise((resolve, reject)=>$lcjJR$fs.readFile(p, (error, data)=>{
             if (error) reject(error);
             else resolve(data.toString("utf-8"));
         }));
 }
-async function $5687b95b3c956613$var$tryConfigFiles(basedir, relpaths) {
+async function $b9d01e6e14801847$var$tryConfigFiles(basedir, relpaths) {
     for (const relpath of relpaths){
-        const configFile = $1X1Jj$path.join(basedir, ...relpath);
-        if (await $5687b95b3c956613$var$fsExists(configFile)) return configFile;
+        const configFile = $lcjJR$path.join(basedir, ...relpath);
+        if (await $b9d01e6e14801847$var$fsExists(configFile)) return configFile;
     }
 }
-async function $5687b95b3c956613$var$resolveConfigFile(initialBaseDir) {
+async function $b9d01e6e14801847$var$resolveConfigFile(initialBaseDir) {
     let basedir = initialBaseDir;
-    let parent = $1X1Jj$path.dirname(basedir);
+    let parent = $lcjJR$path.dirname(basedir);
     while(basedir !== parent){
-        const configFile = await $5687b95b3c956613$var$tryConfigFiles(basedir, [
+        const configFile = await $b9d01e6e14801847$var$tryConfigFiles(basedir, [
             [
                 ".atom-typescript.json"
             ],
@@ -29114,46 +29125,46 @@ async function $5687b95b3c956613$var$resolveConfigFile(initialBaseDir) {
             configFile: configFile
         };
         basedir = parent;
-        parent = $1X1Jj$path.dirname(basedir);
+        parent = $lcjJR$path.dirname(basedir);
     }
 }
-function $5687b95b3c956613$var$isConfigObject(x) {
+function $b9d01e6e14801847$var$isConfigObject(x) {
     // tslint:disable-next-line: no-unsafe-any
     return typeof x === "object" && x !== null && typeof x.tsdkPath === "string";
 }
-function $5687b95b3c956613$var$isVSCodeConfigObject(x) {
+function $b9d01e6e14801847$var$isVSCodeConfigObject(x) {
     // tslint:disable-next-line: no-unsafe-any
     return typeof x === "object" && x !== null && typeof x["typescript.tsdk"] === "string";
 }
-async function $5687b95b3c956613$var$getSDKPath(dirname) {
-    const configFile = await $5687b95b3c956613$var$resolveConfigFile(dirname);
+async function $b9d01e6e14801847$var$getSDKPath(dirname) {
+    const configFile = await $b9d01e6e14801847$var$resolveConfigFile(dirname);
     if (configFile) try {
-        const configFileContents = $fe8a0235349f0bef$export$98e6a39c04603d36(await $5687b95b3c956613$var$fsReadFile(configFile.configFile));
+        const configFileContents = $23249d36e3d1b346$export$98e6a39c04603d36(await $b9d01e6e14801847$var$fsReadFile(configFile.configFile));
         let tsdkPath;
-        if ($5687b95b3c956613$var$isConfigObject(configFileContents)) tsdkPath = configFileContents.tsdkPath;
-        else if ($5687b95b3c956613$var$isVSCodeConfigObject(configFileContents)) // NOTE: VSCode asks for path to "typescript/lib", while
+        if ($b9d01e6e14801847$var$isConfigObject(configFileContents)) tsdkPath = configFileContents.tsdkPath;
+        else if ($b9d01e6e14801847$var$isVSCodeConfigObject(configFileContents)) // NOTE: VSCode asks for path to "typescript/lib", while
         // we only want path to "typescript". Hence the dirname here
-        tsdkPath = $1X1Jj$path.dirname(configFileContents["typescript.tsdk"]);
+        tsdkPath = $lcjJR$path.dirname(configFileContents["typescript.tsdk"]);
         else return undefined;
-        return $1X1Jj$path.isAbsolute(tsdkPath) ? tsdkPath : $1X1Jj$path.join(configFile.basedir, tsdkPath);
+        return $lcjJR$path.isAbsolute(tsdkPath) ? tsdkPath : $lcjJR$path.join(configFile.basedir, tsdkPath);
     } catch (e) {
         console.warn(e);
     }
 }
-async function $5687b95b3c956613$export$c406ae411cd6ed11(fromPath) {
-    let dir = $1X1Jj$path.dirname(fromPath);
-    let parent = $1X1Jj$path.dirname(dir);
+async function $b9d01e6e14801847$export$c406ae411cd6ed11(fromPath) {
+    let dir = $lcjJR$path.dirname(fromPath);
+    let parent = $lcjJR$path.dirname(dir);
     for(;;){
-        const candidate = $1X1Jj$path.join(dir, "tsconfig.json");
-        if (await $5687b95b3c956613$var$fsExists(candidate)) return candidate;
+        const candidate = $lcjJR$path.join(dir, "tsconfig.json");
+        if (await $b9d01e6e14801847$var$fsExists(candidate)) return candidate;
         if (dir === parent) return undefined;
         dir = parent;
-        parent = $1X1Jj$path.dirname(dir);
+        parent = $lcjJR$path.dirname(dir);
     }
 }
 
 
-class $5f392212ffd20e34$export$dceb19333e080e82 {
+class $b3885ebd40390e21$export$dceb19333e080e82 {
     async restartAllServers() {
         await this.reportBusyWhile("Restarting servers", ()=>Promise.all(Array.from(this.getAllClients()).map((client)=>client.restartServer())));
     }
@@ -29173,14 +29184,14 @@ class $5f392212ffd20e34$export$dceb19333e080e82 {
         this.emitter.dispose();
         this.subscriptions.dispose();
         this.memoizedClients.clear();
-        for (const tsconfigMap of this.clients.values())for (const client of tsconfigMap.values())(0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(client.destroy());
+        for (const tsconfigMap of this.clients.values())for (const client of tsconfigMap.values())(0, $8012570b1032009f$export$8080b7556d9d6445)(client.destroy());
         this.clients.clear();
     }
     async _get(pFilePath) {
-        const { pathToBin: pathToBin, version: version } = await (0, $5687b95b3c956613$export$369fb36245591db0)(pFilePath);
-        const configFile = await (0, $5687b95b3c956613$export$c406ae411cd6ed11)(pFilePath);
+        const { pathToBin: pathToBin, version: version } = await (0, $b9d01e6e14801847$export$369fb36245591db0)(pFilePath);
+        const configFile = await (0, $b9d01e6e14801847$export$c406ae411cd6ed11)(pFilePath);
         const tsconfigPath = this.tsserverInstancePerTsconfig ? configFile : undefined;
-        const projectRootPath = configFile !== undefined ? $1X1Jj$path.dirname(configFile) : $1X1Jj$path.dirname(pFilePath);
+        const projectRootPath = configFile !== undefined ? $lcjJR$path.dirname(configFile) : $lcjJR$path.dirname(pFilePath);
         let tsconfigMap = this.clients.get(pathToBin);
         if (!tsconfigMap) {
             tsconfigMap = new Map();
@@ -29188,7 +29199,7 @@ class $5f392212ffd20e34$export$dceb19333e080e82 {
         }
         const client = tsconfigMap.get(tsconfigPath);
         if (client) return client;
-        const newClient = new (0, $4a7c92c14df36848$export$21f68d6aa461e875)(pathToBin, version, projectRootPath, this.reportBusyWhile);
+        const newClient = new (0, $9c69cf0119f8d160$export$21f68d6aa461e875)(pathToBin, version, projectRootPath, this.reportBusyWhile);
         tsconfigMap.set(tsconfigPath, newClient);
         this.subscriptions.add(newClient.on("configFileDiag", this.diagnosticHandler(pathToBin, "configFileDiag")), newClient.on("semanticDiag", this.diagnosticHandler(pathToBin, "semanticDiag")));
         return newClient;
@@ -29200,8 +29211,8 @@ class $5f392212ffd20e34$export$dceb19333e080e82 {
         this.reportBusyWhile = reportBusyWhile;
         this.clients = new Map();
         this.memoizedClients = new Map();
-        this.emitter = new (0, $1X1Jj$atom.Emitter)();
-        this.subscriptions = new (0, $1X1Jj$atom.CompositeDisposable)();
+        this.emitter = new (0, $lcjJR$atom.Emitter)();
+        this.subscriptions = new (0, $lcjJR$atom.CompositeDisposable)();
         this.tsserverInstancePerTsconfig = atom.config.get("pulsar-typescript").tsserverInstancePerTsconfig;
         this.on = this.emitter.on.bind(this.emitter);
         this.diagnosticHandler = (serverPath, type)=>(result)=>{
@@ -29209,12 +29220,12 @@ class $5f392212ffd20e34$export$dceb19333e080e82 {
                     type: type,
                     serverPath: serverPath,
                     filePath: result.file,
-                    diagnostics: result.diagnostics.map($5f392212ffd20e34$export$86a7bc986767920e)
+                    diagnostics: result.diagnostics.map($b3885ebd40390e21$export$86a7bc986767920e)
                 });
             };
     }
 }
-function $5f392212ffd20e34$export$86a7bc986767920e(d) {
+function $b3885ebd40390e21$export$86a7bc986767920e(d) {
     var _d_tags;
     return {
         start: {
@@ -29225,19 +29236,19 @@ function $5f392212ffd20e34$export$86a7bc986767920e(d) {
             line: d.range.end.line + 1,
             offset: d.range.end.character + 1
         },
-        text: (0, $183b3c4c81c7602a$export$6417026a741ff332)(d.message),
+        text: (0, $2d87a0b8811f044c$export$6417026a741ff332)(d.message),
         code: d.code,
-        category: $5f392212ffd20e34$export$26585ee57c79c006(d.severity),
-        reportsUnnecessary: (_d_tags = d.tags) === null || _d_tags === void 0 ? void 0 : _d_tags.includes((0, $183b3c4c81c7602a$export$fc0ebc405f150601).Unnecessary)
+        category: $b3885ebd40390e21$export$26585ee57c79c006(d.severity),
+        reportsUnnecessary: (_d_tags = d.tags) === null || _d_tags === void 0 ? void 0 : _d_tags.includes((0, $2d87a0b8811f044c$export$fc0ebc405f150601).Unnecessary)
     };
 }
-function $5f392212ffd20e34$export$26585ee57c79c006(severity) {
+function $b3885ebd40390e21$export$26585ee57c79c006(severity) {
     switch(severity){
-        case (0, $183b3c4c81c7602a$export$17cc9a96eb54616f).Error:
+        case (0, $2d87a0b8811f044c$export$17cc9a96eb54616f).Error:
             return "error";
-        case (0, $183b3c4c81c7602a$export$17cc9a96eb54616f).Warning:
+        case (0, $2d87a0b8811f044c$export$17cc9a96eb54616f).Warning:
             return "warning";
-        case (0, $183b3c4c81c7602a$export$17cc9a96eb54616f).Hint:
+        case (0, $2d87a0b8811f044c$export$17cc9a96eb54616f).Hint:
             return "suggestion";
         default:
             return "message";
@@ -29251,9 +29262,9 @@ function $5f392212ffd20e34$export$26585ee57c79c006(severity) {
 
 
 
-function $0ee6e96085f8b61e$export$d21c11139c8fe8ee(codefixProvider) {
+function $877e44c313da3a80$export$d21c11139c8fe8ee(codefixProvider) {
     return {
-        grammarScopes: (0, $28d5dfd6d6bf53fa$export$d9994fe0923974a5)(),
+        grammarScopes: (0, $6f0bc47c7fee627c$export$d9994fe0923974a5)(),
         priority: 0,
         async getCodeActions (textEditor, range) {
             return (await codefixProvider.runCodeFix(textEditor, range.start)).map((fix)=>({
@@ -29269,27 +29280,27 @@ function $0ee6e96085f8b61e$export$d21c11139c8fe8ee(codefixProvider) {
 
 
 
-function $85451aa460d080e4$export$6413bc8b6e281ffa(getClient) {
+function $d7f83046f837bd80$export$6413bc8b6e281ffa(getClient) {
     return {
-        grammarScopes: (0, $28d5dfd6d6bf53fa$export$d9994fe0923974a5)(),
+        grammarScopes: (0, $6f0bc47c7fee627c$export$d9994fe0923974a5)(),
         priority: 100,
         async highlight (editor, position) {
-            if (!(0, $28d5dfd6d6bf53fa$export$3aecee58e23ede2c)(editor)) return;
-            const location = (0, $28d5dfd6d6bf53fa$export$f25e34a2b31a939c)(editor, position);
+            if (!(0, $6f0bc47c7fee627c$export$3aecee58e23ede2c)(editor)) return;
+            const location = (0, $6f0bc47c7fee627c$export$f25e34a2b31a939c)(editor, position);
             if (!location) return;
             const client = await getClient(location.file);
             const result = await client.execute("documentHighlights", location);
             if (!result) return;
-            return result.map((hl)=>(0, $a27d0d73386d53b8$export$9ad169abcb1fbc48)(hl.range));
+            return result.map((hl)=>(0, $2196ddae34004bed$export$9ad169abcb1fbc48)(hl.range));
         }
     };
 }
 
 
 
-async function $6dd6dbad8ece01e1$export$2c9a28f937ef04fb(hover, etch1, codeRenderer) {
+async function $1c5f37451923ba5a$export$2c9a28f937ef04fb(hover, etch1, codeRenderer) {
     if (hover === undefined) return null;
-    const text = $6dd6dbad8ece01e1$var$hoverContentsToString(hover.contents);
+    const text = $1c5f37451923ba5a$var$hoverContentsToString(hover.contents);
     const newlineIdx = text.indexOf("\n");
     const code = newlineIdx === -1 ? text : text.slice(0, newlineIdx);
     const rest = newlineIdx === -1 ? "" : text.slice(newlineIdx + 1).trim();
@@ -29301,7 +29312,7 @@ async function $6dd6dbad8ece01e1$export$2c9a28f937ef04fb(hover, etch1, codeRende
         docs
     ].filter((x)=>x !== undefined);
 }
-function $6dd6dbad8ece01e1$var$hoverContentsToString(contents) {
+function $1c5f37451923ba5a$var$hoverContentsToString(contents) {
     if (typeof contents === "string") return contents;
     if (Array.isArray(contents)) return contents.map((c)=>typeof c === "string" ? c : c.value).join("\n\n");
     return contents.value;
@@ -29310,11 +29321,11 @@ function $6dd6dbad8ece01e1$var$hoverContentsToString(contents) {
 
 
 // Note: a horrible hack to avoid dependency on React
-const $cd10f978cc135454$var$REACT_ELEMENT_SYMBOL = Symbol.for("react.element");
-const $cd10f978cc135454$var$etch = {
+const $6093dabc0d97121a$var$REACT_ELEMENT_SYMBOL = Symbol.for("react.element");
+const $6093dabc0d97121a$var$etch = {
     dom (type, props, ...children) {
         if (children.length > 0) return {
-            $$typeof: $cd10f978cc135454$var$REACT_ELEMENT_SYMBOL,
+            $$typeof: $6093dabc0d97121a$var$REACT_ELEMENT_SYMBOL,
             type: type,
             ref: null,
             props: {
@@ -29323,7 +29334,7 @@ const $cd10f978cc135454$var$etch = {
             }
         };
         else return {
-            $$typeof: $cd10f978cc135454$var$REACT_ELEMENT_SYMBOL,
+            $$typeof: $6093dabc0d97121a$var$REACT_ELEMENT_SYMBOL,
             type: type,
             ref: null,
             props: {
@@ -29332,7 +29343,7 @@ const $cd10f978cc135454$var$etch = {
         };
     }
 };
-class $cd10f978cc135454$export$62181cd26290fa50 {
+class $6093dabc0d97121a$export$62181cd26290fa50 {
     async datatip(editor, bufferPt) {
         try {
             const filePath = editor.getPath();
@@ -29344,12 +29355,12 @@ class $cd10f978cc135454$export$62181cd26290fa50 {
                 offset: bufferPt.column + 1
             });
             if (!data) return;
-            const tooltip = await (0, $6dd6dbad8ece01e1$export$2c9a28f937ef04fb)(data, $cd10f978cc135454$var$etch, $cd10f978cc135454$var$highlightCode);
+            const tooltip = await (0, $1c5f37451923ba5a$export$2c9a28f937ef04fb)(data, $6093dabc0d97121a$var$etch, $6093dabc0d97121a$var$highlightCode);
             return {
-                component: ()=>/*#__PURE__*/ $cd10f978cc135454$var$etch.dom("div", {
+                component: ()=>/*#__PURE__*/ $6093dabc0d97121a$var$etch.dom("div", {
                         className: "atom-typescript-datatip-tooltip"
                     }, tooltip),
-                range: data.range ? (0, $a27d0d73386d53b8$export$9ad169abcb1fbc48)(data.range) : $1X1Jj$atom.Range.fromObject([
+                range: data.range ? (0, $2196ddae34004bed$export$9ad169abcb1fbc48)(data.range) : $lcjJR$atom.Range.fromObject([
                     bufferPt,
                     bufferPt
                 ])
@@ -29362,13 +29373,13 @@ class $cd10f978cc135454$export$62181cd26290fa50 {
         this.getClient = getClient;
         this.providerName = "TypeScript type tooltips";
         this.priority = 100;
-        this.grammarScopes = (0, $28d5dfd6d6bf53fa$export$d9994fe0923974a5)();
+        this.grammarScopes = (0, $6f0bc47c7fee627c$export$d9994fe0923974a5)();
     }
 }
-async function $cd10f978cc135454$var$highlightCode(code) {
+async function $6093dabc0d97121a$var$highlightCode(code) {
     const fontFamily = atom.config.get("editor.fontFamily");
-    const html = await (0, $2390352c05631840$export$e4043f67d36cbb26)(code.replace(/\r?\n$/, ""), "source.ts");
-    return /*#__PURE__*/ $cd10f978cc135454$var$etch.dom("div", {
+    const html = await (0, $54310bcaa9a7e4ec$export$e4043f67d36cbb26)(code.replace(/\r?\n$/, ""), "source.ts");
+    return /*#__PURE__*/ $6093dabc0d97121a$var$etch.dom("div", {
         style: {
             fontFamily: fontFamily
         },
@@ -29381,19 +29392,19 @@ async function $cd10f978cc135454$var$highlightCode(code) {
 
 
 
-function $ca71c942c67944dd$export$a9ca9b3a8941e92e(getClient) {
+function $759a84f594b461fd$export$a9ca9b3a8941e92e(getClient) {
     return {
         name: "pulsar-typescript",
         priority: 0,
-        grammarScopes: (0, $28d5dfd6d6bf53fa$export$d9994fe0923974a5)(),
+        grammarScopes: (0, $6f0bc47c7fee627c$export$d9994fe0923974a5)(),
         wordRegExp: /([A-Za-z0-9_])+|['"`](\\.|[^'"`\\\\])*['"`]/g,
         async getDefinition (editor, position) {
-            if (!(0, $28d5dfd6d6bf53fa$export$3aecee58e23ede2c)(editor)) return;
-            const location = (0, $28d5dfd6d6bf53fa$export$f25e34a2b31a939c)(editor, position);
+            if (!(0, $6f0bc47c7fee627c$export$3aecee58e23ede2c)(editor)) return;
+            const location = (0, $6f0bc47c7fee627c$export$f25e34a2b31a939c)(editor, position);
             if (!location) return;
             const client = await getClient(location.file);
             const result = await client.execute("definition", location);
-            const locations = (0, $a27d0d73386d53b8$export$210060adb63ee720)(result);
+            const locations = (0, $2196ddae34004bed$export$210060adb63ee720)(result);
             if (locations.length === 0) return;
             return {
                 queryRange: undefined,
@@ -29410,13 +29421,13 @@ function $ca71c942c67944dd$export$a9ca9b3a8941e92e(getClient) {
 
 
 
-function $16d79b62f0f78d88$export$b797847259776697(getClient) {
+function $6a907d4d2a2cea32$export$b797847259776697(getClient) {
     return {
         async isEditorSupported (editor) {
-            return (0, $28d5dfd6d6bf53fa$export$3aecee58e23ede2c)(editor);
+            return (0, $6f0bc47c7fee627c$export$3aecee58e23ede2c)(editor);
         },
         async findReferences (editor, position) {
-            const location = (0, $28d5dfd6d6bf53fa$export$f25e34a2b31a939c)(editor, position);
+            const location = (0, $6f0bc47c7fee627c$export$f25e34a2b31a939c)(editor, position);
             if (!location) return;
             const client = await getClient(location.file);
             const result = await client.execute("references", location);
@@ -29425,38 +29436,38 @@ function $16d79b62f0f78d88$export$b797847259776697(getClient) {
                 type: "data",
                 baseUri: location.file,
                 referencedSymbolName: "",
-                references: result.map($16d79b62f0f78d88$var$refToIde)
+                references: result.map($6a907d4d2a2cea32$var$refToIde)
             };
         }
     };
 }
-function $16d79b62f0f78d88$var$refToIde(ref) {
+function $6a907d4d2a2cea32$var$refToIde(ref) {
     return {
         uri: new URL(ref.uri).pathname,
-        range: (0, $a27d0d73386d53b8$export$9ad169abcb1fbc48)(ref.range),
+        range: (0, $2196ddae34004bed$export$9ad169abcb1fbc48)(ref.range),
         name: undefined
     };
 }
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
 
-var $f0CHF = parcelRequire("f0CHF");
-class $9ace8d94e48cf69a$export$275be3d1a3f62fb {
+var $eusZd = parcelRequire("eusZd");
+class $cc606b08c4447aa7$export$275be3d1a3f62fb {
     async update(props) {
         this.props = {
             ...this.props,
             ...props
         };
-        return $f0CHF.update(this);
+        return $eusZd.update(this);
     }
     render() {
         const style = {
             fontFamily: atom.config.get("editor.fontFamily")
         };
-        return /*#__PURE__*/ $f0CHF.dom("div", {
+        return /*#__PURE__*/ $eusZd.dom("div", {
             className: "editor editor-colors",
             style: style,
             innerHTML: this.props.highlightedText
@@ -29464,35 +29475,35 @@ class $9ace8d94e48cf69a$export$275be3d1a3f62fb {
     }
     constructor(props){
         this.props = props;
-        $f0CHF.initialize(this);
+        $eusZd.initialize(this);
     }
 }
 
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
-var $fhqqk = parcelRequire("fhqqk");
-class $1416f97a12fa3d16$export$31d5f5740e2c2887 {
+var $8rpIb = parcelRequire("8rpIb");
+class $1e48cc0040983839$export$31d5f5740e2c2887 {
     async update(props) {
         this.props = {
             ...this.props,
             ...props
         };
         this.matches = this.match(this.props);
-        await $f0CHF.update(this);
+        await $eusZd.update(this);
     }
     async destroy() {
-        await $f0CHF.destroy(this);
+        await $eusZd.destroy(this);
     }
     render() {
-        return /*#__PURE__*/ $f0CHF.dom("span", null, this.matches.map((m)=>/*#__PURE__*/ $f0CHF.dom("span", {
+        return /*#__PURE__*/ $eusZd.dom("span", null, this.matches.map((m)=>/*#__PURE__*/ $eusZd.dom("span", {
                 className: m.type
             }, m.text)));
     }
     match(props) {
-        if (props.query) return $1416f97a12fa3d16$export$d775a8cf3adcd3a0(props.label, props.query);
+        if (props.query) return $1e48cc0040983839$export$d775a8cf3adcd3a0(props.label, props.query);
         return [
             {
                 text: props.label
@@ -29502,15 +29513,15 @@ class $1416f97a12fa3d16$export$31d5f5740e2c2887 {
     constructor(props){
         this.props = props;
         this.matches = this.match(this.props);
-        $f0CHF.initialize(this);
+        $eusZd.initialize(this);
     }
 }
-function $1416f97a12fa3d16$export$d775a8cf3adcd3a0(name, query) {
+function $1e48cc0040983839$export$d775a8cf3adcd3a0(name, query) {
     let lastIndex = 0;
     let matchedChars = [] // Build up a set of matched chars to be more semantic
     ;
     const queryMatches = [];
-    const matches = (0, $fhqqk.match)(name, query);
+    const matches = (0, $8rpIb.match)(name, query);
     let matchIndex;
     for (matchIndex of matches){
         if (matchIndex < 0) continue; // If marking up the basename, omit name matches
@@ -29540,29 +29551,29 @@ function $1416f97a12fa3d16$export$d775a8cf3adcd3a0(name, query) {
 }
 
 
-var $c2878eeb9072f56a$exports = {};
+var $9ca7d6c6df481c90$exports = {};
 "use strict";
-var $c2878eeb9072f56a$var$__importDefault = $c2878eeb9072f56a$exports && $c2878eeb9072f56a$exports.__importDefault || function(mod) {
+var $9ca7d6c6df481c90$var$__importDefault = $9ca7d6c6df481c90$exports && $9ca7d6c6df481c90$exports.__importDefault || function(mod) {
     return mod && mod.__esModule ? mod : {
         "default": mod
     };
 };
-Object.defineProperty($c2878eeb9072f56a$exports, "__esModule", {
+Object.defineProperty($9ca7d6c6df481c90$exports, "__esModule", {
     value: true
 });
 
 
 // @ts-ignore Merge https://github.com/atom/etch/pull/90
-const $c2878eeb9072f56a$var$etch_1 = $c2878eeb9072f56a$var$__importDefault((parcelRequire("f0CHF")));
-const $c2878eeb9072f56a$var$$ = $c2878eeb9072f56a$var$etch_1.default.dom;
+const $9ca7d6c6df481c90$var$etch_1 = $9ca7d6c6df481c90$var$__importDefault((parcelRequire("eusZd")));
+const $9ca7d6c6df481c90$var$$ = $9ca7d6c6df481c90$var$etch_1.default.dom;
 
-const $c2878eeb9072f56a$var$fuzzaldrin_1 = $c2878eeb9072f56a$var$__importDefault((parcelRequire("fhqqk")));
-class $c2878eeb9072f56a$var$SelectListView {
+const $9ca7d6c6df481c90$var$fuzzaldrin_1 = $9ca7d6c6df481c90$var$__importDefault((parcelRequire("8rpIb")));
+class $9ca7d6c6df481c90$var$SelectListView {
     static setScheduler(scheduler) {
-        $c2878eeb9072f56a$var$etch_1.default.setScheduler(scheduler);
+        $9ca7d6c6df481c90$var$etch_1.default.setScheduler(scheduler);
     }
     static getScheduler() {
-        return $c2878eeb9072f56a$var$etch_1.default.getScheduler();
+        return $9ca7d6c6df481c90$var$etch_1.default.getScheduler();
     }
     initializeVisibilityObserver() {
         this.visibilityObserver = new IntersectionObserver((changes)=>{
@@ -29589,7 +29600,7 @@ class $c2878eeb9072f56a$var$SelectListView {
     destroy() {
         this.disposables.dispose();
         if (this.visibilityObserver) this.visibilityObserver.disconnect();
-        return $c2878eeb9072f56a$var$etch_1.default.destroy(this);
+        return $9ca7d6c6df481c90$var$etch_1.default.destroy(this);
     }
     registerAtomCommands() {
         return atom.commands.add(this.element, {
@@ -29656,10 +29667,10 @@ class $c2878eeb9072f56a$var$SelectListView {
         if ('itemsClassList' in props) this.props.itemsClassList = props.itemsClassList;
         if ('initialSelectionIndex' in props) this.props.initialSelectionIndex = props.initialSelectionIndex;
         if (shouldComputeItems) this.computeItems();
-        return $c2878eeb9072f56a$var$etch_1.default.update(this);
+        return $9ca7d6c6df481c90$var$etch_1.default.update(this);
     }
     render() {
-        return $c2878eeb9072f56a$var$$.div({}, $c2878eeb9072f56a$var$$($1X1Jj$atom.TextEditor, {
+        return $9ca7d6c6df481c90$var$$.div({}, $9ca7d6c6df481c90$var$$($lcjJR$atom.TextEditor, {
             ref: 'queryEditor',
             mini: true
         }), this.renderLoadingMessage(), this.renderInfoMessage(), this.renderErrorMessage(), this.renderItems());
@@ -29669,7 +29680,7 @@ class $c2878eeb9072f56a$var$SelectListView {
             const className = [
                 'list-group'
             ].concat(this.props.itemsClassList || []).join(' ');
-            if (this.visibilityObserver) $c2878eeb9072f56a$var$etch_1.default.getScheduler().updateDocument(()=>{
+            if (this.visibilityObserver) $9ca7d6c6df481c90$var$etch_1.default.getScheduler().updateDocument(()=>{
                 Array.from(this.refs.items.children).slice(this.props.initiallyVisibleItemCount).forEach((element)=>{
                     this.visibilityObserver.observe(element);
                 });
@@ -29677,7 +29688,7 @@ class $c2878eeb9072f56a$var$SelectListView {
             this.listItems = this.items.map((item, index)=>{
                 const selected = this.getSelectedItem() === item;
                 const visible = !this.props.initiallyVisibleItemCount || index < this.props.initiallyVisibleItemCount;
-                return $c2878eeb9072f56a$var$$($c2878eeb9072f56a$var$ListItemView, {
+                return $9ca7d6c6df481c90$var$$($9ca7d6c6df481c90$var$ListItemView, {
                     element: this.props.elementForItem(item, {
                         selected: selected,
                         index: index,
@@ -29687,34 +29698,34 @@ class $c2878eeb9072f56a$var$SelectListView {
                     onclick: ()=>this.didClickItem(index)
                 });
             });
-            return $c2878eeb9072f56a$var$$.ol({
+            return $9ca7d6c6df481c90$var$$.ol({
                 className: className,
                 ref: 'items'
             }, ...this.listItems);
-        } else if (!this.props.loadingMessage && this.props.emptyMessage) return $c2878eeb9072f56a$var$$.span({
+        } else if (!this.props.loadingMessage && this.props.emptyMessage) return $9ca7d6c6df481c90$var$$.span({
             ref: 'emptyMessage'
         }, this.props.emptyMessage);
         else return "";
     }
     renderErrorMessage() {
-        if (this.props.errorMessage) return $c2878eeb9072f56a$var$$.span({
+        if (this.props.errorMessage) return $9ca7d6c6df481c90$var$$.span({
             ref: 'errorMessage'
         }, this.props.errorMessage);
         else return '';
     }
     renderInfoMessage() {
-        if (this.props.infoMessage) return $c2878eeb9072f56a$var$$.span({
+        if (this.props.infoMessage) return $9ca7d6c6df481c90$var$$.span({
             ref: 'infoMessage'
         }, this.props.infoMessage);
         else return '';
     }
     renderLoadingMessage() {
-        if (this.props.loadingMessage) return $c2878eeb9072f56a$var$$.div({
+        if (this.props.loadingMessage) return $9ca7d6c6df481c90$var$$.div({
             className: 'loading'
-        }, $c2878eeb9072f56a$var$$.span({
+        }, $9ca7d6c6df481c90$var$$.span({
             ref: 'loadingMessage',
             className: 'loading-message'
-        }, this.props.loadingMessage), this.props.loadingBadge ? $c2878eeb9072f56a$var$$.span({
+        }, this.props.loadingMessage), this.props.loadingBadge ? $9ca7d6c6df481c90$var$$.span({
             ref: 'loadingBadge',
             className: 'badge'
         }, this.props.loadingBadge) : '');
@@ -29751,7 +29762,7 @@ class $c2878eeb9072f56a$var$SelectListView {
             const scoredItems = [];
             for (const item of items){
                 const string = this.props.filterKeyForItem ? this.props.filterKeyForItem(item) : item;
-                const score = $c2878eeb9072f56a$var$fuzzaldrin_1.default.score(string, query);
+                const score = $9ca7d6c6df481c90$var$fuzzaldrin_1.default.score(string, query);
                 if (score > 0) scoredItems.push({
                     item: item,
                     score: score
@@ -29807,8 +29818,8 @@ class $c2878eeb9072f56a$var$SelectListView {
             if (this.listItems) {
                 if (oldIndex >= 0) this.renderItemAtIndex(oldIndex);
                 if (index >= 0) this.renderItemAtIndex(index);
-                return $c2878eeb9072f56a$var$etch_1.default.getScheduler().getNextUpdatePromise();
-            } else return $c2878eeb9072f56a$var$etch_1.default.update(this);
+                return $9ca7d6c6df481c90$var$etch_1.default.getScheduler().getNextUpdatePromise();
+            } else return $9ca7d6c6df481c90$var$etch_1.default.update(this);
         } else return Promise.resolve();
     }
     selectItem(item) {
@@ -29830,8 +29841,8 @@ class $c2878eeb9072f56a$var$SelectListView {
         if (!this.props.hasOwnProperty('initialSelectionIndex')) this.props.initialSelectionIndex = 0;
         if (props.initiallyVisibleItemCount) this.initializeVisibilityObserver();
         this.computeItems(false);
-        this.disposables = new $1X1Jj$atom.CompositeDisposable();
-        $c2878eeb9072f56a$var$etch_1.default.initialize(this);
+        this.disposables = new $lcjJR$atom.CompositeDisposable();
+        $9ca7d6c6df481c90$var$etch_1.default.initialize(this);
         this.element.classList.add('select-list');
         this.disposables.add(this.refs.queryEditor.onDidChange(this.didChangeQuery.bind(this)));
         if (!props.skipCommandsRegistration) this.disposables.add(this.registerAtomCommands());
@@ -29846,15 +29857,15 @@ class $c2878eeb9072f56a$var$SelectListView {
         this.element.addEventListener('mousedown', (event)=>{
             if (event.target === this.refs.items) this.didClickItemsList = true;
         });
-        this.disposables.add(new $1X1Jj$atom.Disposable(()=>{
+        this.disposables.add(new $lcjJR$atom.Disposable(()=>{
             editorElement.removeEventListener('blur', didLoseFocus);
         }));
     }
 }
-$c2878eeb9072f56a$exports.default = $c2878eeb9072f56a$var$SelectListView;
+$9ca7d6c6df481c90$exports.default = $9ca7d6c6df481c90$var$SelectListView;
 // cjs export for backward compatibility
-$c2878eeb9072f56a$exports = $c2878eeb9072f56a$var$SelectListView;
-class $c2878eeb9072f56a$var$ListItemView {
+$9ca7d6c6df481c90$exports = $9ca7d6c6df481c90$var$SelectListView;
+class $9ca7d6c6df481c90$var$ListItemView {
     mouseDown(event) {
         event.preventDefault();
     }
@@ -29881,7 +29892,7 @@ class $c2878eeb9072f56a$var$ListItemView {
         if (props.selected) this.element.classList.add('selected');
         this.selected = props.selected;
         this.onclick = props.onclick;
-        $c2878eeb9072f56a$var$etch_1.default.getScheduler().updateDocument(this.scrollIntoViewIfNeeded.bind(this));
+        $9ca7d6c6df481c90$var$etch_1.default.getScheduler().updateDocument(this.scrollIntoViewIfNeeded.bind(this));
     }
     scrollIntoViewIfNeeded() {
         if (this.selected) // @ts-ignore: this function is a non-standard API.
@@ -29898,20 +29909,20 @@ class $c2878eeb9072f56a$var$ListItemView {
         this.element.addEventListener('mouseup', this.mouseUp);
         this.element.addEventListener('click', this.didClick);
         if (this.selected) this.element.classList.add('selected');
-        this.domEventsDisposable = new $1X1Jj$atom.Disposable(()=>{
+        this.domEventsDisposable = new $lcjJR$atom.Disposable(()=>{
             this.element.removeEventListener('mousedown', this.mouseDown);
             this.element.removeEventListener('mouseup', this.mouseUp);
             this.element.removeEventListener('click', this.didClick);
         });
-        $c2878eeb9072f56a$var$etch_1.default.getScheduler().updateDocument(this.scrollIntoViewIfNeeded.bind(this));
+        $9ca7d6c6df481c90$var$etch_1.default.getScheduler().updateDocument(this.scrollIntoViewIfNeeded.bind(this));
     }
 }
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
-async function $bc054e0e4dca1f54$export$12cb8c60c107136e({ items: items, itemTemplate: itemTemplate, itemFilterKey: itemFilterKey, didChangeSelection: didChangeSelection }) {
+async function $b450fffbd3075fc1$export$12cb8c60c107136e({ items: items, itemTemplate: itemTemplate, itemFilterKey: itemFilterKey, didChangeSelection: didChangeSelection }) {
     let panel;
     const currentFocus = document.activeElement;
     try {
@@ -29922,7 +29933,7 @@ async function $bc054e0e4dca1f54$export$12cb8c60c107136e({ items: items, itemTem
             let resolved = false;
             const update = (props)=>{
                 if (resolved) return;
-                (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(select.update(props));
+                (0, $8012570b1032009f$export$8080b7556d9d6445)(select.update(props));
             };
             if (typeof items === "function") {
                 didChangeQuery = async (query)=>{
@@ -29940,10 +29951,10 @@ async function $bc054e0e4dca1f54$export$12cb8c60c107136e({ items: items, itemTem
                 loadingMessage = undefined;
                 emptyMessage = "Please enter a search value";
             }
-            const select = new (0, (/*@__PURE__*/$parcel$interopDefault($c2878eeb9072f56a$exports)))({
+            const select = new (0, (/*@__PURE__*/$parcel$interopDefault($9ca7d6c6df481c90$exports)))({
                 items: [],
-                elementForItem: (item)=>$f0CHF.render(itemTemplate(item, select)),
-                filterKeyForItem: (item)=>`${item[itemFilterKey]}`,
+                elementForItem: (item)=>$eusZd.render(itemTemplate(item, select)),
+                filterKeyForItem: (item)=>String(item[itemFilterKey]),
                 didChangeSelection: didChangeSelection,
                 didCancelSelection: ()=>{
                     resolved = true;
@@ -29960,7 +29971,7 @@ async function $bc054e0e4dca1f54$export$12cb8c60c107136e({ items: items, itemTem
                     "atom-typescript"
                 ]
             });
-            if (typeof items !== "function") (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(Promise.resolve(items).then((is)=>{
+            if (typeof items !== "function") (0, $8012570b1032009f$export$8080b7556d9d6445)(Promise.resolve(items).then((is)=>{
                 update({
                     items: is,
                     loadingMessage: undefined
@@ -29982,56 +29993,56 @@ async function $bc054e0e4dca1f54$export$12cb8c60c107136e({ items: items, itemTem
 // To allow using dependency injection, but avoid having to type a lot of boilerplate, we have the
 // individual command files register themselves in the below map. When the package is initializing,
 // the constructors are passed the deps and return the actual commands handlers.
-const $683be6fc2b5766d4$var$commands = [];
-function $683be6fc2b5766d4$export$35e8f4a3c2d7c0da(selector, command, desc) {
-    $683be6fc2b5766d4$var$commands.push({
+const $0059686e484992c5$var$commands = [];
+function $0059686e484992c5$export$35e8f4a3c2d7c0da(selector, command, desc) {
+    $0059686e484992c5$var$commands.push({
         selector: selector,
         command: command,
         desc: desc
     });
 }
-function $683be6fc2b5766d4$export$7a6092e2ae7e1845() {
-    return $683be6fc2b5766d4$var$commands;
+function $0059686e484992c5$export$7a6092e2ae7e1845() {
+    return $0059686e484992c5$var$commands;
 }
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:find-references", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:find-references", (deps)=>({
         description: "Find where symbol under text cursor is referenced",
         async didDispatch (editor) {
-            const location = (0, $28d5dfd6d6bf53fa$export$f25e34a2b31a939c)(editor);
+            const location = (0, $6f0bc47c7fee627c$export$f25e34a2b31a939c)(editor);
             if (!location) return;
             const client = await deps.getClient(location.file);
             const result = await client.execute("references", location);
-            await $632bb8f0fb110021$export$2904681fe8c977be(result, editor, deps.histGoForward);
+            await $566961609dec1922$export$2904681fe8c977be(result, editor, deps.histGoForward);
         }
     }));
-async function $632bb8f0fb110021$export$2904681fe8c977be(result, editor, histGoForward) {
+async function $566961609dec1922$export$2904681fe8c977be(result, editor, histGoForward) {
     if (!result) return;
     const refs = Promise.all(result.map(async (ref)=>{
-        const file = (0, $a27d0d73386d53b8$export$3dcbeeac4b9f8c3)(ref.uri);
-        const start = (0, $a27d0d73386d53b8$export$de108c257e29a9fa)(ref.range.start);
-        const fileContents = (await new Promise((resolve, reject)=>$1X1Jj$fs.readFile(file, (error, data)=>{
+        const file = (0, $2196ddae34004bed$export$3dcbeeac4b9f8c3)(ref.uri);
+        const start = (0, $2196ddae34004bed$export$de108c257e29a9fa)(ref.range.start);
+        const fileContents = (await new Promise((resolve, reject)=>$lcjJR$fs.readFile(file, (error, data)=>{
                 if (error) reject(error);
                 else resolve(data.toString("utf-8"));
             }))).split(/\r?\n/g);
         var _fileContents_ref_range_start_line;
         const line = (_fileContents_ref_range_start_line = fileContents[ref.range.start.line]) !== null && _fileContents_ref_range_start_line !== void 0 ? _fileContents_ref_range_start_line : "";
-        const hlText = (await (0, $2390352c05631840$export$e4043f67d36cbb26)(line, "source.tsx")).split("\n")[0];
+        const hlText = (await (0, $54310bcaa9a7e4ec$export$e4043f67d36cbb26)(line, "source.tsx")).split("\n")[0];
         return {
             file: file,
             start: start,
             hlText: hlText
         };
     }));
-    const res = await (0, $bc054e0e4dca1f54$export$12cb8c60c107136e)({
+    const res = await (0, $b450fffbd3075fc1$export$12cb8c60c107136e)({
         items: refs,
         itemTemplate: (item, ctx)=>{
-            return /*#__PURE__*/ $f0CHF.dom("li", null, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+            return /*#__PURE__*/ $eusZd.dom("li", null, /*#__PURE__*/ $eusZd.dom((0, $1e48cc0040983839$export$31d5f5740e2c2887), {
                 label: atom.project.relativize(item.file),
                 query: ctx.getFilterQuery()
-            }), /*#__PURE__*/ $f0CHF.dom("div", {
+            }), /*#__PURE__*/ $eusZd.dom("div", {
                 className: "pull-right"
-            }, "line: ", item.start.line), /*#__PURE__*/ $f0CHF.dom((0, $9ace8d94e48cf69a$export$275be3d1a3f62fb), {
+            }, "line: ", item.start.line), /*#__PURE__*/ $eusZd.dom((0, $cc606b08c4447aa7$export$275be3d1a3f62fb), {
                 highlightedText: item.hlText
             }));
         },
@@ -30042,35 +30053,35 @@ async function $632bb8f0fb110021$export$2904681fe8c977be(result, editor, histGoF
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:go-to-declaration", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:go-to-declaration", (deps)=>({
         description: "Go to declaration of symbol under text cursor",
         async didDispatch (editor) {
-            const location = (0, $28d5dfd6d6bf53fa$export$f25e34a2b31a939c)(editor);
+            const location = (0, $6f0bc47c7fee627c$export$f25e34a2b31a939c)(editor);
             if (!location) return;
             const client = await deps.getClient(location.file);
             const result = await client.execute("definition", location);
-            await $1f12d7cf5986da73$export$680a91dbc2dcff04(result, editor, deps.histGoForward);
+            await $65db6aab1dc53ca3$export$680a91dbc2dcff04(result, editor, deps.histGoForward);
         }
     }));
-async function $1f12d7cf5986da73$export$680a91dbc2dcff04(result, editor, histGoForward) {
-    const locations = (0, $a27d0d73386d53b8$export$210060adb63ee720)(result).map((loc)=>({
+async function $65db6aab1dc53ca3$export$680a91dbc2dcff04(result, editor, histGoForward) {
+    const locations = (0, $2196ddae34004bed$export$210060adb63ee720)(result).map((loc)=>({
             file: loc.file,
-            start: (0, $a27d0d73386d53b8$export$9978d8c48293dc72)(loc.range.start)
+            start: (0, $2196ddae34004bed$export$9978d8c48293dc72)(loc.range.start)
         }));
     if (locations.length === 0) return;
     else if (locations.length > 1) {
-        const res = await (0, $bc054e0e4dca1f54$export$12cb8c60c107136e)({
+        const res = await (0, $b450fffbd3075fc1$export$12cb8c60c107136e)({
             items: locations,
             itemTemplate: (item, ctx)=>{
-                return /*#__PURE__*/ $f0CHF.dom("li", null, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+                return /*#__PURE__*/ $eusZd.dom("li", null, /*#__PURE__*/ $eusZd.dom((0, $1e48cc0040983839$export$31d5f5740e2c2887), {
                     label: item.file,
                     query: ctx.getFilterQuery()
-                }), /*#__PURE__*/ $f0CHF.dom("div", {
+                }), /*#__PURE__*/ $eusZd.dom("div", {
                     className: "pull-right"
                 }, "line: ", item.start.line));
             },
@@ -30082,13 +30093,13 @@ async function $1f12d7cf5986da73$export$680a91dbc2dcff04(result, editor, histGoF
 
 
 
-function $a3011f18ae268f17$export$51c07c30fb16d966(getClient, histGoForward) {
+function $c1be9f16fc4968e0$export$51c07c30fb16d966(getClient, histGoForward) {
     return {
         priority: 0,
         providerName: "typescript-hyperclick-provider",
         wordRegExp: /([A-Za-z0-9_])+|['"`](\\.|[^'"`\\\\])*['"`]/g,
         async getSuggestionForWord (editor, _text, range) {
-            if (!(0, $28d5dfd6d6bf53fa$export$3aecee58e23ede2c)(editor)) return;
+            if (!(0, $6f0bc47c7fee627c$export$3aecee58e23ede2c)(editor)) return;
             const filePath = editor.getPath();
             if (filePath === undefined) return;
             return {
@@ -30101,12 +30112,12 @@ function $a3011f18ae268f17$export$51c07c30fb16d966(getClient, histGoForward) {
                     };
                     const client = await getClient(location.file);
                     const result = await client.execute("definition", location);
-                    const locations = (0, $a27d0d73386d53b8$export$210060adb63ee720)(result);
+                    const locations = (0, $2196ddae34004bed$export$210060adb63ee720)(result);
                     const resLoc = locations[0];
                     if (locations.length === 1 && resLoc.range.start.row === range.start.row && resLoc.range.start.column === range.start.column) {
                         const references = await client.execute("references", location);
-                        await (0, $632bb8f0fb110021$export$2904681fe8c977be)(references, editor, histGoForward);
-                    } else await (0, $1f12d7cf5986da73$export$680a91dbc2dcff04)(result, editor, histGoForward);
+                        await (0, $566961609dec1922$export$2904681fe8c977be)(references, editor, histGoForward);
+                    } else await (0, $65db6aab1dc53ca3$export$680a91dbc2dcff04)(result, editor, histGoForward);
                 }
             };
         }
@@ -30116,10 +30127,10 @@ function $a3011f18ae268f17$export$51c07c30fb16d966(getClient, histGoForward) {
 
 
 
-function $5483f66877e6145b$export$2b92277a69331cbb(getClient) {
+function $473e82652711e334$export$2b92277a69331cbb(getClient) {
     return {
         name: "Atom-TypeScript",
-        grammarScopes: (0, $28d5dfd6d6bf53fa$export$d9994fe0923974a5)(),
+        grammarScopes: (0, $6f0bc47c7fee627c$export$d9994fe0923974a5)(),
         priority: 100,
         updateOnEdit: true,
         async getOutline (editor) {
@@ -30130,34 +30141,34 @@ function $5483f66877e6145b$export$2b92277a69331cbb(getClient) {
                 file: filePath
             });
             if (!navTree || navTree.length === 0) return;
-            if ($5483f66877e6145b$var$isDocumentSymbols(navTree)) return {
-                outlineTrees: navTree.map($5483f66877e6145b$var$docSymbolToOutline).sort($5483f66877e6145b$var$compareNodes)
+            if ($473e82652711e334$var$isDocumentSymbols(navTree)) return {
+                outlineTrees: navTree.map($473e82652711e334$var$docSymbolToOutline).sort($473e82652711e334$var$compareNodes)
             };
             return {
-                outlineTrees: navTree.map($5483f66877e6145b$var$symbolInfoToOutline).sort($5483f66877e6145b$var$compareNodes)
+                outlineTrees: navTree.map($473e82652711e334$var$symbolInfoToOutline).sort($473e82652711e334$var$compareNodes)
             };
         }
     };
 }
-function $5483f66877e6145b$var$isDocumentSymbols(symbols) {
+function $473e82652711e334$var$isDocumentSymbols(symbols) {
     return !("location" in symbols[0]);
 }
-function $5483f66877e6145b$var$docSymbolToOutline(sym) {
-    const range = (0, $a27d0d73386d53b8$export$9ad169abcb1fbc48)(sym.range);
+function $473e82652711e334$var$docSymbolToOutline(sym) {
+    const range = (0, $2196ddae34004bed$export$9ad169abcb1fbc48)(sym.range);
     var _sym_children;
     return {
-        kind: $5483f66877e6145b$var$kindMap[sym.kind],
+        kind: $473e82652711e334$var$kindMap[sym.kind],
         plainText: sym.name,
         startPosition: range.start,
         endPosition: range.end,
-        landingPosition: (0, $a27d0d73386d53b8$export$9ad169abcb1fbc48)(sym.selectionRange).start,
-        children: ((_sym_children = sym.children) !== null && _sym_children !== void 0 ? _sym_children : []).map($5483f66877e6145b$var$docSymbolToOutline).sort($5483f66877e6145b$var$compareNodes)
+        landingPosition: (0, $2196ddae34004bed$export$9ad169abcb1fbc48)(sym.selectionRange).start,
+        children: ((_sym_children = sym.children) !== null && _sym_children !== void 0 ? _sym_children : []).map($473e82652711e334$var$docSymbolToOutline).sort($473e82652711e334$var$compareNodes)
     };
 }
-function $5483f66877e6145b$var$symbolInfoToOutline(sym) {
-    const range = (0, $a27d0d73386d53b8$export$9ad169abcb1fbc48)(sym.location.range);
+function $473e82652711e334$var$symbolInfoToOutline(sym) {
+    const range = (0, $2196ddae34004bed$export$9ad169abcb1fbc48)(sym.location.range);
     return {
-        kind: $5483f66877e6145b$var$kindMap[sym.kind],
+        kind: $473e82652711e334$var$kindMap[sym.kind],
         plainText: sym.name,
         startPosition: range.start,
         endPosition: range.end,
@@ -30165,44 +30176,44 @@ function $5483f66877e6145b$var$symbolInfoToOutline(sym) {
         children: []
     };
 }
-function $5483f66877e6145b$var$compareNodes(a, b) {
+function $473e82652711e334$var$compareNodes(a, b) {
     const apos = a.landingPosition ? a.landingPosition : a.startPosition;
     const bpos = b.landingPosition ? b.landingPosition : b.startPosition;
     return apos.compare(bpos);
 }
-const $5483f66877e6145b$var$kindMap = {
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).File]: "file",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Module]: "module",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Namespace]: "module",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Package]: "module",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Class]: "class",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Method]: "method",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Property]: "property",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Field]: "field",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Constructor]: "constructor",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Enum]: "enum",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Interface]: "interface",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Function]: "function",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Variable]: "variable",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Constant]: "constant",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).String]: "string",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Number]: undefined,
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Boolean]: undefined,
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Array]: undefined,
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Object]: undefined,
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Key]: undefined,
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Null]: undefined,
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).EnumMember]: "constant",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Struct]: "class",
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Event]: undefined,
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).Operator]: undefined,
-    [(0, $183b3c4c81c7602a$export$dd78311fae125aca).TypeParameter]: undefined
+const $473e82652711e334$var$kindMap = {
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).File]: "file",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Module]: "module",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Namespace]: "module",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Package]: "module",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Class]: "class",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Method]: "method",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Property]: "property",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Field]: "field",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Constructor]: "constructor",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Enum]: "enum",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Interface]: "interface",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Function]: "function",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Variable]: "variable",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Constant]: "constant",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).String]: "string",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Number]: undefined,
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Boolean]: undefined,
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Array]: undefined,
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Object]: undefined,
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Key]: undefined,
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Null]: undefined,
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).EnumMember]: "constant",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Struct]: "class",
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Event]: undefined,
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).Operator]: undefined,
+    [(0, $2d87a0b8811f044c$export$dd78311fae125aca).TypeParameter]: undefined
 };
 
 
 
 
-class $e20188bd95efaaa0$export$11ab8206b5e263e8 {
+class $af9749b8a15e5ff5$export$11ab8206b5e263e8 {
     dispose() {
         this.disposables.dispose();
     }
@@ -30219,7 +30230,7 @@ class $e20188bd95efaaa0$export$11ab8206b5e263e8 {
             if (!data) return;
             var _data_activeParameter, _data_activeSignature;
             return {
-                signatures: data.signatures.map((0, $a27d0d73386d53b8$export$53b04b1e9f632e2c)),
+                signatures: data.signatures.map((0, $2196ddae34004bed$export$53b04b1e9f632e2c)),
                 activeParameter: (_data_activeParameter = data.activeParameter) !== null && _data_activeParameter !== void 0 ? _data_activeParameter : 0,
                 activeSignature: (_data_activeSignature = data.activeSignature) !== null && _data_activeSignature !== void 0 ? _data_activeSignature : 0
             };
@@ -30230,9 +30241,9 @@ class $e20188bd95efaaa0$export$11ab8206b5e263e8 {
     constructor(getClient){
         this.getClient = getClient;
         this.triggerCharacters = new Set([]);
-        this.grammarScopes = (0, $28d5dfd6d6bf53fa$export$d9994fe0923974a5)();
+        this.grammarScopes = (0, $6f0bc47c7fee627c$export$d9994fe0923974a5)();
         this.priority = 100;
-        this.disposables = new (0, $1X1Jj$atom.CompositeDisposable)();
+        this.disposables = new (0, $lcjJR$atom.CompositeDisposable)();
         const triggerCharsDefault = new Set([
             "<",
             "(",
@@ -30249,20 +30260,20 @@ class $e20188bd95efaaa0$export$11ab8206b5e263e8 {
 // more: https://github.com/atom-community/autocomplete-plus/wiki/Provider-API
 
 
-var $fhqqk = parcelRequire("fhqqk");
+var $8rpIb = parcelRequire("8rpIb");
 
 
 
-class $46ae0c6ad105d3ab$export$536c67bf76d43cfb {
+class $0b28b0acc6eff574$export$536c67bf76d43cfb {
     async getSuggestions(opts) {
-        const location = $46ae0c6ad105d3ab$var$getLocationQuery(opts);
-        const prefix = $46ae0c6ad105d3ab$var$getPrefix(opts);
+        const location = $0b28b0acc6eff574$var$getLocationQuery(opts);
+        const prefix = $0b28b0acc6eff574$var$getPrefix(opts);
         if (!location) return [];
         // Don't auto-show autocomplete if prefix is empty unless last character is '.'
-        const triggerCharacter = $46ae0c6ad105d3ab$var$getTrigger($46ae0c6ad105d3ab$var$getLastNonWhitespaceChar(opts.editor.getBuffer(), opts.bufferPosition));
+        const triggerCharacter = $0b28b0acc6eff574$var$getTrigger($0b28b0acc6eff574$var$getLastNonWhitespaceChar(opts.editor.getBuffer(), opts.bufferPosition));
         if (!prefix && !opts.activatedManually && !triggerCharacter) return [];
         // Don't show autocomplete if we're in a string.template and not in a template expression
-        if ($46ae0c6ad105d3ab$var$containsScope(opts.scopeDescriptor.getScopesArray(), "string.template.") && !$46ae0c6ad105d3ab$var$containsScope(opts.scopeDescriptor.getScopesArray(), "template.expression.")) return [];
+        if ($0b28b0acc6eff574$var$containsScope(opts.scopeDescriptor.getScopesArray(), "string.template.") && !$0b28b0acc6eff574$var$containsScope(opts.scopeDescriptor.getScopesArray(), "template.expression.")) return [];
         try {
             let suggestions = await this.getSuggestionsWithCache({
                 prefix: prefix,
@@ -30271,7 +30282,7 @@ class $46ae0c6ad105d3ab$export$536c67bf76d43cfb {
                 activatedManually: opts.activatedManually
             });
             const config = atom.config.get("pulsar-typescript");
-            if (config.autocompletionUseFuzzyFilter) suggestions = $fhqqk.filter(suggestions, prefix, {
+            if (config.autocompletionUseFuzzyFilter) suggestions = $8rpIb.filter(suggestions, prefix, {
                 key: "displayText"
             });
             else {
@@ -30300,7 +30311,7 @@ class $46ae0c6ad105d3ab$export$536c67bf76d43cfb {
                     replacementPrefix: suggestion.replacementRange ? opts.editor.getTextInBufferRange(suggestion.replacementRange) : prefix,
                     location: location,
                     ...this.getDetailsFromCache(suggestion),
-                    ...$46ae0c6ad105d3ab$var$addCallableParens(opts, suggestion)
+                    ...$0b28b0acc6eff574$var$addCallableParens(opts, suggestion)
                 }));
         } catch (error) {
             return [];
@@ -30317,11 +30328,11 @@ class $46ae0c6ad105d3ab$export$536c67bf76d43cfb {
         const client = this.lastSuggestions.client;
         const file = this.lastSuggestions.location.file;
         let details = this.getDetailsFromCache(s);
-        (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)((async ()=>{
+        (0, $8012570b1032009f$export$8080b7556d9d6445)((async ()=>{
             if (!details) details = await this.getAdditionalDetails(s);
             if (!details) return;
             const resolved = details.details;
-            await this.applyEdits((0, $a27d0d73386d53b8$export$801880e0bcc7dfc1)($46ae0c6ad105d3ab$var$additionalEditsAsWorkspaceEdit(resolved)));
+            await this.applyEdits((0, $2196ddae34004bed$export$801880e0bcc7dfc1)($0b28b0acc6eff574$var$additionalEditsAsWorkspaceEdit(resolved)));
             if (!resolved.command) return;
             await client.execute("applyCodeActionCommand", {
                 file: file,
@@ -30344,7 +30355,7 @@ class $46ae0c6ad105d3ab$export$536c67bf76d43cfb {
         var _details_detail;
         const rightLabel = (_details_detail = details.detail) !== null && _details_detail !== void 0 ? _details_detail : "";
         var _details_detail1;
-        const description = ((_details_detail1 = details.detail) !== null && _details_detail1 !== void 0 ? _details_detail1 : "") + (details.documentation ? "\n\n" + $46ae0c6ad105d3ab$var$markupToString(details.documentation) : "");
+        const description = ((_details_detail1 = details.detail) !== null && _details_detail1 !== void 0 ? _details_detail1 : "") + (details.documentation ? "\n\n" + $0b28b0acc6eff574$var$markupToString(details.documentation) : "");
         this.lastSuggestions.details.set(suggestion.displayText, {
             details: details,
             rightLabel: rightLabel,
@@ -30367,14 +30378,14 @@ class $46ae0c6ad105d3ab$export$536c67bf76d43cfb {
     async getSuggestionsWithCache({ prefix: prefix, location: location, triggerCharacter: triggerCharacter, activatedManually: activatedManually }) {
         if (this.lastSuggestions && !activatedManually) {
             const lastLoc = this.lastSuggestions.location;
-            const lastCol = $46ae0c6ad105d3ab$var$getNormalizedCol(this.lastSuggestions.prefix, lastLoc.offset);
-            const thisCol = $46ae0c6ad105d3ab$var$getNormalizedCol(prefix, location.offset);
+            const lastCol = $0b28b0acc6eff574$var$getNormalizedCol(this.lastSuggestions.prefix, lastLoc.offset);
+            const thisCol = $0b28b0acc6eff574$var$getNormalizedCol(prefix, location.offset);
             if (lastLoc.file === location.file && lastLoc.line === location.line && lastCol === thisCol) {
                 if (this.lastSuggestions.suggestions.length !== 0) return this.lastSuggestions.suggestions;
             }
         }
         const client = await this.getClient(location.file);
-        const suggestions = await $46ae0c6ad105d3ab$var$getSuggestionsInternal({
+        const suggestions = await $0b28b0acc6eff574$var$getSuggestionsInternal({
             client: client,
             location: location,
             triggerCharacter: activatedManually ? undefined : triggerCharacter
@@ -30391,13 +30402,13 @@ class $46ae0c6ad105d3ab$export$536c67bf76d43cfb {
     constructor(getClient, applyEdits){
         this.getClient = getClient;
         this.applyEdits = applyEdits;
-        this.selector = (0, $28d5dfd6d6bf53fa$export$d9994fe0923974a5)().map((x)=>x.includes(".") ? `.${x}` : x).join(", ");
+        this.selector = (0, $6f0bc47c7fee627c$export$d9994fe0923974a5)().map((x)=>x.includes(".") ? `.${x}` : x).join(", ");
         this.inclusionPriority = atom.config.get("pulsar-typescript").autocompletionInclusionPriority;
         this.suggestionPriority = atom.config.get("pulsar-typescript").autocompletionSuggestionPriority;
         this.excludeLowerPriority = atom.config.get("pulsar-typescript").autocompletionExcludeLowerPriority;
     }
 }
-async function $46ae0c6ad105d3ab$var$getSuggestionsInternal({ client: client, location: location, triggerCharacter: triggerCharacter }) {
+async function $0b28b0acc6eff574$var$getSuggestionsInternal({ client: client, location: location, triggerCharacter: triggerCharacter }) {
     const completions = await client.execute("completionInfo", {
         includeExternalModuleExports: false,
         includeInsertTextCompletions: true,
@@ -30405,12 +30416,12 @@ async function $46ae0c6ad105d3ab$var$getSuggestionsInternal({ client: client, lo
         ...location
     });
     const items = completions === null ? [] : Array.isArray(completions) ? completions : completions.items;
-    return items.map($46ae0c6ad105d3ab$var$completionEntryToSuggestion);
+    return items.map($0b28b0acc6eff574$var$completionEntryToSuggestion);
 }
-function $46ae0c6ad105d3ab$var$markupToString(doc) {
+function $0b28b0acc6eff574$var$markupToString(doc) {
     return typeof doc === "string" ? doc : doc.value;
 }
-function $46ae0c6ad105d3ab$var$additionalEditsAsWorkspaceEdit(item) {
+function $0b28b0acc6eff574$var$additionalEditsAsWorkspaceEdit(item) {
     if (!item.additionalTextEdits || item.additionalTextEdits.length === 0) return undefined;
     if (!item.data || typeof item.data !== "object" || !("fileName" in item.data)) return undefined;
     const uri = `file://${item.data.fileName}`;
@@ -30421,9 +30432,9 @@ function $46ae0c6ad105d3ab$var$additionalEditsAsWorkspaceEdit(item) {
     };
 }
 // this should more or less match ES6 specification for valid identifiers
-const $46ae0c6ad105d3ab$var$identifierMatch = /(?:(?![\u{10000}-\u{10FFFF}])[\$_\p{Lu}\p{Ll}\p{Lt}\p{Lm}\p{Lo}\p{Nl}])(?:(?![\u{10000}-\u{10FFFF}])[\$_\p{Lu}\p{Ll}\p{Lt}\p{Lm}\p{Lo}\p{Nl}\u200C\u200D\p{Mn}\p{Mc}\p{Nd}\p{Pc}])*$/u;
+const $0b28b0acc6eff574$var$identifierMatch = /(?:(?![\u{10000}-\u{10FFFF}])[$_\p{Lu}\p{Ll}\p{Lt}\p{Lm}\p{Lo}\p{Nl}])(?:(?![\u{10000}-\u{10FFFF}])[$_\p{Lu}\p{Ll}\p{Lt}\p{Lm}\p{Lo}\p{Nl}\u200C\u200D\p{Mn}\p{Mc}\p{Nd}\p{Pc}])*$/u;
 // Decide what needs to be replaced in the editor buffer when inserting the completion
-function $46ae0c6ad105d3ab$var$getPrefix(opts) {
+function $0b28b0acc6eff574$var$getPrefix(opts) {
     // see https://github.com/TypeStrong/atom-typescript/issues/1528
     // for the motivating example.
     const line = opts.editor.getBuffer().getTextInRange([
@@ -30433,17 +30444,17 @@ function $46ae0c6ad105d3ab$var$getPrefix(opts) {
         ],
         opts.bufferPosition
     ]);
-    const idMatch = line.match($46ae0c6ad105d3ab$var$identifierMatch);
+    const idMatch = line.match($0b28b0acc6eff574$var$identifierMatch);
     if (idMatch) return idMatch[0];
     else return "";
 }
 // When the user types each character in ".hello", we want to normalize the column such that it's
 // the same for every invocation of the getSuggestions. In this case, it would be right after "."
-function $46ae0c6ad105d3ab$var$getNormalizedCol(prefix, col) {
+function $0b28b0acc6eff574$var$getNormalizedCol(prefix, col) {
     const length = prefix === "." ? 0 : prefix.length;
     return col - length;
 }
-function $46ae0c6ad105d3ab$var$getLocationQuery(opts) {
+function $0b28b0acc6eff574$var$getLocationQuery(opts) {
     const path = opts.editor.getPath();
     if (path === undefined) return undefined;
     return {
@@ -30452,9 +30463,9 @@ function $46ae0c6ad105d3ab$var$getLocationQuery(opts) {
         offset: opts.bufferPosition.column + 1
     };
 }
-function $46ae0c6ad105d3ab$var$getLastNonWhitespaceChar(buffer, pos) {
+function $0b28b0acc6eff574$var$getLastNonWhitespaceChar(buffer, pos) {
     let lastChar;
-    const range = new $1X1Jj$atom.Range([
+    const range = new $lcjJR$atom.Range([
         0,
         0
     ], pos);
@@ -30464,13 +30475,13 @@ function $46ae0c6ad105d3ab$var$getLastNonWhitespaceChar(buffer, pos) {
     });
     return lastChar;
 }
-function $46ae0c6ad105d3ab$var$containsScope(scopes, matchScope) {
+function $0b28b0acc6eff574$var$containsScope(scopes, matchScope) {
     for (const scope of scopes){
         if (scope.includes(matchScope)) return true;
     }
     return false;
 }
-function $46ae0c6ad105d3ab$var$completionEntryToSuggestion(entry) {
+function $0b28b0acc6eff574$var$completionEntryToSuggestion(entry) {
     var _entry_additionalTextEdits;
     const edit = entry.textEdit;
     const range = edit ? "insert" in edit ? edit.replace : edit.range : undefined;
@@ -30478,16 +30489,16 @@ function $46ae0c6ad105d3ab$var$completionEntryToSuggestion(entry) {
     return {
         displayText: entry.label,
         text: entry.insertText !== undefined ? entry.insertText : entry.label,
-        leftLabel: $46ae0c6ad105d3ab$var$kindLabel[(_entry_kind = entry.kind) !== null && _entry_kind !== void 0 ? _entry_kind : 0],
-        replacementRange: range ? $46ae0c6ad105d3ab$var$lspRangeToAtomRangeLocal(range) : undefined,
-        type: $46ae0c6ad105d3ab$var$kindMap[(_entry_kind1 = entry.kind) !== null && _entry_kind1 !== void 0 ? _entry_kind1 : 0],
+        leftLabel: $0b28b0acc6eff574$var$kindLabel[(_entry_kind = entry.kind) !== null && _entry_kind !== void 0 ? _entry_kind : 0],
+        replacementRange: range ? $0b28b0acc6eff574$var$lspRangeToAtomRangeLocal(range) : undefined,
+        type: $0b28b0acc6eff574$var$kindMap[(_entry_kind1 = entry.kind) !== null && _entry_kind1 !== void 0 ? _entry_kind1 : 0],
         isMemberCompletion: undefined,
         identifier: entry,
         hasAction: !!(((_entry_additionalTextEdits = entry.additionalTextEdits) === null || _entry_additionalTextEdits === void 0 ? void 0 : _entry_additionalTextEdits.length) || entry.command)
     };
 }
-function $46ae0c6ad105d3ab$var$lspRangeToAtomRangeLocal(range) {
-    return new $1X1Jj$atom.Range([
+function $0b28b0acc6eff574$var$lspRangeToAtomRangeLocal(range) {
+    return new $lcjJR$atom.Range([
         range.start.line,
         range.start.character
     ], [
@@ -30495,7 +30506,7 @@ function $46ae0c6ad105d3ab$var$lspRangeToAtomRangeLocal(range) {
         range.end.character
     ]);
 }
-function $46ae0c6ad105d3ab$var$parens(opts) {
+function $0b28b0acc6eff574$var$parens(opts) {
     const buffer = opts.editor.getBuffer();
     const pt = opts.bufferPosition;
     const lookahead = buffer.getTextInRange([
@@ -30507,74 +30518,74 @@ function $46ae0c6ad105d3ab$var$parens(opts) {
     ]);
     return !!lookahead.match(/\s*\(/);
 }
-function $46ae0c6ad105d3ab$var$addCallableParens(opts, s) {
+function $0b28b0acc6eff574$var$addCallableParens(opts, s) {
     if (atom.config.get("pulsar-typescript.autocompleteParens") && [
         "function",
         "method"
-    ].includes(s.leftLabel) && !$46ae0c6ad105d3ab$var$parens(opts)) return {
+    ].includes(s.leftLabel) && !$0b28b0acc6eff574$var$parens(opts)) return {
         ...s,
         snippet: `${s.text}($1)`,
         text: undefined
     };
     else return s;
 }
-const $46ae0c6ad105d3ab$var$kindMap = {
+const $0b28b0acc6eff574$var$kindMap = {
     [0]: undefined,
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Text]: "value",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Method]: "method",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Function]: "function",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Constructor]: "method",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Field]: "property",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Variable]: "variable",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Class]: "class",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Interface]: "type",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Module]: "import",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Property]: "property",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Unit]: undefined,
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Value]: "value",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Enum]: "type",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Keyword]: "keyword",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Snippet]: "snippet",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Color]: undefined,
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).File]: "require",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Reference]: "import",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Folder]: "require",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).EnumMember]: "constant",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Constant]: "constant",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Struct]: "class",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Event]: undefined,
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Operator]: undefined,
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).TypeParameter]: "type"
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Text]: "value",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Method]: "method",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Function]: "function",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Constructor]: "method",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Field]: "property",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Variable]: "variable",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Class]: "class",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Interface]: "type",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Module]: "import",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Property]: "property",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Unit]: undefined,
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Value]: "value",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Enum]: "type",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Keyword]: "keyword",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Snippet]: "snippet",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Color]: undefined,
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).File]: "require",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Reference]: "import",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Folder]: "require",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).EnumMember]: "constant",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Constant]: "constant",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Struct]: "class",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Event]: undefined,
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Operator]: undefined,
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).TypeParameter]: "type"
 };
-const $46ae0c6ad105d3ab$var$kindLabel = {
+const $0b28b0acc6eff574$var$kindLabel = {
     [0]: "",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Text]: "text",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Method]: "method",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Function]: "function",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Constructor]: "constructor",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Field]: "field",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Variable]: "variable",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Class]: "class",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Interface]: "interface",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Module]: "module",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Property]: "property",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Unit]: "unit",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Value]: "value",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Enum]: "enum",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Keyword]: "keyword",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Snippet]: "snippet",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Color]: "color",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).File]: "file",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Reference]: "reference",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Folder]: "folder",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).EnumMember]: "enum member",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Constant]: "constant",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Struct]: "struct",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Event]: "event",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).Operator]: "operator",
-    [(0, $183b3c4c81c7602a$export$99d00115014a86a8).TypeParameter]: "type parameter"
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Text]: "text",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Method]: "method",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Function]: "function",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Constructor]: "constructor",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Field]: "field",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Variable]: "variable",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Class]: "class",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Interface]: "interface",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Module]: "module",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Property]: "property",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Unit]: "unit",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Value]: "value",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Enum]: "enum",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Keyword]: "keyword",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Snippet]: "snippet",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Color]: "color",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).File]: "file",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Reference]: "reference",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Folder]: "folder",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).EnumMember]: "enum member",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Constant]: "constant",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Struct]: "struct",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Event]: "event",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).Operator]: "operator",
+    [(0, $2d87a0b8811f044c$export$99d00115014a86a8).TypeParameter]: "type parameter"
 };
-const $46ae0c6ad105d3ab$var$triggerCharacters = new Set([
+const $0b28b0acc6eff574$var$triggerCharacters = new Set([
     ".",
     '"',
     "'",
@@ -30584,25 +30595,25 @@ const $46ae0c6ad105d3ab$var$triggerCharacters = new Set([
     "<",
     "#"
 ]);
-function $46ae0c6ad105d3ab$var$getTrigger(prefix) {
+function $0b28b0acc6eff574$var$getTrigger(prefix) {
     if (prefix === undefined) return undefined;
     if (!prefix) return undefined;
     const c = prefix.slice(-1);
-    if ($46ae0c6ad105d3ab$var$triggerCharacters.has(c)) return c;
+    if ($0b28b0acc6eff574$var$triggerCharacters.has(c)) return c;
     return undefined;
 }
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:refactor-selection", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:refactor-selection", (deps)=>({
         description: "Get a list of applicable refactors to selected code",
         async didDispatch (editor) {
-            const location = (0, $28d5dfd6d6bf53fa$export$f25e34a2b31a939c)(editor);
+            const location = (0, $6f0bc47c7fee627c$export$f25e34a2b31a939c)(editor);
             if (!location) return;
             const selection = editor.getSelectedBufferRange();
             const client = await deps.getClient(location.file);
@@ -30611,8 +30622,8 @@ var $f0CHF = parcelRequire("f0CHF");
                 offset: location.offset,
                 endLine: location.line,
                 endOffset: location.offset
-            } : (0, $a27d0d73386d53b8$export$430a7b9c6c8900f6)(selection);
-            const actions = await $75ffba9877e63448$export$724868632c285078(client, {
+            } : (0, $2196ddae34004bed$export$430a7b9c6c8900f6)(selection);
+            const actions = await $1c5536f3477779fa$export$724868632c285078(client, {
                 ...range,
                 file: location.file
             });
@@ -30620,13 +30631,13 @@ var $f0CHF = parcelRequire("f0CHF");
                 atom.notifications.addInfo("AtomTS: No applicable refactors for the selection");
                 return;
             }
-            const selectedAction = await (0, $bc054e0e4dca1f54$export$12cb8c60c107136e)({
+            const selectedAction = await (0, $b450fffbd3075fc1$export$12cb8c60c107136e)({
                 items: actions.map((a)=>({
                         ...a,
                         title: a.action.title
                     })),
                 itemTemplate: (item, ctx)=>{
-                    return /*#__PURE__*/ $f0CHF.dom("li", null, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+                    return /*#__PURE__*/ $eusZd.dom("li", null, /*#__PURE__*/ $eusZd.dom((0, $1e48cc0040983839$export$31d5f5740e2c2887), {
                         label: item.title,
                         query: ctx.getFilterQuery()
                     }));
@@ -30634,10 +30645,10 @@ var $f0CHF = parcelRequire("f0CHF");
                 itemFilterKey: "title"
             });
             if (selectedAction === undefined) return;
-            await $75ffba9877e63448$export$5522d657b0b2f30(selectedAction, client, deps);
+            await $1c5536f3477779fa$export$5522d657b0b2f30(selectedAction, client, deps);
         }
     }));
-async function $75ffba9877e63448$export$724868632c285078(client, range) {
+async function $1c5536f3477779fa$export$724868632c285078(client, range) {
     try {
         const results = await client.execute("getApplicableRefactors", range);
         return results.filter((r)=>"edit" in r || "kind" in r).map((action)=>({
@@ -30648,22 +30659,22 @@ async function $75ffba9877e63448$export$724868632c285078(client, range) {
         return [];
     }
 }
-async function $75ffba9877e63448$export$5522d657b0b2f30(selected, client, deps) {
+async function $1c5536f3477779fa$export$5522d657b0b2f30(selected, client, deps) {
     const resolved = await client.execute("resolveCodeAction", {
         file: selected.file,
         action: selected.action
     });
-    await deps.applyEdits((0, $a27d0d73386d53b8$export$801880e0bcc7dfc1)(resolved.edit));
+    await deps.applyEdits((0, $2196ddae34004bed$export$801880e0bcc7dfc1)(resolved.edit));
 }
 
 
 
-class $b1d1feecb8b890c5$export$9262ee226e3cab9d {
+class $cdc3c3d09a128bcb$export$9262ee226e3cab9d {
     async getFixableRanges(textEditor, range) {
         const filePath = textEditor.getPath();
         if (filePath === undefined) return [];
         const errors = this.errorPusher.getErrorsInRange(filePath, range);
-        return Array.from(errors).map((error)=>(0, $a27d0d73386d53b8$export$477d491a08b070ec)(error));
+        return Array.from(errors).map((error)=>(0, $2196ddae34004bed$export$477d491a08b070ec)(error));
     }
     async runCodeFix(textEditor, bufferPosition) {
         const filePath = textEditor.getPath();
@@ -30685,9 +30696,9 @@ class $b1d1feecb8b890c5$export$9262ee226e3cab9d {
             file: filePath,
             action: fix
         });
-        const refactors = await (0, $75ffba9877e63448$export$724868632c285078)(client, {
+        const refactors = await (0, $1c5536f3477779fa$export$724868632c285078)(client, {
             file: filePath,
-            ...(0, $a27d0d73386d53b8$export$9978d8c48293dc72)(bufferPosition),
+            ...(0, $2196ddae34004bed$export$9978d8c48293dc72)(bufferPosition),
             endLine: bufferPosition.row + 1,
             endOffset: bufferPosition.column + 1
         });
@@ -30699,12 +30710,12 @@ class $b1d1feecb8b890c5$export$9262ee226e3cab9d {
     async applyFix(fix) {
         const client = await this.clientResolver.get(fix.file);
         const action = fix.action;
-        if ($b1d1feecb8b890c5$var$isCodeAction(action)) {
+        if ($cdc3c3d09a128bcb$var$isCodeAction(action)) {
             const resolved = action.edit ? action : await client.execute("resolveCodeAction", {
                 file: fix.file,
                 action: action
             });
-            await this.applyEdits((0, $a27d0d73386d53b8$export$801880e0bcc7dfc1)(resolved.edit));
+            await this.applyEdits((0, $2196ddae34004bed$export$801880e0bcc7dfc1)(resolved.edit));
             if (resolved.command) await client.execute("applyCodeActionCommand", {
                 file: fix.file,
                 command: resolved.command
@@ -30723,7 +30734,7 @@ class $b1d1feecb8b890c5$export$9262ee226e3cab9d {
         this.applyEdits = applyEdits;
     }
 }
-function $b1d1feecb8b890c5$var$isCodeAction(action) {
+function $cdc3c3d09a128bcb$var$isCodeAction(action) {
     return typeof action.command !== "string";
 }
 
@@ -30731,7 +30742,7 @@ function $b1d1feecb8b890c5$var$isCodeAction(action) {
 
 
 
-function $2fe1ce82077c7c71$export$c0ac1f0dd4073b70(codefixProvider) {
+function $e7a87da435f8d338$export$c0ac1f0dd4073b70(codefixProvider) {
     return {
         grammarScopes: [
             "*"
@@ -30741,13 +30752,13 @@ function $2fe1ce82077c7c71$export$c0ac1f0dd4073b70(codefixProvider) {
                     priority: 100,
                     title: fix.action.title,
                     selected: ()=>{
-                        (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(codefixProvider.applyFix(fix));
+                        (0, $8012570b1032009f$export$8080b7556d9d6445)(codefixProvider.applyFix(fix));
                     }
                 }));
         }
     };
 }
-function $2fe1ce82077c7c71$export$bbfa3896d0c562e(codefixProvider) {
+function $e7a87da435f8d338$export$bbfa3896d0c562e(codefixProvider) {
     return {
         grammarScopes: [
             "*"
@@ -30768,7 +30779,7 @@ function $2fe1ce82077c7c71$export$bbfa3896d0c562e(codefixProvider) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:build", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:build", (deps)=>({
         description: "Compile all files in project related to current active text editor",
         async didDispatch (editor) {
             const file = editor.getPath();
@@ -30786,7 +30797,7 @@ function $2fe1ce82077c7c71$export$bbfa3896d0c562e(codefixProvider) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:check-all-files", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:check-all-files", (deps)=>({
         description: "Typecheck all open files related to current active text editor",
         async didDispatch (editor) {
             const file = editor.getPath();
@@ -30795,7 +30806,7 @@ function $2fe1ce82077c7c71$export$bbfa3896d0c562e(codefixProvider) {
             // TypeScript 7's LSP mode has no "list all project files" request (tsserver's projectInfo
             // command has no LSP equivalent), so this checks every currently open editor instead of
             // every file in the project.
-            const files = Array.from((0, $28d5dfd6d6bf53fa$export$d121654372a91687)());
+            const files = Array.from((0, $6f0bc47c7fee627c$export$d121654372a91687)());
             const max = files.length;
             deps.reportProgress({
                 max: max,
@@ -30826,7 +30837,7 @@ function $2fe1ce82077c7c71$export$bbfa3896d0c562e(codefixProvider) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-workspace", "typescript:clear-errors", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-workspace", "typescript:clear-errors", (deps)=>({
         description: "Clear error messages",
         didDispatch () {
             deps.clearErrors();
@@ -30837,13 +30848,13 @@ function $2fe1ce82077c7c71$export$bbfa3896d0c562e(codefixProvider) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:format-code", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:format-code", (deps)=>({
         description: "Format code in currently active text editor",
         async didDispatch (editor) {
             const filePath = editor.getPath();
             if (filePath === undefined) return;
             const ranges = [];
-            for (const selection of editor.getSelectedBufferRanges())if (!selection.isEmpty()) ranges.push((0, $a27d0d73386d53b8$export$430a7b9c6c8900f6)(selection));
+            for (const selection of editor.getSelectedBufferRanges())if (!selection.isEmpty()) ranges.push((0, $2196ddae34004bed$export$430a7b9c6c8900f6)(selection));
             // Format the whole document if there are no ranges added
             if (ranges.length === 0) {
                 const end = editor.getBuffer().getEndPosition();
@@ -30862,16 +30873,16 @@ function $2fe1ce82077c7c71$export$bbfa3896d0c562e(codefixProvider) {
                     ...range,
                     file: filePath
                 });
-                if (result) edits.push(...result.map((0, $a27d0d73386d53b8$export$35d3c4904690f337)));
+                if (result) edits.push(...result.map((0, $2196ddae34004bed$export$35d3c4904690f337)));
             }
             if (edits.length > 0) editor.transact(()=>{
-                $6e3830b3bac85f2a$var$formatCode(editor, edits);
+                $df82e9655cb13925$var$formatCode(editor, edits);
             });
         }
     }));
-function $6e3830b3bac85f2a$var$formatCode(editor, edits) {
+function $df82e9655cb13925$var$formatCode(editor, edits) {
     // The code edits need to be applied in reverse order
-    for(let i = edits.length - 1; i >= 0; i--)editor.setTextInBufferRange((0, $a27d0d73386d53b8$export$477d491a08b070ec)(edits[i]), edits[i].newText);
+    for(let i = edits.length - 1; i >= 0; i--)editor.setTextInBufferRange((0, $2196ddae34004bed$export$477d491a08b070ec)(edits[i]), edits[i].newText);
 }
 
 
@@ -30879,26 +30890,26 @@ function $6e3830b3bac85f2a$var$formatCode(editor, edits) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:initialize-config", ()=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:initialize-config", ()=>({
         description: "Create tsconfig.json in the project related to currently-active text edtior",
         async didDispatch (editor, abort) {
             const projectDirs = atom.project.getDirectories();
             if (projectDirs.length === 0) return abort();
             const currentPath = editor.getPath();
             if (currentPath === undefined) return;
-            const pathToTsc = (await (0, $5687b95b3c956613$export$369fb36245591db0)(currentPath)).pathToBin;
+            const pathToTsc = (await (0, $b9d01e6e14801847$export$369fb36245591db0)(currentPath)).pathToBin;
             for (const projectDir of projectDirs)if (projectDir.contains(currentPath)) {
-                await $6fb147c1b427df05$var$initConfig(pathToTsc, projectDir.getPath());
+                await $0f0e6d95a7c4b834$var$initConfig(pathToTsc, projectDir.getPath());
                 atom.notifications.addSuccess(`Successfully created tsconfig.json in ${projectDir.getPath()}`);
             }
         }
     }));
-async function $6fb147c1b427df05$var$initConfig(tsc, projectRoot) {
+async function $0f0e6d95a7c4b834$var$initConfig(tsc, projectRoot) {
     let disp;
     try {
         return await new Promise((resolve, reject)=>{
             try {
-                const bnp = new (0, $1X1Jj$atom.BufferedNodeProcess)({
+                const bnp = new (0, $lcjJR$atom.BufferedNodeProcess)({
                     command: tsc,
                     args: [
                         "--init"
@@ -30913,7 +30924,7 @@ async function $6fb147c1b427df05$var$initConfig(tsc, projectRoot) {
                 });
                 disp = bnp.onWillThrowError(reject);
             } catch (e) {
-                reject(e);
+                reject(e instanceof Error ? e : new Error(String(e)));
             }
         });
     } finally{
@@ -30924,7 +30935,7 @@ async function $6fb147c1b427df05$var$initConfig(tsc, projectRoot) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:organize-imports", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:organize-imports", (deps)=>({
         description: "Organize module imports",
         async didDispatch (editor) {
             const filePath = editor.getPath();
@@ -30941,7 +30952,7 @@ async function $6fb147c1b427df05$var$initConfig(tsc, projectRoot) {
             if (result.length > 0) await deps.applyEdits([
                 {
                     fileName: filePath,
-                    textChanges: result.map((0, $a27d0d73386d53b8$export$35d3c4904690f337))
+                    textChanges: result.map((0, $2196ddae34004bed$export$35d3c4904690f337))
                 }
             ]);
         }
@@ -30950,7 +30961,7 @@ async function $6fb147c1b427df05$var$initConfig(tsc, projectRoot) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:reload-projects", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:reload-projects", (deps)=>({
         description: "Reload projects",
         async didDispatch (editor) {
             const path = editor.getPath();
@@ -30962,13 +30973,13 @@ async function $6fb147c1b427df05$var$initConfig(tsc, projectRoot) {
 
 
 
-var $6BABt = parcelRequire("6BABt");
+var $4FcPr = parcelRequire("4FcPr");
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
-class $6b9a12545c4b2aaf$export$1224b0b157f2244c {
+class $0e775a7e793e7d16$export$1224b0b157f2244c {
     async update(props) {
         this.element = atom.views.getView(this.model);
         this.props = {
@@ -31012,40 +31023,40 @@ class $6b9a12545c4b2aaf$export$1224b0b157f2244c {
 }
 
 
-class $745a5c2215bea880$var$RenameView {
+class $ba51311151a68f6c$var$RenameView {
     async update(props) {
         this.props = {
             ...this.props,
             ...props
         };
-        await $f0CHF.update(this);
+        await $eusZd.update(this);
     }
     render() {
-        return /*#__PURE__*/ $f0CHF.dom("div", {
+        return /*#__PURE__*/ $eusZd.dom("div", {
             className: "atomts-rename-view",
             ref: "main"
-        }, /*#__PURE__*/ $f0CHF.dom("div", {
+        }, /*#__PURE__*/ $eusZd.dom("div", {
             className: "block"
-        }, /*#__PURE__*/ $f0CHF.dom("div", null, /*#__PURE__*/ $f0CHF.dom("span", {
+        }, /*#__PURE__*/ $eusZd.dom("div", null, /*#__PURE__*/ $eusZd.dom("span", {
             ref: "title"
-        }, this.props.title), /*#__PURE__*/ $f0CHF.dom("span", {
+        }, this.props.title), /*#__PURE__*/ $eusZd.dom("span", {
             className: "subtle-info-message"
-        }, /*#__PURE__*/ $f0CHF.dom("span", null, "Close this panel with "), /*#__PURE__*/ $f0CHF.dom("span", {
+        }, /*#__PURE__*/ $eusZd.dom("span", null, "Close this panel with "), /*#__PURE__*/ $eusZd.dom("span", {
             className: "highlight"
-        }, "esc"), /*#__PURE__*/ $f0CHF.dom("span", null, " key. And commit with the "), /*#__PURE__*/ $f0CHF.dom("span", {
+        }, "esc"), /*#__PURE__*/ $eusZd.dom("span", null, " key. And commit with the "), /*#__PURE__*/ $eusZd.dom("span", {
             className: "highlight"
-        }, "enter"), /*#__PURE__*/ $f0CHF.dom("span", null, " key."))), /*#__PURE__*/ $f0CHF.dom("div", {
+        }, "enter"), /*#__PURE__*/ $eusZd.dom("span", null, " key."))), /*#__PURE__*/ $eusZd.dom("div", {
             className: "find-container block"
-        }, /*#__PURE__*/ $f0CHF.dom("div", {
+        }, /*#__PURE__*/ $eusZd.dom("div", {
             className: "editor-container"
-        }, /*#__PURE__*/ $f0CHF.dom((0, $6b9a12545c4b2aaf$export$1224b0b157f2244c), {
+        }, /*#__PURE__*/ $eusZd.dom((0, $0e775a7e793e7d16$export$1224b0b157f2244c), {
             ref: "editor",
             initialText: this.props.initialText,
             selectAll: this.props.selectAll
         }))), this.renderValidationMessage()));
     }
     async destroy() {
-        await $f0CHF.destroy(this);
+        await $eusZd.destroy(this);
     }
     focus() {
         return this.refs.editor.focus();
@@ -31054,18 +31065,18 @@ class $745a5c2215bea880$var$RenameView {
         return this.refs.editor.getModel().getText();
     }
     renderValidationMessage() {
-        if (this.props.validationMessage !== undefined) return /*#__PURE__*/ $f0CHF.dom("div", {
+        if (this.props.validationMessage !== undefined) return /*#__PURE__*/ $eusZd.dom("div", {
             className: "highlight-error"
         }, this.props.validationMessage);
         return null;
     }
     constructor(props){
         this.props = props;
-        $f0CHF.initialize(this);
+        $eusZd.initialize(this);
     }
 }
-async function $745a5c2215bea880$export$530eb201df098d49(options) {
-    const item = new $745a5c2215bea880$var$RenameView({
+async function $ba51311151a68f6c$export$530eb201df098d49(options) {
+    const item = new $ba51311151a68f6c$var$RenameView({
         title: options.title,
         initialText: options.text,
         selectAll: options.autoSelect
@@ -31076,7 +31087,7 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
     });
     const currentFocus = document.activeElement;
     item.focus();
-    const disposables = new (0, $1X1Jj$atom.CompositeDisposable)();
+    const disposables = new (0, $lcjJR$atom.CompositeDisposable)();
     try {
         return await new Promise((resolve)=>{
             disposables.add(atom.commands.add(item.refs.main, {
@@ -31087,7 +31098,7 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
                     const newText = item.getText();
                     const invalid = options.onValidate(newText);
                     if (invalid) {
-                        (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(item.update({
+                        (0, $8012570b1032009f$export$8080b7556d9d6445)(item.update({
                             validationMessage: invalid
                         }));
                         return;
@@ -31105,13 +31116,13 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:rename-file", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:rename-file", (deps)=>({
         description: "Rename current file",
         async didDispatch (editor) {
             const location = editor.getPath();
             // tslint:disable-next-line: strict-boolean-expressions
             if (!location) return;
-            const newLocation = await (0, $745a5c2215bea880$export$530eb201df098d49)({
+            const newLocation = await (0, $ba51311151a68f6c$export$530eb201df098d49)({
                 autoSelect: true,
                 title: "Rename File",
                 text: location,
@@ -31127,9 +31138,9 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
                 oldFilePath: location,
                 newFilePath: newLocation
             });
-            await deps.applyEdits((0, $a27d0d73386d53b8$export$801880e0bcc7dfc1)(response));
+            await deps.applyEdits((0, $2196ddae34004bed$export$801880e0bcc7dfc1)(response));
             await new Promise((resolve, reject)=>{
-                $6BABt.move(location, newLocation, (err)=>{
+                $4FcPr.move(location, newLocation, (err)=>{
                     if (err) reject(err);
                     else {
                         editor.getBuffer().setPath(newLocation);
@@ -31144,10 +31155,10 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:rename-refactor", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:rename-refactor", (deps)=>({
         description: "Rename symbol under text cursor everywhere it is used",
         async didDispatch (editor) {
-            const location = (0, $28d5dfd6d6bf53fa$export$f25e34a2b31a939c)(editor);
+            const location = (0, $6f0bc47c7fee627c$export$f25e34a2b31a939c)(editor);
             if (!location) return;
             const client = await deps.getClient(location.file);
             const prepared = await client.execute("prepareRename", location);
@@ -31157,7 +31168,7 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
             }
             const placeholder = "placeholder" in prepared ? prepared.placeholder : undefined;
             var _ref;
-            const newName = await (0, $745a5c2215bea880$export$530eb201df098d49)({
+            const newName = await (0, $ba51311151a68f6c$export$530eb201df098d49)({
                 autoSelect: true,
                 title: "Rename Variable",
                 text: (_ref = placeholder !== null && placeholder !== void 0 ? placeholder : editor.getTextInBufferRange(editor.getSelectedBufferRange())) !== null && _ref !== void 0 ? _ref : "",
@@ -31172,13 +31183,13 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
                 ...location,
                 newName: newName
             });
-            await deps.applyEdits((0, $a27d0d73386d53b8$export$801880e0bcc7dfc1)(edit));
+            await deps.applyEdits((0, $2196ddae34004bed$export$801880e0bcc7dfc1)(edit));
         }
     }));
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-workspace", "typescript:restart-all-servers", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-workspace", "typescript:restart-all-servers", (deps)=>({
         description: "Kill all tsserver instances. They will be auto-restarted",
         async didDispatch () {
             deps.killAllServers();
@@ -31187,13 +31198,13 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-workspace", "typescript:return-from-declaration", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-workspace", "typescript:return-from-declaration", (deps)=>({
         description: "If used `go-to-declaration`, return to previous text cursor position",
         async didDispatch () {
             await deps.histGoBack();
         }
     }));
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-workspace", "typescript:show-editor-position-history", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-workspace", "typescript:show-editor-position-history", (deps)=>({
         description: "If used `go-to-declaration`, return to previous text cursor position",
         async didDispatch () {
             await deps.histShowHistory();
@@ -31202,7 +31213,7 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:toggle-semantic-view", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:toggle-semantic-view", (deps)=>({
         description: "Toggle semantic view outline",
         didDispatch () {
             deps.toggleSemanticViewController();
@@ -31211,7 +31222,7 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:show-tooltip", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:show-tooltip", (deps)=>({
         description: "Show type tooltip at current text cursor position",
         async didDispatch (ed) {
             return deps.showTooltipAt(ed);
@@ -31220,25 +31231,25 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:show-signature-help", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:show-signature-help", (deps)=>({
         description: "Show signature help tooltip at current text cursor position",
         async didDispatch (ed) {
             return deps.showSigHelpAt(ed);
         }
     }));
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:hide-signature-help", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:hide-signature-help", (deps)=>({
         description: "Hide the currently visible signature help",
         async didDispatch (ed, ignore) {
             if (!deps.hideSigHelpAt(ed)) ignore();
         }
     }));
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:signature-help-next", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:signature-help-next", (deps)=>({
         description: "Show next signature help if available",
         async didDispatch (ed, ignore) {
             if (!deps.rotateSigHelp(ed, 1)) ignore();
         }
     }));
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:signature-help-prev", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:signature-help-prev", (deps)=>({
         description: "Show previous signature help if available",
         async didDispatch (ed, ignore) {
             if (!deps.rotateSigHelp(ed, -1)) ignore();
@@ -31247,13 +31258,13 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
 
 
 
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:toggle-file-symbols", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:toggle-file-symbols", (deps)=>({
         description: "Toggle view for finding file symbols",
         async didDispatch (editor) {
             deps.toggleFileSymbolsView(editor);
         }
     }));
-(0, $683be6fc2b5766d4$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:toggle-project-symbols", (deps)=>({
+(0, $0059686e484992c5$export$35e8f4a3c2d7c0da)("atom-text-editor", "typescript:toggle-project-symbols", (deps)=>({
         description: "Toggle view for finding file symbols",
         async didDispatch (editor) {
             deps.toggleProjectSymbolsView(editor);
@@ -31261,25 +31272,25 @@ async function $745a5c2215bea880$export$530eb201df098d49(options) {
     }));
 
 
-function $561619b12ed8c6b5$export$f647bfc0a5fe4336(deps) {
-    const disp = new (0, $1X1Jj$atom.CompositeDisposable)();
-    for (const cmd of (0, $683be6fc2b5766d4$export$7a6092e2ae7e1845)())if (cmd.selector === "atom-text-editor") {
+function $ffb71c7a08cb34f1$export$f647bfc0a5fe4336(deps) {
+    const disp = new (0, $lcjJR$atom.CompositeDisposable)();
+    for (const cmd of (0, $0059686e484992c5$export$7a6092e2ae7e1845)())if (cmd.selector === "atom-text-editor") {
         const d = cmd.desc(deps);
         disp.add(atom.commands.add(cmd.selector, cmd.command, {
             ...d,
             async didDispatch (e) {
                 try {
                     const editor = e.currentTarget.getModel();
-                    if ((0, $28d5dfd6d6bf53fa$export$3aecee58e23ede2c)(editor)) await d.didDispatch(editor, ()=>e.abortKeyBinding());
+                    if ((0, $6f0bc47c7fee627c$export$3aecee58e23ede2c)(editor)) await d.didDispatch(editor, ()=>e.abortKeyBinding());
                     else {
                         e.abortKeyBinding();
-                        if ((0, $28d5dfd6d6bf53fa$export$bde40b56025b92b9)(editor)) atom.notifications.addWarning("Atom-TypeScript cancelled last command: Current editor has no file path", {
+                        if ((0, $6f0bc47c7fee627c$export$bde40b56025b92b9)(editor)) atom.notifications.addWarning("Atom-TypeScript cancelled last command: Current editor has no file path", {
                             description: "Atom-TypeScript needs to determine the file path of the " + `current editor to execute \`${cmd.command}\`, which it failed to do. ` + "You probably just need to save the current file somewhere.",
                             dismissable: true
                         });
                     }
                 } catch (error) {
-                    $561619b12ed8c6b5$var$handle(error);
+                    $ffb71c7a08cb34f1$var$handle(error);
                 }
             }
         }));
@@ -31291,14 +31302,14 @@ function $561619b12ed8c6b5$export$f647bfc0a5fe4336(deps) {
                 try {
                     await d.didDispatch();
                 } catch (error) {
-                    $561619b12ed8c6b5$var$handle(error);
+                    $ffb71c7a08cb34f1$var$handle(error);
                 }
             }
         }));
     }
     return disp;
 }
-function $561619b12ed8c6b5$var$handle(err) {
+function $ffb71c7a08cb34f1$var$handle(err) {
     if (err.message === "Server stopped normally") console.warn("TypeScript server exited normally while executing a command", err);
     else atom.notifications.addFatalError("Something went wrong, see details below.", {
         detail: err.message,
@@ -31309,34 +31320,34 @@ function $561619b12ed8c6b5$var$handle(err) {
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
-var $4uNLx = parcelRequire("4uNLx");
+var $6DBYc = parcelRequire("6DBYc");
 
 
-var $f0CHF = parcelRequire("f0CHF");
-class $6ebac3b1add367e1$export$28c660c63b792dea {
+var $eusZd = parcelRequire("eusZd");
+class $c5fb8b2cd91c842f$export$28c660c63b792dea {
     async update(props, children) {
         this.props = {
             ...this.props,
             ...props
         };
         this.children = children;
-        await $f0CHF.update(this);
+        await $eusZd.update(this);
         this.tooltipDisposable.dispose();
         this.tooltipDisposable = atom.tooltips.add(this.element, this.props);
     }
     render() {
-        return /*#__PURE__*/ $f0CHF.dom("div", {
+        return /*#__PURE__*/ $eusZd.dom("div", {
             className: "inline-block"
         }, this.children ? this.children : null);
     }
     async destroy() {
-        await $f0CHF.destroy(this);
+        await $eusZd.destroy(this);
         this.tooltipDisposable.dispose();
     }
     constructor(props, children){
@@ -31348,13 +31359,13 @@ class $6ebac3b1add367e1$export$28c660c63b792dea {
                 hide: 0
             }
         };
-        $f0CHF.initialize(this);
+        $eusZd.initialize(this);
         this.tooltipDisposable = atom.tooltips.add(this.element, this.props);
     }
 }
 
 
-class $786eaaf20461a20d$export$d2110dce2e582144 {
+class $ce45758190265d50$export$d2110dce2e582144 {
     async update(props) {
         const successStateChanged = props.buildStatus !== undefined && props.buildStatus.success !== this.props.buildStatus.success;
         this.props = {
@@ -31362,10 +31373,10 @@ class $786eaaf20461a20d$export$d2110dce2e582144 {
             ...props
         };
         if (successStateChanged) this.resetBuildStatusTimeout();
-        await $f0CHF.update(this);
+        await $eusZd.update(this);
     }
     render() {
-        if (this.hiddenBuildStatus) return /*#__PURE__*/ $f0CHF.dom("span", null);
+        if (this.hiddenBuildStatus) return /*#__PURE__*/ $eusZd.dom("span", null);
         let cls;
         let text;
         if (this.props.buildStatus.success) {
@@ -31375,9 +31386,9 @@ class $786eaaf20461a20d$export$d2110dce2e582144 {
             cls = "highlight-error";
             text = "Emit Failed";
         }
-        return /*#__PURE__*/ $f0CHF.dom((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
+        return /*#__PURE__*/ $eusZd.dom((0, $c5fb8b2cd91c842f$export$28c660c63b792dea), {
             title: this.props.buildStatus.success ? "Build was successful" : "Build failed; click to show error message"
-        }, /*#__PURE__*/ $f0CHF.dom("span", {
+        }, /*#__PURE__*/ $eusZd.dom("span", {
             className: cls,
             on: {
                 click: this.buildStatusClicked
@@ -31385,16 +31396,16 @@ class $786eaaf20461a20d$export$d2110dce2e582144 {
         }, text));
     }
     async destroy() {
-        await $f0CHF.destroy(this);
+        await $eusZd.destroy(this);
     }
     resetBuildStatusTimeout() {
         this.hiddenBuildStatus = false;
         if (this.props.buildStatus.success) this.hideBuildStatus();
     }
     setHideBuildStatus(value) {
-        if (value > 0) this.hideBuildStatus = (0, $4uNLx.debounce)(()=>{
+        if (value > 0) this.hideBuildStatus = (0, $6DBYc.debounce)(()=>{
             this.hiddenBuildStatus = true;
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)($f0CHF.update(this));
+            (0, $8012570b1032009f$export$8080b7556d9d6445)($eusZd.update(this));
         }, value * 1000);
         else if (value === 0) this.hideBuildStatus = ()=>{
             this.hiddenBuildStatus = true;
@@ -31403,7 +31414,7 @@ class $786eaaf20461a20d$export$d2110dce2e582144 {
     }
     constructor(props){
         this.hiddenBuildStatus = false;
-        this.disposables = new (0, $1X1Jj$atom.CompositeDisposable)();
+        this.disposables = new (0, $lcjJR$atom.CompositeDisposable)();
         this.buildStatusClicked = ()=>{
             if (!this.props.buildStatus.success) atom.notifications.addError("Build failed", {
                 detail: this.props.buildStatus.message,
@@ -31415,32 +31426,32 @@ class $786eaaf20461a20d$export$d2110dce2e582144 {
         };
         this.setHideBuildStatus(atom.config.get("pulsar-typescript").buildStatusTimeout);
         this.resetBuildStatusTimeout();
-        $f0CHF.initialize(this);
+        $eusZd.initialize(this);
         this.disposables.add(atom.config.onDidChange("pulsar-typescript.buildStatusTimeout", ({ newValue: newValue })=>{
             this.setHideBuildStatus(newValue);
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.update({}));
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.update({}));
         }));
     }
 }
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
 
 
-class $e30aec1dcff9873b$export$ebf7874ab6a8fe0f {
+class $6f3fbe2ed093f128$export$ebf7874ab6a8fe0f {
     async update(props) {
         this.props = {
             ...this.props,
             ...props
         };
-        await $f0CHF.update(this);
+        await $eusZd.update(this);
     }
     render() {
-        return /*#__PURE__*/ $f0CHF.dom((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
+        return /*#__PURE__*/ $eusZd.dom((0, $c5fb8b2cd91c842f$export$28c660c63b792dea), {
             title: ()=>this.props.tsConfigPath.startsWith("/dev/null") ? "No tsconfig.json" : `Click to open ${atom.project.relativize(this.props.tsConfigPath)}`
-        }, /*#__PURE__*/ $f0CHF.dom("a", {
+        }, /*#__PURE__*/ $eusZd.dom("a", {
             className: "inline-block",
             href: "",
             on: {
@@ -31449,48 +31460,48 @@ class $e30aec1dcff9873b$export$ebf7874ab6a8fe0f {
                     this.openConfigPath();
                 }
             }
-        }, this.props.tsConfigPath.startsWith("/dev/null") ? "No project" : (0, $1X1Jj$path.dirname)($e30aec1dcff9873b$var$getFilePathRelativeToAtomProject(this.props.tsConfigPath))));
+        }, this.props.tsConfigPath.startsWith("/dev/null") ? "No project" : (0, $lcjJR$path.dirname)($6f3fbe2ed093f128$var$getFilePathRelativeToAtomProject(this.props.tsConfigPath))));
     }
     async destroy() {
-        await $f0CHF.destroy(this);
+        await $eusZd.destroy(this);
     }
     openConfigPath() {
-        if (!this.props.tsConfigPath.startsWith("/dev/null")) (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(atom.workspace.open(this.props.tsConfigPath));
+        if (!this.props.tsConfigPath.startsWith("/dev/null")) (0, $8012570b1032009f$export$8080b7556d9d6445)(atom.workspace.open(this.props.tsConfigPath));
         else atom.notifications.addInfo("No tsconfig for current file");
     }
     constructor(props){
         this.props = {
             ...props
         };
-        $f0CHF.initialize(this);
+        $eusZd.initialize(this);
     }
 }
 /**
  * converts "c:\dev\somethin\bar.ts" to "~something\bar".
- */ function $e30aec1dcff9873b$var$getFilePathRelativeToAtomProject(filePath) {
+ */ function $6f3fbe2ed093f128$var$getFilePathRelativeToAtomProject(filePath) {
     return "~" + atom.project.relativize(filePath);
 }
 
 
 
-class $fe771188dbd80d43$export$e46d185d0654294e {
+class $006b3716066789cc$export$e46d185d0654294e {
     async update(props) {
         this.props = {
             ...this.props,
             ...props
         };
-        await $f0CHF.update(this);
+        await $eusZd.update(this);
     }
     render() {
-        return /*#__PURE__*/ $f0CHF.dom("ts-status-panel", {
+        return /*#__PURE__*/ $eusZd.dom("ts-status-panel", {
             className: this.props.visible ? "" : "hide"
         }, this.renderVersion(), this.renderPending(), this.renderConfigPath(), this.renderStatus(), this.renderProgress());
     }
     async destroy() {
-        await $f0CHF.destroy(this);
+        await $eusZd.destroy(this);
     }
     dispose() {
-        (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.destroy());
+        (0, $8012570b1032009f$export$8080b7556d9d6445)(this.destroy());
     }
     async show() {
         await this.update({
@@ -31503,18 +31514,18 @@ class $fe771188dbd80d43$export$e46d185d0654294e {
         });
     }
     renderVersion() {
-        if (this.props.clientVersion !== undefined) return /*#__PURE__*/ $f0CHF.dom((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
+        if (this.props.clientVersion !== undefined) return /*#__PURE__*/ $eusZd.dom((0, $c5fb8b2cd91c842f$export$28c660c63b792dea), {
             title: "Active TypeScript version"
         }, this.props.clientVersion);
         return null;
     }
     renderPending() {
-        if (this.props.pending.length > 0) return /*#__PURE__*/ $f0CHF.dom((0, $6ebac3b1add367e1$export$28c660c63b792dea), {
+        if (this.props.pending.length > 0) return /*#__PURE__*/ $eusZd.dom((0, $c5fb8b2cd91c842f$export$28c660c63b792dea), {
             title: `Pending Requests: <ul>${this.props.pending.map(({ title: title })=>`<li>${title}</li>`).join("")}</ul>`,
             html: true
-        }, /*#__PURE__*/ $f0CHF.dom("span", {
+        }, /*#__PURE__*/ $eusZd.dom("span", {
             ref: "pendingCounter"
-        }, this.props.pending.length.toString()), /*#__PURE__*/ $f0CHF.dom("span", {
+        }, this.props.pending.length.toString()), /*#__PURE__*/ $eusZd.dom("span", {
             ref: "pendingSpinner",
             className: "loading loading-spinner-tiny inline-block",
             style: {
@@ -31526,19 +31537,19 @@ class $fe771188dbd80d43$export$e46d185d0654294e {
         else return null;
     }
     renderConfigPath() {
-        if (this.props.tsConfigPath !== undefined) return /*#__PURE__*/ $f0CHF.dom((0, $e30aec1dcff9873b$export$ebf7874ab6a8fe0f), {
+        if (this.props.tsConfigPath !== undefined) return /*#__PURE__*/ $eusZd.dom((0, $6f3fbe2ed093f128$export$ebf7874ab6a8fe0f), {
             tsConfigPath: this.props.tsConfigPath
         });
         return null;
     }
     renderStatus() {
-        if (this.props.buildStatus) return /*#__PURE__*/ $f0CHF.dom((0, $786eaaf20461a20d$export$d2110dce2e582144), {
+        if (this.props.buildStatus) return /*#__PURE__*/ $eusZd.dom((0, $ce45758190265d50$export$d2110dce2e582144), {
             buildStatus: this.props.buildStatus
         });
         return null;
     }
     renderProgress() {
-        if (this.props.progress.value < this.props.progress.max) return /*#__PURE__*/ $f0CHF.dom("progress", {
+        if (this.props.progress.value < this.props.progress.max) return /*#__PURE__*/ $eusZd.dom("progress", {
             style: {
                 verticalAlign: "baseline"
             },
@@ -31558,17 +31569,17 @@ class $fe771188dbd80d43$export$e46d185d0654294e {
             },
             ...props
         };
-        $f0CHF.initialize(this);
+        $eusZd.initialize(this);
     }
 }
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
 
 
-class $597a9cb4deadcba1$export$37b735b3f7a16aff {
+class $e1b8fee54d3aef3a$export$37b735b3f7a16aff {
     async goBack() {
         return this.goHistory(1);
     }
@@ -31588,7 +31599,7 @@ class $597a9cb4deadcba1$export$37b735b3f7a16aff {
         });
     }
     async goForward(currentEditor, item) {
-        const location = (0, $28d5dfd6d6bf53fa$export$f25e34a2b31a939c)(currentEditor);
+        const location = (0, $6f0bc47c7fee627c$export$f25e34a2b31a939c)(currentEditor);
         if (location) {
             this.prevCursorPositions.push(location);
             const maxItems = 100;
@@ -31597,19 +31608,19 @@ class $597a9cb4deadcba1$export$37b735b3f7a16aff {
         return this.open(item);
     }
     async showHistory() {
-        const res = await (0, $bc054e0e4dca1f54$export$12cb8c60c107136e)({
+        const res = await (0, $b450fffbd3075fc1$export$12cb8c60c107136e)({
             items: this.getHistory().slice().reverse().map((item, idx)=>({
                     ...item,
                     idx: idx
                 })),
-            itemTemplate: (item, ctx)=>/*#__PURE__*/ $f0CHF.dom("li", {
+            itemTemplate: (item, ctx)=>/*#__PURE__*/ $eusZd.dom("li", {
                     className: "two-lines"
-                }, /*#__PURE__*/ $f0CHF.dom("div", {
+                }, /*#__PURE__*/ $eusZd.dom("div", {
                     className: "primary-line"
-                }, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+                }, /*#__PURE__*/ $eusZd.dom((0, $1e48cc0040983839$export$31d5f5740e2c2887), {
                     label: item.file,
                     query: ctx.getFilterQuery()
-                })), /*#__PURE__*/ $f0CHF.dom("div", {
+                })), /*#__PURE__*/ $eusZd.dom("div", {
                     className: "secondary-line"
                 }, "Line: ", item.line, ", column: ", item.offset)),
             itemFilterKey: "file"
@@ -31645,10 +31656,10 @@ class $597a9cb4deadcba1$export$37b735b3f7a16aff {
 
 
 
-var $4uNLx = parcelRequire("4uNLx");
+var $6DBYc = parcelRequire("6DBYc");
 
 
-class $31aee9edc2058486$export$65a8f6d9bbe649f0 {
+class $c54707536be33963$export$65a8f6d9bbe649f0 {
     dispose() {
         if (this.disposed) return;
         this.disposed = true;
@@ -31661,7 +31672,7 @@ class $31aee9edc2058486$export$65a8f6d9bbe649f0 {
     }
     async update() {
         if (this.disposed) return;
-        if (!(0, $28d5dfd6d6bf53fa$export$3aecee58e23ede2c)(this.editor)) {
+        if (!(0, $6f0bc47c7fee627c$export$3aecee58e23ede2c)(this.editor)) {
             this.clearMarkers();
             return;
         }
@@ -31686,7 +31697,7 @@ class $31aee9edc2058486$export$65a8f6d9bbe649f0 {
     }
     *getNewOccurrenceMarkers(data) {
         for (const hl of data){
-            const range = (0, $a27d0d73386d53b8$export$9ad169abcb1fbc48)(hl.range);
+            const range = (0, $2196ddae34004bed$export$9ad169abcb1fbc48)(hl.range);
             const oldMarker = this.occurrenceMarkers.find((m)=>m.getBufferRange().isEqual(range));
             if (oldMarker) yield oldMarker;
             else {
@@ -31702,7 +31713,7 @@ class $31aee9edc2058486$export$65a8f6d9bbe649f0 {
     constructor(getClient, editor){
         this.getClient = getClient;
         this.editor = editor;
-        this.disposables = new (0, $1X1Jj$atom.CompositeDisposable)();
+        this.disposables = new (0, $lcjJR$atom.CompositeDisposable)();
         this.occurrenceMarkers = [];
         this.disposed = false;
         let debouncedUpdate;
@@ -31710,8 +31721,8 @@ class $31aee9edc2058486$export$65a8f6d9bbe649f0 {
         let changeDelay;
         let shouldHighlight = false;
         this.disposables.add(atom.config.observe("pulsar-typescript.occurrenceHighlightDebounceTimeout", (val)=>{
-            debouncedUpdate = (0, $4uNLx.debounce)(()=>{
-                (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.update());
+            debouncedUpdate = (0, $6DBYc.debounce)(()=>{
+                (0, $8012570b1032009f$export$8080b7556d9d6445)(this.update());
             }, val);
             changeDelay = val * 3.5;
         }), editor.onDidChangeCursorPosition(()=>{
@@ -31731,14 +31742,14 @@ class $31aee9edc2058486$export$65a8f6d9bbe649f0 {
 }
 
 
-class $8084fbcc9b45ce1d$export$c92097d412f660e6 {
+class $02b47c5010f4471c$export$c92097d412f660e6 {
     dispose() {
         this.disposables.dispose();
     }
     constructor(getClient){
-        this.disposables = new (0, $1X1Jj$atom.CompositeDisposable)();
+        this.disposables = new (0, $lcjJR$atom.CompositeDisposable)();
         this.disposables.add(atom.workspace.observeTextEditors((editor)=>{
-            const controller = new (0, $31aee9edc2058486$export$65a8f6d9bbe649f0)(getClient, editor);
+            const controller = new (0, $c54707536be33963$export$65a8f6d9bbe649f0)(getClient, editor);
             this.disposables.add(controller, editor.onDidDestroy(()=>{
                 this.disposables.remove(controller);
                 controller.dispose();
@@ -31754,17 +31765,17 @@ class $8084fbcc9b45ce1d$export$c92097d412f660e6 {
 
 
 
-var $4uNLx = parcelRequire("4uNLx");
+var $6DBYc = parcelRequire("6DBYc");
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
-function $61beeba91163f3b4$export$4852cabf8dc8bdd1(editor, event) {
+var $eusZd = parcelRequire("eusZd");
+function $4172bba77ba20919$export$4852cabf8dc8bdd1(editor, event) {
     const sp = atom.views.getView(editor).getComponent().screenPositionForMouseEvent(event);
     if (isNaN(sp.row) || isNaN(sp.column)) return;
     return editor.bufferPositionForScreenPosition(sp);
 }
-function $61beeba91163f3b4$export$af1f9fcad4e99e85(element, parent, box, pos) {
+function $4172bba77ba20919$export$af1f9fcad4e99e85(element, parent, box, pos) {
     const offset = 10;
     let left = box.right;
     let right = false;
@@ -31803,9 +31814,9 @@ function $61beeba91163f3b4$export$af1f9fcad4e99e85(element, parent, box, pos) {
 }
 
 
-class $0db5c03a4a08f259$export$e25b256a886d7ca4 {
+class $b797fa4102ef3eda$export$e25b256a886d7ca4 {
     async destroy() {
-        return $f0CHF.destroy(this);
+        return $eusZd.destroy(this);
     }
     async update(props) {
         var _props_sigHelp, _props_sigHelp1, _this_props_sigHelp;
@@ -31819,16 +31830,16 @@ class $0db5c03a4a08f259$export$e25b256a886d7ca4 {
             this.props.visibleItem = this.props.visibleItem % this.props.sigHelp.signatures.length;
             if (this.props.visibleItem < 0) this.props.visibleItem += this.props.sigHelp.signatures.length;
         }
-        await $f0CHF.update(this);
+        await $eusZd.update(this);
     }
     writeAfterUpdate() {
-        (0, $61beeba91163f3b4$export$af1f9fcad4e99e85)(this.element, this.parent, this.props, atom.config.get("pulsar-typescript").sigHelpPosition);
+        (0, $4172bba77ba20919$export$af1f9fcad4e99e85)(this.element, this.parent, this.props, atom.config.get("pulsar-typescript").sigHelpPosition);
     }
     render() {
-        return /*#__PURE__*/ $f0CHF.dom("div", {
+        return /*#__PURE__*/ $eusZd.dom("div", {
             className: "atom-typescript-tooltip tooltip",
             key: this.sigHelpHash()
-        }, /*#__PURE__*/ $f0CHF.dom("div", {
+        }, /*#__PURE__*/ $eusZd.dom("div", {
             className: "tooltip-inner"
         }, this.tooltipContents()));
     }
@@ -31858,11 +31869,11 @@ class $0db5c03a4a08f259$export$e25b256a886d7ca4 {
         }
         return sigHelp.signatures.map((sig, idx)=>{
             var _sigHelp_activeParameter;
-            return /*#__PURE__*/ $f0CHF.dom("div", {
+            return /*#__PURE__*/ $eusZd.dom("div", {
                 className: className(idx)
-            }, /*#__PURE__*/ $f0CHF.dom("div", null, this.renderLabel(sig, idx === selectedItemIndex ? (_sigHelp_activeParameter = sigHelp.activeParameter) !== null && _sigHelp_activeParameter !== void 0 ? _sigHelp_activeParameter : undefined : undefined), /*#__PURE__*/ $f0CHF.dom("div", {
+            }, /*#__PURE__*/ $eusZd.dom("div", null, this.renderLabel(sig, idx === selectedItemIndex ? (_sigHelp_activeParameter = sigHelp.activeParameter) !== null && _sigHelp_activeParameter !== void 0 ? _sigHelp_activeParameter : undefined : undefined), /*#__PURE__*/ $eusZd.dom("div", {
                 className: "atom-typescript-tooltip-signature-help-documentation"
-            }, $0db5c03a4a08f259$var$markupToStr(sig.documentation))));
+            }, $b797fa4102ef3eda$var$markupToStr(sig.documentation))));
         });
     }
     renderLabel(sig, activeParameter) {
@@ -31872,7 +31883,7 @@ class $0db5c03a4a08f259$export$e25b256a886d7ca4 {
         const [start, end] = param.label;
         return [
             sig.label.slice(0, start),
-            /*#__PURE__*/ $f0CHF.dom("span", {
+            /*#__PURE__*/ $eusZd.dom("span", {
                 className: "atom-typescript-tooltip-signature-help-selected"
             }, sig.label.slice(start, end)),
             sig.label.slice(end)
@@ -31886,16 +31897,16 @@ class $0db5c03a4a08f259$export$e25b256a886d7ca4 {
             top: 0,
             bottom: 0
         };
-        $f0CHF.initialize(this);
+        $eusZd.initialize(this);
     }
 }
-function $0db5c03a4a08f259$var$markupToStr(doc) {
+function $b797fa4102ef3eda$var$markupToStr(doc) {
     if (doc === undefined) return "";
     return typeof doc === "string" ? doc : doc.value;
 }
 
 
-class $dbf9dbe73a10b6d5$export$ad76ea7b944b0d8 {
+class $e0066856b1198d1a$export$ad76ea7b944b0d8 {
     isDisposed() {
         return this.cancelled;
     }
@@ -31903,7 +31914,7 @@ class $dbf9dbe73a10b6d5$export$ad76ea7b944b0d8 {
         if (this.cancelled) return;
         this.cancelled = true;
         this.disposables.dispose();
-        (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.view.destroy());
+        (0, $8012570b1032009f$export$8080b7556d9d6445)(this.view.destroy());
     }
     async rotateSigHelp(shift) {
         const { visibleItem: visibleItem, sigHelp: sigHelp } = this.view.props;
@@ -31935,7 +31946,7 @@ class $dbf9dbe73a10b6d5$export$ad76ea7b944b0d8 {
     updateTooltipPosition(bufferPt) {
         if (this.cancelled) return;
         const tooltipRect = this.computeTooltipPosition(bufferPt);
-        (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.view.update({
+        (0, $8012570b1032009f$export$8080b7556d9d6445)(this.view.update({
             ...tooltipRect
         }));
     }
@@ -31957,7 +31968,7 @@ class $dbf9dbe73a10b6d5$export$ad76ea7b944b0d8 {
         };
     }
     async getMessage(bufferPt) {
-        if (!(0, $28d5dfd6d6bf53fa$export$3aecee58e23ede2c)(this.editor)) return;
+        if (!(0, $6f0bc47c7fee627c$export$3aecee58e23ede2c)(this.editor)) return;
         const filePath = this.editor.getPath();
         if (filePath === undefined) return;
         const client = await this.deps.getClient(filePath);
@@ -31976,27 +31987,27 @@ class $dbf9dbe73a10b6d5$export$ad76ea7b944b0d8 {
         this.deps = deps;
         this.editor = editor;
         this.cancelled = false;
-        this.disposables = new $1X1Jj$atom.CompositeDisposable();
+        this.disposables = new $lcjJR$atom.CompositeDisposable();
         const rawView = atom.views.getView(this.editor);
-        this.view = new (0, $0db5c03a4a08f259$export$e25b256a886d7ca4)(rawView);
+        this.view = new (0, $b797fa4102ef3eda$export$e25b256a886d7ca4)(rawView);
         rawView.appendChild(this.view.element);
-        const debouncedUpdate = (0, $4uNLx.debounce)(this.updateTooltip.bind(this), 100, {
+        const debouncedUpdate = (0, $6DBYc.debounce)(this.updateTooltip.bind(this), 100, {
             leading: true
         });
         this.disposables.add(this.editor.onDidChangeCursorPosition((evt)=>{
             bufferPt = evt.newBufferPosition;
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(debouncedUpdate(bufferPt));
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(debouncedUpdate(bufferPt));
         }), rawView.onDidChangeScrollTop(()=>{
             setImmediate(()=>this.updateTooltipPosition(bufferPt));
         }), rawView.onDidChangeScrollLeft(()=>{
             setImmediate(()=>this.updateTooltipPosition(bufferPt));
         }));
-        (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.updateTooltip(bufferPt));
+        (0, $8012570b1032009f$export$8080b7556d9d6445)(this.updateTooltip(bufferPt));
     }
 }
 
 
-class $86fc425657083295$export$de743bb5ce1c9811 {
+class $74e2bd44ba018f5e$export$de743bb5ce1c9811 {
     dispose() {
         this.subscriptions.dispose();
         for (const editor of atom.workspace.getTextEditors()){
@@ -32011,7 +32022,7 @@ class $86fc425657083295$export$de743bb5ce1c9811 {
     rotateSigHelp(editor, shift) {
         const controller = this.editorMap.get(editor);
         if (controller && !controller.isDisposed()) {
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(controller.rotateSigHelp(shift));
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(controller.rotateSigHelp(shift));
             return true;
         } else return false;
     }
@@ -32024,11 +32035,11 @@ class $86fc425657083295$export$de743bb5ce1c9811 {
     }
     async showTooltip(editor, pos) {
         const controller = this.editorMap.get(editor);
-        if (!controller || controller.isDisposed()) this.editorMap.set(editor, new (0, $dbf9dbe73a10b6d5$export$ad76ea7b944b0d8)(this.deps, editor, pos));
+        if (!controller || controller.isDisposed()) this.editorMap.set(editor, new (0, $e0066856b1198d1a$export$ad76ea7b944b0d8)(this.deps, editor, pos));
     }
     constructor(deps){
         this.deps = deps;
-        this.subscriptions = new $1X1Jj$atom.CompositeDisposable();
+        this.subscriptions = new $lcjJR$atom.CompositeDisposable();
         this.editorMap = new WeakMap();
         this.stoppedChanging = (editor)=>(event)=>{
                 if (!atom.config.get("pulsar-typescript.sigHelpDisplayOnChange")) return;
@@ -32036,10 +32047,10 @@ class $86fc425657083295$export$de743bb5ce1c9811 {
                 if (filePath === undefined) return;
                 const pos = editor.getLastCursor().getBufferPosition();
                 const [ch] = event.changes.filter((x)=>x.newRange.containsPoint(pos));
-                if (ch && ch.newText.match(/[<(,]/) !== null) (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.showTooltip(editor, pos));
+                if (ch && ch.newText.match(/[<(,]/) !== null) (0, $8012570b1032009f$export$8080b7556d9d6445)(this.showTooltip(editor, pos));
             };
         this.subscriptions.add(atom.workspace.observeTextEditors((editor)=>{
-            const disp = new $1X1Jj$atom.CompositeDisposable();
+            const disp = new $lcjJR$atom.CompositeDisposable();
             disp.add(editor.onDidDestroy(()=>{
                 disp.dispose();
                 this.subscriptions.remove(disp);
@@ -32058,13 +32069,13 @@ class $86fc425657083295$export$de743bb5ce1c9811 {
 
 
 
-function $831bbc85ed8edf84$export$63174c828edd6ff8(element, event, selector, callback) {
+function $a7e0537f7f6d719e$export$63174c828edd6ff8(element, event, selector, callback) {
     const bound = (evt)=>{
         const sel = evt.target.closest(selector);
         if (sel && element.contains(sel)) callback(evt);
     };
     element.addEventListener(event, bound);
-    return new (0, $1X1Jj$atom.Disposable)(()=>{
+    return new (0, $lcjJR$atom.Disposable)(()=>{
         element.removeEventListener(event, bound);
     });
 }
@@ -32072,30 +32083,30 @@ function $831bbc85ed8edf84$export$63174c828edd6ff8(element, event, selector, cal
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
 
-class $a6385a1bc26b52c2$export$e25b256a886d7ca4 {
+class $d89e1cf722bc1eba$export$e25b256a886d7ca4 {
     async destroy() {
-        return $f0CHF.destroy(this);
+        return $eusZd.destroy(this);
     }
     async update(props) {
         this.props = {
             ...this.props,
             ...props
         };
-        this.tooltip = await (0, $6dd6dbad8ece01e1$export$2c9a28f937ef04fb)(this.props.info, $f0CHF, (x)=>/*#__PURE__*/ $f0CHF.dom("div", {
+        this.tooltip = await (0, $1c5f37451923ba5a$export$2c9a28f937ef04fb)(this.props.info, $eusZd, (x)=>/*#__PURE__*/ $eusZd.dom("div", {
                 className: "atom-typescript-tooltip-tooltip-code"
             }, x));
-        await $f0CHF.update(this);
+        await $eusZd.update(this);
     }
     writeAfterUpdate() {
-        (0, $61beeba91163f3b4$export$af1f9fcad4e99e85)(this.element, document.body, this.props, atom.config.get("pulsar-typescript").tooltipPosition);
+        (0, $4172bba77ba20919$export$af1f9fcad4e99e85)(this.element, document.body, this.props, atom.config.get("pulsar-typescript").tooltipPosition);
     }
     render() {
-        return /*#__PURE__*/ $f0CHF.dom("div", {
+        return /*#__PURE__*/ $eusZd.dom("div", {
             className: "atom-typescript-tooltip tooltip"
-        }, /*#__PURE__*/ $f0CHF.dom("div", {
+        }, /*#__PURE__*/ $eusZd.dom("div", {
             className: "tooltip-inner"
         }, this.tooltip));
     }
@@ -32107,16 +32118,16 @@ class $a6385a1bc26b52c2$export$e25b256a886d7ca4 {
             top: 0,
             bottom: 0
         };
-        $f0CHF.initialize(this);
+        $eusZd.initialize(this);
     }
 }
 
 
-class $0b46e487f686be12$export$ad76ea7b944b0d8 {
+class $a1ba18e635b0888e$export$ad76ea7b944b0d8 {
     dispose() {
         this.cancelled = true;
         if (this.view) {
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.view.destroy());
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.view.destroy());
             this.view = undefined;
         }
     }
@@ -32164,7 +32175,7 @@ class $0b46e487f686be12$export$ad76ea7b944b0d8 {
         }
     }
     async showTooltip(tooltipRect, info) {
-        this.view = new (0, $a6385a1bc26b52c2$export$e25b256a886d7ca4)();
+        this.view = new (0, $d89e1cf722bc1eba$export$e25b256a886d7ca4)();
         document.body.appendChild(this.view.element);
         await this.view.update({
             ...tooltipRect,
@@ -32174,13 +32185,13 @@ class $0b46e487f686be12$export$ad76ea7b944b0d8 {
     constructor(getClient, editor, e, bufferPt){
         this.getClient = getClient;
         this.cancelled = false;
-        (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.initialize(editor, e, bufferPt));
+        (0, $8012570b1032009f$export$8080b7556d9d6445)(this.initialize(editor, e, bufferPt));
     }
 }
 
 
 
-class $39878e733ff90f1b$export$3cf29e47efa41626 {
+class $262eff16af061bef$export$3cf29e47efa41626 {
     dispose() {
         this.subscriptions.dispose();
         this.clearExprTypeTimeout();
@@ -32208,7 +32219,7 @@ class $39878e733ff90f1b$export$3cf29e47efa41626 {
     }
     showExpressionType(editor, e, bufferPt) {
         if (this.pendingTooltip) this.pendingTooltip.dispose();
-        this.pendingTooltip = new (0, $0b46e487f686be12$export$ad76ea7b944b0d8)(this.getClient, editor, e, bufferPt);
+        this.pendingTooltip = new (0, $a1ba18e635b0888e$export$ad76ea7b944b0d8)(this.getClient, editor, e, bufferPt);
     }
     hideExpressionType() {
         if (!this.pendingTooltip) return;
@@ -32217,15 +32228,15 @@ class $39878e733ff90f1b$export$3cf29e47efa41626 {
     }
     constructor(getClientInternal){
         this.getClientInternal = getClientInternal;
-        this.subscriptions = new $1X1Jj$atom.CompositeDisposable();
+        this.subscriptions = new $lcjJR$atom.CompositeDisposable();
         this.editorMap = new WeakMap();
         this.getClient = async (editor)=>{
             // Only on ".ts" files
             const filePath = editor.getPath();
             if (filePath === undefined) return;
-            if (!$28d5dfd6d6bf53fa$export$3aecee58e23ede2c(editor)) return;
+            if (!$6f0bc47c7fee627c$export$3aecee58e23ede2c(editor)) return;
             // We only create a "program" once the file is persisted to disk
-            if (!(0, ($parcel$interopDefault($1X1Jj$fs))).existsSync(filePath)) return;
+            if (!(0, ($parcel$interopDefault($lcjJR$fs))).existsSync(filePath)) return;
             return this.getClientInternal(filePath);
         };
         this.clearExprTypeTimeout = ()=>{
@@ -32238,7 +32249,7 @@ class $39878e733ff90f1b$export$3cf29e47efa41626 {
         this.trackMouseMovement = (editor)=>{
             let lastExprTypeBufferPt;
             return (e)=>{
-                const bufferPt = (0, $61beeba91163f3b4$export$4852cabf8dc8bdd1)(editor, e);
+                const bufferPt = (0, $4172bba77ba20919$export$4852cabf8dc8bdd1)(editor, e);
                 if (!bufferPt) return;
                 if (lastExprTypeBufferPt && lastExprTypeBufferPt.isEqual(bufferPt) && this.pendingTooltip) return;
                 lastExprTypeBufferPt = bufferPt;
@@ -32253,8 +32264,8 @@ class $39878e733ff90f1b$export$3cf29e47efa41626 {
                 rawView: rawView,
                 lines: lines
             });
-            const disp = new $1X1Jj$atom.CompositeDisposable();
-            disp.add((0, $831bbc85ed8edf84$export$63174c828edd6ff8)(rawView, "mousemove", ".scroll-view", this.trackMouseMovement(editor)), (0, $831bbc85ed8edf84$export$63174c828edd6ff8)(rawView, "mouseout", ".scroll-view", this.clearExprTypeTimeout), (0, $831bbc85ed8edf84$export$63174c828edd6ff8)(rawView, "keydown", ".scroll-view", this.clearExprTypeTimeout), rawView.onDidChangeScrollTop(this.clearExprTypeTimeout), rawView.onDidChangeScrollLeft(this.clearExprTypeTimeout), editor.onDidDestroy(()=>{
+            const disp = new $lcjJR$atom.CompositeDisposable();
+            disp.add((0, $a7e0537f7f6d719e$export$63174c828edd6ff8)(rawView, "mousemove", ".scroll-view", this.trackMouseMovement(editor)), (0, $a7e0537f7f6d719e$export$63174c828edd6ff8)(rawView, "mouseout", ".scroll-view", this.clearExprTypeTimeout), (0, $a7e0537f7f6d719e$export$63174c828edd6ff8)(rawView, "keydown", ".scroll-view", this.clearExprTypeTimeout), rawView.onDidChangeScrollTop(this.clearExprTypeTimeout), rawView.onDidChangeScrollLeft(this.clearExprTypeTimeout), editor.onDidDestroy(()=>{
                 disp.dispose();
                 this.subscriptions.remove(disp);
                 this.clearExprTypeTimeout();
@@ -32269,7 +32280,7 @@ class $39878e733ff90f1b$export$3cf29e47efa41626 {
 
 
 
-class $074d6626591af477$export$951a8e3d4c79262 {
+class $c2e2cb598bf4a287$export$951a8e3d4c79262 {
     dispose() {
         this.subscriptions.dispose();
     }
@@ -32279,7 +32290,7 @@ class $074d6626591af477$export$951a8e3d4c79262 {
     }
     async show() {
         if (!this.view) {
-            this.view = (0, $76e0aa7104ca4ad9$export$a3a95952d8506109).create({
+            this.view = (0, $a297cf51b0219adb$export$a3a95952d8506109).create({
                 navTree: null
             });
             await this.view.setGetClient(this.getClient);
@@ -32294,17 +32305,17 @@ class $074d6626591af477$export$951a8e3d4c79262 {
     }
     constructor(getClient){
         this.getClient = getClient;
-        this.subscriptions = new (0, $1X1Jj$atom.CompositeDisposable)();
-        const pane = atom.workspace.paneForURI((0, $76e0aa7104ca4ad9$export$c5c441a5719d665b));
-        if (pane) this.view = pane.itemForURI((0, $76e0aa7104ca4ad9$export$c5c441a5719d665b));
-        if (this.view) (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.view.setGetClient(this.getClient));
-        this.subscriptions.add(new (0, $1X1Jj$atom.Disposable)(()=>{
+        this.subscriptions = new (0, $lcjJR$atom.CompositeDisposable)();
+        const pane = atom.workspace.paneForURI((0, $a297cf51b0219adb$export$c5c441a5719d665b));
+        if (pane) this.view = pane.itemForURI((0, $a297cf51b0219adb$export$c5c441a5719d665b));
+        if (this.view) (0, $8012570b1032009f$export$8080b7556d9d6445)(this.view.setGetClient(this.getClient));
+        this.subscriptions.add(new (0, $lcjJR$atom.Disposable)(()=>{
             if (this.view) {
                 atom.workspace.hide(this.view);
-                (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.view.destroy());
+                (0, $8012570b1032009f$export$8080b7556d9d6445)(this.view.destroy());
             }
         }), atom.config.observe("pulsar-typescript.showSemanticView", (val)=>{
-            if (val) (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.show());
+            if (val) (0, $8012570b1032009f$export$8080b7556d9d6445)(this.show());
             else this.hide();
         }));
     }
@@ -32313,15 +32324,15 @@ class $074d6626591af477$export$951a8e3d4c79262 {
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
 
 
 
-class $d041a08832175eec$export$3288d34c523a1192 {
+class $abf1b22b87f98a46$export$3288d34c523a1192 {
     static fromNavTree(navTree, parent) {
         const start = navTree.spans[0].start;
-        return new $d041a08832175eec$export$3288d34c523a1192({
+        return new $abf1b22b87f98a46$export$3288d34c523a1192({
             name: navTree.text,
             type: navTree.kind,
             position: {
@@ -32341,9 +32352,9 @@ class $d041a08832175eec$export$3288d34c523a1192 {
             row: 0,
             column: 0
         };
-        return new $d041a08832175eec$export$3288d34c523a1192({
+        return new $abf1b22b87f98a46$export$3288d34c523a1192({
             name: sym.name,
-            type: (0, $96e505bb0ec76374$export$276b7be91de572a0)[sym.kind],
+            type: (0, $cfd723393c3c1165$export$276b7be91de572a0)[sym.kind],
             position: start,
             parent: parent != null ? parent : null,
             file: new URL(location.uri).pathname
@@ -32359,39 +32370,39 @@ class $d041a08832175eec$export$3288d34c523a1192 {
 }
 
 
-async function $f4cacccce0ae20fa$export$3d887693d0007350(filePath, deps) {
-    const navtree = await $f4cacccce0ae20fa$var$getNavTree(filePath, deps);
-    return Array.from($f4cacccce0ae20fa$var$parseNavTree(navtree));
+async function $bcf8ac5749c3f8ad$export$3d887693d0007350(filePath, deps) {
+    const navtree = await $bcf8ac5749c3f8ad$var$getNavTree(filePath, deps);
+    return Array.from($bcf8ac5749c3f8ad$var$parseNavTree(navtree));
 }
-async function $f4cacccce0ae20fa$export$84b9b1d45a7e55b8(filePath, search, deps) {
-    const symbols = await $f4cacccce0ae20fa$var$getNavTo(filePath, search, deps);
-    if (symbols) return Array.from($f4cacccce0ae20fa$var$parseNavTo(symbols));
+async function $bcf8ac5749c3f8ad$export$84b9b1d45a7e55b8(filePath, search, deps) {
+    const symbols = await $bcf8ac5749c3f8ad$var$getNavTo(filePath, search, deps);
+    if (symbols) return Array.from($bcf8ac5749c3f8ad$var$parseNavTo(symbols));
     else return [];
 }
-function* $f4cacccce0ae20fa$var$parseNavTree(navTree, parent) {
+function* $bcf8ac5749c3f8ad$var$parseNavTree(navTree, parent) {
     navTree.sort((a, b)=>a.spans[0].start.line - b.spans[0].start.line);
     for (const item of navTree){
-        const tag = (0, $d041a08832175eec$export$3288d34c523a1192).fromNavTree(item, parent);
+        const tag = (0, $abf1b22b87f98a46$export$3288d34c523a1192).fromNavTree(item, parent);
         yield tag;
-        if (item.childItems) yield* $f4cacccce0ae20fa$var$parseNavTree(item.childItems, tag);
+        if (item.childItems) yield* $bcf8ac5749c3f8ad$var$parseNavTree(item.childItems, tag);
     }
 }
-function* $f4cacccce0ae20fa$var$parseNavTo(symbols) {
-    for (const item of symbols)yield (0, $d041a08832175eec$export$3288d34c523a1192).fromWorkspaceSymbol(item);
+function* $bcf8ac5749c3f8ad$var$parseNavTo(symbols) {
+    for (const item of symbols)yield (0, $abf1b22b87f98a46$export$3288d34c523a1192).fromWorkspaceSymbol(item);
 }
-async function $f4cacccce0ae20fa$var$getNavTree(filePath, deps) {
+async function $bcf8ac5749c3f8ad$var$getNavTree(filePath, deps) {
     try {
         const client = await deps.getClient(filePath);
         const symbols = await client.execute("navtree", {
             file: filePath
         });
-        return symbols ? (0, $96e505bb0ec76374$export$44fc07bcd63323ce)(symbols) : [];
+        return symbols ? (0, $cfd723393c3c1165$export$44fc07bcd63323ce)(symbols) : [];
     } catch (e) {
         console.error(filePath, e);
         return [];
     }
 }
-async function $f4cacccce0ae20fa$var$getNavTo(filePath, search, deps) {
+async function $bcf8ac5749c3f8ad$var$getNavTo(filePath, search, deps) {
     try {
         const client = await deps.getClient(filePath);
         const navtoResult = await client.execute("navto", {
@@ -32406,7 +32417,7 @@ async function $f4cacccce0ae20fa$var$getNavTo(filePath, search, deps) {
 }
 
 
-async function $299b41e60cd6bf93$export$1d50c664485a457a(tag, editor, histGoForward) {
+async function $f30c9b95c20c6c0a$export$1d50c664485a457a(tag, editor, histGoForward) {
     if (tag.file !== undefined) return histGoForward(editor, {
         file: tag.file,
         start: {
@@ -32415,7 +32426,7 @@ async function $299b41e60cd6bf93$export$1d50c664485a457a(tag, editor, histGoForw
         }
     });
 }
-function $299b41e60cd6bf93$export$f52e1de408b9499d(editor) {
+function $f30c9b95c20c6c0a$export$f52e1de408b9499d(editor) {
     const editorElement = atom.views.getView(editor);
     const scrollTop = editorElement.getScrollTop();
     return {
@@ -32423,29 +32434,29 @@ function $299b41e60cd6bf93$export$f52e1de408b9499d(editor) {
         scrollTop: scrollTop
     };
 }
-function $299b41e60cd6bf93$export$f514d2bb3b6ad37e(editor, { bufferRanges: bufferRanges, scrollTop: scrollTop }) {
+function $f30c9b95c20c6c0a$export$f514d2bb3b6ad37e(editor, { bufferRanges: bufferRanges, scrollTop: scrollTop }) {
     const editorElement = atom.views.getView(editor);
     editor.setSelectedBufferRanges(bufferRanges);
     editorElement.setScrollTop(scrollTop);
 }
 
 
-async function $8401cbaab7a77467$export$e03c1c3201ee8bb7(editor, deps) {
+async function $3c96dc9fdbf42880$export$e03c1c3201ee8bb7(editor, deps) {
     const filePath = editor.getPath();
     if (filePath !== undefined) {
         // NOTE uses the "parent" package's setting (i.e. from symbols-view):
         let initialState;
-        if (atom.config.get("symbols-view.quickJumpToFileSymbol")) initialState = $299b41e60cd6bf93$export$f52e1de408b9499d(editor);
-        const tag = await (0, $bc054e0e4dca1f54$export$12cb8c60c107136e)({
-            items: (0, $f4cacccce0ae20fa$export$3d887693d0007350)(filePath, deps),
-            itemTemplate: ({ name: name, position: position }, ctx)=>/*#__PURE__*/ $f0CHF.dom("li", {
+        if (atom.config.get("symbols-view.quickJumpToFileSymbol")) initialState = $f30c9b95c20c6c0a$export$f52e1de408b9499d(editor);
+        const tag = await (0, $b450fffbd3075fc1$export$12cb8c60c107136e)({
+            items: (0, $bcf8ac5749c3f8ad$export$3d887693d0007350)(filePath, deps),
+            itemTemplate: ({ name: name, position: position }, ctx)=>/*#__PURE__*/ $eusZd.dom("li", {
                     className: "two-lines"
-                }, /*#__PURE__*/ $f0CHF.dom("div", {
+                }, /*#__PURE__*/ $eusZd.dom("div", {
                     className: "primary-line"
-                }, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+                }, /*#__PURE__*/ $eusZd.dom((0, $1e48cc0040983839$export$31d5f5740e2c2887), {
                     label: name,
                     query: ctx.getFilterQuery()
-                })), /*#__PURE__*/ $f0CHF.dom("div", {
+                })), /*#__PURE__*/ $eusZd.dom("div", {
                     className: "secondary-line"
                 }, `Line ${position.row + 1}`)),
             didChangeSelection (item) {
@@ -32454,49 +32465,49 @@ async function $8401cbaab7a77467$export$e03c1c3201ee8bb7(editor, deps) {
             },
             itemFilterKey: "name"
         });
-        if (tag) await $299b41e60cd6bf93$export$1d50c664485a457a(tag, editor, deps.histGoForward);
-        else if (initialState) $299b41e60cd6bf93$export$f514d2bb3b6ad37e(editor, initialState);
+        if (tag) await $f30c9b95c20c6c0a$export$1d50c664485a457a(tag, editor, deps.histGoForward);
+        else if (initialState) $f30c9b95c20c6c0a$export$f514d2bb3b6ad37e(editor, initialState);
     }
 }
 
 
 
-var $f0CHF = parcelRequire("f0CHF");
+var $eusZd = parcelRequire("eusZd");
 
 
 
 
-async function $7b7ec62bc5ff1b52$export$e03c1c3201ee8bb7(editor, deps) {
+async function $3ed099236a031754$export$e03c1c3201ee8bb7(editor, deps) {
     const filePath = editor.getPath();
     if (filePath !== undefined) {
-        const tag = await (0, $bc054e0e4dca1f54$export$12cb8c60c107136e)({
-            items: (search)=>(0, $f4cacccce0ae20fa$export$84b9b1d45a7e55b8)(filePath, search, deps),
+        const tag = await (0, $b450fffbd3075fc1$export$12cb8c60c107136e)({
+            items: (search)=>(0, $bcf8ac5749c3f8ad$export$84b9b1d45a7e55b8)(filePath, search, deps),
             itemTemplate ({ name: name, position: position, file: file }, ctx) {
                 const relfile = atom.project.relativize(file);
-                return /*#__PURE__*/ $f0CHF.dom("li", {
+                return /*#__PURE__*/ $eusZd.dom("li", {
                     className: "two-lines"
-                }, /*#__PURE__*/ $f0CHF.dom("div", {
+                }, /*#__PURE__*/ $eusZd.dom("div", {
                     className: "primary-line"
-                }, /*#__PURE__*/ $f0CHF.dom((0, $1416f97a12fa3d16$export$31d5f5740e2c2887), {
+                }, /*#__PURE__*/ $eusZd.dom((0, $1e48cc0040983839$export$31d5f5740e2c2887), {
                     label: name,
                     query: ctx.getFilterQuery()
-                })), /*#__PURE__*/ $f0CHF.dom("div", {
+                })), /*#__PURE__*/ $eusZd.dom("div", {
                     className: "secondary-line"
                 }, `File ${relfile} line ${position.row + 1}`));
             },
             itemFilterKey: "name"
         });
-        if (tag) await $299b41e60cd6bf93$export$1d50c664485a457a(tag, editor, deps.histGoForward);
+        if (tag) await $f30c9b95c20c6c0a$export$1d50c664485a457a(tag, editor, deps.histGoForward);
     }
 }
 
 
-class $0a2a1aa85320f6cb$export$bf8eec42fec7719 {
+class $4cd7b3202725e0e4$export$bf8eec42fec7719 {
     toggleFileView(editor) {
-        (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)((0, $8401cbaab7a77467$export$e03c1c3201ee8bb7)(editor, this.deps));
+        (0, $8012570b1032009f$export$8080b7556d9d6445)((0, $3c96dc9fdbf42880$export$e03c1c3201ee8bb7)(editor, this.deps));
     }
     toggleProjectView(editor) {
-        (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)((0, $7b7ec62bc5ff1b52$export$e03c1c3201ee8bb7)(editor, this.deps));
+        (0, $8012570b1032009f$export$8080b7556d9d6445)((0, $3ed099236a031754$export$e03c1c3201ee8bb7)(editor, this.deps));
     }
     dispose() {
     // TODO: proper disposal
@@ -32508,20 +32519,20 @@ class $0a2a1aa85320f6cb$export$bf8eec42fec7719 {
 
 
 
-var $4uNLx = parcelRequire("4uNLx");
+var $6DBYc = parcelRequire("6DBYc");
 
 
-class $21346f56dd657711$export$a4d36ae2cf2e8cd {
+class $2e77e3cc1be7f995$export$a4d36ae2cf2e8cd {
     *getErrorsInRange(filePath, range) {
         for (const prefixed of this.errors.values()){
-            const errors = prefixed.get($1X1Jj$path.normalize(filePath));
-            if (errors) yield* errors.filter((err)=>(0, $a27d0d73386d53b8$export$477d491a08b070ec)(err).intersectsWith(range));
+            const errors = prefixed.get($lcjJR$path.normalize(filePath));
+            if (errors) yield* errors.filter((err)=>(0, $2196ddae34004bed$export$477d491a08b070ec)(err).intersectsWith(range));
         }
     }
     /** Return any errors that cover the given location */ *getErrorsAt(filePath, loc) {
         for (const prefixed of this.errors.values()){
-            const errors = prefixed.get($1X1Jj$path.normalize(filePath));
-            if (errors) yield* errors.filter((err)=>(0, $a27d0d73386d53b8$export$477d491a08b070ec)(err).containsPoint(loc));
+            const errors = prefixed.get($lcjJR$path.normalize(filePath));
+            if (errors) yield* errors.filter((err)=>(0, $2196ddae34004bed$export$477d491a08b070ec)(err).containsPoint(loc));
         }
     }
     /** Set errors. Previous errors with the same prefix and filePath are going to be replaced */ setErrors(prefix, filePath, errors) {
@@ -32530,7 +32541,7 @@ class $21346f56dd657711$export$a4d36ae2cf2e8cd {
             prefixed = new Map();
             this.errors.set(prefix, prefixed);
         }
-        prefixed.set($1X1Jj$path.normalize(filePath), errors);
+        prefixed.set($lcjJR$path.normalize(filePath), errors);
         this.pushErrors();
     }
     clearFileErrors(filePath) {
@@ -32559,11 +32570,11 @@ class $21346f56dd657711$export$a4d36ae2cf2e8cd {
         for (const fileErrors of this.errors.values())for (const [filePath, diagnostics] of fileErrors){
             const ed = atom.workspace.getTextEditors().find((x)=>x.getPath() === filePath);
             const scopeName = ed ? ed.getGrammar().scopeName : this.selectGrammar(filePath);
-            if ($21346f56dd657711$var$config("suppressAllDiagnostics", scopeName)) continue;
+            if ($2e77e3cc1be7f995$var$config("suppressAllDiagnostics", scopeName)) continue;
             for (const diagnostic of diagnostics){
-                if ($21346f56dd657711$var$config("ignoredDiagnosticCodes", scopeName).includes(`${diagnostic.code}`)) continue;
-                if ($21346f56dd657711$var$config("ignoreUnusedSuggestionDiagnostics", scopeName) && diagnostic.reportsUnnecessary) continue;
-                if (diagnostic.category === "suggestion" && $21346f56dd657711$var$config("ignoredSuggestionDiagnostics", scopeName).includes(`${diagnostic.code}`)) continue;
+                if ($2e77e3cc1be7f995$var$config("ignoredDiagnosticCodes", scopeName).includes(`${diagnostic.code}`)) continue;
+                if ($2e77e3cc1be7f995$var$config("ignoreUnusedSuggestionDiagnostics", scopeName) && diagnostic.reportsUnnecessary) continue;
+                if (diagnostic.category === "suggestion" && $2e77e3cc1be7f995$var$config("ignoredSuggestionDiagnostics", scopeName).includes(`${diagnostic.code}`)) continue;
                 // Add a bit of extra validation that we have the necessary locations since linter v2
                 // does not allow range-less messages anymore. This happens with configFileDiagnostics.
                 let { start: start, end: end } = diagnostic;
@@ -32572,11 +32583,11 @@ class $21346f56dd657711$export$a4d36ae2cf2e8cd {
                     offset: 1
                 };
                 result.push({
-                    severity: this.getSeverity($21346f56dd657711$var$config("unusedAsInfo", scopeName), diagnostic),
+                    severity: this.getSeverity($2e77e3cc1be7f995$var$config("unusedAsInfo", scopeName), diagnostic),
                     excerpt: diagnostic.text,
                     location: {
                         file: filePath,
-                        position: (0, $a27d0d73386d53b8$export$19d00dfc4e734f8b)(start, end)
+                        position: (0, $2196ddae34004bed$export$19d00dfc4e734f8b)(start, end)
                     }
                 });
             }
@@ -32604,10 +32615,10 @@ class $21346f56dd657711$export$a4d36ae2cf2e8cd {
     constructor(){
         this.errors = new Map();
         this.fileGrammars = new Map();
-        this.pushErrors = (0, $4uNLx.debounce)(this.pushErrors.bind(this), 100);
+        this.pushErrors = (0, $6DBYc.debounce)(this.pushErrors.bind(this), 100);
     }
 }
-function $21346f56dd657711$var$config(option, scope) {
+function $2e77e3cc1be7f995$var$config(option, scope) {
     return atom.config.get(`pulsar-typescript.${option}`, {
         scope: [
             scope
@@ -32621,17 +32632,17 @@ function $21346f56dd657711$var$config(option, scope) {
 
 
 
-var $4uNLx = parcelRequire("4uNLx");
+var $6DBYc = parcelRequire("6DBYc");
 
 
 
-class $6ec61eebadc87269$export$6932e15e784422f9 {
+class $4e4e1717c0305d05$export$6932e15e784422f9 {
     static create(buffer, deps) {
-        const b = $6ec61eebadc87269$export$6932e15e784422f9.bufferMap.get(buffer);
+        const b = $4e4e1717c0305d05$export$6932e15e784422f9.bufferMap.get(buffer);
         if (b) return b;
         else {
-            const nb = new $6ec61eebadc87269$export$6932e15e784422f9(buffer, deps);
-            $6ec61eebadc87269$export$6932e15e784422f9.bufferMap.set(buffer, nb);
+            const nb = new $4e4e1717c0305d05$export$6932e15e784422f9(buffer, deps);
+            $4e4e1717c0305d05$export$6932e15e784422f9.bufferMap.set(buffer, nb);
             return nb;
         }
     }
@@ -32647,7 +32658,7 @@ class $6ec61eebadc87269$export$6932e15e784422f9 {
     }
     async getErr(opts) {
         if (!this.state) return;
-        const files = opts.allFiles ? Array.from((0, $28d5dfd6d6bf53fa$export$d121654372a91687)()) : [
+        const files = opts.allFiles ? Array.from((0, $6f0bc47c7fee627c$export$d121654372a91687)()) : [
             this.state.filePath
         ];
         await this.state.client.execute("geterr", {
@@ -32683,28 +32694,28 @@ class $6ec61eebadc87269$export$6932e15e784422f9 {
         }
     }
     async open(filePath) {
-        if (filePath !== undefined && (0, $28d5dfd6d6bf53fa$export$225e59ca209a506)(filePath)) {
+        if (filePath !== undefined && (0, $6f0bc47c7fee627c$export$225e59ca209a506)(filePath)) {
             const client = await this.deps.getClient(filePath);
             this.state = {
                 client: client,
                 filePath: filePath,
                 configFile: undefined,
-                subscriptions: new $1X1Jj$atom.CompositeDisposable()
+                subscriptions: new $lcjJR$atom.CompositeDisposable()
             };
-            this.state.subscriptions.add(client.on("restarted", ()=>(0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.init())));
+            this.state.subscriptions.add(client.on("restarted", ()=>(0, $8012570b1032009f$export$8080b7556d9d6445)(this.init())));
             await this.init();
-            const configFilePath = await (0, $5687b95b3c956613$export$c406ae411cd6ed11)(filePath);
+            const configFilePath = await (0, $b9d01e6e14801847$export$c406ae411cd6ed11)(filePath);
             if (configFilePath !== undefined) {
-                this.state.configFile = new $1X1Jj$atom.File(configFilePath);
+                this.state.configFile = new $lcjJR$atom.File(configFilePath);
                 await this.readConfigFile();
-                this.state.subscriptions.add(this.state.configFile.onDidChange(()=>(0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.readConfigFile())));
+                this.state.subscriptions.add(this.state.configFile.onDidChange(()=>(0, $8012570b1032009f$export$8080b7556d9d6445)(this.readConfigFile())));
             }
             this.events.emit("opened");
         } else return this.close();
     }
     async readConfigFile() {
         if (!this.state || !this.state.configFile) return;
-        const options = (0, $a27d0d73386d53b8$export$bad43d745a81bbd5)(this.state.configFile.getPath());
+        const options = (0, $2196ddae34004bed$export$bad43d745a81bbd5)(this.state.configFile.getPath());
         this.compileOnSave = options.compileOnSave;
         const cfg = atom.config.get("pulsar-typescript");
         await this.state.client.execute("configure", {
@@ -32723,12 +32734,12 @@ class $6ec61eebadc87269$export$6932e15e784422f9 {
     constructor(buffer, deps){
         this.buffer = buffer;
         this.deps = deps;
-        this.events = new $1X1Jj$atom.Emitter();
+        this.events = new $lcjJR$atom.Emitter();
         this.compileOnSave = false;
-        this.subscriptions = new $1X1Jj$atom.CompositeDisposable();
+        this.subscriptions = new $lcjJR$atom.CompositeDisposable();
         this.on = this.events.on.bind(this.events);
         this.dispose = async ()=>{
-            $6ec61eebadc87269$export$6932e15e784422f9.bufferMap.delete(this.buffer);
+            $4e4e1717c0305d05$export$6932e15e784422f9.bufferMap.delete(this.buffer);
             this.subscriptions.dispose();
             await this.close();
         };
@@ -32738,7 +32749,7 @@ class $6ec61eebadc87269$export$6932e15e784422f9 {
                 file: this.state.filePath,
                 fileContent: this.buffer.getText()
             });
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.getErr({
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.getErr({
                 allFiles: false,
                 delay: 0
             }));
@@ -32757,7 +32768,7 @@ class $6ec61eebadc87269$export$6932e15e784422f9 {
             }
         };
         this.onDidChangePath = (newPath)=>{
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.close().then(()=>{
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.close().then(()=>{
                 this.openPromise = this.open(newPath);
             }));
         };
@@ -32793,45 +32804,45 @@ class $6ec61eebadc87269$export$6932e15e784422f9 {
         };
         let debouncedGetErr;
         this.subscriptions.add(atom.config.observe("pulsar-typescript.getErrDebounceTimeout", (val)=>{
-            debouncedGetErr = (0, $4uNLx.debounce)(()=>{
-                (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.getErr({
+            debouncedGetErr = (0, $6DBYc.debounce)(()=>{
+                (0, $8012570b1032009f$export$8080b7556d9d6445)(this.getErr({
                     allFiles: false,
                     delay: 0
                 }));
             }, val);
         }), buffer.onDidChangePath(this.onDidChangePath), buffer.onDidDestroy(()=>{
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.dispose());
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.dispose());
         }), buffer.onDidSave(()=>{
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.onDidSave());
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.onDidSave());
         }), buffer.onDidStopChanging(({ changes: changes })=>{
             if (changes.length > 0) this.deps.reportBuildStatus(undefined);
         }), buffer.onDidChangeText((arg)=>{
             // NOTE: we don't need to worry about interleaving here,
             // because onDidChangeText pushes all changes at once
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.onDidChangeText(arg));
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.onDidChangeText(arg));
             debouncedGetErr();
         }));
         this.openPromise = this.open(this.buffer.getPath());
     }
 }
-$6ec61eebadc87269$export$6932e15e784422f9.bufferMap = new WeakMap();
+$4e4e1717c0305d05$export$6932e15e784422f9.bufferMap = new WeakMap();
 
 
-class $5fa357112f771115$export$a0bbaae59860162e {
+class $f2c40572991b2c33$export$a0bbaae59860162e {
     // tslint:disable-next-line:member-ordering
     static createFactory(opts) {
         return (editor)=>{
-            let tep = $5fa357112f771115$export$a0bbaae59860162e.editorMap.get(editor);
+            let tep = $f2c40572991b2c33$export$a0bbaae59860162e.editorMap.get(editor);
             if (!tep) {
-                tep = new $5fa357112f771115$export$a0bbaae59860162e(editor, opts);
-                $5fa357112f771115$export$a0bbaae59860162e.editorMap.set(editor, tep);
+                tep = new $f2c40572991b2c33$export$a0bbaae59860162e(editor, opts);
+                $f2c40572991b2c33$export$a0bbaae59860162e.editorMap.set(editor, tep);
             }
             return tep;
         };
     }
     // tslint:disable-next-line:member-ordering
     static lookupPane(editor) {
-        return $5fa357112f771115$export$a0bbaae59860162e.editorMap.get(editor);
+        return $f2c40572991b2c33$export$a0bbaae59860162e.editorMap.get(editor);
     }
     reportInfo() {
         const info = this.buffer.getInfo();
@@ -32840,13 +32851,13 @@ class $5fa357112f771115$export$a0bbaae59860162e {
     constructor(editor, opts){
         this.editor = editor;
         this.opts = opts;
-        this.subscriptions = new (0, $1X1Jj$atom.CompositeDisposable)();
+        this.subscriptions = new (0, $lcjJR$atom.CompositeDisposable)();
         this.isTypescript = false;
         this.destroy = ()=>{
-            $5fa357112f771115$export$a0bbaae59860162e.editorMap.delete(this.editor);
+            $f2c40572991b2c33$export$a0bbaae59860162e.editorMap.delete(this.editor);
             atom.views.getView(this.editor).classList.remove("typescript-editor");
             this.subscriptions.dispose();
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.buffer.dispose());
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.buffer.dispose());
         };
         this.didActivate = ()=>{
             if (this.isTypescript) this.reportInfo();
@@ -32856,11 +32867,11 @@ class $5fa357112f771115$export$a0bbaae59860162e {
             if (isActive) this.reportInfo();
         };
         this.checkIfTypescript = ()=>{
-            this.isTypescript = (0, $28d5dfd6d6bf53fa$export$3aecee58e23ede2c)(this.editor);
+            this.isTypescript = (0, $6f0bc47c7fee627c$export$3aecee58e23ede2c)(this.editor);
             if (this.isTypescript) atom.views.getView(this.editor).classList.add("typescript-editor");
             else atom.views.getView(this.editor).classList.remove("typescript-editor");
         };
-        this.buffer = (0, $6ec61eebadc87269$export$6932e15e784422f9).create(editor.getBuffer(), opts);
+        this.buffer = (0, $4e4e1717c0305d05$export$6932e15e784422f9).create(editor.getBuffer(), opts);
         this.subscriptions.add(this.buffer.on("opened", this.onOpened));
         this.checkIfTypescript();
         this.subscriptions.add(editor.onDidChangePath(this.checkIfTypescript), editor.onDidChangeGrammar(this.checkIfTypescript), editor.onDidDestroy(this.destroy), editor.onDidSave(()=>{
@@ -32868,14 +32879,14 @@ class $5fa357112f771115$export$a0bbaae59860162e {
         }));
     }
 }
-$5fa357112f771115$export$a0bbaae59860162e.editorMap = new WeakMap();
+$f2c40572991b2c33$export$a0bbaae59860162e.editorMap = new WeakMap();
 
 
-class $d574e954fd9ef371$export$f2c0a16002429d72 {
+class $e48a1ebc82bcd025$export$f2c0a16002429d72 {
     destroy() {
         this.subscriptions.dispose();
         for (const ed of atom.workspace.getTextEditors()){
-            const pane = (0, $5fa357112f771115$export$a0bbaae59860162e).lookupPane(ed);
+            const pane = (0, $f2c40572991b2c33$export$a0bbaae59860162e).lookupPane(ed);
             if (pane) pane.destroy();
         }
         this.clientResolver.dispose();
@@ -32902,7 +32913,7 @@ class $d574e954fd9ef371$export$f2c0a16002429d72 {
             item: this.statusPanel,
             priority: statusPriority
         });
-        const disp = new $1X1Jj$atom.Disposable(()=>{
+        const disp = new $lcjJR$atom.Disposable(()=>{
             tile.destroy();
         });
         this.subscriptions.add(disp);
@@ -32910,7 +32921,7 @@ class $d574e954fd9ef371$export$f2c0a16002429d72 {
     }
     consumeDatatipService(datatip) {
         if (atom.config.get("pulsar-typescript").preferBuiltinTooltips) return;
-        const disp = datatip.addProvider(new (0, $cd10f978cc135454$export$62181cd26290fa50)(this.getClient));
+        const disp = datatip.addProvider(new (0, $6093dabc0d97121a$export$62181cd26290fa50)(this.getClient));
         this.subscriptions.add(disp);
         this.tooltipManager.dispose();
         this.usingBuiltinTooltipManager = false;
@@ -32918,7 +32929,7 @@ class $d574e954fd9ef371$export$f2c0a16002429d72 {
     }
     consumeSigHelpService(registry) {
         if (atom.config.get("pulsar-typescript").preferBuiltinSigHelp) return;
-        const provider = new (0, $e20188bd95efaaa0$export$11ab8206b5e263e8)(this.getClient);
+        const provider = new (0, $af9749b8a15e5ff5$export$11ab8206b5e263e8)(this.getClient);
         const disp = registry(provider);
         this.subscriptions.add(disp, provider);
         this.sigHelpManager.dispose();
@@ -32940,45 +32951,45 @@ class $d574e954fd9ef371$export$f2c0a16002429d72 {
     // Registering an autocomplete provider
     provideAutocomplete() {
         return [
-            new (0, $46ae0c6ad105d3ab$export$536c67bf76d43cfb)(this.getClient, this.applyEdits)
+            new (0, $0b28b0acc6eff574$export$536c67bf76d43cfb)(this.getClient, this.applyEdits)
         ];
     }
     provideIntentions() {
-        return (0, $2fe1ce82077c7c71$export$c0ac1f0dd4073b70)(this.codefixProvider);
+        return (0, $e7a87da435f8d338$export$c0ac1f0dd4073b70)(this.codefixProvider);
     }
     provideIntentionsHighlight() {
-        return (0, $2fe1ce82077c7c71$export$bbfa3896d0c562e)(this.codefixProvider);
+        return (0, $e7a87da435f8d338$export$bbfa3896d0c562e)(this.codefixProvider);
     }
     provideCodeActions() {
-        return (0, $0ee6e96085f8b61e$export$d21c11139c8fe8ee)(this.codefixProvider);
+        return (0, $877e44c313da3a80$export$d21c11139c8fe8ee)(this.codefixProvider);
     }
     provideHyperclick() {
-        return (0, $a3011f18ae268f17$export$51c07c30fb16d966)(this.getClient, this.histGoForward);
+        return (0, $c1be9f16fc4968e0$export$51c07c30fb16d966)(this.getClient, this.histGoForward);
     }
     provideReferences() {
-        return (0, $16d79b62f0f78d88$export$b797847259776697)(this.getClient);
+        return (0, $6a907d4d2a2cea32$export$b797847259776697)(this.getClient);
     }
     provideOutlines() {
-        return (0, $5483f66877e6145b$export$2b92277a69331cbb)(this.getClient);
+        return (0, $473e82652711e334$export$2b92277a69331cbb)(this.getClient);
     }
     provideDefinitions() {
         if (atom.config.get("pulsar-typescript").disableAtomIdeDefinitions) return;
-        return (0, $ca71c942c67944dd$export$a9ca9b3a8941e92e)(this.getClient);
+        return (0, $759a84f594b461fd$export$a9ca9b3a8941e92e)(this.getClient);
     }
     provideCodeHighlight() {
         if (atom.config.get("pulsar-typescript").preferBuiltinOccurrenceHighlight) return;
         this.occurrenceManager.dispose();
-        return (0, $85451aa460d080e4$export$6413bc8b6e281ffa)(this.getClient);
+        return (0, $d7f83046f837bd80$export$6413bc8b6e281ffa)(this.getClient);
     }
     subscribeEditors() {
         this.subscriptions.add(atom.workspace.observeTextEditors((editor)=>{
             this.typescriptPaneFactory(editor);
         }), atom.workspace.onDidChangeActiveTextEditor((ed)=>{
-            if (ed && (0, $28d5dfd6d6bf53fa$export$3aecee58e23ede2c)(ed)) {
-                (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.statusPanel.show());
-                const tep = (0, $5fa357112f771115$export$a0bbaae59860162e).lookupPane(ed);
+            if (ed && (0, $6f0bc47c7fee627c$export$3aecee58e23ede2c)(ed)) {
+                (0, $8012570b1032009f$export$8080b7556d9d6445)(this.statusPanel.show());
+                const tep = (0, $f2c40572991b2c33$export$a0bbaae59860162e).lookupPane(ed);
                 if (tep) tep.didActivate();
-            } else (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.statusPanel.hide());
+            } else (0, $8012570b1032009f$export$8080b7556d9d6445)(this.statusPanel.hide());
         }));
     }
     constructor(state){
@@ -32995,15 +33006,15 @@ class $d574e954fd9ef371$export$f2c0a16002429d72 {
             return this.clientResolver.get(filePath);
         };
         this.killAllServers = ()=>{
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.clientResolver.restartAllServers());
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.clientResolver.restartAllServers());
         };
         this.withBuffer = async (filePath, action)=>{
-            const normalizedFilePath = $1X1Jj$path.normalize(filePath);
+            const normalizedFilePath = $lcjJR$path.normalize(filePath);
             const ed = atom.workspace.getTextEditors().find((p)=>p.getPath() === normalizedFilePath);
             // found open buffer
             if (ed) return action(ed.getBuffer());
             // no open buffer
-            const buffer = await $1X1Jj$atom.TextBuffer.load(normalizedFilePath);
+            const buffer = await $lcjJR$atom.TextBuffer.load(normalizedFilePath);
             try {
                 return await action(buffer);
             } finally{
@@ -33028,22 +33039,22 @@ class $d574e954fd9ef371$export$f2c0a16002429d72 {
             }
         };
         this.reportProgress = (progress)=>{
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.statusPanel.update({
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.statusPanel.update({
                 progress: progress
             }));
         };
         this.reportBuildStatus = (buildStatus)=>{
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.statusPanel.update({
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.statusPanel.update({
                 buildStatus: buildStatus
             }));
         };
         this.reportClientInfo = (info)=>{
-            (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.statusPanel.update(info));
+            (0, $8012570b1032009f$export$8080b7556d9d6445)(this.statusPanel.update(info));
         };
         this.applyEdits = async (edits)=>void Promise.all(edits.map((edit)=>this.withBuffer(edit.fileName, async (buffer)=>{
                     buffer.transact(()=>{
                         const changes = edit.textChanges.map((e)=>({
-                                range: (0, $a27d0d73386d53b8$export$477d491a08b070ec)(e),
+                                range: (0, $2196ddae34004bed$export$477d491a08b070ec)(e),
                                 newText: e.newText
                             })).reverse() // NOTE: needs reverse for cases where ranges are same for two changes
                         .sort((a, b)=>b.range.compare(a.range));
@@ -33070,38 +33081,38 @@ class $d574e954fd9ef371$export$f2c0a16002429d72 {
             return this.editorPosHist.goForward(ed, opts);
         };
         // tslint:disable-next-line:member-ordering
-        this.drawPending = (0, $4uNLx.throttle)((pending)=>(0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.statusPanel.update({
+        this.drawPending = (0, $6DBYc.throttle)((pending)=>(0, $8012570b1032009f$export$8080b7556d9d6445)(this.statusPanel.update({
                 pending: pending
             })), 100, {
             leading: false
         });
-        this.subscriptions = new (0, $1X1Jj$atom.CompositeDisposable)();
-        this.clientResolver = new (0, $5f392212ffd20e34$export$dceb19333e080e82)(this.reportBusyWhile);
+        this.subscriptions = new (0, $lcjJR$atom.CompositeDisposable)();
+        this.clientResolver = new (0, $b3885ebd40390e21$export$dceb19333e080e82)(this.reportBusyWhile);
         this.subscriptions.add(this.clientResolver);
-        this.statusPanel = new (0, $fe771188dbd80d43$export$e46d185d0654294e)();
+        this.statusPanel = new (0, $006b3716066789cc$export$e46d185d0654294e)();
         this.subscriptions.add(this.statusPanel);
-        this.errorPusher = new (0, $21346f56dd657711$export$a4d36ae2cf2e8cd)();
+        this.errorPusher = new (0, $2e77e3cc1be7f995$export$a4d36ae2cf2e8cd)();
         this.subscriptions.add(this.errorPusher);
-        this.codefixProvider = new (0, $b1d1feecb8b890c5$export$9262ee226e3cab9d)(this.clientResolver, this.errorPusher, this.applyEdits);
+        this.codefixProvider = new (0, $cdc3c3d09a128bcb$export$9262ee226e3cab9d)(this.clientResolver, this.errorPusher, this.applyEdits);
         this.subscriptions.add(this.codefixProvider);
-        this.semanticViewController = new (0, $074d6626591af477$export$951a8e3d4c79262)(this.getClient);
+        this.semanticViewController = new (0, $c2e2cb598bf4a287$export$951a8e3d4c79262)(this.getClient);
         this.subscriptions.add(this.semanticViewController);
-        this.editorPosHist = new (0, $597a9cb4deadcba1$export$37b735b3f7a16aff)(state && state.editorPosHistState);
+        this.editorPosHist = new (0, $e1b8fee54d3aef3a$export$37b735b3f7a16aff)(state && state.editorPosHistState);
         this.subscriptions.add(this.editorPosHist);
-        this.symbolsViewController = new (0, $0a2a1aa85320f6cb$export$bf8eec42fec7719)({
+        this.symbolsViewController = new (0, $4cd7b3202725e0e4$export$bf8eec42fec7719)({
             histGoForward: this.histGoForward,
             getClient: this.getClient
         });
         this.subscriptions.add(this.symbolsViewController);
-        this.tooltipManager = new (0, $39878e733ff90f1b$export$3cf29e47efa41626)(this.getClient);
+        this.tooltipManager = new (0, $262eff16af061bef$export$3cf29e47efa41626)(this.getClient);
         this.subscriptions.add(this.tooltipManager);
-        this.sigHelpManager = new (0, $86fc425657083295$export$de743bb5ce1c9811)({
+        this.sigHelpManager = new (0, $74e2bd44ba018f5e$export$de743bb5ce1c9811)({
             getClient: this.getClient
         });
         this.subscriptions.add(this.sigHelpManager);
-        this.occurrenceManager = new (0, $8084fbcc9b45ce1d$export$c92097d412f660e6)(this.getClient);
+        this.occurrenceManager = new (0, $02b47c5010f4471c$export$c92097d412f660e6)(this.getClient);
         this.subscriptions.add(this.occurrenceManager);
-        this.typescriptPaneFactory = (0, $5fa357112f771115$export$a0bbaae59860162e).createFactory({
+        this.typescriptPaneFactory = (0, $f2c40572991b2c33$export$a0bbaae59860162e).createFactory({
             clearFileErrors: this.clearFileErrors,
             getClient: this.getClient,
             reportBuildStatus: this.reportBuildStatus,
@@ -33109,7 +33120,7 @@ class $d574e954fd9ef371$export$f2c0a16002429d72 {
         });
         this.subscribeEditors();
         // Register the commands
-        this.subscriptions.add((0, $561619b12ed8c6b5$export$f647bfc0a5fe4336)({
+        this.subscriptions.add((0, $ffb71c7a08cb34f1$export$f647bfc0a5fe4336)({
             getClient: this.getClient,
             applyEdits: this.applyEdits,
             clearErrors: this.clearErrors,
@@ -33117,7 +33128,7 @@ class $d574e954fd9ef371$export$f2c0a16002429d72 {
             reportProgress: this.reportProgress,
             reportBuildStatus: this.reportBuildStatus,
             toggleSemanticViewController: ()=>{
-                (0, $db9d114e2c9cbac0$export$8080b7556d9d6445)(this.semanticViewController.toggle());
+                (0, $8012570b1032009f$export$8080b7556d9d6445)(this.semanticViewController.toggle());
             },
             toggleFileSymbolsView: (ed)=>{
                 this.symbolsViewController.toggleFileView(ed);
@@ -33137,72 +33148,72 @@ class $d574e954fd9ef371$export$f2c0a16002429d72 {
 }
 
 
-let $63822e5677968886$var$pluginManager;
-function $63822e5677968886$export$234c45b355edd85b(state) {
-    (0, (/*@__PURE__*/$parcel$interopDefault($f0CHF))).setScheduler(atom.views);
-    $63822e5677968886$var$pluginManager = new (0, $d574e954fd9ef371$export$f2c0a16002429d72)(state);
-    setImmediate(()=>(0, $db9d114e2c9cbac0$export$8080b7556d9d6445)($63822e5677968886$var$checkAndInstallDependencies()));
+let $498ee93e08d1148c$var$pluginManager;
+function $498ee93e08d1148c$export$234c45b355edd85b(state) {
+    (0, (/*@__PURE__*/$parcel$interopDefault($eusZd))).setScheduler(atom.views);
+    $498ee93e08d1148c$var$pluginManager = new (0, $e48a1ebc82bcd025$export$f2c0a16002429d72)(state);
+    setImmediate(()=>(0, $8012570b1032009f$export$8080b7556d9d6445)($498ee93e08d1148c$var$checkAndInstallDependencies()));
 }
-async function $63822e5677968886$var$checkAndInstallDependencies() {
+async function $498ee93e08d1148c$var$checkAndInstallDependencies() {
     const packagesProvidingUIServices = [
         "atom-ide-ui",
         "linter",
         "nuclide"
     ];
-    if (!packagesProvidingUIServices.some((p)=>atom.packages.isPackageLoaded(p))) await $2f3c4293603b298a$exports.install("pulsar-typescript", true);
+    if (!packagesProvidingUIServices.some((p)=>atom.packages.isPackageLoaded(p))) await $502c484fba974c5e$exports.install("pulsar-typescript", true);
 }
-function $63822e5677968886$export$e96c1edfdaf2d1db() {
-    if ($63822e5677968886$var$pluginManager) $63822e5677968886$var$pluginManager.destroy();
-    $63822e5677968886$var$pluginManager = undefined;
+function $498ee93e08d1148c$export$e96c1edfdaf2d1db() {
+    if ($498ee93e08d1148c$var$pluginManager) $498ee93e08d1148c$var$pluginManager.destroy();
+    $498ee93e08d1148c$var$pluginManager = undefined;
 }
-function $63822e5677968886$export$dfdc1655ccc5b9cb() {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.serialize();
+function $498ee93e08d1148c$export$dfdc1655ccc5b9cb() {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.serialize();
     else return undefined;
 }
-function $63822e5677968886$export$a44ae7a0ffe32de(serialized) {
-    return (0, $76e0aa7104ca4ad9$export$a3a95952d8506109).create(serialized.data);
+function $498ee93e08d1148c$export$a44ae7a0ffe32de(serialized) {
+    return (0, $a297cf51b0219adb$export$a3a95952d8506109).create(serialized.data);
 }
-function $63822e5677968886$export$7513da91a6067379(register) {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.consumeLinter(register);
+function $498ee93e08d1148c$export$7513da91a6067379(register) {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.consumeLinter(register);
 }
-function $63822e5677968886$export$a51a2902ac3affa7(statusBar) {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.consumeStatusBar(statusBar);
+function $498ee93e08d1148c$export$a51a2902ac3affa7(statusBar) {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.consumeStatusBar(statusBar);
 }
-function $63822e5677968886$export$ca7950270ff61d66(datatipService) {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.consumeDatatipService(datatipService);
+function $498ee93e08d1148c$export$ca7950270ff61d66(datatipService) {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.consumeDatatipService(datatipService);
 }
-function $63822e5677968886$export$3ceee8b9bf304299(registry) {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.consumeSigHelpService(registry);
+function $498ee93e08d1148c$export$3ceee8b9bf304299(registry) {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.consumeSigHelpService(registry);
 }
-function $63822e5677968886$export$29fa66c1419daddc(busySignalService) {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.consumeBusySignal(busySignalService);
+function $498ee93e08d1148c$export$29fa66c1419daddc(busySignalService) {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.consumeBusySignal(busySignalService);
 }
-function $63822e5677968886$export$71db97b929e8341b() {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.provideAutocomplete();
+function $498ee93e08d1148c$export$71db97b929e8341b() {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.provideAutocomplete();
 }
-function $63822e5677968886$export$3781320452d1dce8() {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.provideIntentions();
+function $498ee93e08d1148c$export$3781320452d1dce8() {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.provideIntentions();
 }
-function $63822e5677968886$export$6f2bf0ac3e405d7b() {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.provideIntentionsHighlight();
+function $498ee93e08d1148c$export$6f2bf0ac3e405d7b() {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.provideIntentionsHighlight();
 }
-function $63822e5677968886$export$7990dc4c350e7387() {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.provideCodeActions();
+function $498ee93e08d1148c$export$7990dc4c350e7387() {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.provideCodeActions();
 }
-function $63822e5677968886$export$1c7ef754fc81a243() {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.provideHyperclick();
+function $498ee93e08d1148c$export$1c7ef754fc81a243() {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.provideHyperclick();
 }
-function $63822e5677968886$export$e32ae1c830f39f16() {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.provideReferences();
+function $498ee93e08d1148c$export$e32ae1c830f39f16() {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.provideReferences();
 }
-function $63822e5677968886$export$cec97b3152a9a2a4() {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.provideOutlines();
+function $498ee93e08d1148c$export$cec97b3152a9a2a4() {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.provideOutlines();
 }
-function $63822e5677968886$export$60b479b2c6dcce92() {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.provideDefinitions();
+function $498ee93e08d1148c$export$60b479b2c6dcce92() {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.provideDefinitions();
 }
-function $63822e5677968886$export$67b00a253126c08e() {
-    if ($63822e5677968886$var$pluginManager) return $63822e5677968886$var$pluginManager.provideCodeHighlight();
+function $498ee93e08d1148c$export$67b00a253126c08e() {
+    if ($498ee93e08d1148c$var$pluginManager) return $498ee93e08d1148c$var$pluginManager.provideCodeHighlight();
 }
 
 

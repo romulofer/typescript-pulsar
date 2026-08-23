@@ -19,6 +19,7 @@ interface HighlightIterator {
   moveToSuccessor(): void
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- deliberately opaque marker type
 interface ScopeId {}
 
 declare module "atom/dependencies/text-buffer/src/text-buffer" {

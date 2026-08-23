@@ -48,7 +48,7 @@ export interface GetErrParams {
   delay: number
 }
 
-export interface FormatParams extends LocationRangeQuery {}
+export type FormatParams = LocationRangeQuery
 
 export interface CompletionsParams extends FileLocationQuery {
   prefix?: string
@@ -70,7 +70,7 @@ export interface GetCodeFixesParams extends LocationRangeQuery {
   errorCodes: ReadonlyArray<number>
 }
 
-export interface GetApplicableRefactorsParams extends LocationRangeQuery {}
+export type GetApplicableRefactorsParams = LocationRangeQuery
 
 export interface ResolveCodeActionParams {
   file: string

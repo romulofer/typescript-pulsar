@@ -40,7 +40,7 @@ async function initConfig(tsc: string, projectRoot: string): Promise<void> {
         })
         disp = bnp.onWillThrowError(reject)
       } catch (e) {
-        reject(e)
+        reject(e instanceof Error ? e : new Error(String(e)))
       }
     })
   } finally {

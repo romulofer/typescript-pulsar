@@ -209,7 +209,7 @@ export class NavigationTreeComponent
    * @param  {Element} domNode the HTMLElement that should be made visisble
    */
   private scrollTo(domNode: Element): void {
-    const elem: ElementExp = domNode as ElementExp
+    const elem: ElementExp = domNode
     if (typeof elem.scrollIntoViewIfNeeded === "function") {
       elem.scrollIntoViewIfNeeded()
     } else {

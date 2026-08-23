@@ -40,6 +40,8 @@ export interface EventTypes {
 export class ClientResolver {
   private clients = new Map<string, Map<string | undefined, Client>>()
   private memoizedClients = new Map<string, Promise<Client>>()
+  // Atom's Emitter<OptionalEmissions, ...> uses {} to mean "no optional emissions beyond EventTypes".
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   private emitter = new Emitter<{}, EventTypes>()
   private subscriptions = new CompositeDisposable()
   private tsserverInstancePerTsconfig =
@@ -85,7 +87,8 @@ export class ClientResolver {
     const {pathToBin, version} = await resolveBinary(pFilePath)
     const configFile = await findConfigFile(pFilePath)
     const tsconfigPath = this.tsserverInstancePerTsconfig ? configFile : undefined
-    const projectRootPath = configFile !== undefined ? path.dirname(configFile) : path.dirname(pFilePath)
+    const projectRootPath =
+      configFile !== undefined ? path.dirname(configFile) : path.dirname(pFilePath)
 
     let tsconfigMap = this.clients.get(pathToBin)
     if (!tsconfigMap) {
