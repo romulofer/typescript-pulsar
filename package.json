@@ -1,6 +1,6 @@
 {
   "name": "typescript-pulsar",
-  "version": "15.4.0",
+  "version": "15.5.0",
   "main": "./loader.js",
   "bundle": "./dist/main.js",
   "preferGlobal": true,
@@ -243,10 +243,22 @@
       "description": "Which TypeScript install to use as the LSP server. \"Auto\" tries, in order: a `.atom-typescript.json`/`.vscode/settings.json` override, the \"Path to TypeScript SDK\" setting below, the project's own `node_modules/typescript` (only if it's >=7, since only >=7 supports `--lsp`), then the version bundled with this package.",
       "type": "string",
       "enum": [
-        {"value": "auto", "description": "Auto-detect (recommended)"},
-        {"value": "bundled", "description": "Always use the version bundled with this package"},
-        {"value": "tsdkPath", "description": "Always use the \"Path to TypeScript SDK\" setting below"},
-        {"value": "local", "description": "Always use the project's own node_modules/typescript"}
+        {
+          "value": "auto",
+          "description": "Auto-detect (recommended)"
+        },
+        {
+          "value": "bundled",
+          "description": "Always use the version bundled with this package"
+        },
+        {
+          "value": "tsdkPath",
+          "description": "Always use the \"Path to TypeScript SDK\" setting below"
+        },
+        {
+          "value": "local",
+          "description": "Always use the project's own node_modules/typescript"
+        }
       ],
       "default": "auto",
       "order": 1
