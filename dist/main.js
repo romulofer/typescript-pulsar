@@ -29056,35 +29056,80 @@ $84476365564edf82$exports = $3c036fd97dc8e37c$exports;
 
 var $b9d01e6e14801847$var$$parcel$__dirname = $lcjJR$path.resolve(__dirname, "../lib/client");
 async function $b9d01e6e14801847$export$369fb36245591db0(sourcePath) {
-    var _pkg_bin;
+    var _atom_config_get;
+    const source = (_atom_config_get = atom.config.get("typescript-pulsar.typescriptSource")) !== null && _atom_config_get !== void 0 ? _atom_config_get : "auto";
+    switch(source){
+        case "bundled":
+            return $b9d01e6e14801847$var$resolveBundled();
+        case "tsdkPath":
+            return $b9d01e6e14801847$var$resolveTsdkPathSetting(true);
+        case "local":
+            return $b9d01e6e14801847$var$resolveLocal(sourcePath, false);
+        case "auto":
+        default:
+            {
+                // Explicit user overrides win outright, even on a <7 install — that's the user's call,
+                // not ours. Only the silent, auto-detected local `node_modules/typescript` gets a
+                // version gate, since picking that one wasn't a deliberate choice and can't be allowed
+                // to crash the server via `--lsp` unsupported by TypeScript <7.
+                const aux = await $b9d01e6e14801847$var$resolveAuxConfig(sourcePath);
+                if (aux !== undefined) return aux;
+                const configured = await $b9d01e6e14801847$var$resolveTsdkPathSetting(false);
+                if (configured !== undefined) return configured;
+                const local = await $b9d01e6e14801847$var$resolveLocal(sourcePath, true);
+                if (local !== undefined) return local;
+                return $b9d01e6e14801847$var$resolveBundled();
+            }
+    }
+}
+async function $b9d01e6e14801847$var$resolveAuxConfig(sourcePath) {
+    const auxTsdkPath = await $b9d01e6e14801847$var$getSDKPath($lcjJR$path.dirname(sourcePath));
+    if (auxTsdkPath === undefined) return undefined;
+    const pkgPath = $lcjJR$path.join(auxTsdkPath, "package.json");
+    if (await $b9d01e6e14801847$var$fsExists(pkgPath)) return $b9d01e6e14801847$var$readBinary(pkgPath);
+    return undefined;
+}
+async function $b9d01e6e14801847$var$resolveTsdkPathSetting(required) {
+    const tsdkPath = atom.config.get("typescript-pulsar.tsdkPath");
+    if (!tsdkPath) {
+        if (required) throw new Error('typescript-pulsar.typescriptSource is set to "tsdkPath" but typescript-pulsar.tsdkPath is empty');
+        return undefined;
+    }
+    const pkgPath = $lcjJR$path.join(tsdkPath, "package.json");
+    if (await $b9d01e6e14801847$var$fsExists(pkgPath)) return $b9d01e6e14801847$var$readBinary(pkgPath);
+    if (required) throw new Error(`No TypeScript package.json found at configured tsdkPath: ${tsdkPath}`);
+    return undefined;
+}
+async function $b9d01e6e14801847$var$resolveLocal(sourcePath, gateVersion) {
     const { NODE_PATH: NODE_PATH } = process.env;
-    const resolvedPath = await $b9d01e6e14801847$var$resolveModule("typescript/package.json", {
+    const localPath = await $b9d01e6e14801847$var$resolveModule("typescript/package.json", {
         basedir: $lcjJR$path.dirname(sourcePath),
         paths: NODE_PATH !== undefined ? NODE_PATH.split($lcjJR$path.delimiter) : undefined
-    }).catch(async ()=>{
-        // try to get typescript from auxiliary config file
-        const auxTsdkPath = await $b9d01e6e14801847$var$getSDKPath($lcjJR$path.dirname(sourcePath));
-        if (auxTsdkPath !== undefined) {
-            const pkgPath = $lcjJR$path.join(auxTsdkPath, "package.json");
-            const exists = await $b9d01e6e14801847$var$fsExists(pkgPath);
-            if (exists) return pkgPath;
-        }
-        // try to get typescript from configured tsdkPath
-        const tsdkPath = atom.config.get("typescript-pulsar.tsdkPath");
-        if (tsdkPath) {
-            const pkgPath = $lcjJR$path.join(tsdkPath, "package.json");
-            const exists = await $b9d01e6e14801847$var$fsExists(pkgPath);
-            if (exists) return pkgPath;
-        }
-        // use bundled version. Our own dependency is aliased to "@typescript/native" (not the
-        // plain "typescript" name) so that our devDependencies can use the plain name for a
-        // classic-API TypeScript 6 build instead, which tooling that still needs
-        // ts.createProgram/ts.transpileModule (ESLint's typescript-eslint, ts-node) requires --
-        // TypeScript 7's own package no longer exports that API at all. See AGENTS.md.
-        return $b9d01e6e14801847$var$resolveModule("@typescript/native/package.json", {
-            basedir: $b9d01e6e14801847$var$$parcel$__dirname
-        });
+    }).catch(()=>undefined);
+    if (localPath === undefined) {
+        if (gateVersion) return undefined;
+        throw new Error(`typescript-pulsar.typescriptSource is set to "local" but no local ` + `\`typescript\` package was found from ${sourcePath}`);
+    }
+    const local = await $b9d01e6e14801847$var$readBinary(localPath);
+    if (gateVersion && !$b9d01e6e14801847$var$isLspCapable(local.version)) return undefined;
+    return local;
+}
+// Our own dependency is aliased to "@typescript/native" (not the plain "typescript" name) so
+// that our devDependencies can use the plain name for a classic-API TypeScript 6 build instead,
+// which tooling that still needs ts.createProgram/ts.transpileModule (ESLint's
+// typescript-eslint, ts-node) requires -- TypeScript 7's own package no longer exports that API
+// at all. See AGENTS.md.
+async function $b9d01e6e14801847$var$resolveBundled() {
+    const bundledPath = await $b9d01e6e14801847$var$resolveModule("@typescript/native/package.json", {
+        basedir: $b9d01e6e14801847$var$$parcel$__dirname
     });
+    return $b9d01e6e14801847$var$readBinary(bundledPath);
+}
+function $b9d01e6e14801847$var$isLspCapable(version) {
+    return parseInt(version, 10) >= 7;
+}
+async function $b9d01e6e14801847$var$readBinary(resolvedPath) {
+    var _pkg_bin;
     const pkg = JSON.parse(await $b9d01e6e14801847$var$fsReadFile(resolvedPath));
     const packageDir = $lcjJR$path.dirname(resolvedPath);
     var _pkg_bin_tsc;

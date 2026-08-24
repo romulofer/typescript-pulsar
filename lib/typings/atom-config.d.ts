@@ -34,6 +34,7 @@ declare module "atom" {
       | "non-relative"
       | "shortest"
       | "project-relative"
+    "typescript-pulsar.typescriptSource": "auto" | "bundled" | "tsdkPath" | "local"
     "typescript-pulsar.tsdkPath": string
     "typescript-pulsar.ignoredDiagnosticCodes": string[]
     "typescript-pulsar.ignoreUnusedSuggestionDiagnostics": boolean
@@ -83,6 +84,7 @@ declare module "atom" {
         | "non-relative"
         | "shortest"
         | "project-relative"
+      typescriptSource: "auto" | "bundled" | "tsdkPath" | "local"
       tsdkPath: string
       ignoredDiagnosticCodes: string[]
       ignoreUnusedSuggestionDiagnostics: boolean

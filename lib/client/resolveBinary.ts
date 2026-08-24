@@ -16,42 +16,116 @@ interface VSCodeConfigObject {
   "typescript.tsdk": string
 }
 
+export type TypescriptSource = "auto" | "bundled" | "tsdkPath" | "local"
+
 /**
  * Locates the `tsc` binary (TypeScript >=7's native compiler, which also serves as the LSP
  * server via `tsc --lsp --stdio`). Unlike the classic `typescript` package, TypeScript 7 no
  * longer ships `lib/tsserver.js` — the only entry point is `bin/tsc`.
+ *
+ * Which install gets used is governed by the `typescript-pulsar.typescriptSource` setting:
+ * - "bundled": always the package's own bundled TypeScript 7 native compiler.
+ * - "tsdkPath": always `typescript-pulsar.tsdkPath` (errors if unset or missing).
+ * - "local": always the project's `node_modules/typescript` (errors if not found; user's
+ *   choice to make even if it's <7 and can't actually serve `--lsp`).
+ * - "auto" (default): aux config file (.atom-typescript.json/.vscode) -> tsdkPath setting ->
+ *   local project typescript (only if >=7) -> bundled.
  */
 export async function resolveBinary(sourcePath: string): Promise<Binary> {
-  const {NODE_PATH} = process.env as {NODE_PATH?: string}
+  const source = (atom.config.get("typescript-pulsar.typescriptSource") ?? "auto") as
+    | TypescriptSource
+    | undefined
 
-  const resolvedPath = await resolveModule("typescript/package.json", {
+  switch (source) {
+    case "bundled":
+      return resolveBundled()
+    case "tsdkPath":
+      return resolveTsdkPathSetting(true)
+    case "local":
+      return resolveLocal(sourcePath, false)
+    case "auto":
+    default: {
+      // Explicit user overrides win outright, even on a <7 install — that's the user's call,
+      // not ours. Only the silent, auto-detected local `node_modules/typescript` gets a
+      // version gate, since picking that one wasn't a deliberate choice and can't be allowed
+      // to crash the server via `--lsp` unsupported by TypeScript <7.
+      const aux = await resolveAuxConfig(sourcePath)
+      if (aux !== undefined) return aux
+
+      const configured = await resolveTsdkPathSetting(false)
+      if (configured !== undefined) return configured
+
+      const local = await resolveLocal(sourcePath, true)
+      if (local !== undefined) return local
+
+      return resolveBundled()
+    }
+  }
+}
+
+async function resolveAuxConfig(sourcePath: string): Promise<Binary | undefined> {
+  const auxTsdkPath = await getSDKPath(path.dirname(sourcePath))
+  if (auxTsdkPath === undefined) return undefined
+  const pkgPath = path.join(auxTsdkPath, "package.json")
+  if (await fsExists(pkgPath)) return readBinary(pkgPath)
+  return undefined
+}
+
+async function resolveTsdkPathSetting(required: true): Promise<Binary>
+async function resolveTsdkPathSetting(required: false): Promise<Binary | undefined>
+async function resolveTsdkPathSetting(required: boolean): Promise<Binary | undefined> {
+  const tsdkPath = atom.config.get("typescript-pulsar.tsdkPath")
+  if (!tsdkPath) {
+    if (required) {
+      throw new Error(
+        'typescript-pulsar.typescriptSource is set to "tsdkPath" but typescript-pulsar.tsdkPath is empty',
+      )
+    }
+    return undefined
+  }
+  const pkgPath = path.join(tsdkPath, "package.json")
+  if (await fsExists(pkgPath)) return readBinary(pkgPath)
+  if (required) {
+    throw new Error(`No TypeScript package.json found at configured tsdkPath: ${tsdkPath}`)
+  }
+  return undefined
+}
+
+async function resolveLocal(sourcePath: string, gateVersion: true): Promise<Binary | undefined>
+async function resolveLocal(sourcePath: string, gateVersion: false): Promise<Binary>
+async function resolveLocal(sourcePath: string, gateVersion: boolean): Promise<Binary | undefined> {
+  const {NODE_PATH} = process.env as {NODE_PATH?: string}
+  const localPath = await resolveModule("typescript/package.json", {
     basedir: path.dirname(sourcePath),
     paths: NODE_PATH !== undefined ? NODE_PATH.split(path.delimiter) : undefined,
-  }).catch(async () => {
-    // try to get typescript from auxiliary config file
-    const auxTsdkPath = await getSDKPath(path.dirname(sourcePath))
-    if (auxTsdkPath !== undefined) {
-      const pkgPath = path.join(auxTsdkPath, "package.json")
-      const exists = await fsExists(pkgPath)
-      if (exists) return pkgPath
-    }
+  }).catch(() => undefined)
 
-    // try to get typescript from configured tsdkPath
-    const tsdkPath = atom.config.get("typescript-pulsar.tsdkPath")
-    if (tsdkPath) {
-      const pkgPath = path.join(tsdkPath, "package.json")
-      const exists = await fsExists(pkgPath)
-      if (exists) return pkgPath
-    }
+  if (localPath === undefined) {
+    if (gateVersion) return undefined
+    throw new Error(`typescript-pulsar.typescriptSource is set to "local" but no local `
+      + `\`typescript\` package was found from ${sourcePath}`)
+  }
 
-    // use bundled version. Our own dependency is aliased to "@typescript/native" (not the
-    // plain "typescript" name) so that our devDependencies can use the plain name for a
-    // classic-API TypeScript 6 build instead, which tooling that still needs
-    // ts.createProgram/ts.transpileModule (ESLint's typescript-eslint, ts-node) requires --
-    // TypeScript 7's own package no longer exports that API at all. See AGENTS.md.
-    return resolveModule("@typescript/native/package.json", {basedir: __dirname})
-  })
+  const local = await readBinary(localPath)
+  if (gateVersion && !isLspCapable(local.version)) return undefined
+  return local
+}
 
+// Our own dependency is aliased to "@typescript/native" (not the plain "typescript" name) so
+// that our devDependencies can use the plain name for a classic-API TypeScript 6 build instead,
+// which tooling that still needs ts.createProgram/ts.transpileModule (ESLint's
+// typescript-eslint, ts-node) requires -- TypeScript 7's own package no longer exports that API
+// at all. See AGENTS.md.
+async function resolveBundled(): Promise<Binary> {
+  const bundledPath = await resolveModule("@typescript/native/package.json", {basedir: __dirname})
+  return readBinary(bundledPath)
+}
+
+function isLspCapable(version: string): boolean {
+  return parseInt(version, 10) >= 7
+}
+
+async function readBinary(resolvedPath: string): Promise<Binary> {
   const pkg = JSON.parse(await fsReadFile(resolvedPath)) as {
     version: string
     bin?: Record<string, string>
