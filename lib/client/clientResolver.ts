@@ -44,6 +44,8 @@ export class ClientResolver {
   // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   private emitter = new Emitter<{}, EventTypes>()
   private subscriptions = new CompositeDisposable()
+  // package.json configSchema documents this setting as requiring an Atom restart, so reading
+  // it once at construction is intentional — it is not expected to change at runtime.
   private tsserverInstancePerTsconfig =
     atom.config.get("typescript-pulsar").tsserverInstancePerTsconfig
   // This is just here so TypeScript can infer the types of the callbacks when using "on" method
@@ -61,7 +63,7 @@ export class ClientResolver {
   public async get(pFilePath: string): Promise<Client> {
     const memo = this.memoizedClients.get(pFilePath)
     if (memo) return memo
-    const client = this._get(pFilePath)
+    const client = this.resolveClient(pFilePath)
     this.memoizedClients.set(pFilePath, client)
     try {
       return await client
@@ -83,7 +85,7 @@ export class ClientResolver {
     this.clients.clear()
   }
 
-  private async _get(pFilePath: string): Promise<Client> {
+  private async resolveClient(pFilePath: string): Promise<Client> {
     const {pathToBin, version} = await resolveBinary(pFilePath)
     const configFile = await findConfigFile(pFilePath)
     const tsconfigPath = this.tsserverInstancePerTsconfig ? configFile : undefined

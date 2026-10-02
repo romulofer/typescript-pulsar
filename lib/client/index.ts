@@ -1,5 +1,5 @@
 export {ClientResolver} from "./clientResolver"
-export {findConfigFile, resolveBinary} from "./resolveBinary"
+export {findConfigFile, isLspCapable, resolveBinary} from "./resolveBinary"
 
 import {TypescriptServiceClient} from "./client"
 

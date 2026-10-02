@@ -32,9 +32,7 @@ export type TypescriptSource = "auto" | "bundled" | "tsdkPath" | "local"
  *   local project typescript (only if >=7) -> bundled.
  */
 export async function resolveBinary(sourcePath: string): Promise<Binary> {
-  const source = (atom.config.get("typescript-pulsar.typescriptSource") ?? "auto") as
-    | TypescriptSource
-    | undefined
+  const source = (atom.config.get("typescript-pulsar.typescriptSource") ?? "auto") as TypescriptSource
 
   switch (source) {
     case "bundled":
@@ -121,8 +119,8 @@ async function resolveBundled(): Promise<Binary> {
   return readBinary(bundledPath)
 }
 
-function isLspCapable(version: string): boolean {
-  return parseInt(version, 10) >= 7
+export function isLspCapable(version: string): boolean {
+  return Number(version.split(".")[0]) >= 7
 }
 
 async function readBinary(resolvedPath: string): Promise<Binary> {
@@ -132,11 +130,11 @@ async function readBinary(resolvedPath: string): Promise<Binary> {
   }
   const packageDir = path.dirname(resolvedPath)
   const binRelPath = pkg.bin?.tsc ?? "bin/tsc"
-
-  return {
-    version: pkg.version,
-    pathToBin: path.join(packageDir, binRelPath),
+  const pathToBin = path.join(packageDir, binRelPath)
+  if (!(await fsExists(pathToBin))) {
+    throw new Error(`TypeScript binary not found at ${pathToBin} (package.json: ${resolvedPath})`)
   }
+  return {version: pkg.version, pathToBin}
 }
 
 // Promisify the async resolve function

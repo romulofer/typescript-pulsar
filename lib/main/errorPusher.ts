@@ -72,10 +72,16 @@ export class ErrorPusher {
 
   private getLinterErrors(): Message[] {
     if (atom.config.get("typescript-pulsar.suppressAllDiagnostics")) return []
+    const editorByPath = new Map(
+      atom.workspace
+        .getTextEditors()
+        .filter((e) => e.getPath() !== undefined)
+        .map((e) => [e.getPath()!, e]),
+    )
     const result: Message[] = []
     for (const fileErrors of this.errors.values()) {
       for (const [filePath, diagnostics] of fileErrors) {
-        const ed = atom.workspace.getTextEditors().find((x) => x.getPath() === filePath)
+        const ed = editorByPath.get(filePath)
         const scopeName = ed ? ed.getGrammar().scopeName : this.selectGrammar(filePath)
         if (config("suppressAllDiagnostics", scopeName)) continue
         for (const diagnostic of diagnostics) {
