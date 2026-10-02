@@ -29111,7 +29111,7 @@ async function $b9d01e6e14801847$var$resolveLocal(sourcePath, gateVersion) {
         throw new Error(`typescript-pulsar.typescriptSource is set to "local" but no local ` + `\`typescript\` package was found from ${sourcePath}`);
     }
     const local = await $b9d01e6e14801847$var$readBinary(localPath);
-    if (gateVersion && !$b9d01e6e14801847$var$isLspCapable(local.version)) return undefined;
+    if (gateVersion && !$b9d01e6e14801847$export$c00bfa76988ac163(local.version)) return undefined;
     return local;
 }
 // Our own dependency is aliased to "@typescript/native" (not the plain "typescript" name) so
@@ -29125,8 +29125,8 @@ async function $b9d01e6e14801847$var$resolveBundled() {
     });
     return $b9d01e6e14801847$var$readBinary(bundledPath);
 }
-function $b9d01e6e14801847$var$isLspCapable(version) {
-    return parseInt(version, 10) >= 7;
+function $b9d01e6e14801847$export$c00bfa76988ac163(version) {
+    return Number(version.split(".")[0]) >= 7;
 }
 async function $b9d01e6e14801847$var$readBinary(resolvedPath) {
     var _pkg_bin;
@@ -29134,9 +29134,11 @@ async function $b9d01e6e14801847$var$readBinary(resolvedPath) {
     const packageDir = $lcjJR$path.dirname(resolvedPath);
     var _pkg_bin_tsc;
     const binRelPath = (_pkg_bin_tsc = (_pkg_bin = pkg.bin) === null || _pkg_bin === void 0 ? void 0 : _pkg_bin.tsc) !== null && _pkg_bin_tsc !== void 0 ? _pkg_bin_tsc : "bin/tsc";
+    const pathToBin = $lcjJR$path.join(packageDir, binRelPath);
+    if (!await $b9d01e6e14801847$var$fsExists(pathToBin)) throw new Error(`TypeScript binary not found at ${pathToBin} (package.json: ${resolvedPath})`);
     return {
         version: pkg.version,
-        pathToBin: $lcjJR$path.join(packageDir, binRelPath)
+        pathToBin: pathToBin
     };
 }
 // Promisify the async resolve function
@@ -29231,7 +29233,7 @@ class $b3885ebd40390e21$export$dceb19333e080e82 {
     async get(pFilePath) {
         const memo = this.memoizedClients.get(pFilePath);
         if (memo) return memo;
-        const client = this._get(pFilePath);
+        const client = this.resolveClient(pFilePath);
         this.memoizedClients.set(pFilePath, client);
         try {
             return await client;
@@ -29247,7 +29249,7 @@ class $b3885ebd40390e21$export$dceb19333e080e82 {
         for (const tsconfigMap of this.clients.values())for (const client of tsconfigMap.values())(0, $8012570b1032009f$export$8080b7556d9d6445)(client.destroy());
         this.clients.clear();
     }
-    async _get(pFilePath) {
+    async resolveClient(pFilePath) {
         const { pathToBin: pathToBin, version: version } = await (0, $b9d01e6e14801847$export$369fb36245591db0)(pFilePath);
         const configFile = await (0, $b9d01e6e14801847$export$c406ae411cd6ed11)(pFilePath);
         const tsconfigPath = this.tsserverInstancePerTsconfig ? configFile : undefined;
@@ -32639,9 +32641,13 @@ class $2e77e3cc1be7f995$export$a4d36ae2cf2e8cd {
     }
     getLinterErrors() {
         if (atom.config.get("typescript-pulsar.suppressAllDiagnostics")) return [];
+        const editorByPath = new Map(atom.workspace.getTextEditors().filter((e)=>e.getPath() !== undefined).map((e)=>[
+                e.getPath(),
+                e
+            ]));
         const result = [];
         for (const fileErrors of this.errors.values())for (const [filePath, diagnostics] of fileErrors){
-            const ed = atom.workspace.getTextEditors().find((x)=>x.getPath() === filePath);
+            const ed = editorByPath.get(filePath);
             const scopeName = ed ? ed.getGrammar().scopeName : this.selectGrammar(filePath);
             if ($2e77e3cc1be7f995$var$config("suppressAllDiagnostics", scopeName)) continue;
             for (const diagnostic of diagnostics){
